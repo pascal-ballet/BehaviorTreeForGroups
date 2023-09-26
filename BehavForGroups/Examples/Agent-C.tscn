@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnp1sb4hijc2o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f7ebv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_owuwi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mr6m"]
+albedo_color = Color(0.972549, 1, 0, 1)
+
+[node name="Agent-C" type="RigidBody3D" groups=["Agent-C"]]
+max_contacts_reported = 1
+contact_monitor = true
+metadata/Age = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_f7ebv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["Agent-C"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("SphereMesh_owuwi")
+surface_material_override/0 = SubResource("StandardMaterial3D_8mr6m")

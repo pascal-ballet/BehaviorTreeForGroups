@@ -1,0 +1,207 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjttehav3absk"]
+
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_bbgsd"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_ydp6m"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_n8pv4"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="4_52da3"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="5_jmidm"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="6_6wxfy"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="7_3pti1"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="8_bqvrh"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavForGroups/Examples/Agent-B.tscn" id="9_1gvab"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="9_maaon"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="10_sbjrl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8i4e"]
+flip_faces = true
+
+[node name="ExamplePreyPred" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_bbgsd")
+
+[node name="Agent-B" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_ydp6m")
+agent_group = "Agent-B"
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Agent-B"]
+script = ExtResource("3_n8pv4")
+fy = 0.0
+
+[node name="Reproduce" type="Node" parent="BehavForGroups/Agent-B"]
+script = ExtResource("4_52da3")
+
+[node name="IfProba" type="Node" parent="BehavForGroups/Agent-B/Reproduce"]
+script = ExtResource("5_jmidm")
+proba = 0.03
+
+[node name="AddAgent" type="Node" parent="BehavForGroups/Agent-B/Reproduce"]
+script = ExtResource("6_6wxfy")
+agent_name = "Agent-B"
+
+[node name="Eaten" type="Node" parent="BehavForGroups/Agent-B"]
+script = ExtResource("4_52da3")
+
+[node name="IfContact" type="Node" parent="BehavForGroups/Agent-B/Eaten"]
+script = ExtResource("7_3pti1")
+contact_agent = "Agent-C"
+
+[node name="Delete" type="Node" parent="BehavForGroups/Agent-B/Eaten"]
+script = ExtResource("8_bqvrh")
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-B"]
+script = ExtResource("9_maaon")
+loop_x = true
+
+[node name="Agent-C" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_ydp6m")
+agent_group = "Agent-C"
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Agent-C"]
+script = ExtResource("3_n8pv4")
+fx = 1.4
+fy = 0.0
+fz = 1.4
+
+[node name="Eat" type="Node" parent="BehavForGroups/Agent-C"]
+script = ExtResource("4_52da3")
+
+[node name="IfContact" type="Node" parent="BehavForGroups/Agent-C/Eat"]
+script = ExtResource("7_3pti1")
+contact_agent = "Agent-B"
+
+[node name="AddAgent" type="Node" parent="BehavForGroups/Agent-C/Eat"]
+script = ExtResource("6_6wxfy")
+agent_name = "Agent-C"
+
+[node name="Death" type="Node" parent="BehavForGroups/Agent-C"]
+script = ExtResource("4_52da3")
+
+[node name="IfProba" type="Node" parent="BehavForGroups/Agent-C/Death"]
+script = ExtResource("5_jmidm")
+proba = 0.003
+
+[node name="Delete" type="Node" parent="BehavForGroups/Agent-C/Death"]
+script = ExtResource("8_bqvrh")
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-C"]
+script = ExtResource("9_maaon")
+loop_x = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.723714, 0.6901, 0, -0.6901, 0.723714, 0.0294014, 2.78409, 6.53686)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.883782, 0.467899, 0, -0.467899, 0.883782, 0, 6.90312, 11.0244)
+
+[node name="Agent-B" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507974, 0.7, -0.246305)
+
+[node name="Agent-B2" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01165, 0.7, -0.246305)
+
+[node name="Agent-B3" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507974, 0.7, -0.959407)
+
+[node name="Agent-B4" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01165, 0.7, -0.959407)
+
+[node name="Agent-B5" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44594, 0.7, -0.246305)
+
+[node name="Agent-B6" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94961, 0.7, -0.246305)
+
+[node name="Agent-B7" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44594, 0.7, -0.959407)
+
+[node name="Agent-B8" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94961, 0.7, -0.959407)
+
+[node name="Agent-B9" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.772096, 0.7, -0.735504)
+
+[node name="Agent-B10" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27577, 0.7, -0.735504)
+
+[node name="Agent-B11" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.772096, 0.7, -1.44861)
+
+[node name="Agent-B12" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27577, 0.7, -1.44861)
+
+[node name="Agent-B13" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71006, 0.7, -0.735504)
+
+[node name="Agent-B14" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21374, 0.7, -0.735504)
+
+[node name="Agent-B15" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71006, 0.7, -1.44861)
+
+[node name="Agent-B16" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21374, 0.7, -1.44861)
+
+[node name="Agent-C" parent="." instance=ExtResource("10_sbjrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48761, 0.7, -1.11156)
+
+[node name="Agent-C2" parent="." instance=ExtResource("10_sbjrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19409, 0.7, -0.695615)
+
+[node name="Agent-C3" parent="." instance=ExtResource("10_sbjrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968706, 0.7, -1.29503)
+
+[node name="Agent-C4" parent="." instance=ExtResource("10_sbjrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02174, 0.7, -0.901522)
+
+[node name="Agent-B17" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203144, 0.7, -0.0964099)
+
+[node name="Agent-B18" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70682, 0.7, -0.0964099)
+
+[node name="Agent-B19" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203144, 0.7, -0.809512)
+
+[node name="Agent-B20" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70682, 0.7, -0.809512)
+
+[node name="Agent-B21" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14111, 0.7, -0.0964099)
+
+[node name="Agent-B22" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64478, 0.7, -0.0964099)
+
+[node name="Agent-B23" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14111, 0.7, -0.809512)
+
+[node name="Agent-B24" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64478, 0.7, -0.809512)
+
+[node name="Agent-B25" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467266, 0.7, -0.585609)
+
+[node name="Agent-B26" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97094, 0.7, -0.585609)
+
+[node name="Agent-B27" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467266, 0.7, -1.29871)
+
+[node name="Agent-B28" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97094, 0.7, -1.29871)
+
+[node name="Agent-B29" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40523, 0.7, -0.585609)
+
+[node name="Agent-B30" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90891, 0.7, -0.585609)
+
+[node name="Agent-B31" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40523, 0.7, -1.29871)
+
+[node name="Agent-B32" parent="." instance=ExtResource("9_1gvab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90891, 0.7, -1.29871)
+
+[node name="Environment" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_h8i4e")

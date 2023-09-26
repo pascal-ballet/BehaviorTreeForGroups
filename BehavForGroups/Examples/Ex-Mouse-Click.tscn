@@ -1,0 +1,287 @@
+[gd_scene load_steps=21 format=3 uid="uid://dj3af4ockh3mt"]
+
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_13b5j"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_by15k"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="3_bva0q"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfMouseClick.gd" id="4_5bsan"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="5_mvy3e"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfDataIsEqual.gd" id="6_tp12j"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="7_2hhqm"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="8_cnyb3"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="9_wboaq"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfDataIsSup.gd" id="10_4572w"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="11_hxr37"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/DataPlus.gd" id="12_td4x6"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="13_0b4gh"]
+[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://addons/BehavForGroups/Examples/Agent-A.tscn" id="14_dkau8"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="15_7t0tw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
+flip_faces = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_iywrj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nq71"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_48skt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e6hgx"]
+
+[node name="ExampleMouseClick" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_13b5j")
+
+[node name="Click-A" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_by15k")
+agent_group = "Agent-A"
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Click-A"]
+script = ExtResource("3_bva0q")
+
+[node name="IfMouseClick" type="Node" parent="BehavForGroups/Click-A/Sequential" node_paths=PackedStringArray("playerCamera")]
+script = ExtResource("4_5bsan")
+playerCamera = NodePath("../../../../Camera3D")
+
+[node name="AddAgentB" type="Node" parent="BehavForGroups/Click-A/Sequential"]
+script = ExtResource("5_mvy3e")
+agent_name = "Agent-B"
+
+[node name="Behavior-B" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_by15k")
+agent_group = "Agent-B"
+
+[node name="ForceInit" type="Node" parent="BehavForGroups/Behavior-B"]
+script = ExtResource("3_bva0q")
+
+[node name="IfDataIsEqual" type="Node" parent="BehavForGroups/Behavior-B/ForceInit"]
+script = ExtResource("6_tp12j")
+data_name = "Age"
+
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior-B/ForceInit"]
+script = ExtResource("7_2hhqm")
+fy = 16.0
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior-B/ForceInit"]
+script = ExtResource("8_cnyb3")
+fx = 5.0
+fy = 5.0
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior-B"]
+script = ExtResource("9_wboaq")
+z_min = -1.0
+z_max = 1.0
+
+[node name="AgeLimit" type="Node" parent="BehavForGroups/Behavior-B"]
+script = ExtResource("3_bva0q")
+
+[node name="IfDataIsSup" type="Node" parent="BehavForGroups/Behavior-B/AgeLimit"]
+script = ExtResource("10_4572w")
+data_name = "Age"
+is_sup_to = 100.0
+
+[node name="Delete" type="Node" parent="BehavForGroups/Behavior-B/AgeLimit"]
+script = ExtResource("11_hxr37")
+
+[node name="DataPlus" type="Node" parent="BehavForGroups/Behavior-B"]
+script = ExtResource("12_td4x6")
+data_name = "Age"
+add_value = 1.0
+
+[node name="Behavior-C" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_by15k")
+agent_group = "Agent-C"
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior-C"]
+script = ExtResource("9_wboaq")
+z_min = -1.0
+z_max = 1.0
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Behavior-C"]
+script = ExtResource("3_bva0q")
+
+[node name="IfContact" type="Node" parent="BehavForGroups/Behavior-C/Sequential"]
+script = ExtResource("13_0b4gh")
+contact_agent = "Agent-B"
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior-C/Sequential"]
+script = ExtResource("8_cnyb3")
+fx = 10.0
+fy = 10.0
+fz = 10.0
+
+[node name="Behavior-Mass" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_by15k")
+agent_group = "Mass"
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior-Mass"]
+script = ExtResource("9_wboaq")
+z_min = -1.0
+z_max = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.856285, -0.516504, 0, 0.516504, 0.856285, 0, -4.21492, 6.07971)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.180794, 0.983521, 0, -0.983521, 0.180794, 0, 0, 10.7686)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_ccvj4")
+
+[node name="Agent-A" parent="." instance=ExtResource("14_dkau8")]
+transform = Transform3D(0.0551419, -0.998479, 0, 0.998479, 0.0551419, 0, 0, 0, 1, 0.0821388, -3.57769, -0.789444)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="Agent-C" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331902, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C2" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07069, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C3" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7577, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C4" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49649, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C5" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49052, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C6" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75173, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C7" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06472, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C8" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32593, 0, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C9" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.797959, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C10" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53675, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C11" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22376, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C12" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.96255, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C13" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02446, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C17" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76043, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C14" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28567, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C15" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59866, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="Agent-C16" parent="." instance=ExtResource("15_7t0tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140127, 0.5675, -0.5577)
+axis_lock_linear_z = true
+gravity_scale = 0.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.873347, 0.487098, 0, -0.487098, 0.873347, 0, 0, 0, 1, 1.92261, 1.73231, -0.378122)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(5, 7.45058e-09, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_iywrj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(5, 7.45058e-09, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_8nq71")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(0.87224, -0.489078, 0, 0.489078, 0.87224, 0, 0, 0, 1, 3.01212, -1.23637, -0.378122)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+transform = Transform3D(5, 7.45058e-09, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_iywrj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(5, 7.45058e-09, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_8nq71")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4637, 2.74816, -0.417895)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("SphereMesh_48skt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_e6hgx")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="." groups=["Mass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55778, -0.848594, -0.417895)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
+mesh = SubResource("SphereMesh_48skt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+shape = SubResource("SphereShape3D_e6hgx")
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
+node_a = NodePath("../RigidBody3D3")
+node_b = NodePath("../RigidBody3D4")
+exclude_nodes_from_collision = false
+angular_limit_x/enabled = false
+angular_limit_y/enabled = false
+angular_limit_z/enabled = false

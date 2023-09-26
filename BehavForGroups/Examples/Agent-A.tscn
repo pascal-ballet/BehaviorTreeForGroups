@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0socp63xfqt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obgbv"]
+size = Vector3(1, 0.3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q4tn4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w1qo"]
+albedo_color = Color(1, 0.745098, 0, 1)
+
+[node name="Agent-A" type="RigidBody3D" groups=["Agent-A"]]
+max_contacts_reported = 1
+contact_monitor = true
+metadata/Age = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_obgbv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_q4tn4")
+surface_material_override/0 = SubResource("StandardMaterial3D_6w1qo")

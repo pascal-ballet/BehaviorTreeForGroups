@@ -1,0 +1,1370 @@
+[gd_scene load_steps=13 format=3 uid="uid://cb7jd05rgt8ln"]
+
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_y0bum"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_gglsv"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceAngularZ.gd" id="3_tysjh"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRadial.gd" id="4_ny1up"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="5_3dw61"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="6_ygxva"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfInBox.gd" id="7_i5r5w"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="8_06xkv"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfStepBetween.gd" id="9_06spx"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavForGroups/Examples/Agent-B.tscn" id="10_x2l5v"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="11_lmqax"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
+flip_faces = true
+
+[node name="ExampleCrowdMvt2" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_y0bum")
+
+[node name="Behavior" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_gglsv")
+agent_group = "Agent-B"
+
+[node name="ForceAngularZ" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("3_tysjh")
+intensity = 0.1
+
+[node name="ForceRadial" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("4_ny1up")
+intensity = 0.01
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("5_3dw61")
+z_min = -1.0
+z_max = 1.0
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("6_ygxva")
+
+[node name="IfInBox" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+script = ExtResource("7_i5r5w")
+x_min = 0.0
+y_min = 0.0
+z_min = -1.0
+z_max = 1.0
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+script = ExtResource("8_06xkv")
+fz = 0.0
+
+[node name="Behavior2" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_gglsv")
+agent_group = "Agent-C"
+
+[node name="ForceAngularZ" type="Node" parent="BehavForGroups/Behavior2"]
+script = ExtResource("3_tysjh")
+intensity = -0.1
+
+[node name="ForceRadial" type="Node" parent="BehavForGroups/Behavior2"]
+script = ExtResource("4_ny1up")
+intensity = 0.01
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior2"]
+script = ExtResource("5_3dw61")
+z_min = -1.0
+z_max = 1.0
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Behavior2"]
+script = ExtResource("6_ygxva")
+
+[node name="IfStepBetween" type="Node" parent="BehavForGroups/Behavior2/Sequential"]
+script = ExtResource("9_06spx")
+step_end = 1000000
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior2/Sequential"]
+script = ExtResource("8_06xkv")
+fz = 0.0
+
+[node name="Agent-B" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46338, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C2" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C3" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C4" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C5" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C6" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C7" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C8" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C9" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C10" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C11" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C12" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C13" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C14" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C15" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C16" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C17" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C18" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C19" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C20" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C21" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C22" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C23" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C24" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C25" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C26" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C27" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C28" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C29" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C30" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C31" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C32" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01349, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B2" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B3" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B4" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B5" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B6" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B7" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B8" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B9" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B10" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B11" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B12" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B13" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B14" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B15" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B16" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B17" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B18" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B19" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B20" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B21" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B22" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B23" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B24" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B25" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B26" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B27" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B28" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B29" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B30" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B31" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B32" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B33" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40669, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C33" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C34" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C35" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C36" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C37" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C38" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C39" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C40" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C41" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C42" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C43" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C44" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C45" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C46" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C47" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C48" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C49" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C50" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C51" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C52" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C53" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C54" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C55" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C56" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C57" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C58" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C59" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C60" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C61" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C62" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C63" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C64" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5047, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B34" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B35" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B36" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B37" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B38" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B39" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B40" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B41" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B42" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B43" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B44" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B45" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B46" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B47" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B48" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B49" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B50" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B51" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B52" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B53" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B54" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B55" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B56" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B57" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B58" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B59" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B60" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B61" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B62" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B63" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B64" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B65" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93729, 0, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C65" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C66" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C67" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C68" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C69" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C70" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C71" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C72" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C73" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C74" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C75" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C76" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C77" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C78" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C79" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C80" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C81" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C82" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C83" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C84" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C85" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C86" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C87" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C88" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C89" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C90" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C91" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C92" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C93" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C94" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C95" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C96" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23672, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B66" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B67" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B68" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B69" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B70" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B71" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B72" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B73" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B74" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B75" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B76" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B77" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B78" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B79" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B80" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B81" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B82" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B83" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B84" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B85" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B86" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B87" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B88" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B89" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B90" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B91" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B92" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B93" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B94" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B95" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B96" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B97" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72634, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C97" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C98" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C99" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C100" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C101" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C102" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C103" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C104" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C105" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C106" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C107" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C108" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C109" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C110" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C111" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C112" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C113" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C114" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C115" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C116" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C117" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C118" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C119" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C120" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C121" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C122" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C123" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C124" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C125" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C126" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C127" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-C128" parent="." instance=ExtResource("11_lmqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55261, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B98" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B99" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B100" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B101" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B102" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B103" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B104" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B105" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B106" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B107" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B108" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B109" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B110" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B111" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B112" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B113" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B114" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B115" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B116" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B117" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B118" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B119" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B120" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B121" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B122" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B123" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B124" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B125" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B126" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B127" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Agent-B128" parent="." instance=ExtResource("10_x2l5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.93342, 0)
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.890372, 0.455234, 0, -0.455234, 0.890372, 0, 5.89618, 10.5542)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.180794, 0.983521, 0, -0.983521, 0.180794, 0, 0, 10.7686)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_ccvj4")

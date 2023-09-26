@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="16"
+   height="16"
+   viewBox="0 0 12 12"
+   preserveAspectRatio="xMidYMid"
+   id="svg8425"
+   sodipodi:docname="Fallback.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8429" />
+  <sodipodi:namedview
+     id="namedview8427"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="20.343943"
+     inkscape:cx="8.5037595"
+     inkscape:cy="6.7833457"
+     inkscape:window-width="1463"
+     inkscape:window-height="694"
+     inkscape:window-x="72"
+     inkscape:window-y="68"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg8425" />
+  <metadata
+     id="metadata8417">
+Created by potrace 1.15, written by Peter Selinger 2001-2017
+</metadata>
+  <g
+     transform="matrix(0.00182079,0,0,-0.00102627,-1.5079838,12.362477)"
+     fill="#000000"
+     stroke="none"
+     id="g8423"
+     style="fill:#ee82ee;fill-opacity:1">
+    <path
+       d="m 4570,12030 c -590,-29 -1211,-202 -1845,-515 -656,-323 -1093,-663 -1351,-1050 -116,-175 -186,-340 -230,-545 -26,-119 -26,-401 0,-518 34,-160 116,-362 145,-362 9,1 55,61 111,148 208,321 419,583 674,837 529,527 1090,806 1736,865 343,31 707,-14 975,-121 454,-181 698,-560 734,-1145 42,-673 -203,-1285 -774,-1934 -106,-121 -960,-893 -1740,-1574 -388,-339 -602,-558 -786,-803 -255,-340 -409,-677 -465,-1019 -24,-145 -24,-399 -1,-502 60,-261 208,-427 463,-518 240,-86 581,-97 851,-29 93,24 274,102 287,124 4,6 -6,53 -23,104 -62,190 -89,328 -98,507 -11,223 29,497 108,733 83,254 279,604 474,847 182,228 325,369 844,834 516,461 1108,988 1381,1228 447,393 806,916 974,1419 94,283 130,515 129,829 0,315 -37,556 -125,808 -220,639 -755,1097 -1483,1270 -285,68 -637,98 -965,82 z"
+       id="path8419"
+       style="fill:#ee82ee;fill-opacity:1" />
+    <path
+       d="m 2765,2453 c -92,-7 -250,-26 -395,-49 -222,-34 -874,-155 -883,-163 -4,-4 11,-46 33,-93 96,-206 109,-404 50,-818 -65,-467 -38,-673 111,-822 83,-83 232,-137 377,-138 72,0 285,31 697,101 160,27 347,59 417,71 96,16 129,25 132,37 34,115 148,839 166,1047 24,291 -37,523 -176,662 -118,117 -319,180 -529,165 z"
+       id="path8421"
+       style="fill:#ee82ee;fill-opacity:1" />
+  </g>
+</svg>
