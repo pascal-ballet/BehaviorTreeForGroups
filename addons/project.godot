@@ -1,0 +1,24 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BehavForGroups"
+run/main_scene="res://addons/BehavForGroups/Examples/Ex-Prey-Pred.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://addons/BehavForGroups/icon.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
