@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdflvf80hd8yf"
-path="res://.godot/imported/BehavForGroups.svg-8947fa411d40794f64ea62f1e8253737.ctex"
+path="res://.godot/imported/BehavForGroups.svg-f56405d731889bfa2c25a3685e7076da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BehavForGroups/BehavForGroups.svg"
-dest_files=["res://.godot/imported/BehavForGroups.svg-8947fa411d40794f64ea62f1e8253737.ctex"]
+source_file="res://addons/BehavForGroups/BehavForGroups.svg"
+dest_files=["res://.godot/imported/BehavForGroups.svg-f56405d731889bfa2c25a3685e7076da.ctex"]
 
 [params]
 
