@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dltscshv4ed8k"
-path="res://.godot/imported/Action.svg-2896119de8bc4594ef80b17643436393.ctex"
+path="res://.godot/imported/Action.svg-ac5b9f569c62d1177ac8c1efe91b1761.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavForGroups/Action.svg"
-dest_files=["res://.godot/imported/Action.svg-2896119de8bc4594ef80b17643436393.ctex"]
+source_file="res://BehavForGroups/Action.svg"
+dest_files=["res://.godot/imported/Action.svg-ac5b9f569c62d1177ac8c1efe91b1761.ctex"]
 
 [params]
 
