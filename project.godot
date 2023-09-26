@@ -17,7 +17,6 @@ config/icon="res://addons/BehavForGroups/icon.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
 
 [physics]
 
