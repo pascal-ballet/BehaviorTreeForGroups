@@ -63,7 +63,7 @@ proba = 0.001
 
 [node name="ForceGlobal" type="Node" parent="BehavForGroups/Preys/Jump"]
 script = ExtResource("10_ahpm3")
-fy = 2.0
+fy = 5.0
 
 [node name="Predators" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_ydp6m")
