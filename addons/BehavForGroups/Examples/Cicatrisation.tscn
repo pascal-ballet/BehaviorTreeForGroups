@@ -1,0 +1,325 @@
+[gd_scene load_steps=6 format=3 uid="uid://mnmnadyptnt8"]
+
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="1_esapn"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_gl7wk"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_vrko8"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_xa0sf"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_dwsit"]
+
+[node name="Cicatrisation" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_gl7wk")
+
+[node name="Behavior" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_vrko8")
+agent_group = "Fibro"
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("3_xa0sf")
+fx = 0.1
+fy = 0.0
+fz = 0.1
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("4_dwsit")
+x_min = -1.0
+x_max = 1.0
+y_min = -0.1
+y_max = 0.1
+z_min = -1.0
+z_max = 1.0
+
+[node name="Fibroblast1" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast2" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129058, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast3" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832143, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast4" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594808, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast5" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577953, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast6" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815288, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast7" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112202, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast8" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349537, 0, -0.399809)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast9" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast10" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129058, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast11" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832143, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast12" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594808, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast13" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577953, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast14" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815288, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast15" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112202, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast16" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349537, 0, -0.633464)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast17" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast18" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129058, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast19" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832143, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast20" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594808, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast21" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577953, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast22" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815288, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast23" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112202, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast24" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349537, 0, -0.868011)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast25" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast26" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129058, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast27" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832143, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast28" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594808, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast29" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577953, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast30" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815288, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast31" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112202, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast32" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349537, 0, 0.850538)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast33" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast34" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129058, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast35" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832143, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast36" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594808, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast37" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577953, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast38" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815288, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast39" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112202, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast40" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349537, 0, 0.616883)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast41" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast42" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129058, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast43" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832143, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast44" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.594808, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast45" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577953, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast46" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.815288, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast47" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112202, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Fibroblast48" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349537, 0, 0.382336)
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.503714, 0.863871, 0, -0.863871, 0.503714, 0, 1.66313, 0.831548)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.58657, 0.809898, 0, -0.809898, 0.58657, 0, 7.48974, 7.49788)
