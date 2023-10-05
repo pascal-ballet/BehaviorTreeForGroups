@@ -3,19 +3,19 @@
 class_name AddAgent
 extends BehavForGroups
 
-@export var agent_name = ""
+@export var agent_path:String = ""
 var root:Node = null
 var new_agent_scene:Resource = null
 var new_agent_behaviors:Array = []
 var new_agent_prototype:Node = null
 
 func biodyn_process(agent) -> bool:
-	if agent_name != "":
+	if agent_path != "":
 		# Initilize the Agent to clone
 		if new_agent_scene == null:
 			# Get the new Agent
 			#new_agent_scene = load("res://"+agent_name+".tscn")
-			new_agent_scene = load("res://addons/BehavForGroups/Examples/"+agent_name+".tscn")
+			new_agent_scene = load(agent_path) #load("res://addons/BehavForGroups/Examples/"+agent_name+".tscn")
 			new_agent_prototype = new_agent_scene.instantiate()
 			# Find ALL its behaviors and put them in the new_agent_behaviors Array
 			var biodyn_node:BehavForGroups = agent.get_parent().get_node("BehavForGroups")

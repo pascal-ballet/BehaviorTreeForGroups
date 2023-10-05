@@ -45,7 +45,6 @@ playerCamera = NodePath("../../../../Camera3D")
 
 [node name="AddAgentB" type="Node" parent="BehavForGroups/Click-A/Sequential"]
 script = ExtResource("5_mvy3e")
-agent_name = "Agent-B"
 
 [node name="Behavior-B" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_by15k")
