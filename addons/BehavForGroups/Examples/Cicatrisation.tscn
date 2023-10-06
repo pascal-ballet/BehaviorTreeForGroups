@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mnmnadyptnt8"]
+[gd_scene load_steps=11 format=3 uid="uid://mnmnadyptnt8"]
 
 [ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="1_esapn"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_gl7wk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="6_l27o4"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfNoContact.gd" id="7_5dnoi"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/CloneAgent.gd" id="7_npfs2"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="9_dnmwd"]
 
 [node name="Cicatrisation" type="Node3D"]
 
@@ -46,6 +47,9 @@ steps_without_contact = 10
 
 [node name="CloneAgent" type="Node" parent="BehavForGroups/Behavior/Sequential"]
 script = ExtResource("7_npfs2")
+
+[node name="AddAgent" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+script = ExtResource("9_dnmwd")
 
 [node name="Fibroblast1" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, -0.399809)
