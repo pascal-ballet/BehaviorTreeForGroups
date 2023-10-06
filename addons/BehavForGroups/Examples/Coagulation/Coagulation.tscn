@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2rbou6dglon"]
+
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_wqrga"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qcuw6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vrmis"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xmhw"]
+albedo_color = Color(1, 0, 0.2, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gs2fc"]
+
+[node name="Coagulation" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_wqrga")
+
+[node name="Erythrocyte" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Erythrocyte"]
+shape = SubResource("SphereShape3D_qcuw6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Erythrocyte"]
+mesh = SubResource("SphereMesh_vrmis")
+surface_material_override/0 = SubResource("StandardMaterial3D_0xmhw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gs2fc")
