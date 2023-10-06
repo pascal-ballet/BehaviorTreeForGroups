@@ -5,10 +5,9 @@ extends BehavForGroups
 
 #@export var agent_path:String = ""
 @export_file("*.tscn") var agent_tscn: String
+
 var root:Node = null
 var new_agent_scene:Resource = null
-
-
 var new_agent_behaviors:Array = []
 var new_agent_prototype:Node = null
 
