@@ -9,19 +9,20 @@ var lst_cells_linked: Array = []
 
 
 func biodyn_process(agent)->bool:
-	if lst_cells_linked.size() / 2 < max_links:
-		var bodies = agent.get_colliding_bodies()
-		if bodies.size() > 0:
-			for b in bodies:
-				if b.is_in_group(contact_agent):
-					if lst_cells_linked.has([agent, b]) == false: # evite 2x le meme spring
-						cell_cell_spring(agent, b) # on les relient par un Spring
-						lst_cells_linked.append([agent, b])
-						lst_cells_linked.append([b, agent])
-						return true
+	if agent is RigidBody3D:
+		if lst_cells_linked.size() / 2 < max_links:
+			var bodies = agent.get_colliding_bodies()
+			if bodies.size() > 0:
+				for b in bodies:
+					if b.is_in_group(contact_agent):
+						if lst_cells_linked.has([agent, b]) == false: # evite 2x le meme spring
+							cell_cell_spring3D(agent, b) # on les relient par un Spring
+							lst_cells_linked.append([agent, b])
+							lst_cells_linked.append([b, agent])
+							return true
 	return false
 
-func cell_cell_spring(body1:RigidBody3D, body2:RigidBody3D) -> Array:
+func cell_cell_spring3D(body1:RigidBody3D, body2:RigidBody3D) -> Array:
 	print( str(body1.get_name() , " with " , body2.get_name() ) )
 	# Creation d'un ressort entre les 2 RigidBodies
 	var jt:Generic6DOFJoint3D = Generic6DOFJoint3D.new()
