@@ -11,7 +11,7 @@ func _process(delta):
 func biodyn_process(agent:Node)->bool:
 	# The Behavior Node is a Parallel Node
 	# It executes all its children, stops after ALL children execution
-	# Returns True when at leat ONE child returns True
+	# Returns True when at least ONE child returns True
 	var overall_success:bool = false
 	for behav in get_children():
 		var success = behav.biodyn_process(agent)

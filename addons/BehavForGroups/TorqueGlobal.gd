@@ -7,5 +7,12 @@ extends BehavForGroups
 @export var rz:float = 0.0
 
 func biodyn_process(agent)->bool:
-	agent.apply_torque_impulse ( Vector3 (rx, ry, rz) )
-	return true
+	if agent is Node3D:
+		agent.apply_torque_impulse ( Vector3 (rx, ry, rz) )
+		return true
+
+	if agent is Node2D:
+		agent.apply_torque_impulse ( Vector2 (rx, ry) )
+		return true
+
+	return false
