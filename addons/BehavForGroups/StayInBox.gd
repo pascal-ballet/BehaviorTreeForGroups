@@ -82,8 +82,8 @@ func biodyn_process(agent:Node) -> bool:
 					(agent as RigidBody3D).linear_velocity.z = - (agent as RigidBody3D).linear_velocity.z
 
 		if out_of_box == true:
-			agent.position = Vector3(new_x,new_y,new_z)
-
+			#agent.position = Vector3(new_x,new_y,new_z)
+			agent.global_transform.origin = Vector3(new_x,new_y,new_z)
 		return true
 
 	if agent is Node2D:
@@ -134,8 +134,9 @@ func biodyn_process(agent:Node) -> bool:
 					(agent as RigidBody2D).linear_velocity.y = - (agent as RigidBody2D).linear_velocity.y
 
 		if out_of_box == true:
-			agent.position = Vector2(new_x,new_y)
-
+			agent.global_transform.origin = Vector2(new_x,new_y)
+#			agent.position.x = new_x
+#			agent.position.y = new_y
 		return true
 		
 	return false

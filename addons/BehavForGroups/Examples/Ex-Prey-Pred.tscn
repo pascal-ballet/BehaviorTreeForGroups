@@ -38,6 +38,7 @@ proba = 0.03
 
 [node name="AddAgent" type="Node" parent="BehavForGroups/Preys/Reproduce"]
 script = ExtResource("6_6wxfy")
+agent_tscn = "res://addons/BehavForGroups/Examples/Agent-B.tscn"
 
 [node name="Eaten" type="Node" parent="BehavForGroups/Preys"]
 script = ExtResource("4_52da3")
@@ -83,6 +84,7 @@ contact_agent = "Agent-B"
 
 [node name="AddAgent" type="Node" parent="BehavForGroups/Predators/Eat"]
 script = ExtResource("6_6wxfy")
+agent_tscn = "res://addons/BehavForGroups/Examples/Agent-C.tscn"
 
 [node name="Death" type="Node" parent="BehavForGroups/Predators"]
 script = ExtResource("4_52da3")
