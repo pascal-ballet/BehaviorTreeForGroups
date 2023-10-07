@@ -1,31 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2rbou6dglon"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_wqrga"]
+[ext_resource type="Texture2D" uid="uid://b7wtmuys4ctgj" path="res://addons/BehavForGroups/Examples/Coagulation/sphere_64x64.png" id="2_f34pc"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_yfr04"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_h41sa"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qcuw6"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqlkw"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_vrmis"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xmhw"]
-albedo_color = Color(1, 0, 0.2, 1)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gs2fc"]
-
-[node name="Coagulation" type="Node3D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="BehavForGroups" type="Node" parent="."]
 script = ExtResource("1_wqrga")
 
-[node name="Erythrocyte" type="RigidBody3D" parent="."]
+[node name="Behavior" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_yfr04")
+agent_group = "cell"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Erythrocyte"]
-shape = SubResource("SphereShape3D_qcuw6")
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("3_h41sa")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Erythrocyte"]
-mesh = SubResource("SphereMesh_vrmis")
-surface_material_override/0 = SubResource("StandardMaterial3D_0xmhw")
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["cell"]]
+position = Vector2(300, 300)
+gravity_scale = 0.0
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_qqlkw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_gs2fc")
+[node name="Sphere64x64" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_f34pc")
