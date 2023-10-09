@@ -803,3 +803,27 @@ position = Vector2(774, 363)
 
 [node name="Plaq256" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(839, 422)
+
+[node name="VeinLow" type="StaticBody2D" parent="."]
+position = Vector2(0, -106.59)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VeinLow"]
+self_modulate = Color(0.945098, 1, 0.894118, 1)
+position = Vector2(42, 38)
+build_mode = 1
+polygon = PackedVector2Array(-43, 735.59, 1112, 730.59, 1112, 589.59, 969, 557.59, 860, 513.59, 736, 477.59, 631, 513.59, 491, 515.59, 373, 504.59, 125, 417.59, 53, 559.59, -33, 590.59)
+
+[node name="Polygon2D" type="Polygon2D" parent="VeinLow"]
+position = Vector2(38.78, -9.15)
+scale = Vector2(5.21, 5.21)
+color = Color(0.356863, 0.2, 0.14902, 1)
+polygon = PackedVector2Array(-7.69231, 148.85, 213.846, 149.058, 213.654, 121.558, 182.692, 114.892, 164.615, 107.183, 141.154, 100.933, 120.577, 107.6, 99.0385, 108.433, 71.5385, 105.517, 24.8077, 89.6833, 10.7692, 115.933, -8.07692, 123.333)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 501, 170, 456, 229, 395, 225, 337, 190, 288, 142, 122, 106, 46, 72, 0, 73, 0, 73)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.356863, 0.2, 0.14902, 1)
+polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 501, 170, 456, 229, 395, 225, 337, 190, 288, 142, 122, 106, 46, 72, 0, 73, 0, 73)
