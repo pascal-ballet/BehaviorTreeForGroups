@@ -24,14 +24,14 @@ fz = 0.0
 
 [node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior"]
 script = ExtResource("4_6bt5m")
-fx = 5.0
+fx = 3.0
 
 [node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
 script = ExtResource("5_tu27f")
 x_min = 50.0
-x_max = 3000.0
-y_min = 400.0
-y_max = 600.0
+x_max = 1200.0
+y_min = 200.0
+y_max = 400.0
 z_min = 0.0
 z_max = 0.0
 loop_x = true
@@ -136,49 +136,49 @@ position = Vector2(840, 429)
 position = Vector2(1081, 405)
 
 [node name="Plaq34" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1146, 464)
+position = Vector2(921, 190)
 
 [node name="Plaq35" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1221, 382)
+position = Vector2(996, 108)
 
 [node name="Plaq36" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1286, 441)
+position = Vector2(214, 267)
 
 [node name="Plaq37" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1218, 453)
+position = Vector2(993, 179)
 
 [node name="Plaq38" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1283, 512)
+position = Vector2(211, 338)
 
 [node name="Plaq39" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1358, 430)
+position = Vector2(286, 256)
 
 [node name="Plaq40" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1423, 489)
+position = Vector2(351, 315)
 
 [node name="Plaq41" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1397, 349)
+position = Vector2(325, 175)
 
 [node name="Plaq42" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1462, 408)
+position = Vector2(390, 234)
 
 [node name="Plaq43" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1537, 326)
+position = Vector2(465, 152)
 
 [node name="Plaq44" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1602, 385)
+position = Vector2(530, 211)
 
 [node name="Plaq45" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1534, 397)
+position = Vector2(462, 223)
 
 [node name="Plaq46" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1599, 456)
+position = Vector2(527, 282)
 
 [node name="Plaq47" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1674, 374)
+position = Vector2(602, 200)
 
 [node name="Plaq48" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1739, 433)
+position = Vector2(667, 259)
 
 [node name="Plaq49" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(968, 387)
@@ -190,43 +190,43 @@ position = Vector2(1033, 446)
 position = Vector2(1108, 364)
 
 [node name="Plaq52" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1173, 423)
+position = Vector2(948, 149)
 
 [node name="Plaq53" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(1105, 435)
 
 [node name="Plaq54" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1170, 494)
+position = Vector2(945, 220)
 
 [node name="Plaq55" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1245, 412)
+position = Vector2(1020, 138)
 
 [node name="Plaq56" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1310, 471)
+position = Vector2(238, 297)
 
 [node name="Plaq57" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1284, 331)
+position = Vector2(212, 157)
 
 [node name="Plaq58" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1349, 390)
+position = Vector2(277, 216)
 
 [node name="Plaq59" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1424, 308)
+position = Vector2(352, 134)
 
 [node name="Plaq60" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1489, 367)
+position = Vector2(417, 193)
 
 [node name="Plaq61" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1421, 379)
+position = Vector2(349, 205)
 
 [node name="Plaq62" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1486, 438)
+position = Vector2(414, 264)
 
 [node name="Plaq63" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1561, 356)
+position = Vector2(489, 182)
 
 [node name="Plaq64" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1626, 415)
+position = Vector2(554, 241)
 
 [node name="Plaq65" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(662, 505)
@@ -244,7 +244,7 @@ position = Vector2(867, 541)
 position = Vector2(799, 553)
 
 [node name="Plaq70" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(864, 612)
+position = Vector2(745, 152)
 
 [node name="Plaq71" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(939, 530)
@@ -262,19 +262,19 @@ position = Vector2(1043, 508)
 position = Vector2(1118, 426)
 
 [node name="Plaq76" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1183, 485)
+position = Vector2(958, 211)
 
 [node name="Plaq77" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1115, 497)
+position = Vector2(1141.64, 497)
 
 [node name="Plaq78" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1180, 556)
+position = Vector2(955, 282)
 
 [node name="Plaq79" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1255, 474)
+position = Vector2(183, 300)
 
 [node name="Plaq80" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1320, 533)
+position = Vector2(248, 359)
 
 [node name="Plaq81" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(549, 487)
@@ -319,106 +319,106 @@ position = Vector2(1002, 479)
 position = Vector2(1067, 538)
 
 [node name="Plaq95" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1142, 456)
+position = Vector2(917, 182)
 
 [node name="Plaq96" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1207, 515)
+position = Vector2(982, 241)
 
 [node name="Plaq97" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1448, 491)
+position = Vector2(376, 317)
 
 [node name="Plaq98" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1513, 550)
+position = Vector2(441, 376)
 
 [node name="Plaq99" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1588, 468)
+position = Vector2(516, 294)
 
 [node name="Plaq100" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1653, 527)
+position = Vector2(581, 353)
 
 [node name="Plaq101" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1585, 539)
+position = Vector2(513, 365)
 
 [node name="Plaq102" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1650, 598)
+position = Vector2(578, 424)
 
 [node name="Plaq103" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1725, 516)
+position = Vector2(653, 342)
 
 [node name="Plaq104" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1790, 575)
+position = Vector2(718, 401)
 
 [node name="Plaq105" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1764, 435)
+position = Vector2(692, 261)
 
 [node name="Plaq106" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1829, 494)
+position = Vector2(757, 320)
 
 [node name="Plaq107" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1904, 412)
+position = Vector2(832, 238)
 
 [node name="Plaq108" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1969, 471)
+position = Vector2(897, 297)
 
 [node name="Plaq109" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1901, 483)
+position = Vector2(829, 309)
 
 [node name="Plaq110" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1966, 542)
+position = Vector2(894, 368)
 
 [node name="Plaq111" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(2041, 460)
+position = Vector2(969, 286)
 
 [node name="Plaq112" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(2106, 519)
+position = Vector2(1034, 345)
 
 [node name="Plaq113" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1335, 473)
+position = Vector2(263, 299)
 
 [node name="Plaq114" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1400, 532)
+position = Vector2(328, 358)
 
 [node name="Plaq115" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1475, 450)
+position = Vector2(403, 276)
 
 [node name="Plaq116" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1540, 509)
+position = Vector2(468, 335)
 
 [node name="Plaq117" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1472, 521)
+position = Vector2(400, 347)
 
 [node name="Plaq118" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1537, 580)
+position = Vector2(465, 406)
 
 [node name="Plaq119" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1612, 498)
+position = Vector2(540, 324)
 
 [node name="Plaq120" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1677, 557)
+position = Vector2(605, 383)
 
 [node name="Plaq121" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1651, 417)
+position = Vector2(579, 243)
 
 [node name="Plaq122" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1716, 476)
+position = Vector2(644, 302)
 
 [node name="Plaq123" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1791, 394)
+position = Vector2(719, 220)
 
 [node name="Plaq124" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1856, 453)
+position = Vector2(784, 279)
 
 [node name="Plaq125" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1788, 465)
+position = Vector2(716, 291)
 
 [node name="Plaq126" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1853, 524)
+position = Vector2(781, 350)
 
 [node name="Plaq127" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1928, 442)
+position = Vector2(856, 268)
 
 [node name="Plaq128" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1993, 501)
+position = Vector2(921, 327)
 
 [node name="Plaq129" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(213, 514)
@@ -436,7 +436,7 @@ position = Vector2(418, 550)
 position = Vector2(350, 562)
 
 [node name="Plaq134" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(415, 621)
+position = Vector2(296, 161)
 
 [node name="Plaq135" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(490, 539)
@@ -484,7 +484,7 @@ position = Vector2(305, 532)
 position = Vector2(237, 544)
 
 [node name="Plaq150" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(302, 603)
+position = Vector2(183, 143)
 
 [node name="Plaq151" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(377, 521)
@@ -523,46 +523,46 @@ position = Vector2(999, 500)
 position = Vector2(1064, 559)
 
 [node name="Plaq163" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1139, 477)
+position = Vector2(914, 203)
 
 [node name="Plaq164" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1204, 536)
+position = Vector2(979, 262)
 
 [node name="Plaq165" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1136, 548)
+position = Vector2(911, 274)
 
 [node name="Plaq166" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1201, 607)
+position = Vector2(976, 333)
 
 [node name="Plaq167" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1276, 525)
+position = Vector2(204, 351)
 
 [node name="Plaq168" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1341, 584)
+position = Vector2(269, 410)
 
 [node name="Plaq169" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1315, 444)
+position = Vector2(243, 270)
 
 [node name="Plaq170" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1380, 503)
+position = Vector2(308, 329)
 
 [node name="Plaq171" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1455, 421)
+position = Vector2(383, 247)
 
 [node name="Plaq172" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1520, 480)
+position = Vector2(448, 306)
 
 [node name="Plaq173" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1452, 492)
+position = Vector2(380, 318)
 
 [node name="Plaq174" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1517, 551)
+position = Vector2(445, 377)
 
 [node name="Plaq175" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1592, 469)
+position = Vector2(520, 295)
 
 [node name="Plaq176" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1657, 528)
+position = Vector2(585, 354)
 
 [node name="Plaq177" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(886, 482)
@@ -583,64 +583,64 @@ position = Vector2(1023, 530)
 position = Vector2(1088, 589)
 
 [node name="Plaq183" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1163, 507)
+position = Vector2(938, 233)
 
 [node name="Plaq184" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1228, 566)
+position = Vector2(1003, 292)
 
 [node name="Plaq185" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1202, 426)
+position = Vector2(977, 152)
 
 [node name="Plaq186" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1267, 485)
+position = Vector2(195, 311)
 
 [node name="Plaq187" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1342, 403)
+position = Vector2(270, 229)
 
 [node name="Plaq188" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1407, 462)
+position = Vector2(335, 288)
 
 [node name="Plaq189" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1339, 474)
+position = Vector2(267, 300)
 
 [node name="Plaq190" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1404, 533)
+position = Vector2(332, 359)
 
 [node name="Plaq191" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1479, 451)
+position = Vector2(407, 277)
 
 [node name="Plaq192" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1544, 510)
+position = Vector2(472, 336)
 
 [node name="Plaq193" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(580, 600)
 
 [node name="Plaq194" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(645, 659)
+position = Vector2(526, 199)
 
 [node name="Plaq195" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(720, 577)
 
 [node name="Plaq196" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(785, 636)
+position = Vector2(666, 176)
 
 [node name="Plaq197" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(717, 648)
+position = Vector2(598, 188)
 
 [node name="Plaq198" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(782, 707)
+position = Vector2(663, 247)
 
 [node name="Plaq199" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(857, 625)
+position = Vector2(738, 165)
 
 [node name="Plaq200" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(922, 684)
+position = Vector2(803, 224)
 
 [node name="Plaq201" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(896, 544)
 
 [node name="Plaq202" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(961, 603)
+position = Vector2(842, 143)
 
 [node name="Plaq203" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(1036, 521)
@@ -652,37 +652,37 @@ position = Vector2(1101, 580)
 position = Vector2(1033, 592)
 
 [node name="Plaq206" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1098, 651)
+position = Vector2(979, 191)
 
 [node name="Plaq207" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1173, 569)
+position = Vector2(948, 295)
 
 [node name="Plaq208" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1238, 628)
+position = Vector2(1013, 354)
 
 [node name="Plaq209" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(467, 582)
 
 [node name="Plaq210" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(532, 641)
+position = Vector2(413, 181)
 
 [node name="Plaq211" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(607, 559)
 
 [node name="Plaq212" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(672, 618)
+position = Vector2(553, 158)
 
 [node name="Plaq213" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(604, 630)
+position = Vector2(485, 170)
 
 [node name="Plaq214" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(669, 689)
+position = Vector2(550, 229)
 
 [node name="Plaq215" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(744, 607)
+position = Vector2(625, 147)
 
 [node name="Plaq216" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(809, 666)
+position = Vector2(690, 206)
 
 [node name="Plaq217" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(783, 526)
@@ -700,106 +700,106 @@ position = Vector2(988, 562)
 position = Vector2(920, 574)
 
 [node name="Plaq222" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(985, 633)
+position = Vector2(866, 173)
 
 [node name="Plaq223" parent="." instance=ExtResource("4_g7c07")]
 position = Vector2(1060, 551)
 
 [node name="Plaq224" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1125, 610)
+position = Vector2(1006, 150)
 
 [node name="Plaq225" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1366, 586)
+position = Vector2(294, 412)
 
 [node name="Plaq226" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1431, 645)
+position = Vector2(359, 471)
 
 [node name="Plaq227" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1506, 563)
+position = Vector2(434, 389)
 
 [node name="Plaq228" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1571, 622)
+position = Vector2(499, 448)
 
 [node name="Plaq229" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1503, 634)
+position = Vector2(431, 460)
 
 [node name="Plaq230" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1568, 693)
+position = Vector2(496, 519)
 
 [node name="Plaq231" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1643, 611)
+position = Vector2(571, 437)
 
 [node name="Plaq232" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1708, 670)
+position = Vector2(636, 496)
 
 [node name="Plaq233" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1682, 530)
+position = Vector2(610, 356)
 
 [node name="Plaq234" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1747, 589)
+position = Vector2(675, 415)
 
 [node name="Plaq235" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1822, 507)
+position = Vector2(750, 333)
 
 [node name="Plaq236" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1887, 566)
+position = Vector2(815, 392)
 
 [node name="Plaq237" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1819, 578)
+position = Vector2(747, 404)
 
 [node name="Plaq238" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1884, 637)
+position = Vector2(812, 463)
 
 [node name="Plaq239" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1959, 555)
+position = Vector2(887, 381)
 
 [node name="Plaq240" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(2024, 614)
+position = Vector2(952, 440)
 
 [node name="Plaq241" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1253, 568)
+position = Vector2(1028, 294)
 
 [node name="Plaq242" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1318, 627)
+position = Vector2(246, 453)
 
 [node name="Plaq243" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1393, 545)
+position = Vector2(321, 371)
 
 [node name="Plaq244" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1458, 604)
+position = Vector2(386, 430)
 
 [node name="Plaq245" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1390, 616)
+position = Vector2(318, 442)
 
 [node name="Plaq246" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1455, 675)
+position = Vector2(383, 501)
 
 [node name="Plaq247" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1530, 593)
+position = Vector2(458, 419)
 
 [node name="Plaq248" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1595, 652)
+position = Vector2(523, 478)
 
 [node name="Plaq249" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1569, 512)
+position = Vector2(497, 338)
 
 [node name="Plaq250" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1634, 571)
+position = Vector2(562, 397)
 
 [node name="Plaq251" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1709, 489)
+position = Vector2(637, 315)
 
 [node name="Plaq252" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1774, 548)
+position = Vector2(702, 374)
 
 [node name="Plaq253" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1706, 560)
+position = Vector2(634, 386)
 
 [node name="Plaq254" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1771, 619)
+position = Vector2(699, 445)
 
 [node name="Plaq255" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1846, 537)
+position = Vector2(774, 363)
 
 [node name="Plaq256" parent="." instance=ExtResource("4_g7c07")]
-position = Vector2(1911, 596)
+position = Vector2(839, 422)

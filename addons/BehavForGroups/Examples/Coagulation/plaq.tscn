@@ -11,7 +11,9 @@ linear_damp = 1.0
 angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_qqlkw")
 
 [node name="Sphere64x64" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_6oxcb")

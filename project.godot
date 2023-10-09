@@ -15,6 +15,10 @@ run/main_scene="res://addons/BehavForGroups/Examples/Ex-Prey-Pred.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://addons/BehavForGroups/icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/BehavForGroups/plugin.cfg")
