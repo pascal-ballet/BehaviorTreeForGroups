@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3k1v737kwvgn"]
+
+[ext_resource type="Texture2D" uid="uid://dsnumjw110fjy" path="res://addons/BehavForGroups/Examples/Coagulation/fibro.png" id="1_m0unb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqlkw"]
+radius = 27.074
+
+[node name="Fibro" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_qqlkw")
+
+[node name="Sphere64x64" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_m0unb")
