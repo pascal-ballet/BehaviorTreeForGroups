@@ -18,7 +18,7 @@ script = ExtResource("1_gl7wk")
 
 [node name="Behavior" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_vrko8")
-agent_group = "Fibro"
+on_group = "Fibro"
 
 [node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
 script = ExtResource("3_xa0sf")

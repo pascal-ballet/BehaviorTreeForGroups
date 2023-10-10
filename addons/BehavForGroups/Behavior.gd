@@ -3,7 +3,7 @@
 class_name Behavior
 extends BehavForGroups
 
-@export var agent_group = ""
+@export var on_group = ""
 
 func _process(delta):
 	biodyn_process(get_parent())

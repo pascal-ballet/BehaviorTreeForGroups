@@ -15,15 +15,15 @@ flip_faces = true
 [node name="BehavForGroups" type="Node" parent="."]
 script = ExtResource("1_blxpx")
 
-[node name="Behavior" type="Node" parent="BehavForGroups"]
+[node name="Agent-B" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_ksja5")
-agent_group = "Agent-B"
+on_group = "Agent-B"
 
-[node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Agent-B"]
 script = ExtResource("3_6srg7")
 fx = 1.0
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-B"]
 script = ExtResource("4_45f6l")
 y_min = -1.0
 y_max = 1.0
@@ -31,15 +31,15 @@ z_min = -1.0
 z_max = 1.0
 loop_x = true
 
-[node name="Behavior2" type="Node" parent="BehavForGroups"]
+[node name="Agent-C" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_ksja5")
-agent_group = "Agent-C"
+on_group = "Agent-C"
 
-[node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior2"]
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Agent-C"]
 script = ExtResource("3_6srg7")
 fx = -1.0
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior2"]
+[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-C"]
 script = ExtResource("4_45f6l")
 y_min = -1.0
 y_max = 1.0

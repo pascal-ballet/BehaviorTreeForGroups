@@ -17,7 +17,7 @@ script = ExtResource("1_wqrga")
 
 [node name="Behavior" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_yfr04")
-agent_group = "Plaq"
+on_group = "Plaq"
 
 [node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
 script = ExtResource("3_h41sa")

@@ -23,7 +23,7 @@ script = ExtResource("1_bbgsd")
 
 [node name="Preys" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_ydp6m")
-agent_group = "Agent-B"
+on_group = "Agent-B"
 
 [node name="ForceRandom" type="Node" parent="BehavForGroups/Preys"]
 script = ExtResource("3_n8pv4")
@@ -45,7 +45,7 @@ script = ExtResource("4_52da3")
 
 [node name="IfContact" type="Node" parent="BehavForGroups/Preys/Eaten"]
 script = ExtResource("7_3pti1")
-contact_agent = "Agent-C"
+with_group = "Agent-C"
 
 [node name="Delete" type="Node" parent="BehavForGroups/Preys/Eaten"]
 script = ExtResource("8_bqvrh")
@@ -67,7 +67,7 @@ fy = 5.0
 
 [node name="Predators" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_ydp6m")
-agent_group = "Agent-C"
+on_group = "Agent-C"
 
 [node name="ForceRandom" type="Node" parent="BehavForGroups/Predators"]
 script = ExtResource("3_n8pv4")
@@ -80,7 +80,7 @@ script = ExtResource("4_52da3")
 
 [node name="IfContact" type="Node" parent="BehavForGroups/Predators/Eat"]
 script = ExtResource("7_3pti1")
-contact_agent = "Agent-B"
+with_group = "Agent-B"
 
 [node name="AddAgent" type="Node" parent="BehavForGroups/Predators/Eat"]
 script = ExtResource("6_6wxfy")

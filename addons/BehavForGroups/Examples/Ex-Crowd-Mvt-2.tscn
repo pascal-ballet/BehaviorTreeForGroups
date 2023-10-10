@@ -20,62 +20,62 @@ flip_faces = true
 [node name="BehavForGroups" type="Node" parent="."]
 script = ExtResource("1_y0bum")
 
-[node name="Behavior" type="Node" parent="BehavForGroups"]
+[node name="Agent-B" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_gglsv")
-agent_group = "Agent-B"
+on_group = "Agent-B"
 
-[node name="ForceAngularZ" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceAngularZ" type="Node" parent="BehavForGroups/Agent-B"]
 script = ExtResource("3_tysjh")
 intensity = 0.1
 
-[node name="ForceRadial" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceRadial" type="Node" parent="BehavForGroups/Agent-B"]
 script = ExtResource("4_ny1up")
 intensity = 0.01
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-B"]
 script = ExtResource("5_3dw61")
 z_min = -1.0
 z_max = 1.0
 
-[node name="Sequential" type="Node" parent="BehavForGroups/Behavior"]
+[node name="Sequential" type="Node" parent="BehavForGroups/Agent-B"]
 script = ExtResource("6_ygxva")
 
-[node name="IfInBox" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+[node name="IfInBox" type="Node" parent="BehavForGroups/Agent-B/Sequential"]
 script = ExtResource("7_i5r5w")
 x_min = 0.0
 y_min = 0.0
 z_min = -1.0
 z_max = 1.0
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Agent-B/Sequential"]
 script = ExtResource("8_06xkv")
 fz = 0.0
 
-[node name="Behavior2" type="Node" parent="BehavForGroups"]
+[node name="Agent-C" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_gglsv")
-agent_group = "Agent-C"
+on_group = "Agent-C"
 
-[node name="ForceAngularZ" type="Node" parent="BehavForGroups/Behavior2"]
+[node name="ForceAngularZ" type="Node" parent="BehavForGroups/Agent-C"]
 script = ExtResource("3_tysjh")
 intensity = -0.1
 
-[node name="ForceRadial" type="Node" parent="BehavForGroups/Behavior2"]
+[node name="ForceRadial" type="Node" parent="BehavForGroups/Agent-C"]
 script = ExtResource("4_ny1up")
 intensity = 0.01
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior2"]
+[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-C"]
 script = ExtResource("5_3dw61")
 z_min = -1.0
 z_max = 1.0
 
-[node name="Sequential" type="Node" parent="BehavForGroups/Behavior2"]
+[node name="Sequential" type="Node" parent="BehavForGroups/Agent-C"]
 script = ExtResource("6_ygxva")
 
-[node name="IfStepBetween" type="Node" parent="BehavForGroups/Behavior2/Sequential"]
+[node name="IfStepBetween" type="Node" parent="BehavForGroups/Agent-C/Sequential"]
 script = ExtResource("9_06spx")
 step_end = 1000000
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior2/Sequential"]
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Agent-C/Sequential"]
 script = ExtResource("8_06xkv")
 fz = 0.0
 

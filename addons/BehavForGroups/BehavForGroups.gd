@@ -3,7 +3,7 @@
 class_name BehavForGroups
 extends Node
 
-static var max_agents:int = 1000
+static var max_agents:int = 3000
 static var nb_agents:int = 0
 static var simulation_step:int = 0
 
@@ -20,7 +20,7 @@ func put_all_behaviors():
 		if behav is Behavior and behav.process_mode != Node.PROCESS_MODE_DISABLED:
 			for agt in root.get_children(): # Test the groups of ALL agents
 				behav.process_mode = Node.PROCESS_MODE_DISABLED # It becomes Disabled in BioDyn behaviors (attached to no Agent)
-				if agt.is_in_group(behav.agent_group): # the behav is for the agt
+				if agt.is_in_group(behav.on_group): # the behav is for the agt
 					var behav_clone:Behavior = behav.duplicate(15)
 					behav_clone.process_mode = Node.PROCESS_MODE_INHERIT
 					agt.add_child(behav_clone)

@@ -2,7 +2,7 @@
 class_name AddSpringOnContact
 extends BehavForGroups
 
-@export var contact_agent:String = ""
+@export var with_group:String = ""
 @export var max_links : int = 1
 
 var lst_cells_linked: Array = []
@@ -14,7 +14,7 @@ func biodyn_process(agent)->bool:
 			var bodies = agent.get_colliding_bodies()
 			if bodies.size() > 0:
 				for b in bodies:
-					if b.is_in_group(contact_agent):
+					if b.is_in_group(with_group):
 						if lst_cells_linked.has([agent, b]) == false: # evite 2x le meme spring
 							cell_cell_spring3D(agent, b) # on les relient par un Spring
 							lst_cells_linked.append([agent, b])

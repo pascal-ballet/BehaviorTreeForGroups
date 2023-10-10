@@ -7,14 +7,19 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0da6n"]
 albedo_color = Color(0.152941, 0.0705882, 0, 1)
 
-[node name="TreeBurned" type="StaticBody3D" groups=["TreeBurned"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.79249)
+[node name="TreeBurned" type="RigidBody3D" groups=["TreeBurned"]]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.915107, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -1.02591, 0)
 shape = SubResource("BoxShape3D_7nlum")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.45, 0, 0, 0, 0.757859, 0, 0, 0, 0.45, 0, 0.842157, 0)
+transform = Transform3D(0.45, 0, 0, 0, 0.757859, 0, 0, 0, 0.45, 0, -1.09886, 0)
 mesh = SubResource("CylinderMesh_4d0ge")
 surface_material_override/0 = SubResource("StandardMaterial3D_0da6n")

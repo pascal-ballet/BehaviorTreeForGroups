@@ -12,23 +12,31 @@ albedo_color = Color(0, 0.45098, 0.0352941, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5c1d"]
 albedo_color = Color(1, 0.498039, 0.0235294, 1)
 
-[node name="Tree" type="StaticBody3D" groups=["Tree"]]
+[node name="Tree" type="RigidBody3D" groups=["Tree"]]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0, 1.78491, 0)
+transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0, -0.228769, 0)
 shape = SubResource("BoxShape3D_7nlum")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.351, 0, 0, 0, 1, 0, 2.24669, 0)
+transform = Transform3D(1, 0, 0, 0, 0.351, 0, 0, 0, 1, 0, 0.233011, 0)
 mesh = SubResource("PrismMesh_ieixx")
 surface_material_override/0 = SubResource("StandardMaterial3D_rxxig")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.46, 0, 0, 0, 0.511543, 0, 0, 0, 1.46, 0, 1.8154, 0)
+transform = Transform3D(1.46, 0, 0, 0, 0.511543, 0, 0, 0, 1.46, 0, -0.198279, 0)
 mesh = SubResource("PrismMesh_ieixx")
 surface_material_override/0 = SubResource("StandardMaterial3D_rxxig")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.45, 0, 0, 0, 0.757859, 0, 0, 0, 0.45, 0, 0.842157, 0)
+transform = Transform3D(0.45, 0, 0, 0, 0.757859, 0, 0, 0, 0.45, 0, -1.17152, 0)
 mesh = SubResource("CylinderMesh_4d0ge")
 surface_material_override/0 = SubResource("StandardMaterial3D_i5c1d")
