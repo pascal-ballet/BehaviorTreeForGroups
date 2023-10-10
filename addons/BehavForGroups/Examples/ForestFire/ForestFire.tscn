@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1p7vflg5vjuc"]
+
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_4gm7k"]
+[ext_resource type="PackedScene" uid="uid://cis6ivx1riuic" path="res://addons/BehavForGroups/Examples/ForestFire/tree.tscn" id="1_cx3dt"]
+[ext_resource type="PackedScene" uid="uid://dsdphcvcaxhpx" path="res://addons/BehavForGroups/Examples/ForestFire/tree_in_fire.tscn" id="2_k8c4c"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_xonnc"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="3_apnxr"]
+[ext_resource type="PackedScene" uid="uid://co4y4j2jfmhr1" path="res://addons/BehavForGroups/Examples/ForestFire/tree_burned.tscn" id="3_fivaf"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="4_crbyd"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="5_82lyg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2od7k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcjnx"]
+albedo_color = Color(1, 0, 0.0509804, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q8vu0"]
+
+[node name="ForestFire" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_4gm7k")
+
+[node name="Behavior" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_xonnc")
+agent_group = "Tree"
+
+[node name="IfContact" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("3_apnxr")
+contact_agent = "Fire"
+
+[node name="Delete" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("4_crbyd")
+
+[node name="AddAgent" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("5_82lyg")
+agent_tscn = "res://addons/BehavForGroups/Examples/ForestFire/tree_in_fire.tscn"
+
+[node name="Tree" parent="." instance=ExtResource("1_cx3dt")]
+
+[node name="TreeInFire" parent="." instance=ExtResource("2_k8c4c")]
+
+[node name="TreeBurned" parent="." instance=ExtResource("3_fivaf")]
+
+[node name="Fire" type="RigidBody3D" parent="." groups=["Fire"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11543, 0, 0.000745177)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fire"]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2od7k")
+surface_material_override/0 = SubResource("StandardMaterial3D_vcjnx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fire"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("SphereShape3D_q8vu0")

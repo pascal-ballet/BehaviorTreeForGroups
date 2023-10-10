@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsdphcvcaxhpx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7nlum"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ieixx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3v45"]
+albedo_color = Color(1, 0, 0.14902, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4d0ge"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0da6n"]
+albedo_color = Color(0.152941, 0.0705882, 0, 1)
+
+[node name="TreeInFire" type="StaticBody3D" groups=["TreeInFire"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.52048)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0, 1.78491, 0)
+shape = SubResource("BoxShape3D_7nlum")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.351, 0, 0, 0, 1, 0, 2.24669, 0)
+mesh = SubResource("PrismMesh_ieixx")
+surface_material_override/0 = SubResource("StandardMaterial3D_m3v45")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.46, 0, 0, 0, 0.511543, 0, 0, 0, 1.46, 0, 1.8154, 0)
+mesh = SubResource("PrismMesh_ieixx")
+surface_material_override/0 = SubResource("StandardMaterial3D_m3v45")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.757859, 0, 0, 0, 0.45, 0, 0.842157, 0)
+mesh = SubResource("CylinderMesh_4d0ge")
+surface_material_override/0 = SubResource("StandardMaterial3D_0da6n")
