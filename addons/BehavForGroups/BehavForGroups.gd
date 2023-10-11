@@ -23,9 +23,8 @@ func put_all_behaviors():
 				if agt.is_in_group(behav.on_group): # the behav is for the agt
 					var behav_clone:Behavior = behav.duplicate(15)
 					behav_clone.process_mode = Node.PROCESS_MODE_INHERIT
-					agt.add_child(behav_clone)
+					agt.add_child(behav_clone) #we add the behavior into the agent
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if init == true: # All behaviors have been put into Agents
 		simulation_step += 1
