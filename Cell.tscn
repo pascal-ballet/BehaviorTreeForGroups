@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://1d8jwf6t0nou"]
+
+[sub_resource type="GDScript" id="GDScript_27tur"]
+script/source = "
+@tool
+extends RigidBody3D
+
+@export var agent_color:Color :
+	get:
+		return agent_color
+	set(value):
+		agent_color = value
+		if get_child(1) != null:
+			get_child(1).material_override.albedo_color = agent_color
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+
+func _enter_tree():
+	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
+	set_name.call_deferred(new_name)
+
+func emit_changed():
+	pass
+
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5h3oa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pslq"]
+albedo_color = Color(0.459484, 0.624012, 0.255955, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qum1j"]
+
+[node name="Cell" type="RigidBody3D" groups=["cell"]]
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+linear_damp = 5.0
+angular_damp = 5.0
+script = SubResource("GDScript_27tur")
+agent_color = Color(0.459484, 0.624012, 0.255955, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5h3oa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_5pslq")
+mesh = SubResource("SphereMesh_qum1j")

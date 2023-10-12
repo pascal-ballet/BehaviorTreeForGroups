@@ -4,20 +4,8 @@
 class_name Agent3D
 extends BehavForGroups
 
-
-#@export var agent_color:Color :
-#	get:
-#		return agent_color
-#	set(value):
-#		color = value
-#		get_child(1).material_override.albedo_color = color
-
 func _ready():
-	print("Agent3D : _ready")
-	# The name is autommatically added
-#	if self.is_in_group(group_1) == false:
-#		self.add_to_group(group_1)
-
+	pass
 
 func _enter_tree():
 	var agent_name:String = "Agent"
@@ -42,18 +30,20 @@ func _enter_tree():
 	rb.add_child(msh)
 	msh.set_owner(rb)
 	
+	# Set script to rb (if necessary,
+	# change rb_script then uncomment below)
+	var script = GDScript.new()
+	script.set_source_code(rb_script())
+	script.reload()
+	rb.set_script(script)
+	
 	# Set parameters
-	rb.add_to_group(agent_name, true)
-	print(rb.get_groups())
 	rb.set_gravity_scale(0)
 	rb.contact_monitor = true
 	rb.max_contacts_reported = 2
-	
-	# Set script to rb
-	#var script = GDScript.new()
-	#script.set_source_code(rb_script())
-	#script.reload()
-	#rb.set_script(script)
+	rb.linear_damp = 5
+	rb.angular_damp = 5
+	rb.agent_color = mat.albedo_color
 	
 	# Export the new Agent as scene
 	print("Agent3D : try to save TSCN")
@@ -77,38 +67,30 @@ func _enter_tree():
 	print("Agent3D : END")
 
 
-#func _on_resource_renamed(new_name):
-#	print("La ressource a été renommée en:" + new_name)
-#	
-
 func rb_script():
 	return """
 @tool
 extends RigidBody3D
 
-var _old_name = ""
+@export var agent_color:Color :
+	get:
+		return agent_color
+	set(value):
+		agent_color = value
+		if get_child(1) != null:
+			get_child(1).material_override.albedo_color = agent_color
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func _enter_tree():
-	#print("I am entering_tree !!!")
-	#remove_from_group(_old_name)
-	#print("I remove group:"+_old_name)
-	#var type_name = get_scene_file_path().get_file().trim_suffix(".tscn")
-	#add_to_group(type_name, true)
-	#_old_name = type_name
-	#print("I add group:"+type_name)
-
-	#connect("renamed", _on_resource_renamed)
-	pass
+	var new_name:String = get_scene_file_path().get_file().trim_suffix(".tscn")
+	set_name.call_deferred(new_name)
 
 func emit_changed():
-	print("La ressource a été changée")
+	pass
 
 """
