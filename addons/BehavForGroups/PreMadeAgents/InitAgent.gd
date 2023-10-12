@@ -14,4 +14,4 @@ func _ready():
 		self.add_to_group(groupe_2)
 	if self.is_in_group(groupe_3) == false:
 		self.add_to_group(groupe_3)
-	var mat:StandardMaterial3D = StandardMaterial3D.new()
+	#var mat:StandardMaterial3D = StandardMaterial3D.new()
