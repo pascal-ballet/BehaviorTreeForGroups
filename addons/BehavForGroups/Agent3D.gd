@@ -43,7 +43,7 @@ func _enter_tree():
 	rb.max_contacts_reported = 2
 	rb.linear_damp = 5
 	rb.angular_damp = 5
-	rb.agent_color = mat.albedo_color
+	#rb.agent_color = Color(mat.albedo_color)
 	
 	# Export the new Agent as scene
 	print("Agent3D : try to save TSCN")
@@ -60,7 +60,6 @@ func _enter_tree():
 	# Save the Agent in the resource file .tscn
 	ResourceSaver.save(scene, scene_path)
 	
-
 	# Free memory resources
 	rb.queue_free()	# saved in the .tscn file
 	queue_free()	# this node is only made for creating rb
@@ -72,13 +71,13 @@ func rb_script():
 @tool
 extends RigidBody3D
 
-@export var agent_color:Color :
-	get:
-		return agent_color
-	set(value):
-		agent_color = value
-		if get_child(1) != null:
-			get_child(1).material_override.albedo_color = agent_color
+#@export var agent_color:Color :
+#	get:
+#		return agent_color
+#	set(value):
+#		agent_color = value
+#		if get_child(1) != null:
+#			get_child(1).material_override.albedo_color = agent_color
 
 func _ready():
 	pass

@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://1d8jwf6t0nou"]
+[gd_scene load_steps=5 format=3 uid="uid://doydn5x6x37xu"]
 
-[sub_resource type="GDScript" id="GDScript_27tur"]
+[sub_resource type="GDScript" id="GDScript_yh41y"]
 script/source = "
 @tool
 extends RigidBody3D
 
-@export var agent_color:Color :
-	get:
-		return agent_color
-	set(value):
-		agent_color = value
-		if get_child(1) != null:
-			get_child(1).material_override.albedo_color = agent_color
+#@export var agent_color:Color :
+#	get:
+#		return agent_color
+#	set(value):
+#		agent_color = value
+#		if get_child(1) != null:
+#			get_child(1).material_override.albedo_color = agent_color
 
 func _ready():
 	pass
@@ -28,12 +28,12 @@ func emit_changed():
 
 "
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5h3oa"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_tjc2m"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pslq"]
-albedo_color = Color(0.459484, 0.624012, 0.255955, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7kob"]
+albedo_color = Color(0.443137, 0.321569, 0.780392, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_qum1j"]
+[sub_resource type="SphereMesh" id="SphereMesh_sw65u"]
 
 [node name="Cell" type="RigidBody3D" groups=["cell"]]
 gravity_scale = 0.0
@@ -41,12 +41,11 @@ max_contacts_reported = 2
 contact_monitor = true
 linear_damp = 5.0
 angular_damp = 5.0
-script = SubResource("GDScript_27tur")
-agent_color = Color(0.459484, 0.624012, 0.255955, 1)
+script = SubResource("GDScript_yh41y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_5h3oa")
+shape = SubResource("SphereShape3D_tjc2m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_5pslq")
-mesh = SubResource("SphereMesh_qum1j")
+material_override = SubResource("StandardMaterial3D_o7kob")
+mesh = SubResource("SphereMesh_sw65u")
