@@ -1,13 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://c43mca480h43v"]
+[gd_scene load_steps=4 format=3 uid="uid://c43mca480h43v"]
 
-[ext_resource type="PackedScene" uid="uid://b4pti4ynawejm" path="res://addons/BehavForGroups/Examples/Flow/O2.tscn" id="1_qhpsb"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_mjh42"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_7m1wg"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_iunmn"]
 
 [node name="Flow" type="Node3D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_mjh42")
+
+[node name="Behavior" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_7m1wg")
+on_group = "gp1"
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("3_iunmn")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.923532, 0.383522, 0, -0.383522, 0.923532, 0, 3.00613, 6.33432)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0424192, -0.102147)
-
-[node name="Agent3D" parent="." instance=ExtResource("1_qhpsb")]
