@@ -20,7 +20,7 @@ func _ready():
 
 
 func _enter_tree():
-	var agent_name:String = "toto"
+	var agent_name:String = "Agent"
 	print("Agent3D : _enter_tree")
 	# Create the rigidBody3D
 	var rb:RigidBody3D = RigidBody3D.new()
@@ -49,56 +49,66 @@ func _enter_tree():
 	rb.contact_monitor = true
 	rb.max_contacts_reported = 2
 	
-	
-	# Configure the Agent with a Window
-	#var editor = EditorInterface.get_singleton().get_editor_window()
-	
-	var panel = Panel.new()
-	add_child(panel)
-	panel.position = Vector2(100, 100)  # Set position (adjust as needed)
-	panel.size = Vector2(400, 300)  # Set size (adjust as needed)
-
-	# Create label
-	var label = Label.new()
-	label.text = "Configuration Window"
-	panel.add_child(label)
-
-	# Create input field
-	var input = LineEdit.new()
-	panel.add_child(input)
-
-	# Create button
-	var button = Button.new()
-	button.text = "Save"
-	panel.add_child(button)
-	button.connect("pressed",_on_save_button_pressed)
-
-	# Set positions of elements (adjust as needed)
-	label.position = Vector2(50, 50)
-	input.position = Vector2(50, 100)
-	button.position = Vector2(50, 150)
+	# Set script to rb
+	#var script = GDScript.new()
+	#script.set_source_code(rb_script())
+	#script.reload()
+	#rb.set_script(script)
 	
 	# Export the new Agent as scene
 	print("Agent3D : try to save TSCN")
 	var scene = PackedScene.new()
 	scene.pack(rb)
-	var scene_path:String = "res://"+agent_name+".tscn"
+	var scene_path:String
+	var MAX_AGENT_TSCN = 999999
+	# Still a lot (it's .tscn files, NOT instances in scene tree!)
+	for i in MAX_AGENT_TSCN:
+		scene_path = "res://"+agent_name+str(i)+".tscn"
+		# Check if the file already exists
+		if ResourceLoader.exists(scene_path)==false:
+			break
+	# Save the Agent in the resource file .tscn
 	ResourceSaver.save(scene, scene_path)
-	rb.queue_free()
-	#queue_free()
+	
+
+	# Free memory resources
+	rb.queue_free()	# saved in the .tscn file
+	queue_free()	# this node is only made for creating rb
 	print("Agent3D : END")
 
 
+#func _on_resource_renamed(new_name):
+#	print("La ressource a été renommée en:" + new_name)
+#	
 
-func _on_save_button_pressed():
-	# Handle save button press
-	var input_text = get_node("LineEdit").text
-	print("Saved input:", input_text)
-	# Apply configuration changes here
-	queue_free()  # Close the configuration window
+func rb_script():
+	return """
+@tool
+extends RigidBody3D
 
+var _old_name = ""
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
+func _enter_tree():
+	#print("I am entering_tree !!!")
+	#remove_from_group(_old_name)
+	#print("I remove group:"+_old_name)
+	#var type_name = get_scene_file_path().get_file().trim_suffix(".tscn")
+	#add_to_group(type_name, true)
+	#_old_name = type_name
+	#print("I add group:"+type_name)
 
+	#connect("renamed", _on_resource_renamed)
+	pass
 
+func emit_changed():
+	print("La ressource a été changée")
+
+"""
