@@ -21,12 +21,13 @@ func _enter_tree():
 	col.set_owner(rb)
 	# New mat
 	var mat:CanvasItemMaterial = CanvasItemMaterial.new()
-	mat.albedo_color = Color(randf(),randf(),randf())
+	mat.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
+	#mat. .albedo_color = Color(randf(),randf(),randf())
 	# Add the meshinstance 3D
 	var msh:MeshInstance2D = MeshInstance2D.new()
 	msh.name = "MeshInstance2D"
 	msh.set_mesh(SphereMesh.new())
-	msh.material_override = mat
+	msh.material = mat
 	rb.add_child(msh)
 	msh.set_owner(rb)
 	
@@ -41,12 +42,12 @@ func _enter_tree():
 	rb.set_gravity_scale(0)
 	rb.contact_monitor = true
 	rb.max_contacts_reported = 2
-	rb.linear_damp = 5
-	rb.angular_damp = 5
+	rb.linear_damp = 1
+	rb.angular_damp = 1
 	#rb.agent_color = Color(mat.albedo_color)
 	
 	# Export the new Agent as scene
-	print("Agent3D : try to save TSCN")
+	print("Agent2D : try to save TSCN")
 	var scene = PackedScene.new()
 	scene.pack(rb)
 	var scene_path:String
@@ -69,7 +70,7 @@ func _enter_tree():
 func rb_script():
 	return """
 @tool
-extends RigidBody3D
+extends RigidBody2D
 
 #@export var agent_color:Color :
 #	get:

@@ -1,3 +1,116 @@
-[gd_scene format=3 uid="uid://dpaaye4b1ct5e"]
+[gd_scene load_steps=8 format=3 uid="uid://dpaaye4b1ct5e"]
+
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_qevbp"]
+[ext_resource type="PackedScene" uid="uid://bjoqk65nnjfmd" path="res://Agent0.tscn" id="1_s6pd8"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_21fqr"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_rck85"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_q10aq"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="5_hquvo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tcpwm"]
 
 [node name="Flow2D" type="Node2D"]
+
+[node name="BehavForGroups" type="Node" parent="."]
+script = ExtResource("1_qevbp")
+
+[node name="Behavior" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_21fqr")
+on_group = "cell"
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("3_rck85")
+fx = 10.0
+fy = 10.0
+fz = 0.0
+
+[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("4_q10aq")
+x_min = 200.0
+x_max = 600.0
+y_min = 100.0
+y_max = 200.0
+z_min = 0.0
+z_max = 0.0
+loop_x = true
+
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior"]
+script = ExtResource("5_hquvo")
+fx = 2.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(141, 95)
+scale = Vector2(35.04, 35.04)
+mesh = SubResource("SphereMesh_tcpwm")
+
+[node name="Agent0" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(321, 31)
+
+[node name="Agent1" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(222, 82)
+
+[node name="Agent2" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(409, 35)
+
+[node name="Agent3" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(211, 138)
+
+[node name="Agent4" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(112, 189)
+
+[node name="Agent5" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(299, 142)
+
+[node name="Agent6" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(497, 64)
+
+[node name="Agent7" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(274, 172)
+
+[node name="Agent8" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(461, 125)
+
+[node name="Agent9" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(387, 171)
+
+[node name="Agent10" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(241, 59)
+
+[node name="Agent11" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(304, 69)
+
+[node name="Agent12" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(280, 40)
+
+[node name="Agent13" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(181, 91)
+
+[node name="Agent14" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(368, 44)
+
+[node name="Agent15" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(170, 147)
+
+[node name="Agent16" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(71, 198)
+
+[node name="Agent17" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(258, 151)
+
+[node name="Agent18" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(332, 130)
+
+[node name="Agent19" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(233, 181)
+
+[node name="Agent20" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(420, 134)
+
+[node name="Agent21" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(346, 180)
+
+[node name="Agent22" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(76, 125)
+
+[node name="Agent23" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(263, 78)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjoqk65nnjfmd"]
+
+[sub_resource type="GDScript" id="GDScript_xx5a5"]
+script/source = "
+@tool
+extends RigidBody2D
+
+#@export var agent_color:Color :
+#	get:
+#		return agent_color
+#	set(value):
+#		agent_color = value
+#		if get_child(1) != null:
+#			get_child(1).material_override.albedo_color = agent_color
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+
+func _enter_tree():
+	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
+	set_name.call_deferred(new_name)
+
+func emit_changed():
+	pass
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir22p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p7xt2"]
+
+[node name="Agent0" type="RigidBody2D" groups=["cell"]]
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+linear_damp = 1.0
+angular_damp = 1.0
+script = SubResource("GDScript_xx5a5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ir22p")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+scale = Vector2(19.93, 19.93)
+mesh = SubResource("SphereMesh_p7xt2")
