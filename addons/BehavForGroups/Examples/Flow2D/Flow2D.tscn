@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpaaye4b1ct5e"]
+[gd_scene load_steps=10 format=3 uid="uid://dpaaye4b1ct5e"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_qevbp"]
 [ext_resource type="PackedScene" uid="uid://bjoqk65nnjfmd" path="res://Agent0.tscn" id="1_s6pd8"]
@@ -6,6 +6,23 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_rck85"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_q10aq"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="5_hquvo"]
+
+[sub_resource type="GDScript" id="GDScript_fw7qj"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if transform.origin.x < 100:
+		transform.origin.x = 600
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fp82s"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_tcpwm"]
 
@@ -38,9 +55,19 @@ loop_x = true
 script = ExtResource("5_hquvo")
 fx = 2.0
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(141, 95)
-scale = Vector2(35.04, 35.04)
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(231.79, 95)
+gravity_scale = 0.0
+linear_damp = 4.0
+constant_force = Vector2(-100, 0)
+script = SubResource("GDScript_fw7qj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(3.38, 3.38)
+shape = SubResource("CircleShape2D_fp82s")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RigidBody2D"]
+scale = Vector2(66.9, 66.9)
 mesh = SubResource("SphereMesh_tcpwm")
 
 [node name="Agent0" parent="." instance=ExtResource("1_s6pd8")]

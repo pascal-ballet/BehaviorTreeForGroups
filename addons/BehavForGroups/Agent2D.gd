@@ -21,7 +21,7 @@ func _enter_tree():
 	col.set_owner(rb)
 	# New mat
 	var mat:CanvasItemMaterial = CanvasItemMaterial.new()
-	mat.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
+	#mat.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
 	#mat. .albedo_color = Color(randf(),randf(),randf())
 	# Add the meshinstance 3D
 	var msh:MeshInstance2D = MeshInstance2D.new()
