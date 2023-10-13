@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dpaaye4b1ct5e"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_qevbp"]
-[ext_resource type="PackedScene" uid="uid://bjoqk65nnjfmd" path="res://Agent0.tscn" id="1_s6pd8"]
+[ext_resource type="PackedScene" uid="uid://bjoqk65nnjfmd" path="res://addons/BehavForGroups/Examples/Flow2D/Agent0.tscn" id="1_s6pd8"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_21fqr"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_rck85"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_q10aq"]
@@ -14,7 +14,6 @@ script/source = "extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
