@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjoqk65nnjfmd"]
+[gd_scene load_steps=5 format=3 uid="uid://bjoqk65nnjfmd"]
 
 [sub_resource type="GDScript" id="GDScript_xx5a5"]
 script/source = "
@@ -32,6 +32,8 @@ func emit_changed():
 
 [sub_resource type="SphereMesh" id="SphereMesh_aakoq"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ij8j1"]
+
 [node name="Agent0" type="RigidBody2D" groups=["cell"]]
 gravity_scale = 0.0
 max_contacts_reported = 2
@@ -46,3 +48,4 @@ shape = SubResource("CircleShape2D_ir22p")
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
 scale = Vector2(19.93, 19.93)
 mesh = SubResource("SphereMesh_aakoq")
+texture = SubResource("CanvasTexture_ij8j1")
