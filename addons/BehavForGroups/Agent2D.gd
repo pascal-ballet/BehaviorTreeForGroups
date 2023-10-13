@@ -16,7 +16,9 @@ func _enter_tree():
 	# Add the collision shape 3D
 	var col:CollisionShape2D = CollisionShape2D.new()
 	col.name = "CollisionShape2D"
-	col.set_shape(CircleShape2D.new())
+	var cs:CircleShape2D = CircleShape2D.new()
+	cs.radius = 10
+	col.set_shape(cs)
 	rb.add_child(col)
 	col.set_owner(rb)
 	# New mat
@@ -26,6 +28,7 @@ func _enter_tree():
 	# Add the meshinstance 3D
 	var msh:MeshInstance2D = MeshInstance2D.new()
 	msh.name = "MeshInstance2D"
+	msh.scale = Vector2(20,20)
 	msh.set_mesh(SphereMesh.new())
 	msh.material = mat
 	rb.add_child(msh)

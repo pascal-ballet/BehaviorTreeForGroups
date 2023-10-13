@@ -30,7 +30,7 @@ func emit_changed():
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ir22p"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_p7xt2"]
+[sub_resource type="SphereMesh" id="SphereMesh_aakoq"]
 
 [node name="Agent0" type="RigidBody2D" groups=["cell"]]
 gravity_scale = 0.0
@@ -45,4 +45,4 @@ shape = SubResource("CircleShape2D_ir22p")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
 scale = Vector2(19.93, 19.93)
-mesh = SubResource("SphereMesh_p7xt2")
+mesh = SubResource("SphereMesh_aakoq")
