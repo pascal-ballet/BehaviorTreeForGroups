@@ -19,6 +19,11 @@ func _ready():
 func _process(delta):
 	if transform.origin.x < 100:
 		transform.origin.x = 600
+
+	if transform.origin.y < 150:
+		apply_central_impulse(Vector2(0,10))
+	if transform.origin.y > 150:
+		apply_central_impulse(Vector2(0,-10))
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fp82s"]
@@ -55,10 +60,10 @@ script = ExtResource("5_hquvo")
 fx = 2.0
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(231.79, 95)
+position = Vector2(476.45, 173.4)
 gravity_scale = 0.0
 linear_damp = 4.0
-constant_force = Vector2(-100, 0)
+constant_force = Vector2(-1500, 0)
 script = SubResource("GDScript_fw7qj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -140,3 +145,55 @@ position = Vector2(76, 125)
 
 [node name="Agent23" parent="." instance=ExtResource("1_s6pd8")]
 position = Vector2(263, 78)
+
+[node name="Agent24" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(88, 37)
+
+[node name="Agent25" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(100, 88)
+
+[node name="Agent26" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(215, 227)
+
+[node name="Agent27" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(97, 242)
+
+[node name="Agent28" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(43, 269)
+
+[node name="Agent29" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(109, 319)
+scale = Vector2(3.35, 3.35)
+
+[node name="Agent30" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(68, 283)
+
+[node name="Agent31" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(108, 307)
+
+[node name="Agent32" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(39, 346)
+
+[node name="Agent33" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(26, 300)
+
+[node name="Agent34" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(132, 243)
+
+[node name="Agent35" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(203, 258)
+
+[node name="Agent36" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(151, 205)
+
+[node name="Agent37" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(174, 246)
+
+[node name="Agent38" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(168, 258)
+
+[node name="Agent39" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(232, 266)
+
+[node name="Agent40" parent="." instance=ExtResource("1_s6pd8")]
+position = Vector2(216, 286)

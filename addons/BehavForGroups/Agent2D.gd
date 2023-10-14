@@ -93,6 +93,15 @@ func _enter_tree():
 	var new_name:String = get_scene_file_path().get_file().trim_suffix(".tscn")
 	set_name.call_deferred(new_name)
 
+func _draw():
+	var center = Vector2(200, 200)
+	var radius = 80
+	var angle_from = 75
+	var angle_to = 195
+	var color = Color(1.0, 0.0, 1.0)
+	draw_line(Vector2(-scale.x,-scale.y), Vector2(scale.x,scale.y), color)
+	
+
 func emit_changed():
 	pass
 
