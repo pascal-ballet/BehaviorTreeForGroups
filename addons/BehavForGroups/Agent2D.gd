@@ -22,17 +22,22 @@ func _enter_tree():
 	rb.add_child(col)
 	col.set_owner(rb)
 	# New mat
-	var mat:CanvasItemMaterial = CanvasItemMaterial.new()
+	#var mat:CanvasItemMaterial = CanvasItemMaterial.new()
 	#mat.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
 	#mat. .albedo_color = Color(randf(),randf(),randf())
-	# Add the meshinstance 3D
-	var msh:MeshInstance2D = MeshInstance2D.new()
-	msh.name = "MeshInstance2D"
-	msh.scale = Vector2(20,20)
-	msh.set_mesh(SphereMesh.new())
-	msh.material = mat
-	rb.add_child(msh)
-	msh.set_owner(rb)
+	# Add the Polygon2D
+	var poly:Polygon2D = Polygon2D.new()
+	poly.name = "Polygon2D"
+	var vertices:PackedVector2Array# = PackedVector2Array.new()
+	vertices.append(Vector2(1,0))
+	
+	# Attribuer les sommets au Polygon2D
+	poly.set_polygon(vertices)
+	#msh.scale = Vector2(20,20)
+	#msh.set_mesh(SphereMesh.new())
+	#msh.material = mat
+	rb.add_child(poly)
+	poly.set_owner(rb)
 	
 	# Set script to rb (if necessary,
 	# change rb_script then uncomment below)

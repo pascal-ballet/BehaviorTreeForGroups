@@ -63,7 +63,7 @@ fx = 2.0
 position = Vector2(476.45, 173.4)
 gravity_scale = 0.0
 linear_damp = 4.0
-constant_force = Vector2(-1500, 0)
+constant_force = Vector2(-1700, 0)
 script = SubResource("GDScript_fw7qj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
