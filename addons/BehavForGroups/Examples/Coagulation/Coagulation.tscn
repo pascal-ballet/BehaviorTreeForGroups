@@ -1,32 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2rbou6dglon"]
+[gd_scene load_steps=13 format=3 uid="uid://d2rbou6dglon"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_wqrga"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_yfr04"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_h41sa"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="4_6bt5m"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="5_tu27f"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="6_u1vim"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="6_xnaep"]
+[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://addons/BehavForGroups/Examples/Coagulation/Fibro.tscn" id="7_6b6ua"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="7_suvx2"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="7_tu5dy"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="8_vdyjm"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="9_g6rn1"]
 
 [node name="Coagulation" type="Node2D"]
 
 [node name="BehavForGroups" type="Node" parent="."]
 script = ExtResource("1_wqrga")
 
-[node name="Behavior" type="Node" parent="BehavForGroups"]
+[node name="Flowing" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_yfr04")
-on_group = "Platelet"
+on_group = "flowing"
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Flowing"]
 script = ExtResource("3_h41sa")
 fx = 16.0
 fy = 16.0
 fz = 0.0
 
-[node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Flowing"]
 script = ExtResource("4_6bt5m")
 fx = 3.0
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+[node name="StayInBox" type="Node" parent="BehavForGroups/Flowing"]
 script = ExtResource("5_tu27f")
 x_min = 50.0
 x_max = 1200.0
@@ -36,6 +42,64 @@ z_min = 0.0
 z_max = 0.0
 loop_x = true
 
+[node name="Platelets" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_yfr04")
+on_group = "platelet"
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Platelets"]
+script = ExtResource("6_u1vim")
+
+[node name="IfContact" type="Node" parent="BehavForGroups/Platelets/Sequential"]
+script = ExtResource("7_tu5dy")
+with_group = "factors"
+
+[node name="AddAgent" type="Node" parent="BehavForGroups/Platelets/Sequential"]
+script = ExtResource("9_g6rn1")
+agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/PlatActiv.tscn"
+
+[node name="Delete" type="Node" parent="BehavForGroups/Platelets/Sequential"]
+script = ExtResource("8_vdyjm")
+
+[node name="Factors" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_yfr04")
+on_group = "factors"
+
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Factors"]
+script = ExtResource("4_6bt5m")
+fx = 0.1
+fy = -1.0
+
+[node name="ForceRandom" type="Node" parent="BehavForGroups/Factors"]
+script = ExtResource("3_h41sa")
+fx = 10.0
+fy = 10.0
+fz = 0.0
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Factors"]
+script = ExtResource("6_u1vim")
+
+[node name="IfProba" type="Node" parent="BehavForGroups/Factors/Sequential"]
+script = ExtResource("7_suvx2")
+proba = 1.0
+
+[node name="Delete" type="Node" parent="BehavForGroups/Factors/Sequential"]
+script = ExtResource("8_vdyjm")
+
+[node name="Fibro" type="Node" parent="BehavForGroups"]
+script = ExtResource("2_yfr04")
+on_group = "fibro"
+
+[node name="Sequential" type="Node" parent="BehavForGroups/Fibro"]
+script = ExtResource("6_u1vim")
+
+[node name="IfProba" type="Node" parent="BehavForGroups/Fibro/Sequential"]
+script = ExtResource("7_suvx2")
+proba = 10.0
+
+[node name="AddAgent" type="Node" parent="BehavForGroups/Fibro/Sequential"]
+script = ExtResource("9_g6rn1")
+agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/Factors.tscn"
+
 [node name="VeinLow" type="StaticBody2D" parent="."]
 position = Vector2(0, -106.59)
 
@@ -44,7 +108,7 @@ self_modulate = Color(0.945098, 1, 0.894118, 1)
 position = Vector2(44.1724, 16.6273)
 scale = Vector2(5.15945, 5.00745)
 build_mode = 1
-polygon = PackedVector2Array(-7.69231, 148.85, 213.846, 149.058, 213.654, 121.558, 182.692, 114.892, 164.615, 107.183, 143.612, 104.749, 120.577, 107.6, 99.0385, 108.433, 71.5385, 105.517, 26.5297, 105.324, 10.7692, 115.933, -8.07692, 123.333)
+polygon = PackedVector2Array(-7.69231, 148.85, 213.846, 149.058, 213.654, 121.558, 182.692, 114.892, 164.615, 107.183, 143.612, 104.749, 120.328, 112.425, 89.1234, 111.826, 71.5385, 105.517, 26.5297, 105.324, 10.7692, 115.933, -8.07692, 123.333)
 
 [node name="Polygon2D" type="Polygon2D" parent="VeinLow"]
 position = Vector2(38.78, -9.15)
@@ -63,3 +127,204 @@ polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 11
 
 [node name="Platelet" parent="." instance=ExtResource("6_xnaep")]
 position = Vector2(139, 228)
+
+[node name="Platelet2" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(206, 204)
+
+[node name="Platelet3" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(264, 221)
+
+[node name="Platelet4" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(189, 154)
+
+[node name="Platelet5" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(160, 317)
+
+[node name="Platelet6" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(227, 293)
+
+[node name="Platelet7" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(285, 310)
+
+[node name="Platelet8" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(210, 243)
+
+[node name="Platelet9" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(334, 188)
+
+[node name="Platelet10" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(401, 164)
+
+[node name="Platelet11" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(459, 181)
+
+[node name="Platelet12" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(384, 114)
+
+[node name="Platelet13" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(355, 277)
+
+[node name="Platelet14" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(422, 253)
+
+[node name="Platelet15" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(480, 270)
+
+[node name="Platelet16" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(405, 203)
+
+[node name="Platelet17" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(324, 272)
+
+[node name="Platelet18" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(391, 248)
+
+[node name="Platelet19" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(449, 265)
+
+[node name="Platelet20" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(374, 198)
+
+[node name="Platelet21" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(345, 361)
+
+[node name="Platelet22" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(412, 337)
+
+[node name="Platelet23" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(470, 354)
+
+[node name="Platelet24" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(395, 287)
+
+[node name="Platelet25" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(519, 232)
+
+[node name="Platelet26" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(586, 208)
+
+[node name="Platelet27" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(644, 225)
+
+[node name="Platelet28" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(569, 158)
+
+[node name="Platelet29" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(540, 321)
+
+[node name="Platelet30" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(607, 297)
+
+[node name="Platelet31" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(665, 314)
+
+[node name="Platelet32" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(590, 247)
+
+[node name="Platelet33" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(460, 233)
+
+[node name="Platelet34" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(527, 209)
+
+[node name="Platelet35" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(585, 226)
+
+[node name="Platelet36" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(510, 159)
+
+[node name="Platelet37" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(481, 322)
+
+[node name="Platelet38" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(548, 298)
+
+[node name="Platelet39" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(606, 315)
+
+[node name="Platelet40" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(531, 248)
+
+[node name="Platelet41" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(655, 193)
+
+[node name="Platelet42" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(722, 169)
+
+[node name="Platelet43" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(780, 186)
+
+[node name="Platelet44" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(705, 119)
+
+[node name="Platelet45" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(676, 282)
+
+[node name="Platelet46" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(743, 258)
+
+[node name="Platelet47" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(801, 275)
+
+[node name="Platelet48" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(726, 208)
+
+[node name="Platelet49" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(645, 277)
+
+[node name="Platelet50" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(712, 253)
+
+[node name="Platelet51" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(770, 270)
+
+[node name="Platelet52" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(695, 203)
+
+[node name="Platelet53" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(666, 366)
+
+[node name="Platelet54" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(733, 342)
+
+[node name="Platelet55" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(791, 359)
+
+[node name="Platelet56" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(716, 292)
+
+[node name="Platelet57" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(840, 237)
+
+[node name="Platelet58" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(907, 213)
+
+[node name="Platelet59" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(965, 230)
+
+[node name="Platelet60" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(890, 163)
+
+[node name="Platelet61" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(861, 326)
+
+[node name="Platelet62" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(928, 302)
+
+[node name="Platelet63" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(986, 319)
+
+[node name="Platelet64" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(911, 252)
+
+[node name="Fibro" parent="." instance=ExtResource("7_6b6ua")]
+position = Vector2(515, 447)
+
+[node name="Fibro2" parent="." instance=ExtResource("7_6b6ua")]
+position = Vector2(552, 453)
+
+[node name="Fibro3" parent="." instance=ExtResource("7_6b6ua")]
+position = Vector2(589, 456)
+
+[node name="Fibro4" parent="." instance=ExtResource("7_6b6ua")]
+position = Vector2(626, 456)
