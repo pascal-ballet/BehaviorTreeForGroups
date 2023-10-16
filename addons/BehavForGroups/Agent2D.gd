@@ -28,8 +28,7 @@ func _enter_tree():
 	# Add the Polygon2D
 	var poly:Polygon2D = Polygon2D.new()
 	poly.name = "Polygon2D"
-	var vertices:PackedVector2Array# = PackedVector2Array.new()
-	vertices.append(Vector2(1,0))
+	var vertices:PackedVector2Array = PackedVector2Array(polygone2D_regular(10,6))
 	
 	# Attribuer les sommets au Polygon2D
 	poly.set_polygon(vertices)
@@ -74,6 +73,13 @@ func _enter_tree():
 	queue_free()	# this node is only made for creating rb
 	print("Agent2D : END")
 
+func polygone2D_regular(radius:float, n:int) -> PackedVector2Array:
+	var arr_poly:PackedVector2Array = PackedVector2Array()
+	for a in range(0,n):
+		var x:float = radius * cos(deg_to_rad(a*360.0 / n))
+		var y:float = radius * sin(deg_to_rad(a*360.0 / n))
+		arr_poly.append(Vector2(x,y))
+	return arr_poly
 
 func rb_script():
 	return """

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bft7tsr03p5up"]
+
+[sub_resource type="GDScript" id="GDScript_0snk7"]
+script/source = "
+@tool
+extends RigidBody2D
+
+#@export var agent_color:Color :
+#	get:
+#		return agent_color
+#	set(value):
+#		agent_color = value
+#		if get_child(1) != null:
+#			get_child(1).material_override.albedo_color = agent_color
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+
+func _enter_tree():
+	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
+	set_name.call_deferred(new_name)
+
+func _draw():
+	var center = Vector2(200, 200)
+	var radius = 80
+	var angle_from = 75
+	var angle_to = 195
+	var color = Color(1.0, 0.0, 1.0)
+	draw_line(Vector2(-scale.x,-scale.y), Vector2(scale.x,scale.y), color)
+	
+
+func emit_changed():
+	pass
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v12hl"]
+
+[node name="Agent0" type="RigidBody2D"]
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+linear_damp = 1.0
+angular_damp = 1.0
+script = SubResource("GDScript_0snk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v12hl")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.294118, 0.32549, 1, 1)
+polygon = PackedVector2Array(10, 0, 5, 8.66025, -5, 8.66025, -10, 1.22465e-15, -5, -8.66025, 5, -8.66025)
