@@ -37,9 +37,9 @@ func emit_changed():
 
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v12hl"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6hq1"]
 
-[node name="Agent0" type="RigidBody2D"]
+[node name="Agent0" type="RigidBody2D" groups=["cell"]]
 gravity_scale = 0.0
 max_contacts_reported = 2
 contact_monitor = true
@@ -48,7 +48,7 @@ angular_damp = 1.0
 script = SubResource("GDScript_0snk7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_v12hl")
+shape = SubResource("CircleShape2D_d6hq1")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.294118, 0.32549, 1, 1)

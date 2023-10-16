@@ -1,4 +1,6 @@
+@tool
 @icon("Action.svg")
+
 class_name StayInBox
 extends BehavForGroups
 

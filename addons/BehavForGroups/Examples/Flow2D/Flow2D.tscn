@@ -1,34 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpaaye4b1ct5e"]
+[gd_scene load_steps=7 format=3 uid="uid://dpaaye4b1ct5e"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_qevbp"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_21fqr"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_rck85"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_q10aq"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="5_hquvo"]
-[ext_resource type="PackedScene" uid="uid://bft7tsr03p5up" path="res://Agent0.tscn" id="7_lvmt0"]
-
-[sub_resource type="GDScript" id="GDScript_fw7qj"]
-script/source = "extends RigidBody2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if transform.origin.x < 100:
-		transform.origin.x = 600
-
-	if transform.origin.y < 150:
-		apply_central_impulse(Vector2(0,10))
-	if transform.origin.y > 150:
-		apply_central_impulse(Vector2(0,-10))
-"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fp82s"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_tcpwm"]
+[ext_resource type="PackedScene" uid="uid://bft7tsr03p5up" path="res://Agent_0.tscn" id="7_lvmt0"]
 
 [node name="Flow2D" type="Node2D"]
 
@@ -59,23 +36,57 @@ loop_x = true
 script = ExtResource("5_hquvo")
 fx = 2.0
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(476.45, 173.4)
-gravity_scale = 0.0
-linear_damp = 4.0
-constant_force = Vector2(-1700, 0)
-script = SubResource("GDScript_fw7qj")
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 600.0
+offset_bottom = 200.0
+color = Color(0.313726, 0.258824, 1, 0.290196)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-scale = Vector2(3.38, 3.38)
-shape = SubResource("CircleShape2D_fp82s")
+[node name="Agent_0" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(289, 196)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="RigidBody2D"]
-scale = Vector2(66.9, 66.9)
-mesh = SubResource("SphereMesh_tcpwm")
+[node name="Agent_1" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(217, 139)
 
-[node name="Agent0" parent="." groups=["cell"] instance=ExtResource("7_lvmt0")]
-position = Vector2(317, 301)
+[node name="Agent_2" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(282, 151)
 
-[node name="Agent1" parent="." instance=ExtResource("7_lvmt0")]
-position = Vector2(245, 244)
+[node name="Agent_3" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(238, 199)
+
+[node name="Agent_4" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(346, 163)
+
+[node name="Agent_5" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(274, 106)
+
+[node name="Agent_6" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(339, 118)
+
+[node name="Agent_7" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(295, 166)
+
+[node name="Agent_8" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(442, 195)
+
+[node name="Agent_9" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(370, 138)
+
+[node name="Agent_10" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(435, 150)
+
+[node name="Agent_11" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(391, 198)
+
+[node name="Agent_12" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(499, 162)
+
+[node name="Agent_13" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(427, 105)
+
+[node name="Agent_14" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(492, 117)
+
+[node name="Agent_15" parent="." instance=ExtResource("7_lvmt0")]
+position = Vector2(448, 165)
