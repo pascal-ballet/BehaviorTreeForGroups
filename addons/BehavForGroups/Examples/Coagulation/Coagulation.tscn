@@ -175,10 +175,103 @@ position = Vector2(626, 456)
 position = Vector2(489, 435)
 
 [node name="PlatFix" parent="." instance=ExtResource("14_xwl3x")]
-position = Vector2(244, 183)
+position = Vector2(642, 437)
 
 [node name="Platelet" parent="." instance=ExtResource("6_xnaep")]
 position = Vector2(302, 181)
+
+[node name="Platelet2" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(353, 201)
+
+[node name="Platelet3" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(270, 221)
+
+[node name="Platelet4" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(321, 241)
+
+[node name="Platelet5" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(432, 197)
+
+[node name="Platelet6" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(483, 217)
+
+[node name="Platelet7" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(400, 237)
+
+[node name="Platelet8" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(451, 257)
+
+[node name="Platelet9" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(173, 261)
+
+[node name="Platelet10" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(224, 281)
+
+[node name="Platelet11" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(141, 301)
+
+[node name="Platelet12" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(192, 321)
+
+[node name="Platelet13" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(303, 277)
+
+[node name="Platelet14" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(354, 297)
+
+[node name="Platelet15" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(271, 317)
+
+[node name="Platelet16" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(322, 337)
+
+[node name="Platelet17" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(166, 229)
+
+[node name="Platelet18" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(217, 249)
+
+[node name="Platelet19" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(134, 269)
+
+[node name="Platelet20" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(185, 289)
+
+[node name="Platelet21" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(296, 245)
+
+[node name="Platelet22" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(347, 265)
+
+[node name="Platelet23" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(264, 285)
+
+[node name="Platelet24" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(315, 305)
+
+[node name="Platelet25" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(37, 309)
+
+[node name="Platelet26" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(88, 329)
+
+[node name="Platelet27" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(5, 349)
+
+[node name="Platelet28" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(56, 369)
+
+[node name="Platelet29" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(167, 325)
+
+[node name="Platelet30" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(218, 345)
+
+[node name="Platelet31" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(135, 365)
+
+[node name="Platelet32" parent="." instance=ExtResource("6_xnaep")]
+position = Vector2(186, 385)
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
 node_a = NodePath("../PlatFix")

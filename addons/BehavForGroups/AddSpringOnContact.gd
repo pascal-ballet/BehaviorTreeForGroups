@@ -46,7 +46,8 @@ func _process(delta):
 		_node_a.apply_impulse(dirA)
 		_node_b.apply_impulse(dirB)
 """
-	# Should reload the script with changed source code
+	# Must reload the script with changed source code before putting it
+	# to the node
 	scrip.reload()
 
 	# Need to create an instance of the script to call its methods

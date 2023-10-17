@@ -13,6 +13,8 @@ func _enter_tree():
 	# Create the rigidBody3D
 	var rb:RigidBody2D = RigidBody2D.new()
 	rb.name = agent_name
+	rb.set_meta("State", 0)
+	rb.set_meta("Age", 0)
 	# Add the collision shape 3D
 	var col:CollisionShape2D = CollisionShape2D.new()
 	col.name = "CollisionShape2D"
@@ -21,10 +23,6 @@ func _enter_tree():
 	col.set_shape(cs)
 	rb.add_child(col)
 	col.set_owner(rb)
-	# New mat
-	#var mat:CanvasItemMaterial = CanvasItemMaterial.new()
-	#mat.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
-	#mat. .albedo_color = Color(randf(),randf(),randf())
 	# Add the Polygon2D
 	var poly:Polygon2D = Polygon2D.new()
 	poly.name = "Polygon2D"

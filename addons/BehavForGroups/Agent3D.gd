@@ -13,6 +13,8 @@ func _enter_tree():
 	# Create the rigidBody3D
 	var rb:RigidBody3D = RigidBody3D.new()
 	rb.name = agent_name
+	rb.set_meta("State", 0)
+	rb.set_meta("Age", 0)
 	# Add the collision shape 3D
 	var col:CollisionShape3D = CollisionShape3D.new()
 	col.name = "CollisionShape3D"
