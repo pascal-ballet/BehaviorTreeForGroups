@@ -187,3 +187,6 @@ bias = 0.9
 length = 1.0
 stiffness = 64.0
 damping = 16.0
+
+[node name="PlatFix2" parent="." instance=ExtResource("14_xwl3x")]
+position = Vector2(552, 429)

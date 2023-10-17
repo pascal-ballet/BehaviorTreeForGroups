@@ -25,32 +25,42 @@ func biodyn_process(agent)->bool:
 						return true
 	return false
 
+
 func cell_cell_spring2D(body1:RigidBody2D, body2:RigidBody2D) -> Array:
-	print( str(body1.get_name() , " with " , body2.get_name() ) )
-	# Creation d'un ressort entre les 2 RigidBodies
-	var jt:DampedSpringJoint2D = DampedSpringJoint2D.new()
 	
-	##jt.set_exclude_nodes_from_collision(false)
-	# Ajout de ce ressort sur les 2 RigidBodies
-	jt.set_node_a(body1.get_path())
-	jt.set_node_b(body2.get_path())
-	# Parameters of the Spring
-	var L:float = ((body2.transform.origin - body1.transform.origin) ).length()
-	jt.length = 1
-	jt.rest_length = 1
-	jt.stiffness = 64
-	jt.damping = 16
-	jt.bias = 0.9
-	# Position du spring
-	jt.transform.origin = (body1.transform.origin + body2.transform.origin) * 0.5
-	# Ajout de son script d'affichage
-	#jt.script = load("res://addons/BehavForGroups/BreakableSpring.gd")
-	# Ajout de son script de cassage
-	#jt.script = load("res://BreakableSpring.gd")
-	#print("node a = " + self.get_path())
-	#print("node b = " + body.get_path())
-	# Ajout du Ressort dans la scène (sinon inactif)
-	body1.get_parent().add_child(jt)
+	# Create a new script with embedded expression
+	var scrip:GDScript = GDScript.new()
+	# Define source code needed for evaluation (extends Reference by default)
+	scrip.source_code = """
+extends Node
+var _node_a = null
+var _node_b = null
+
+func _process(delta):
+	if _node_a == null || _node_b == null:
+		print("Spring Removed")
+		queue_free()
+	else:
+		var dirA:Vector2 = (_node_b.transform.origin - _node_a.transform.origin).normalized()
+		var dirB:Vector2 = -dirA
+		_node_a.apply_impulse(dirA)
+		_node_b.apply_impulse(dirB)
+"""
+	# Should reload the script with changed source code
+	scrip.reload()
+
+	# Need to create an instance of the script to call its methods
+	var spring = Node.new()
+	spring.name = "Spring"
+	spring.set_script(scrip)
+	
+	spring._node_a = body1
+	spring._node_b = body2
+	
+	body1.get_parent().add_child(spring)
+	
+	print( str(body1.get_name() , " with " , body2.get_name() ) )
+	
 	return [body1, body2]
 
 
