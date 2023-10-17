@@ -73,19 +73,11 @@ func rb_script():
 @tool
 extends RigidBody3D
 
-#@export var agent_color:Color :
-#	get:
-#		return agent_color
-#	set(value):
-#		agent_color = value
-#		if get_child(1) != null:
-#			get_child(1).material_override.albedo_color = agent_color
-
-func _ready():
-	pass
+var state:int = 0
+var age:int = 0
 
 func _process(delta):
-	pass
+	age += 1
 
 func _enter_tree():
 	var new_name:String = get_scene_file_path().get_file().trim_suffix(".tscn")

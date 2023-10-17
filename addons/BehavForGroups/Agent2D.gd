@@ -84,6 +84,12 @@ func rb_script():
 @tool
 extends RigidBody2D
 
+var state:int = 0
+var age:int = 0
+
+func _process(delta):
+	age += 1
+
 func _enter_tree():
 	var new_name:String = get_scene_file_path().get_file().trim_suffix(".tscn")
 	set_name.call_deferred(new_name)
