@@ -22,7 +22,3 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/BehavForGroups/plugin.cfg")
-
-[physics]
-
-3d/physics_engine="JoltPhysics3D"

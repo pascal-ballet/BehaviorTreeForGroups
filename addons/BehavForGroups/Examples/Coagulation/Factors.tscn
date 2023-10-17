@@ -17,6 +17,7 @@ radius = 4.0
 [node name="Factors" type="RigidBody2D" groups=["factors"]]
 collision_layer = 2
 collision_mask = 2
+mass = 0.1
 gravity_scale = 0.0
 max_contacts_reported = 2
 contact_monitor = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0g6jpalog3v"]
+[gd_scene load_steps=3 format=3 uid="uid://gyyxebxcc0m2"]
 
 [sub_resource type="GDScript" id="GDScript_nyy48"]
 script/source = "
@@ -13,12 +13,11 @@ func _enter_tree():
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikg3t"]
 
-[node name="Fibro" type="RigidBody2D" groups=["fibro"]]
+[node name="PlatFix" type="RigidBody2D" groups=["platFix"]]
 gravity_scale = 0.0
-max_contacts_reported = 5
+max_contacts_reported = 2
 contact_monitor = true
 freeze = true
-freeze_mode = 1
 linear_damp = 1.0
 angular_damp = 1.0
 script = SubResource("GDScript_nyy48")

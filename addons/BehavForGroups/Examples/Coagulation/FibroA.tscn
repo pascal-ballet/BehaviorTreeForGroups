@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0g6jpalog3v"]
+[gd_scene load_steps=3 format=3 uid="uid://8d1mmxxnxnxy"]
 
 [sub_resource type="GDScript" id="GDScript_nyy48"]
 script/source = "
@@ -13,7 +13,7 @@ func _enter_tree():
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikg3t"]
 
-[node name="Fibro" type="RigidBody2D" groups=["fibro"]]
+[node name="FibroA" type="RigidBody2D" groups=["fibroA"]]
 gravity_scale = 0.0
 max_contacts_reported = 5
 contact_monitor = true

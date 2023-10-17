@@ -9,18 +9,50 @@ var lst_cells_linked: Array = []
 
 
 func biodyn_process(agent)->bool:
-	if agent is RigidBody3D:
-		if lst_cells_linked.size() / 2 < max_links:
-			var bodies = agent.get_colliding_bodies()
-			if bodies.size() > 0:
-				for b in bodies:
-					if b.is_in_group(with_group):
-						if lst_cells_linked.has([agent, b]) == false: # evite 2x le meme spring
+
+	if lst_cells_linked.size() / 2 < max_links:
+		var bodies = agent.get_colliding_bodies()
+		if bodies.size() > 0:
+			for b in bodies:
+				if b.is_in_group(with_group):
+					if lst_cells_linked.has([agent, b]) == false: # evite 2x le meme spring
+						if agent is RigidBody3D:
 							cell_cell_spring3D(agent, b) # on les relient par un Spring
-							lst_cells_linked.append([agent, b])
-							lst_cells_linked.append([b, agent])
-							return true
+						if agent is RigidBody2D:
+							cell_cell_spring2D(agent, b) # on les relient par un Spring
+						lst_cells_linked.append([agent, b])
+						lst_cells_linked.append([b, agent])
+						return true
 	return false
+
+func cell_cell_spring2D(body1:RigidBody2D, body2:RigidBody2D) -> Array:
+	print( str(body1.get_name() , " with " , body2.get_name() ) )
+	# Creation d'un ressort entre les 2 RigidBodies
+	var jt:DampedSpringJoint2D = DampedSpringJoint2D.new()
+	
+	##jt.set_exclude_nodes_from_collision(false)
+	# Ajout de ce ressort sur les 2 RigidBodies
+	jt.set_node_a(body1.get_path())
+	jt.set_node_b(body2.get_path())
+	# Parameters of the Spring
+	var L:float = ((body2.transform.origin - body1.transform.origin) ).length()
+	jt.length = 1
+	jt.rest_length = 1
+	jt.stiffness = 64
+	jt.damping = 16
+	jt.bias = 0.9
+	# Position du spring
+	jt.transform.origin = (body1.transform.origin + body2.transform.origin) * 0.5
+	# Ajout de son script d'affichage
+	#jt.script = load("res://addons/BehavForGroups/BreakableSpring.gd")
+	# Ajout de son script de cassage
+	#jt.script = load("res://BreakableSpring.gd")
+	#print("node a = " + self.get_path())
+	#print("node b = " + body.get_path())
+	# Ajout du Ressort dans la scène (sinon inactif)
+	body1.get_parent().add_child(jt)
+	return [body1, body2]
+
 
 func cell_cell_spring3D(body1:RigidBody3D, body2:RigidBody3D) -> Array:
 	print( str(body1.get_name() , " with " , body2.get_name() ) )
