@@ -15,8 +15,8 @@ func biodyn_process(agent)->bool:
 		return true
 		
 	if agent is RigidBody2D:
-		var poly:Polygon2D = get_node("Polygon2D")
-		poly.Color = color
+		var poly:Polygon2D = agent.get_node("Polygon2D")
+		poly.color = color
 		return true
 
 	return false

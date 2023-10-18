@@ -5,6 +5,9 @@ script/source = "
 @tool
 extends RigidBody2D
 
+@export var state:int = 0
+@export var age:int = 0
+
 func _enter_tree():
 	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
 	set_name.call_deferred(new_name)

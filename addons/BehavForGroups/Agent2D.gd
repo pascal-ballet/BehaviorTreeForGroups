@@ -84,8 +84,8 @@ func rb_script():
 @tool
 extends RigidBody2D
 
-var state:int = 0
-var age:int = 0
+@export var state:int = 0
+@export var age:int = 0
 
 func _process(delta):
 	age += 1
