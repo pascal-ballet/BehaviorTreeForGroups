@@ -43,11 +43,15 @@ func _process(delta):
 	else:
 		var pos_a:Vector2 = _node_a.transform.origin
 		var pos_b:Vector2 = _node_b.transform.origin
-		var dirA:Vector2 = (pos_b - pos_a).normalized()
-		var dirB:Vector2 = -dirA
-		var i:float = pos_a.distance_to(pos_b) / 1
-		_node_a.apply_impulse(i*dirA)
-		_node_b.apply_impulse(i*dirB)
+		var d:float = pos_a.distance_to(pos_b)
+		if d > 30:
+			queue_free()
+		else:
+			var i:float = d / 1
+			var dirA:Vector2 = (pos_b - pos_a).normalized()
+			var dirB:Vector2 = -dirA
+			_node_a.apply_impulse(i*dirA)
+			_node_b.apply_impulse(i*dirB)
 """
 	# Must reload the script with changed source code before putting it
 	# to the node
