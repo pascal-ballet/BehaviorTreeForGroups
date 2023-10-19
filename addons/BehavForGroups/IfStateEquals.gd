@@ -1,5 +1,5 @@
 @icon("Condition.svg")
-class_name IfStateIsEqual
+class_name IfStateEquals
 extends BehavForGroups
 
 @export var state_equals:int = 0

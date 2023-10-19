@@ -31,5 +31,5 @@ state = 1
 shape = SubResource("CircleShape2D_ikg3t")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 0, 0.635294, 1)
+color = Color(1, 0.368627, 0.690196, 1)
 polygon = PackedVector2Array(10, 0, 5, 8.66025, -5, 8.66025, -10, 1.22465e-15, -5, -8.66025, 5, -8.66025)
