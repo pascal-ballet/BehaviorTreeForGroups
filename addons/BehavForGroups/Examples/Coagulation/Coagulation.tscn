@@ -45,6 +45,7 @@ y_min = 100.0
 y_max = 700.0
 z_min = 0.0
 z_max = 0.0
+loop_x = true
 
 [node name="Platelets" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_yfr04")
@@ -214,6 +215,12 @@ scale = Vector2(5.21, 5.21)
 color = Color(0.356863, 0.2, 0.14902, 1)
 polygon = PackedVector2Array(-7.69231, 148.85, 213.846, 149.058, 213.654, 121.558, 182.692, 114.892, 164.615, 107.183, 143.612, 104.749, 120.577, 107.6, 99.0385, 108.433, 71.5385, 105.517, 26.5297, 105.324, 10.7692, 115.933, -8.07692, 123.333)
 
+[node name="Polygon2D2" type="Polygon2D" parent="VeinLow"]
+position = Vector2(38.78, -9.15)
+scale = Vector2(5.21, 5.21)
+color = Color(0.356863, 0.2, 0.14902, 1)
+polygon = PackedVector2Array(-7.69231, 148.85, 213.846, 149.058, 213.654, 121.558, 182.692, 114.892, 164.615, 107.183, 143.612, 104.749, 120.577, 107.6, 99.0385, 108.433, 71.5385, 105.517, 26.5297, 105.324, 10.7692, 115.933, -8.07692, 123.333)
+
 [node name="VeinUp" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VeinUp"]
@@ -354,3 +361,303 @@ position = Vector2(127, 328)
 
 [node name="Platelet40" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(366, 335)
+
+[node name="Platelet41" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(441, 270)
+
+[node name="Platelet42" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(393, 270)
+
+[node name="Platelet43" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(350, 271)
+
+[node name="Platelet44" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(371, 273)
+
+[node name="Platelet45" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(328, 274)
+
+[node name="Platelet46" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(299, 267)
+
+[node name="Platelet47" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(256, 268)
+
+[node name="Platelet48" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(277, 270)
+
+[node name="Platelet49" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(234, 271)
+
+[node name="Platelet50" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(473, 278)
+
+[node name="Platelet51" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(422, 237)
+
+[node name="Platelet52" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(374, 237)
+
+[node name="Platelet53" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(331, 238)
+
+[node name="Platelet54" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(352, 240)
+
+[node name="Platelet55" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(309, 241)
+
+[node name="Platelet56" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(280, 234)
+
+[node name="Platelet57" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(237, 235)
+
+[node name="Platelet58" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(258, 237)
+
+[node name="Platelet59" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(215, 238)
+
+[node name="Platelet60" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(454, 245)
+
+[node name="Platelet61" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(366, 200)
+
+[node name="Platelet62" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(318, 200)
+
+[node name="Platelet63" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(275, 201)
+
+[node name="Platelet64" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(296, 203)
+
+[node name="Platelet65" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(253, 204)
+
+[node name="Platelet66" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(224, 197)
+
+[node name="Platelet67" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(181, 198)
+
+[node name="Platelet68" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(202, 200)
+
+[node name="Platelet69" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(159, 201)
+
+[node name="Platelet70" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(398, 208)
+
+[node name="Platelet71" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(347, 167)
+
+[node name="Platelet72" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(299, 167)
+
+[node name="Platelet73" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(256, 168)
+
+[node name="Platelet74" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(277, 170)
+
+[node name="Platelet75" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(234, 171)
+
+[node name="Platelet76" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(205, 164)
+
+[node name="Platelet77" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(162, 165)
+
+[node name="Platelet78" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(183, 167)
+
+[node name="Platelet79" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(140, 168)
+
+[node name="Platelet80" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(379, 175)
+
+[node name="Platelet81" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(773, 369)
+
+[node name="Platelet82" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(725, 369)
+
+[node name="Platelet83" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(682, 370)
+
+[node name="Platelet84" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(703, 372)
+
+[node name="Platelet85" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(660, 373)
+
+[node name="Platelet86" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(631, 366)
+
+[node name="Platelet87" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(588, 367)
+
+[node name="Platelet88" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(609, 369)
+
+[node name="Platelet89" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(566, 370)
+
+[node name="Platelet90" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(805, 377)
+
+[node name="Platelet91" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(754, 336)
+
+[node name="Platelet92" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(706, 336)
+
+[node name="Platelet93" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(663, 337)
+
+[node name="Platelet94" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(684, 339)
+
+[node name="Platelet95" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(641, 340)
+
+[node name="Platelet96" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(612, 333)
+
+[node name="Platelet97" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(569, 334)
+
+[node name="Platelet98" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(590, 336)
+
+[node name="Platelet99" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(547, 337)
+
+[node name="Platelet100" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(786, 344)
+
+[node name="Platelet101" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(861, 279)
+
+[node name="Platelet102" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(813, 279)
+
+[node name="Platelet103" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(770, 280)
+
+[node name="Platelet104" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(791, 282)
+
+[node name="Platelet105" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(748, 283)
+
+[node name="Platelet106" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(719, 276)
+
+[node name="Platelet107" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(676, 277)
+
+[node name="Platelet108" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(697, 279)
+
+[node name="Platelet109" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(654, 280)
+
+[node name="Platelet110" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(893, 287)
+
+[node name="Platelet111" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(842, 246)
+
+[node name="Platelet112" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(794, 246)
+
+[node name="Platelet113" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(751, 247)
+
+[node name="Platelet114" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(772, 249)
+
+[node name="Platelet115" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(729, 250)
+
+[node name="Platelet116" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(700, 243)
+
+[node name="Platelet117" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(657, 244)
+
+[node name="Platelet118" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(678, 246)
+
+[node name="Platelet119" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(635, 247)
+
+[node name="Platelet120" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(874, 254)
+
+[node name="Platelet121" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(786, 209)
+
+[node name="Platelet122" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(738, 209)
+
+[node name="Platelet123" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(695, 210)
+
+[node name="Platelet124" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(716, 212)
+
+[node name="Platelet125" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(673, 213)
+
+[node name="Platelet126" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(644, 206)
+
+[node name="Platelet127" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(601, 207)
+
+[node name="Platelet128" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(622, 209)
+
+[node name="Platelet129" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(579, 210)
+
+[node name="Platelet130" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(818, 217)
+
+[node name="Platelet131" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(767, 176)
+
+[node name="Platelet132" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(719, 176)
+
+[node name="Platelet133" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(676, 177)
+
+[node name="Platelet134" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(697, 179)
+
+[node name="Platelet135" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(654, 180)
+
+[node name="Platelet136" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(625, 173)
+
+[node name="Platelet137" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(582, 174)
+
+[node name="Platelet138" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(603, 176)
+
+[node name="Platelet139" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(560, 177)
+
+[node name="Platelet140" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(799, 184)

@@ -45,7 +45,7 @@ func _process(delta):
 		var pos_b:Vector2 = _node_b.transform.origin
 		var dirA:Vector2 = (pos_b - pos_a).normalized()
 		var dirB:Vector2 = -dirA
-		var i:float = pos_a.distance_to(pos_b) / 10
+		var i:float = pos_a.distance_to(pos_b) / 1
 		_node_a.apply_impulse(i*dirA)
 		_node_b.apply_impulse(i*dirB)
 """
