@@ -39,13 +39,8 @@ fx = 1.0
 
 [node name="StayInBox" type="Node" parent="BehavForGroups/Circulating"]
 script = ExtResource("5_tu27f")
-x_min = 0.0
-x_max = 1200.0
-y_min = 100.0
-y_max = 700.0
-z_min = 0.0
-z_max = 0.0
-loop_x = true
+min = Vector3(0, 200, 0)
+max = Vector3(1130, 600, 0)
 
 [node name="Platelets" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_yfr04")
@@ -55,12 +50,12 @@ on_group = "platelet"
 script = ExtResource("6_u1vim")
 activated = false
 
+[node name="IfStateEquals_0" type="Node" parent="BehavForGroups/Platelets/Activation"]
+script = ExtResource("13_d5aqs")
+
 [node name="IfContact_factors" type="Node" parent="BehavForGroups/Platelets/Activation"]
 script = ExtResource("7_tu5dy")
 with_group = "factors"
-
-[node name="IfStateEquals_0" type="Node" parent="BehavForGroups/Platelets/Activation"]
-script = ExtResource("13_d5aqs")
 
 [node name="SetState_1" type="Node" parent="BehavForGroups/Platelets/Activation"]
 script = ExtResource("12_f5fdc")
@@ -77,7 +72,7 @@ fy = 100.0
 [node name="FixOnFibro" type="Node" parent="BehavForGroups/Platelets"]
 script = ExtResource("6_u1vim")
 
-[node name="IfStateEquals" type="Node" parent="BehavForGroups/Platelets/FixOnFibro"]
+[node name="IfStateEquals_1" type="Node" parent="BehavForGroups/Platelets/FixOnFibro"]
 script = ExtResource("13_d5aqs")
 
 [node name="AddSpring_with_fibro_1" type="Node" parent="BehavForGroups/Platelets/FixOnFibro"]
@@ -570,7 +565,7 @@ position = Vector2(697, 279)
 position = Vector2(654, 280)
 
 [node name="Platelet110" parent="." instance=ExtResource("16_loo5f")]
-position = Vector2(893, 287)
+position = Vector2(829, 338)
 
 [node name="Platelet111" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(842, 246)

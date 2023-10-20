@@ -20,6 +20,7 @@ func biodyn_process(agent)->bool:
 							cell_cell_spring3D(agent, b) # on les relient par un Spring
 						if agent is RigidBody2D:
 							cell_cell_spring2D(agent, b) # on les relient par un Spring
+						# Store the link to avoid multiple ones AND more than max_links
 						lst_cells_linked.append([agent, b])
 						lst_cells_linked.append([b, agent])
 						return true
