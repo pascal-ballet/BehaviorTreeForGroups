@@ -1,7 +1,7 @@
 @icon("Action.svg")
 @tool
 
-class_name Grid2D
+class_name NewGrid2D
 extends BehavForGroups
 
 func _ready():
@@ -53,6 +53,7 @@ func tr_script():
 	return """
 @tool
 extends TextureRect
+class_name Grid2D
 
 @export var baseColor:Color = Color(0.5,0.5,0.5,0.5)
 @export var diffusionSpeed = 0.3
