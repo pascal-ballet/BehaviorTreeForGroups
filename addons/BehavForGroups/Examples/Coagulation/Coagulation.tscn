@@ -207,6 +207,15 @@ proba = 10.0
 script = ExtResource("9_g6rn1")
 agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/Factors.tscn"
 
+[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
+offset_left = 3.0
+offset_top = 69.0
+offset_right = 1151.0
+offset_bottom = 519.0
+baseColor = Color(1, 0, 0.635294, 0.501961)
+diffusionRate = 0.1
+degradationRate = 0.01
+
 [node name="VeinLow" type="StaticBody2D" parent="."]
 position = Vector2(0, -106.59)
 
@@ -237,15 +246,6 @@ polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 11
 [node name="Polygon2D" type="Polygon2D" parent="VeinUp"]
 color = Color(0.356863, 0.2, 0.14902, 1)
 polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 514, 77, 442, 96, 384, 80, 300, 109, 221, 88, 122, 106, 46, 72, 0, 73, 0, 73)
-
-[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
-offset_left = 327.0
-offset_top = 179.0
-offset_right = 807.0
-offset_bottom = 492.0
-baseColor = Color(1, 0, 0.635294, 0.501961)
-diffusionRate = 0.1
-degradationRate = 0.01
 
 [node name="Fibro" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(515, 447)
