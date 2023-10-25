@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2rbou6dglon"]
+[gd_scene load_steps=18 format=3 uid="uid://d2rbou6dglon"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_wqrga"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_yfr04"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetState.gd" id="12_f5fdc"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfStateEquals.gd" id="13_d5aqs"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="16_loo5f"]
+[ext_resource type="PackedScene" uid="uid://co71saw17f4p3" path="res://Grid2D0.tscn" id="17_x7qfq"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -656,3 +657,9 @@ position = Vector2(560, 177)
 
 [node name="Platelet140" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(799, 184)
+
+[node name="Grid2D0" parent="." instance=ExtResource("17_x7qfq")]
+offset_left = 418.0
+offset_top = 349.0
+offset_right = 711.0
+offset_bottom = 483.0
