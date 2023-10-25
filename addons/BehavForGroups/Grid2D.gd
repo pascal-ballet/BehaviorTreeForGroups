@@ -54,6 +54,9 @@ func tr_script():
 @tool
 extends TextureRect
 
+@export var baseColor:Color = Color(0.5,0.5,0.5,0.5)
+@export var diffusionSpeed = 0.3
+
 @export var state:int = 0
 @export var age:int = 0
 var values_t0:PackedFloat32Array = PackedFloat32Array()
@@ -78,16 +81,14 @@ func _enter_tree():
 	set_name.call_deferred(new_name)
 
 func diffusion():
-	
 	for i in range(SX):
 		for j in range(SY):
 			var p:int = i+j*SX
-			var speed:float = 0.3
 			var v0:float = values_t0[ (i+1)%SX+j*SX]
 			var v1:float = values_t0[ (i-1+SX)%SX+j*SX]
 			var v2:float = values_t0[ i%SX+((j+1)%SY)*SX]
 			var v3:float = values_t0[ i%SX+((j-1+SY)%SY)*SX]
-			values_t1[p] = (1.0-speed)*values_t0[p] + speed*(v0+v1+v2+v3)*0.25
+			values_t1[p] = (1.0-diffusionSpeed)*values_t0[p] + diffusionSpeed*(v0+v1+v2+v3)*0.25
 	
 	for i in range(SX*SY):
 		values_t0[i] = values_t1[i]
@@ -98,9 +99,8 @@ func display_values():
 		for j in range(SY):
 			var p:int = i+j*SX
 			var v:float = values_t0[p]
-			img.set_pixel(i,j,Color(v,v,v))
+			img.set_pixel(i,j,Color(v*baseColor.r,v*baseColor.g,v*baseColor.b,baseColor.a) )
 	set_texture(ImageTexture.create_from_image(img))
 
 		
 """
-
