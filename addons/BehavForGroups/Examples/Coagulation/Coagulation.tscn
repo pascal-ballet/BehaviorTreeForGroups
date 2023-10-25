@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfStateEquals.gd" id="13_d5aqs"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetGridValue.gd" id="15_jtirm"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="16_loo5f"]
-[ext_resource type="PackedScene" uid="uid://dbwkqbv1qkvdp" path="res://Grid2D0.tscn" id="17_x7qfq"]
+[ext_resource type="PackedScene" uid="uid://bfi2ks2pc3nha" path="res://Grid2D0.tscn" id="17_x7qfq"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -239,12 +239,13 @@ color = Color(0.356863, 0.2, 0.14902, 1)
 polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 514, 77, 442, 96, 384, 80, 300, 109, 221, 88, 122, 106, 46, 72, 0, 73, 0, 73)
 
 [node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
-offset_left = 358.0
-offset_top = 165.0
-offset_right = 841.0
-offset_bottom = 486.0
-baseColor = Color(1, 0, 0.4, 1)
-diffusionSpeed = 0.03
+offset_left = 327.0
+offset_top = 179.0
+offset_right = 807.0
+offset_bottom = 492.0
+baseColor = Color(1, 0, 0.635294, 0.501961)
+diffusionRate = 0.1
+degradationRate = 0.01
 
 [node name="Fibro" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(515, 447)
