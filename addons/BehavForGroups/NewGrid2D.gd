@@ -56,7 +56,8 @@ extends TextureRect
 class_name Grid2D
 
 @export var baseColor:Color = Color(0.5,0.5,0.5,0.5)
-@export var diffusionSpeed = 0.3
+@export var diffusionRate = 0.3
+@export var degradationRate = 0.001
 
 @export var state:int = 0
 @export var age:int = 0
@@ -89,7 +90,7 @@ func diffusion():
 			var v1:float = values_t0[ (i-1+SX)%SX+j*SX]
 			var v2:float = values_t0[ i%SX+((j+1)%SY)*SX]
 			var v3:float = values_t0[ i%SX+((j-1+SY)%SY)*SX]
-			values_t1[p] = (1.0-diffusionSpeed)*values_t0[p] + diffusionSpeed*(v0+v1+v2+v3)*0.25
+			values_t1[p] = (1.0-degradationRate)*(1.0-diffusionRate)*values_t0[p] + diffusionRate*(v0+v1+v2+v3)*0.25
 	
 	for i in range(SX*SY):
 		values_t0[i] = values_t1[i]

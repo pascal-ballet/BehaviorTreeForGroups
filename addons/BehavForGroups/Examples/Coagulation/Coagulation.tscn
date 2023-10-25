@@ -48,6 +48,11 @@ max = Vector3(1130, 600, 0)
 script = ExtResource("2_yfr04")
 on_group = "platelet"
 
+[node name="SetGridValue" type="Node" parent="BehavForGroups/Platelets"]
+script = ExtResource("15_jtirm")
+on_grid_group = "grd"
+set_value = 1.0
+
 [node name="Activation" type="Node" parent="BehavForGroups/Platelets"]
 script = ExtResource("6_u1vim")
 activated = false
@@ -232,6 +237,14 @@ polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 11
 [node name="Polygon2D" type="Polygon2D" parent="VeinUp"]
 color = Color(0.356863, 0.2, 0.14902, 1)
 polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 514, 77, 442, 96, 384, 80, 300, 109, 221, 88, 122, 106, 46, 72, 0, 73, 0, 73)
+
+[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
+offset_left = 358.0
+offset_top = 165.0
+offset_right = 841.0
+offset_bottom = 486.0
+baseColor = Color(1, 0, 0.4, 1)
+diffusionSpeed = 0.03
 
 [node name="Fibro" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(515, 447)
@@ -664,9 +677,3 @@ position = Vector2(560, 177)
 
 [node name="Platelet140" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(799, 184)
-
-[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
-offset_left = 408.0
-offset_top = 385.0
-offset_right = 729.0
-offset_bottom = 537.0
