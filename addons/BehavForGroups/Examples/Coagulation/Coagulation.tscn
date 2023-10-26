@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceToGridValue.gd" id="14_6gg0k"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetGridValue.gd" id="15_jtirm"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="16_loo5f"]
-[ext_resource type="PackedScene" uid="uid://bfi2ks2pc3nha" path="res://Grid2D0.tscn" id="17_x7qfq"]
+[ext_resource type="PackedScene" uid="uid://c07ph2tmeiul8" path="res://Grid2D0.tscn" id="17_x7qfq"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -43,7 +43,7 @@ fx = 1.0
 
 [node name="StayInBox" type="Node" parent="BehavForGroups/Circulating"]
 script = ExtResource("5_tu27f")
-min = Vector3(0, 200, 0)
+min = Vector3(0, 100, 0)
 max = Vector3(1130, 600, 0)
 loop_x = true
 
@@ -225,13 +225,11 @@ script = ExtResource("9_g6rn1")
 agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/Factors.tscn"
 
 [node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
-offset_left = 3.0
-offset_top = 69.0
-offset_right = 1151.0
-offset_bottom = 519.0
-baseColor = Color(1, 0, 0.635294, 0.501961)
-diffusionRate = 0.1
-degradationRate = 0.01
+offset_left = -3.0
+offset_top = 72.0
+offset_right = 1149.0
+offset_bottom = 536.0
+baseColor = Color(1, 1, 1, 0.501961)
 
 [node name="VeinLow" type="StaticBody2D" parent="."]
 position = Vector2(0, -106.59)

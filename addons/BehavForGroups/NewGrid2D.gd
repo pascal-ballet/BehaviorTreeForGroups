@@ -19,7 +19,8 @@ func _enter_tree():
 	var img:Image = Image.create(SX,SY,false, Image.FORMAT_RGBA8)
 	for x in range(SX):
 		for y in range(SY):
-			img.set_pixel(x,y, Color(randf(),randf(),randf(),randf()))
+			var rnd:float = randf()
+			img.set_pixel(x,y, Color(rnd,rnd,rnd,rnd))
 	# Put the image into a texture for rendering
 	tr.set_texture(ImageTexture.create_from_image(img))
 	
