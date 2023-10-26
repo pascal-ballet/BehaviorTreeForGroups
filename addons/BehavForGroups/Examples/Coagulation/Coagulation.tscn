@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2rbou6dglon"]
+[gd_scene load_steps=21 format=3 uid="uid://d2rbou6dglon"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_wqrga"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_yfr04"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/AddSpringOnContact.gd" id="11_ihhew"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetState.gd" id="12_f5fdc"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfStateEquals.gd" id="13_d5aqs"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/ForceToGridValue.gd" id="14_6gg0k"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetGridValue.gd" id="15_jtirm"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="16_loo5f"]
 [ext_resource type="PackedScene" uid="uid://bfi2ks2pc3nha" path="res://Grid2D0.tscn" id="17_x7qfq"]
@@ -50,8 +51,15 @@ loop_x = true
 script = ExtResource("2_yfr04")
 on_group = "platelet"
 
+[node name="ForceToGridValue" type="Node" parent="BehavForGroups/Platelets"]
+script = ExtResource("14_6gg0k")
+on_grid_group = "grd"
+value_to_go = 1.0
+force = 10.0
+
 [node name="Sequential" type="Node" parent="BehavForGroups/Platelets"]
 script = ExtResource("6_u1vim")
+activated = false
 
 [node name="IfGridValueIsInf" type="Node" parent="BehavForGroups/Platelets/Sequential"]
 script = ExtResource("7_o3w61")

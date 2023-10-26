@@ -13,10 +13,10 @@ func _ready():
 	pass
 
 func biodyn_process(agent)->bool:
-	var cdt:bool = false
 	for grid in grids:
 		# 2D
-		if agent is Node2D:
+		var F:Vector2 = Vector2(0,0)
+		if agent is RigidBody2D:
 			var ax:float = agent.position.x
 			var ay:float = agent.position.y
 			var gx_min:float = grid.position.x
@@ -28,6 +28,32 @@ func biodyn_process(agent)->bool:
 					var px:int = ((ax - gx_min) / grid.size.x) * grid.SX
 					var py:int = ((ay - gy_min) / grid.size.y) * grid.SY
 					var p:int = px+py*grid.SX
-					if grid.values_t0[p] >= is_sup_to:
-						cdt = true
-	return cdt
+					var fx:float = 0
+					var fy:float = 0
+					var p0:float = grid.values_t0[(p+1)%(grid.SX*grid.SY)]
+					var p1:float = grid.values_t0[(p-grid.SX+grid.SX*grid.SY)%(grid.SX*grid.SY)]
+					var p2:float = grid.values_t0[(p-1+grid.SX*grid.SY)%(grid.SX*grid.SY)]
+					var p3:float = grid.values_t0[(p+grid.SX)%(grid.SX*grid.SY)]
+					if grid.values_t0[p] >= value_to_go:
+						# Go to the lowest value arround
+						if p0 <= p1 && p0 <= p2 && p0 <= p3:
+							fx = force
+						elif p1 <= p2 && p1 <= p3:
+							fy = -force
+						elif p2 <= p3:
+							fx = -force
+						else:
+							fy = force
+					if grid.values_t0[p] < value_to_go:
+						# Go to the highest value arround
+						if p0 >= p1 && p0 >= p2 && p0 >= p3:
+							fx = force
+						elif p1 >= p2 && p1 >= p3:
+							fy = -force
+						elif p2 >= p3:
+							fx = -force
+						else:
+							fy = force
+					F = F + Vector2(fx,fy)
+				agent.apply_impulse(F)
+	return true
