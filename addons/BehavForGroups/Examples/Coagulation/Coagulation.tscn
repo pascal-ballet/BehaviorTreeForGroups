@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2rbou6dglon"]
+[gd_scene load_steps=20 format=3 uid="uid://d2rbou6dglon"]
 
 [ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_wqrga"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_yfr04"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="5_tu27f"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="6_u1vim"]
 [ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://addons/BehavForGroups/Examples/Coagulation/Fibro.tscn" id="7_6b6ua"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfGridValueIsSup.gd" id="7_n7iit"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="7_suvx2"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="7_tu5dy"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="8_vdyjm"]
@@ -43,15 +44,23 @@ fx = 1.0
 script = ExtResource("5_tu27f")
 min = Vector3(0, 200, 0)
 max = Vector3(1130, 600, 0)
+loop_x = true
 
 [node name="Platelets" type="Node" parent="BehavForGroups"]
 script = ExtResource("2_yfr04")
 on_group = "platelet"
 
-[node name="SetGridValue" type="Node" parent="BehavForGroups/Platelets"]
-script = ExtResource("15_jtirm")
+[node name="Sequential" type="Node" parent="BehavForGroups/Platelets"]
+script = ExtResource("6_u1vim")
+
+[node name="IfGridValueIsSup" type="Node" parent="BehavForGroups/Platelets/Sequential"]
+script = ExtResource("7_n7iit")
 on_grid_group = "grd"
-set_value = 1.0
+is_sup_to = 0.1
+
+[node name="ForceGlobal" type="Node" parent="BehavForGroups/Platelets/Sequential"]
+script = ExtResource("4_6bt5m")
+fy = -10.0
 
 [node name="Activation" type="Node" parent="BehavForGroups/Platelets"]
 script = ExtResource("6_u1vim")
