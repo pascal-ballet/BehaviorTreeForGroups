@@ -57,6 +57,7 @@ extends TextureRect
 class_name Grid2D
 
 @export var baseColor:Color = Color(0.5,0.5,0.5,0.5)
+@export var show_iso:bool = false
 @export var diffusionRate = 0.3
 @export var degradationRate = 0.001
 
@@ -76,7 +77,10 @@ func _ready():
 func _process(delta):
 	if not Engine.is_editor_hint():
 		diffusion()
-		display_values()
+		if show_iso == false:
+			display_values()
+		else:
+			display_iso()
 		age += 1
 		
 func _enter_tree():
@@ -105,5 +109,17 @@ func display_values():
 			img.set_pixel(i,j,Color(v*baseColor.r,v*baseColor.g,v*baseColor.b,baseColor.a) )
 	set_texture(ImageTexture.create_from_image(img))
 
+func display_iso():
+	var img:Image = Image.create(SX,SY,false, Image.FORMAT_RGBA8)
+	var r:float; var g:float; var b:float
+	for i in range(SX):
+		for j in range(SY):
+			var p:int = i+j*SX
+			var v:float = values_t0[p] # [0, 1]
+			var e:float = 0
+			if v>0:
+				e = sin(10*log(-v))
+			img.set_pixel(i,j,Color(e*baseColor.r,e*baseColor.g,e*baseColor.b,baseColor.a) )
+	set_texture(ImageTexture.create_from_image(img))
 		
 """

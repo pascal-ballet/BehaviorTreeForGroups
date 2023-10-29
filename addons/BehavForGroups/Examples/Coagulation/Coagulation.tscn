@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceToGridValue.gd" id="14_6gg0k"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetGridValue.gd" id="15_jtirm"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="16_loo5f"]
-[ext_resource type="PackedScene" uid="uid://c07ph2tmeiul8" path="res://Grid2D0.tscn" id="17_x7qfq"]
+[ext_resource type="PackedScene" uid="uid://co27t1jysgy5h" path="res://Grid2D0.tscn" id="17_x7qfq"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -54,7 +54,7 @@ on_group = "platelet"
 [node name="ForceToGridValue" type="Node" parent="BehavForGroups/Platelets"]
 script = ExtResource("14_6gg0k")
 on_grid_group = "grd"
-value_to_go = 1.0
+value_to_go = 0.4
 force = 10.0
 
 [node name="Sequential" type="Node" parent="BehavForGroups/Platelets"]
@@ -224,13 +224,6 @@ proba = 10.0
 script = ExtResource("9_g6rn1")
 agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/Factors.tscn"
 
-[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
-offset_left = -3.0
-offset_top = 72.0
-offset_right = 1149.0
-offset_bottom = 536.0
-baseColor = Color(1, 1, 1, 0.501961)
-
 [node name="VeinLow" type="StaticBody2D" parent="."]
 position = Vector2(0, -106.59)
 
@@ -263,7 +256,7 @@ color = Color(0.356863, 0.2, 0.14902, 1)
 polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 514, 77, 442, 96, 384, 80, 300, 109, 221, 88, 122, 106, 46, 72, 0, 73, 0, 73)
 
 [node name="Fibro" parent="." instance=ExtResource("7_6b6ua")]
-position = Vector2(515, 447)
+position = Vector2(515, 293)
 
 [node name="Fibro2" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(552, 453)
@@ -693,3 +686,10 @@ position = Vector2(560, 177)
 
 [node name="Platelet140" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(799, 184)
+
+[node name="Grid2D0" parent="." instance=ExtResource("17_x7qfq")]
+offset_left = 42.0
+offset_top = 61.0
+offset_right = 1147.0
+offset_bottom = 538.0
+show_iso = true
