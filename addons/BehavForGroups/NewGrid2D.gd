@@ -19,8 +19,9 @@ func _enter_tree():
 	var img:Image = Image.create(SX,SY,false, Image.FORMAT_RGBA8)
 	for x in range(SX):
 		for y in range(SY):
-			var rnd:float = randf()
-			img.set_pixel(x,y, Color(rnd,rnd,rnd,rnd))
+			var rnd:float = 0#randf()
+			if x == 0 || x == SX-1 || y == 0 || y == SY-1:
+				img.set_pixel(x,y, Color(rnd,rnd,rnd,1))
 	# Put the image into a texture for rendering
 	tr.set_texture(ImageTexture.create_from_image(img))
 	
@@ -61,18 +62,39 @@ class_name Grid2D
 @export var diffusionRate = 0.3
 @export var degradationRate = 0.001
 
+@export var SX:int = 64
+@export var SY:int = 32
+@export var loop_x:bool = false
+@export var loop_y:bool = false
+
 @export var state:int = 0
 @export var age:int = 0
+
 var values_t0:PackedFloat32Array = PackedFloat32Array()
 var values_t1:PackedFloat32Array = PackedFloat32Array()
-var SX:int = 64
-var SY:int = 32
+
+var xmin:float; var xmax:float; var ymin:float;var ymax:float
 
 func _ready():
 	values_t0.resize(SX*SY)
 	values_t1.resize(SX*SY)
 	for i in range(SX*SY):
-		values_t0[i] = randf()
+		values_t0[i] = 0
+
+	if loop_x == true:
+		xmin = 0
+		xmax = SX
+	else:
+		xmin = 1
+		xmax = SX-1
+
+	if loop_y == true:
+		ymin = 0
+		ymax = SY
+	else:
+		ymin = 1
+		ymax = SY-1
+		
 
 func _process(delta):
 	if not Engine.is_editor_hint():
@@ -88,8 +110,8 @@ func _enter_tree():
 	set_name.call_deferred(new_name)
 
 func diffusion():
-	for i in range(SX):
-		for j in range(SY):
+	for i in range(xmin,xmax):
+		for j in range(ymin,ymax):
 			var p:int = i+j*SX
 			var v0:float = values_t0[ (i+1)%SX+j*SX]
 			var v1:float = values_t0[ (i-1+SX)%SX+j*SX]
