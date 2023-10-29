@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceToGridValue.gd" id="14_6gg0k"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetGridValue.gd" id="15_jtirm"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://addons/BehavForGroups/Examples/Coagulation/Platelet.tscn" id="16_loo5f"]
-[ext_resource type="PackedScene" uid="uid://co27t1jysgy5h" path="res://Grid2D0.tscn" id="17_x7qfq"]
+[ext_resource type="PackedScene" uid="uid://kfvmlb0hd76a" path="res://Grid2D0.tscn" id="17_x7qfq"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -223,6 +223,13 @@ proba = 10.0
 [node name="AddAgent" type="Node" parent="BehavForGroups/Fibro/ProdFactors"]
 script = ExtResource("9_g6rn1")
 agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/Factors.tscn"
+
+[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("17_x7qfq")]
+offset_left = 6.0
+offset_top = 82.0
+offset_right = 1148.0
+offset_bottom = 516.0
+show_iso = true
 
 [node name="VeinLow" type="StaticBody2D" parent="."]
 position = Vector2(0, -106.59)
@@ -686,10 +693,3 @@ position = Vector2(560, 177)
 
 [node name="Platelet140" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(799, 184)
-
-[node name="Grid2D0" parent="." instance=ExtResource("17_x7qfq")]
-offset_left = 42.0
-offset_top = 61.0
-offset_right = 1147.0
-offset_bottom = 538.0
-show_iso = true

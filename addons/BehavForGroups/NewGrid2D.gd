@@ -118,7 +118,7 @@ func display_iso():
 			var v:float = values_t0[p] # [0, 1]
 			var e:float = 0
 			if v>0:
-				e = sin(10*log(-v))
+				e = sin(30*log(v))
 			img.set_pixel(i,j,Color(e*baseColor.r,e*baseColor.g,e*baseColor.b,baseColor.a) )
 	set_texture(ImageTexture.create_from_image(img))
 		
