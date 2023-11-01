@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://addons/BehavForGroups/Examples/Coagulation/Fibro.tscn" id="7_6b6ua"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfGridValueIsInf.gd" id="7_o3w61"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="7_suvx2"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="7_tu5dy"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="8_vdyjm"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="9_g6rn1"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfCollision.gd" id="10_4dgow"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ChangeColor.gd" id="11_4pl0m"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/AddSpringOnContact.gd" id="11_ihhew"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/SetState.gd" id="12_f5fdc"]
@@ -78,7 +78,7 @@ activated = false
 script = ExtResource("13_d5aqs")
 
 [node name="IfContact_factors" type="Node" parent="BehavForGroups/Platelets/Activation"]
-script = ExtResource("7_tu5dy")
+script = ExtResource("10_4dgow")
 with_group = "factors"
 
 [node name="SetState_1" type="Node" parent="BehavForGroups/Platelets/Activation"]
@@ -142,7 +142,7 @@ script = ExtResource("7_suvx2")
 proba = 0.0
 
 [node name="IfContact2" type="Node" parent="BehavForGroups/Platelets/Aggregates"]
-script = ExtResource("7_tu5dy")
+script = ExtResource("10_4dgow")
 with_group = "factors"
 
 [node name="ForceGlobal2" type="Node" parent="BehavForGroups/Platelets/Aggregates"]
@@ -177,7 +177,7 @@ script = ExtResource("8_vdyjm")
 script = ExtResource("6_u1vim")
 
 [node name="IfContact" type="Node" parent="BehavForGroups/Factors/Usage"]
-script = ExtResource("7_tu5dy")
+script = ExtResource("10_4dgow")
 with_group = "platelet"
 
 [node name="Delete" type="Node" parent="BehavForGroups/Factors/Usage"]
@@ -197,9 +197,9 @@ script = ExtResource("6_u1vim")
 activated = false
 
 [node name="IfContact" type="Node" parent="BehavForGroups/Fibro/Unactivate"]
-script = ExtResource("7_tu5dy")
-with_group = "platelet"
+script = ExtResource("10_4dgow")
 in_state = 1
+with_group = "platelet"
 
 [node name="SetState" type="Node" parent="BehavForGroups/Fibro/Unactivate"]
 script = ExtResource("12_f5fdc")
@@ -224,7 +224,7 @@ proba = 10.0
 script = ExtResource("9_g6rn1")
 agent_tscn = "res://addons/BehavForGroups/Examples/Coagulation/Factors.tscn"
 
-[node name="Grid2D" parent="." groups=["grd"] instance=ExtResource("20_3fwqe")]
+[node name="Grid2D0" parent="." groups=["grd"] instance=ExtResource("20_3fwqe")]
 offset_left = -1.0
 offset_top = 69.0
 offset_right = 1149.0

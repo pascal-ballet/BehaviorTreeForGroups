@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="4_52da3"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="5_jmidm"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="6_6wxfy"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="7_3pti1"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfCollision.gd" id="7_3pti1"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="8_bqvrh"]
 [ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavForGroups/Examples/Agent-B.tscn" id="9_1gvab"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="9_maaon"]

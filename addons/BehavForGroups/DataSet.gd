@@ -7,6 +7,5 @@ extends BehavForGroups
 
 func biodyn_process(agent:Node)->bool:
 	if data_name != "":
-		if agent.has_meta(data_name):
-			agent.set_meta(data_name, set_to_value)
+		agent.set_meta(data_name, set_to_value)
 	return true

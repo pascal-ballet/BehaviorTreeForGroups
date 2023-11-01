@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfDataIsSup.gd" id="10_4572w"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="11_hxr37"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/DataPlus.gd" id="12_td4x6"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="13_0b4gh"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/IfCollision.gd" id="13_0b4gh"]
 [ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://addons/BehavForGroups/Examples/Agent-A.tscn" id="14_dkau8"]
 [ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="15_7t0tw"]
 
