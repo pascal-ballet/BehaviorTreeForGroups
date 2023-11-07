@@ -193,25 +193,19 @@ polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 11
 position = Vector2(507, 436)
 
 [node name="Fibro2" parent="." instance=ExtResource("7_6b6ua")]
-position = Vector2(507, 417)
+position = Vector2(549, 437)
 
 [node name="Fibro3" parent="." instance=ExtResource("7_6b6ua")]
-position = Vector2(583, 436)
-
-[node name="Fibro4" parent="." instance=ExtResource("7_6b6ua")]
-position = Vector2(630, 436)
-
-[node name="Platelet2" parent="." instance=ExtResource("16_loo5f")]
-position = Vector2(462, 424)
+position = Vector2(507, 415)
 
 [node name="Platelet" parent="." instance=ExtResource("16_loo5f")]
-position = Vector2(343, 426)
+position = Vector2(271, 426)
+age = 102529
+
+[node name="Platelet2" parent="." instance=ExtResource("16_loo5f")]
+position = Vector2(464, 424)
+age = 102529
 
 [node name="Platelet3" parent="." instance=ExtResource("16_loo5f")]
-position = Vector2(294, 426)
-
-[node name="Platelet4" parent="." instance=ExtResource("16_loo5f")]
-position = Vector2(320, 426)
-
-[node name="Platelet5" parent="." instance=ExtResource("16_loo5f")]
-position = Vector2(271, 426)
+position = Vector2(392, 419)
+age = 102529

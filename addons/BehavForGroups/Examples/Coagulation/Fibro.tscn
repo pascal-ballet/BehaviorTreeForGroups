@@ -12,6 +12,10 @@ func _enter_tree():
 	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
 	set_name.call_deferred(new_name)
 
+
+func _process(delta):
+	age += 1
+	
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikg3t"]
