@@ -2,10 +2,10 @@
 class_name IfCollision
 extends BehavForGroups
 
-## Agent's state (-1 = any state)
-@export var in_state:int = -1
 ## Collider's group
 @export var with_group:String = ""
+## Group's state (-1 = any state)
+@export var in_state:int = -1
 ## Collider's reference into the common blackboard
 @export var collider_reference:String = "collider"
 
@@ -17,5 +17,5 @@ func biodyn_process(agent)->bool:
 				if (b.state == in_state || in_state == -1):
 					if collider_reference != "":
 						get_tree().current_scene.set_meta(collider_reference, b)
-						return true
+					return true
 	return false

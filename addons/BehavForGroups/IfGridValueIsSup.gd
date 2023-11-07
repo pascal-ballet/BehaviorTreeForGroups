@@ -27,6 +27,7 @@ func biodyn_process(agent)->bool:
 					var px:int = ((ax - gx_min) / grid.size.x) * grid.SX
 					var py:int = ((ay - gy_min) / grid.size.y) * grid.SY
 					var p:int = px+py*grid.SX
-					if grid.values_t0[p] >= is_sup_to:
+					var val:float = grid.values_t0[p]
+					if val >= is_sup_to:
 						cdt = true
 	return cdt

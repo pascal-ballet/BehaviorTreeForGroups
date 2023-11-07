@@ -37,7 +37,7 @@ extends Node
 var _node_a = null
 var _node_b = null
 
-func _process(delta):
+func _process(_delta):
 	if _node_a == null || _node_b == null:
 		print("Spring Removed")
 		queue_free()
@@ -68,13 +68,13 @@ func _process(delta):
 	
 	body1.get_parent().add_child(spring)
 	
-	print( str(body1.get_name() , " with " , body2.get_name() ) )
+	#print( str(body1.get_name() , " with " , body2.get_name() ) )
 	
 	return [body1, body2]
 
 
 func cell_cell_spring3D(body1:RigidBody3D, body2:RigidBody3D) -> Array:
-	print( str(body1.get_name() , " with " , body2.get_name() ) )
+	#print( str(body1.get_name() , " with " , body2.get_name() ) )
 	# Creation d'un ressort entre les 2 RigidBodies
 	var jt:Generic6DOFJoint3D = Generic6DOFJoint3D.new()
 

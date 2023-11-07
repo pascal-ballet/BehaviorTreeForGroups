@@ -96,7 +96,7 @@ func _ready():
 		ymax = SY-1
 		
 
-func _process(delta):
+func _process(_delta):
 	if not Engine.is_editor_hint():
 		diffusion()
 		if show_iso == false:
