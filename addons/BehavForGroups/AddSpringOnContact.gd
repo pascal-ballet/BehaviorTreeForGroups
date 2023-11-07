@@ -2,8 +2,15 @@
 class_name AddSpringOnContact
 extends BehavForGroups
 
+## Group to contact with
 @export var with_group:String = ""
+## State of the group
 @export var in_state:int = -1
+## Break length of the spring
+@export var spring_max_length:float = 30
+## Spring stifness
+@export var spring_stifness:float = 1
+## Max links for the current agent
 @export var max_links : int = 1
 
 var lst_cells_linked: Array = []
@@ -45,11 +52,11 @@ func _process(_delta):
 		var pos_a:Vector2 = _node_a.transform.origin
 		var pos_b:Vector2 = _node_b.transform.origin
 		var d:float = pos_a.distance_to(pos_b)
-		if d > 30:
+		if d > """+str(spring_max_length)+""":
 			queue_free()
 		else:
 			var i:float = d / 1
-			var dirA:Vector2 = (pos_b - pos_a).normalized()
+			var dirA:Vector2 = (pos_b - pos_a).normalized()*"""+str(spring_stifness)+"""
 			var dirB:Vector2 = -dirA
 			_node_a.apply_impulse(i*dirA)
 			_node_b.apply_impulse(i*dirB)
