@@ -1,96 +1,87 @@
 [gd_scene load_steps=13 format=3 uid="uid://gbfhv38mowje"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_ty85y"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_r87fs"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="3_1a2m6"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfStepBetween.gd" id="4_t67sr"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/AddSpringOnContact.gd" id="4_u81ky"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_wcjs1"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="4_xxsde"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavForGroups/Examples/Agent-B.tscn" id="5_di58j"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="6_q137f"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="6_qqbgm"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="7_3e5lb"]
-
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_ty85y"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_r87fs"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Sequential.gd" id="3_1a2m6"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfStepBetween.gd" id="4_t67sr"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/AddSpringOnContact.gd" id="4_u81ky"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="4_wcjs1"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="4_xxsde"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavTreeForGroups/Examples/Agent-B.tscn" id="5_di58j"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfProba.gd" id="6_q137f"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="6_qqbgm"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="7_3e5lb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
 flip_faces = true
 
 [node name="ExampleCrowdMvt1" type="Node3D"]
 
-[node name="BehavForGroups" type="Node" parent="."]
+[node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_ty85y")
 
-[node name="Agent-B" type="Node" parent="BehavForGroups"]
+[node name="Agent-B" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_r87fs")
 on_group = "Agent-B"
 
-[node name="MvtRandom" type="Node" parent="BehavForGroups/Agent-B"]
+[node name="MvtRandom" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("3_1a2m6")
 
-[node name="IfStepBetween" type="Node" parent="BehavForGroups/Agent-B/MvtRandom"]
+[node name="IfStepBetween" type="Node" parent="BehavTreeForGroups/Agent-B/MvtRandom"]
 script = ExtResource("4_t67sr")
 step_end = 100000
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Agent-B/MvtRandom"]
+[node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-B/MvtRandom"]
 script = ExtResource("4_xxsde")
 fx = 0.3
 fy = 0.3
 fz = 0.3
 
-[node name="DeathRandom" type="Node" parent="BehavForGroups/Agent-B"]
+[node name="DeathRandom" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("3_1a2m6")
 
-[node name="IfStepBetween" type="Node" parent="BehavForGroups/Agent-B/DeathRandom"]
+[node name="IfStepBetween" type="Node" parent="BehavTreeForGroups/Agent-B/DeathRandom"]
 script = ExtResource("4_t67sr")
 step_start = 100000
 step_end = 100000000
 
-[node name="IfProba" type="Node" parent="BehavForGroups/Agent-B/DeathRandom"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/Agent-B/DeathRandom"]
 script = ExtResource("6_q137f")
 proba = 0.001
 
-[node name="Delete" type="Node" parent="BehavForGroups/Agent-B/DeathRandom"]
+[node name="Delete" type="Node" parent="BehavTreeForGroups/Agent-B/DeathRandom"]
 script = ExtResource("7_3e5lb")
 
-[node name="AddSpringOnContact" type="Node" parent="BehavForGroups/Agent-B"]
+[node name="AddSpringOnContact" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("4_u81ky")
 with_group = "Agent-C"
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-B"]
+[node name="StayInBox" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("4_wcjs1")
-x_min = -1.0
-x_max = 1.0
-y_min = -1.0
-y_max = 1.0
-z_min = -1.0
-z_max = 1.0
+min = Vector3(-1, -1, -1)
+max = Vector3(1, 1, 1)
 
-[node name="Agent-C" type="Node" parent="BehavForGroups"]
+[node name="Agent-C" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_r87fs")
 on_group = "Agent-C"
 
-[node name="Sequential" type="Node" parent="BehavForGroups/Agent-C"]
+[node name="Sequential" type="Node" parent="BehavTreeForGroups/Agent-C"]
 script = ExtResource("3_1a2m6")
 
-[node name="IfStepBetween" type="Node" parent="BehavForGroups/Agent-C/Sequential"]
+[node name="IfStepBetween" type="Node" parent="BehavTreeForGroups/Agent-C/Sequential"]
 script = ExtResource("4_t67sr")
 step_end = 100000
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Agent-C/Sequential"]
+[node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-C/Sequential"]
 script = ExtResource("4_xxsde")
 fx = 0.4
 fy = 0.4
 fz = 0.4
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Agent-C"]
+[node name="StayInBox" type="Node" parent="BehavTreeForGroups/Agent-C"]
 script = ExtResource("4_wcjs1")
-x_min = -1.0
-x_max = 1.0
-y_min = -1.0
-y_max = 1.0
-z_min = -1.0
-z_max = 1.0
+min = Vector3(-1, -1, -1)
+max = Vector3(1, 1, 1)
 
 [node name="Agent-B" parent="." instance=ExtResource("5_di58j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.369118, -0.0464584, 0)

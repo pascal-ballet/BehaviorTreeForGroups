@@ -1,55 +1,48 @@
-[gd_scene load_steps=11 format=3 uid="uid://mnmnadyptnt8"]
+[gd_scene load_steps=10 format=3 uid="uid://mnmnadyptnt8"]
 
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="1_esapn"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_gl7wk"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_vrko8"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_xa0sf"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_dwsit"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="5_c7awk"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="6_l27o4"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfNoContact.gd" id="7_5dnoi"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/CloneAgent.gd" id="7_npfs2"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="9_dnmwd"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="1_esapn"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_gl7wk"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_vrko8"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="3_xa0sf"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="4_dwsit"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Sequential.gd" id="5_c7awk"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfProba.gd" id="6_l27o4"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfNoContact.gd" id="7_5dnoi"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/CloneAgent.gd" id="7_npfs2"]
 
 [node name="Cicatrisation" type="Node3D"]
 
-[node name="BehavForGroups" type="Node" parent="."]
+[node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_gl7wk")
 
-[node name="Behavior" type="Node" parent="BehavForGroups"]
+[node name="Behavior" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_vrko8")
 on_group = "Fibro"
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("3_xa0sf")
-fx = 0.3
+fx = 0.1
 fy = 0.0
-fz = 0.3
+fz = 0.1
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+[node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("4_dwsit")
-x_min = -1.0
-x_max = 1.0
-y_min = -0.1
-y_max = 0.1
-z_min = -1.0
-z_max = 1.0
+min = Vector3(-1, 0, -1)
+max = Vector3(1, 0, 1)
 
-[node name="Sequential" type="Node" parent="BehavForGroups/Behavior"]
+[node name="Sequential" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("5_c7awk")
 
-[node name="IfProba" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/Behavior/Sequential"]
 script = ExtResource("6_l27o4")
+proba = 10.0
 
-[node name="IfNoContact" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+[node name="IfNoContact" type="Node" parent="BehavTreeForGroups/Behavior/Sequential"]
 script = ExtResource("7_5dnoi")
 steps_without_contact = 10
 
-[node name="CloneAgent" type="Node" parent="BehavForGroups/Behavior/Sequential"]
+[node name="CloneAgent" type="Node" parent="BehavTreeForGroups/Behavior/Sequential"]
 script = ExtResource("7_npfs2")
-
-[node name="AddAgent" type="Node" parent="BehavForGroups/Behavior/Sequential"]
-script = ExtResource("9_dnmwd")
 
 [node name="Fibroblast1" parent="." groups=["Fibro"] instance=ExtResource("1_esapn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366393, 0, -0.399809)

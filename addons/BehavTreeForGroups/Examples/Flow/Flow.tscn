@@ -1,36 +1,30 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxyigr7s87t04"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_4jb5r"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_3ieej"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_f64oc"]
-[ext_resource type="PackedScene" uid="uid://doydn5x6x37xu" path="res://addons/BehavForGroups/Examples/Flow/Cell.tscn" id="4_x2xy5"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="4_yuj62"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="5_4avop"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_4jb5r"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_3ieej"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="3_f64oc"]
+[ext_resource type="PackedScene" uid="uid://doydn5x6x37xu" path="res://addons/BehavTreeForGroups/Examples/Flow/Cell.tscn" id="4_x2xy5"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceGlobal.gd" id="4_yuj62"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="5_4avop"]
 
 [node name="Flow" type="Node3D"]
 
-[node name="BehavForGroups" type="Node" parent="."]
+[node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_4jb5r")
 
-[node name="Behavior" type="Node" parent="BehavForGroups"]
+[node name="Behavior" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_3ieej")
 on_group = "cell"
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("3_f64oc")
 
-[node name="ForceGlobal" type="Node" parent="BehavForGroups/Behavior"]
+[node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("4_yuj62")
 fx = 0.3
 
-[node name="StayInBox" type="Node" parent="BehavForGroups/Behavior"]
+[node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("5_4avop")
-x_min = -4.0
-x_max = 4.0
-y_min = -1.0
-y_max = 1.0
-z_min = -1.0
-z_max = 1.0
 loop_x = true
 
 [node name="Camera3D" type="Camera3D" parent="."]

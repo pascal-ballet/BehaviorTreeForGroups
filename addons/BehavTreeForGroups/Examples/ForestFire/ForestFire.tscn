@@ -1,106 +1,106 @@
 [gd_scene load_steps=12 format=3 uid="uid://c1p7vflg5vjuc"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_4gm7k"]
-[ext_resource type="PackedScene" uid="uid://cis6ivx1riuic" path="res://addons/BehavForGroups/Examples/ForestFire/tree.tscn" id="1_cx3dt"]
-[ext_resource type="PackedScene" uid="uid://dsdphcvcaxhpx" path="res://addons/BehavForGroups/Examples/ForestFire/tree_in_fire.tscn" id="2_k8c4c"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_xonnc"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfContact.gd" id="3_apnxr"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Delete.gd" id="4_crbyd"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/AddAgent.gd" id="5_82lyg"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="6_agti2"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="7_uakj8"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/IfProba.gd" id="8_nj340"]
-[ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="9_7tulj"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_4gm7k"]
+[ext_resource type="PackedScene" uid="uid://cis6ivx1riuic" path="res://addons/BehavTreeForGroups/Examples/ForestFire/tree.tscn" id="1_cx3dt"]
+[ext_resource type="PackedScene" uid="uid://dsdphcvcaxhpx" path="res://addons/BehavTreeForGroups/Examples/ForestFire/tree_in_fire.tscn" id="2_k8c4c"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_xonnc"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfCollision.gd" id="3_apnxr"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="4_crbyd"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/AddAgent.gd" id="5_82lyg"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="6_agti2"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceGlobal.gd" id="7_uakj8"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfProba.gd" id="8_nj340"]
+[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Sequential.gd" id="9_7tulj"]
 
 [node name="ForestFire" type="Node3D"]
 
-[node name="BehavForGroups" type="Node" parent="."]
+[node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_4gm7k")
 
-[node name="Tree" type="Node" parent="BehavForGroups"]
+[node name="Tree" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
 on_group = "Tree"
 
-[node name="Sequential" type="Node" parent="BehavForGroups/Tree"]
+[node name="Sequential" type="Node" parent="BehavTreeForGroups/Tree"]
 script = ExtResource("9_7tulj")
 
-[node name="IfContact" type="Node" parent="BehavForGroups/Tree/Sequential"]
+[node name="IfContact" type="Node" parent="BehavTreeForGroups/Tree/Sequential"]
 script = ExtResource("3_apnxr")
 with_group = "Fire"
 
-[node name="AddAgent" type="Node" parent="BehavForGroups/Tree/Sequential"]
+[node name="AddAgent" type="Node" parent="BehavTreeForGroups/Tree/Sequential"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavForGroups/Examples/ForestFire/tree_in_fire.tscn"
+agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/tree_in_fire.tscn"
 
-[node name="Delete" type="Node" parent="BehavForGroups/Tree/Sequential"]
+[node name="Delete" type="Node" parent="BehavTreeForGroups/Tree/Sequential"]
 script = ExtResource("4_crbyd")
 
-[node name="TreeInFire" type="Node" parent="BehavForGroups"]
+[node name="TreeInFire" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
 on_group = "TreeInFire"
 
-[node name="AddFire" type="Node" parent="BehavForGroups/TreeInFire"]
+[node name="AddFire" type="Node" parent="BehavTreeForGroups/TreeInFire"]
 script = ExtResource("9_7tulj")
 
-[node name="IfProba" type="Node" parent="BehavForGroups/TreeInFire/AddFire"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/TreeInFire/AddFire"]
 script = ExtResource("8_nj340")
 proba = 10.0
 
-[node name="AddAgent" type="Node" parent="BehavForGroups/TreeInFire/AddFire"]
+[node name="AddAgent" type="Node" parent="BehavTreeForGroups/TreeInFire/AddFire"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavForGroups/Examples/ForestFire/fire.tscn"
+agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/fire.tscn"
 
-[node name="BecomeBurned" type="Node" parent="BehavForGroups/TreeInFire"]
+[node name="BecomeBurned" type="Node" parent="BehavTreeForGroups/TreeInFire"]
 script = ExtResource("9_7tulj")
 
-[node name="IfProba2" type="Node" parent="BehavForGroups/TreeInFire/BecomeBurned"]
+[node name="IfProba2" type="Node" parent="BehavTreeForGroups/TreeInFire/BecomeBurned"]
 script = ExtResource("8_nj340")
 proba = 0.1
 
-[node name="AddAgent2" type="Node" parent="BehavForGroups/TreeInFire/BecomeBurned"]
+[node name="AddAgent2" type="Node" parent="BehavTreeForGroups/TreeInFire/BecomeBurned"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavForGroups/Examples/ForestFire/tree_burned.tscn"
+agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/tree_burned.tscn"
 
-[node name="Delete" type="Node" parent="BehavForGroups/TreeInFire/BecomeBurned"]
+[node name="Delete" type="Node" parent="BehavTreeForGroups/TreeInFire/BecomeBurned"]
 script = ExtResource("4_crbyd")
 
-[node name="TreeBurned" type="Node" parent="BehavForGroups"]
+[node name="TreeBurned" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
 on_group = "TreeBurned"
 
-[node name="Sequential" type="Node" parent="BehavForGroups/TreeBurned"]
+[node name="Sequential" type="Node" parent="BehavTreeForGroups/TreeBurned"]
 script = ExtResource("9_7tulj")
 
-[node name="IfProba" type="Node" parent="BehavForGroups/TreeBurned/Sequential"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/TreeBurned/Sequential"]
 script = ExtResource("8_nj340")
 proba = 0.03
 
-[node name="AddAgent" type="Node" parent="BehavForGroups/TreeBurned/Sequential"]
+[node name="AddAgent" type="Node" parent="BehavTreeForGroups/TreeBurned/Sequential"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavForGroups/Examples/ForestFire/tree.tscn"
+agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/tree.tscn"
 
-[node name="Delete" type="Node" parent="BehavForGroups/TreeBurned/Sequential"]
+[node name="Delete" type="Node" parent="BehavTreeForGroups/TreeBurned/Sequential"]
 script = ExtResource("4_crbyd")
 
-[node name="Fire" type="Node" parent="BehavForGroups"]
+[node name="Fire" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
 on_group = "Fire"
 
-[node name="ForceRandom" type="Node" parent="BehavForGroups/Fire"]
+[node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Fire"]
 script = ExtResource("6_agti2")
 
-[node name="ForceGlobal" type="Node" parent="BehavForGroups/Fire"]
+[node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Fire"]
 script = ExtResource("7_uakj8")
 fy = 0.01
 
-[node name="Sequential" type="Node" parent="BehavForGroups/Fire"]
+[node name="Sequential" type="Node" parent="BehavTreeForGroups/Fire"]
 script = ExtResource("9_7tulj")
 
-[node name="IfProba" type="Node" parent="BehavForGroups/Fire/Sequential"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/Fire/Sequential"]
 script = ExtResource("8_nj340")
 proba = 1.0
 
-[node name="Delete" type="Node" parent="BehavForGroups/Fire/Sequential"]
+[node name="Delete" type="Node" parent="BehavTreeForGroups/Fire/Sequential"]
 script = ExtResource("4_crbyd")
 
 [node name="Tree" parent="." instance=ExtResource("1_cx3dt")]
@@ -344,7 +344,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2199, 2.02713, 2.51439)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02713, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.847548, 0.530718, 0, -0.530718, 0.847548, 0, 20.5648, 25.9207)
+transform = Transform3D(1, 0, 0, 0, 0.49063, 0.871368, 0, -0.871368, 0.49063, 0, 15.3815, 11.9689)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7436, 0.668625, 0, -0.668625, 0.7436, 0, 3.54228, 8.95859)

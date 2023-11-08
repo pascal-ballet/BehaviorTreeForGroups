@@ -21,7 +21,7 @@ func biodyn_process(agent)->bool:
 		var bodies = agent.get_colliding_bodies()
 		if bodies.size() > 0:
 			for b in bodies:
-				if b.is_in_group(with_group) && ( b.state == in_state || in_state == -1):
+				if b.is_in_group(with_group) && (!("state" in b) || ( b.state == in_state || in_state == -1)):
 					if lst_cells_linked.has([agent, b]) == false: # evite 2x le meme spring
 						if agent is RigidBody3D:
 							cell_cell_spring3D(agent, b) # on les relient par un Spring
