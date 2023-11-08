@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c1p7vflg5vjuc"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_4gm7k"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_4gm7k"]
 [ext_resource type="PackedScene" uid="uid://cis6ivx1riuic" path="res://addons/BehavForGroups/Examples/ForestFire/tree.tscn" id="1_cx3dt"]
 [ext_resource type="PackedScene" uid="uid://dsdphcvcaxhpx" path="res://addons/BehavForGroups/Examples/ForestFire/tree_in_fire.tscn" id="2_k8c4c"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_xonnc"]

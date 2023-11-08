@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cb7jd05rgt8ln"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_y0bum"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_y0bum"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_gglsv"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceAngularZ.gd" id="3_tysjh"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRadial.gd" id="4_ny1up"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/IfStepBetween.gd" id="9_06spx"]
 [ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavForGroups/Examples/Agent-B.tscn" id="10_x2l5v"]
 [ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="11_lmqax"]
+
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
 flip_faces = true

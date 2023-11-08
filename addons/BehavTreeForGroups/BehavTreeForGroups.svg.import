@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7xrpivel265"
-path="res://.godot/imported/ActionBlue.svg-dcc1bf8d1518c402100fe4218af9aa4f.ctex"
+uid="uid://cvlrsrn4yeuth"
+path="res://.godot/imported/BehavTreeForGroups.svg-fde9b999d5e84fec4668d4b1a992c5e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavForGroups/ActionBlue.svg"
-dest_files=["res://.godot/imported/ActionBlue.svg-dcc1bf8d1518c402100fe4218af9aa4f.ctex"]
+source_file="res://addons/BehavForGroups/BehavTreeForGroups.svg"
+dest_files=["res://.godot/imported/BehavTreeForGroups.svg-fde9b999d5e84fec4668d4b1a992c5e6.ctex"]
 
 [params]
 

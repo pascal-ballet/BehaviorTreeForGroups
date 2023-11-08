@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cjttehav3absk"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_bbgsd"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_bbgsd"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_ydp6m"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_n8pv4"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Sequential.gd" id="4_52da3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="9_maaon"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="10_ahpm3"]
 [ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavForGroups/Examples/Agent-C.tscn" id="10_sbjrl"]
+
 
 [sub_resource type="BoxMesh" id="BoxMesh_h8i4e"]
 flip_faces = true

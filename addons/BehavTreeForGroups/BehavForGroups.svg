@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.1"
-   width="16"
-   height="16"
-   viewBox="0 0 16 16"
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
    preserveAspectRatio="xMidYMid"
    id="svg_document"
-   sodipodi:docname="BioDyn.svg"
-   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   sodipodi:docname="BehavForGroups.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    inkscape:export-filename="BioDyn.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -28,39 +28,30 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      showgrid="false"
-     inkscape:zoom="7.375"
-     inkscape:cx="10.101695"
-     inkscape:cy="15.79661"
-     inkscape:window-width="1301"
-     inkscape:window-height="669"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
+     inkscape:zoom="14.75"
+     inkscape:cx="10.135593"
+     inkscape:cy="22.949153"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg_document" />
   <!-- Created with macSVG - https://macsvg.org/ - https://github.com/dsward2/macsvg/ -->
   <title
      id="svg_document_title">Untitled.svg</title>
   <defs
      id="svg_document_defs" />
-  <g
-     id="main_group"
-     transform="matrix(0.59331985,0,0,0.51061349,-0.78818457,-0.20672264)">
-    <polygon
-       points="9.6875,2.375 21.3125,3 26.6875,14.5 24.375,29.6875 6.6875,24.9375 3.1875,11.75 "
-       stroke="#ee82ee"
-       id="polygon1"
-       stroke-width="3px"
-       fill="none" />
-  </g>
   <ellipse
      stroke="#ee82ee"
-     cx="8.2970257"
+     cx="24"
      id="circle1"
      stroke-width="1.65125px"
-     cy="7.4524798"
+     cy="24"
      fill="#ee82ee"
      rx="2.9295168"
-     ry="2.5211539" />
+     ry="2.5211539"
+     style="fill:#c8c8c8;fill-opacity:1;stroke:#c8c8c8;stroke-width:10;stroke-dasharray:none;stroke-opacity:1" />
   <metadata
      id="metadata687">
     <rdf:RDF>
@@ -70,4 +61,18 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <rect
+     style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#c8c8c8;stroke-width:6.90896;stroke-dasharray:none;stroke-opacity:1;image-rendering:optimizeSpeed"
+     id="rect2869"
+     width="37.091042"
+     height="37.091042"
+     x="5.4544792"
+     y="5.4544792" />
+  <rect
+     style="fill:none;fill-opacity:0;stroke:#c8c8c8;stroke-width:5.4392;stroke-dasharray:none;stroke-opacity:1"
+     id="rect1"
+     width="0.2726669"
+     height="4.5438533"
+     x="23.863667"
+     y="33.084007" />
 </svg>

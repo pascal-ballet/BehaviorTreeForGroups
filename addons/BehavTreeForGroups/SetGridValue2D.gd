@@ -1,5 +1,5 @@
-@icon("Action.svg")
-class_name SetGridValue
+@icon("Action2D.svg")
+class_name SetGridValue2D
 extends BehavForGroups
 
 @export var on_grid_group:String = ""

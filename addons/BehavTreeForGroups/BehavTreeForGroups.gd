@@ -1,4 +1,4 @@
-@icon("BehavForGroups.svg")
+@icon("BehavTreeForGroups.svg")
 
 class_name BehavForGroups
 extends Node

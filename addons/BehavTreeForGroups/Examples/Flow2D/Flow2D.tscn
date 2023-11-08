@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpaaye4b1ct5e"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_qevbp"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_qevbp"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_21fqr"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_rck85"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/StayInBox.gd" id="4_q10aq"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceGlobal.gd" id="5_hquvo"]
 [ext_resource type="PackedScene" uid="uid://i28u32im7gm4" path="res://addons/BehavForGroups/Examples/Flow2D/Cell.tscn" id="6_ko71e"]
+
 
 [node name="Flow2D" type="Node2D"]
 

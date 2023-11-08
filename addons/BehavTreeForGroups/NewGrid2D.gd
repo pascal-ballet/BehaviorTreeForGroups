@@ -1,4 +1,4 @@
-@icon("Action.svg")
+@icon("Action2D.svg")
 @tool
 
 class_name NewGrid2D

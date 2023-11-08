@@ -1,7 +1,7 @@
-@icon("Action.svg")
+@icon("Action2D.svg")
 @tool
 
-class_name Agent2D
+class_name NewAgent2D
 extends BehavForGroups
 
 func _ready():

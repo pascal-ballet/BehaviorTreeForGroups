@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxyigr7s87t04"]
 
-[ext_resource type="Script" path="res://addons/BehavForGroups/BehavForGroups.gd" id="1_4jb5r"]
+[ext_resource type="Script" path="res://addons/BehavForGroups/BehavTreeForGroups.gd" id="1_4jb5r"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/Behavior.gd" id="2_3ieej"]
 [ext_resource type="Script" path="res://addons/BehavForGroups/ForceRandom.gd" id="3_f64oc"]
 [ext_resource type="PackedScene" uid="uid://doydn5x6x37xu" path="res://addons/BehavForGroups/Examples/Flow/Cell.tscn" id="4_x2xy5"]
