@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="BehavTreeForGroups"
-config/description="A behavior Tree to create swarm and multiagent systems based on the Godot Groups."
-run/main_scene="res://addons/BehavForGroups/Examples/Ex-Prey-Pred.tscn"
+config/description="A Behavior Tree to create swarm and multiagent systems based on Node's Groups."
+run/main_scene="res://addons/BehavTreeForGroups/Examples/Coagulation/Coagulation.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://addons/BehavTreeForGroups/icon.png"
 

@@ -10,6 +10,8 @@ extends BehavForGroups
 @export var spring_max_length:float = 30
 ## Spring stifness
 @export var spring_stifness:float = 1
+## Length at rest of the spring (-1 is the length when created)
+@export var spring_length_at_rest:float = -1
 ## Max links for the current agent
 @export var max_links : int = 1
 
@@ -35,7 +37,9 @@ func biodyn_process(agent)->bool:
 
 
 func cell_cell_spring2D(body1:RigidBody2D, body2:RigidBody2D) -> Array:
-	
+	var length_at_rest:float = spring_length_at_rest
+	if spring_length_at_rest == -1:
+		length_at_rest = (body2.transform.origin-body1.transform.origin).length()
 	# Create a new script with embedded expression
 	var scrip:GDScript = GDScript.new()
 	# Define source code needed for evaluation (extends Reference by default)
@@ -55,7 +59,7 @@ func _process(_delta):
 		if d > """+str(spring_max_length)+""":
 			queue_free()
 		else:
-			var i:float = d / 1
+			var i:float = d - """ + str(length_at_rest) + """
 			var dirA:Vector2 = (pos_b - pos_a).normalized()*"""+str(spring_stifness)+"""
 			var dirB:Vector2 = -dirA
 			_node_a.apply_impulse(i*dirA)
