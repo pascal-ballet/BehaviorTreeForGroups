@@ -232,392 +232,392 @@ polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 11
 
 [node name="Fibro" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(507, 436)
-age = 701089
+age = 704463
 
 [node name="Fibro2" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(549, 437)
-age = 701089
+age = 704463
 
 [node name="Fibro3" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(582, 440)
-age = 701089
+age = 704463
 
 [node name="Fibro4" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(610, 438)
-age = 701089
+age = 704463
 
 [node name="Fibro5" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(646, 442)
-age = 701089
+age = 704463
 
 [node name="Fibro6" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(683, 433)
-age = 701089
+age = 704463
 
 [node name="Platelet" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(271, 426)
-age = 977951
+age = 981325
 
 [node name="Platelet2" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(464, 424)
-age = 977951
+age = 981325
 
 [node name="Platelet3" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(392, 419)
-age = 977951
+age = 981325
 
 [node name="Platelet4" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(268, 385)
-age = 977951
+age = 981325
 
 [node name="Platelet5" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(461, 383)
-age = 977951
+age = 981325
 
 [node name="Platelet6" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(389, 378)
-age = 977951
+age = 981325
 
 [node name="Platelet7" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(230, 403)
-age = 977951
+age = 981325
 
 [node name="Platelet8" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(423, 401)
-age = 977951
+age = 981325
 
 [node name="Platelet9" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(351, 396)
-age = 977951
+age = 981325
 
 [node name="Platelet10" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(227, 362)
-age = 977951
+age = 981325
 
 [node name="Platelet11" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(420, 360)
-age = 977951
+age = 981325
 
 [node name="Platelet12" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(348, 355)
-age = 977951
+age = 981325
 
 [node name="Platelet13" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(92, 355)
-age = 977951
+age = 981325
 
 [node name="Platelet14" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(285, 353)
-age = 977951
+age = 981325
 
 [node name="Platelet15" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(213, 348)
-age = 977951
+age = 981325
 
 [node name="Platelet16" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(89, 314)
-age = 977951
+age = 981325
 
 [node name="Platelet17" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(282, 312)
-age = 977951
+age = 981325
 
 [node name="Platelet18" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(210, 307)
-age = 977951
+age = 981325
 
 [node name="Platelet19" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(51, 332)
-age = 977951
+age = 981325
 
 [node name="Platelet20" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(244, 330)
-age = 977951
+age = 981325
 
 [node name="Platelet21" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(172, 325)
-age = 977951
+age = 981325
 
 [node name="Platelet22" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(48, 291)
-age = 977951
+age = 981325
 
 [node name="Platelet23" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(241, 289)
-age = 977951
+age = 981325
 
 [node name="Platelet24" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(169, 284)
-age = 977951
+age = 981325
 
 [node name="Platelet25" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(119, 418)
-age = 977951
+age = 981325
 
 [node name="Platelet26" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(312, 416)
-age = 977951
+age = 981325
 
 [node name="Platelet27" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(240, 411)
-age = 977951
+age = 981325
 
 [node name="Platelet28" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(116, 377)
-age = 977951
+age = 981325
 
 [node name="Platelet29" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(309, 375)
-age = 977951
+age = 981325
 
 [node name="Platelet30" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(237, 370)
-age = 977951
+age = 981325
 
 [node name="Platelet31" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(78, 395)
-age = 977951
+age = 981325
 
 [node name="Platelet32" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(271, 393)
-age = 977951
+age = 981325
 
 [node name="Platelet33" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(199, 388)
-age = 977951
+age = 981325
 
 [node name="Platelet34" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(75, 354)
-age = 977951
+age = 981325
 
 [node name="Platelet35" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(268, 352)
-age = 977951
+age = 981325
 
 [node name="Platelet36" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(196, 347)
-age = 977951
+age = 981325
 
 [node name="Platelet37" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(304, 250)
-age = 977951
+age = 981325
 
 [node name="Platelet38" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(301, 209)
-age = 977951
+age = 981325
 
 [node name="Platelet39" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(166, 202)
-age = 977951
+age = 981325
 
 [node name="Platelet40" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(287, 195)
-age = 977951
+age = 981325
 
 [node name="Platelet41" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(163, 161)
-age = 977951
+age = 981325
 
 [node name="Platelet42" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(284, 154)
-age = 977951
+age = 981325
 
 [node name="Platelet43" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(125, 179)
-age = 977951
+age = 981325
 
 [node name="Platelet44" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(318, 177)
-age = 977951
+age = 981325
 
 [node name="Platelet45" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(246, 172)
-age = 977951
+age = 981325
 
 [node name="Platelet46" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(122, 138)
-age = 977951
+age = 981325
 
 [node name="Platelet47" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(315, 136)
-age = 977951
+age = 981325
 
 [node name="Platelet48" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(243, 131)
-age = 977951
+age = 981325
 
 [node name="Platelet49" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(193, 265)
-age = 977951
+age = 981325
 
 [node name="Platelet50" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(314, 258)
-age = 977951
+age = 981325
 
 [node name="Platelet51" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(190, 224)
-age = 977951
+age = 981325
 
 [node name="Platelet52" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(311, 217)
-age = 977951
+age = 981325
 
 [node name="Platelet53" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(152, 242)
-age = 977951
+age = 981325
 
 [node name="Platelet54" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(273, 235)
-age = 977951
+age = 981325
 
 [node name="Platelet55" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(149, 201)
-age = 977951
+age = 981325
 
 [node name="Platelet56" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(270, 194)
-age = 977951
+age = 981325
 
 [node name="Platelet57" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(769, 148)
-age = 977951
+age = 981325
 
 [node name="Platelet58" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(697, 143)
-age = 977951
+age = 981325
 
 [node name="Platelet59" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(784, 404)
-age = 977951
+age = 981325
 
 [node name="Platelet60" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(977, 402)
-age = 977951
+age = 981325
 
 [node name="Platelet61" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(905, 397)
-age = 977951
+age = 981325
 
 [node name="Platelet62" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(781, 363)
-age = 977951
+age = 981325
 
 [node name="Platelet63" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(974, 361)
-age = 977951
+age = 981325
 
 [node name="Platelet64" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(902, 356)
-age = 977951
+age = 981325
 
 [node name="Platelet65" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(743, 381)
-age = 977951
+age = 981325
 
 [node name="Platelet66" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(936, 379)
-age = 977951
+age = 981325
 
 [node name="Platelet67" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(864, 374)
-age = 977951
+age = 981325
 
 [node name="Platelet68" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(740, 340)
-age = 977951
+age = 981325
 
 [node name="Platelet69" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(933, 338)
-age = 977951
+age = 981325
 
 [node name="Platelet70" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(861, 333)
-age = 977951
+age = 981325
 
 [node name="Platelet71" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(605, 333)
-age = 977951
+age = 981325
 
 [node name="Platelet72" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(798, 331)
-age = 977951
+age = 981325
 
 [node name="Platelet73" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(726, 326)
-age = 977951
+age = 981325
 
 [node name="Platelet74" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(632, 396)
-age = 977951
+age = 981325
 
 [node name="Platelet75" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(825, 394)
-age = 977951
+age = 981325
 
 [node name="Platelet76" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(753, 389)
-age = 977951
+age = 981325
 
 [node name="Platelet77" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(629, 355)
-age = 977951
+age = 981325
 
 [node name="Platelet78" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(822, 353)
-age = 977951
+age = 981325
 
 [node name="Platelet79" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(750, 348)
-age = 977951
+age = 981325
 
 [node name="Platelet80" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(591, 373)
-age = 977951
+age = 981325
 
 [node name="Platelet81" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(784, 371)
-age = 977951
+age = 981325
 
 [node name="Platelet82" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(712, 366)
-age = 977951
+age = 981325
 
 [node name="Platelet83" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(588, 332)
-age = 977951
+age = 981325
 
 [node name="Platelet84" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(781, 330)
-age = 977951
+age = 981325
 
 [node name="Platelet85" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(709, 325)
-age = 977951
+age = 981325
 
 [node name="Platelet86" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(519, 147)
-age = 977951
+age = 981325
 
 [node name="Platelet87" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(712, 145)
-age = 977951
+age = 981325
 
 [node name="Platelet88" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(640, 140)
-age = 977951
+age = 981325
 
 [node name="Platelet89" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(478, 124)
-age = 977951
+age = 981325
 
 [node name="Platelet90" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(671, 122)
-age = 977951
+age = 981325
 
 [node name="Platelet91" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(599, 117)
-age = 977951
+age = 981325
 
 [node name="Platelet92" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(652, 322)
-age = 977951
+age = 981325
