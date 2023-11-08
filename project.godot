@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="BehavForGroups"
+config/name="BehavTreeForGroups"
+config/description="A behavior Tree to create swarm and multiagent systems based on the Godot Groups."
 run/main_scene="res://addons/BehavForGroups/Examples/Ex-Prey-Pred.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://addons/BehavForGroups/icon.png"
+config/icon="res://addons/BehavTreeForGroups/icon.png"
 
 [display]
 
@@ -21,4 +22,4 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/BehavForGroups/plugin.cfg")
+enabled=PackedStringArray()

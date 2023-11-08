@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnqvbqq8qq0yd"
-path="res://.godot/imported/Behavior.svg-67ff59886df434b097fe718ba71f7f7e.ctex"
+path="res://.godot/imported/Behavior.svg-0063003ee587a808e59a4d16946386b3.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/BehavForGroups/Behavior.svg"
-dest_files=["res://.godot/imported/Behavior.svg-67ff59886df434b097fe718ba71f7f7e.ctex"]
+source_file="res://addons/BehavTreeForGroups/Behavior.svg"
+dest_files=["res://.godot/imported/Behavior.svg-0063003ee587a808e59a4d16946386b3.ctex"]
 
 [params]
 

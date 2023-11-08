@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxa4b15on8m3s"
-path="res://.godot/imported/Sequential.svg-87aba42fc0fa41f4cb2d9957b1f41077.ctex"
+path="res://.godot/imported/Sequential.svg-f451547558138616b9b48d9079291d1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavForGroups/Sequential.svg"
-dest_files=["res://.godot/imported/Sequential.svg-87aba42fc0fa41f4cb2d9957b1f41077.ctex"]
+source_file="res://addons/BehavTreeForGroups/Sequential.svg"
+dest_files=["res://.godot/imported/Sequential.svg-f451547558138616b9b48d9079291d1d.ctex"]
 
 [params]
 
