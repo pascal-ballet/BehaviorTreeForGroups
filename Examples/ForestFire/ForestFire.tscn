@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://c1p7vflg5vjuc"]
 
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_4gm7k"]
-[ext_resource type="PackedScene" uid="uid://cis6ivx1riuic" path="res://addons/BehavTreeForGroups/Examples/ForestFire/tree.tscn" id="1_cx3dt"]
-[ext_resource type="PackedScene" uid="uid://dsdphcvcaxhpx" path="res://addons/BehavTreeForGroups/Examples/ForestFire/tree_in_fire.tscn" id="2_k8c4c"]
+[ext_resource type="PackedScene" uid="uid://cis6ivx1riuic" path="res://Examples/ForestFire/tree.tscn" id="1_cx3dt"]
+[ext_resource type="PackedScene" uid="uid://dsdphcvcaxhpx" path="res://Examples/ForestFire/tree_in_fire.tscn" id="2_k8c4c"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_xonnc"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfCollision.gd" id="3_apnxr"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="4_crbyd"]
@@ -30,7 +30,7 @@ with_group = "Fire"
 
 [node name="AddAgent" type="Node" parent="BehavTreeForGroups/Tree/Sequential"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/tree_in_fire.tscn"
+agent_tscn = "res://Examples/ForestFire/tree_in_fire.tscn"
 
 [node name="Delete" type="Node" parent="BehavTreeForGroups/Tree/Sequential"]
 script = ExtResource("4_crbyd")
@@ -48,7 +48,7 @@ proba = 10.0
 
 [node name="AddAgent" type="Node" parent="BehavTreeForGroups/TreeInFire/AddFire"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/fire.tscn"
+agent_tscn = "res://Examples/ForestFire/fire.tscn"
 
 [node name="BecomeBurned" type="Node" parent="BehavTreeForGroups/TreeInFire"]
 script = ExtResource("9_7tulj")
@@ -59,7 +59,7 @@ proba = 0.1
 
 [node name="AddAgent2" type="Node" parent="BehavTreeForGroups/TreeInFire/BecomeBurned"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/tree_burned.tscn"
+agent_tscn = "res://Examples/ForestFire/tree_burned.tscn"
 
 [node name="Delete" type="Node" parent="BehavTreeForGroups/TreeInFire/BecomeBurned"]
 script = ExtResource("4_crbyd")
@@ -77,7 +77,7 @@ proba = 0.03
 
 [node name="AddAgent" type="Node" parent="BehavTreeForGroups/TreeBurned/Sequential"]
 script = ExtResource("5_82lyg")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/ForestFire/tree.tscn"
+agent_tscn = "res://Examples/ForestFire/tree.tscn"
 
 [node name="Delete" type="Node" parent="BehavTreeForGroups/TreeBurned/Sequential"]
 script = ExtResource("4_crbyd")

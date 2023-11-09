@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/AddSpringOnContact.gd" id="4_u81ky"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="4_wcjs1"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="4_xxsde"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavTreeForGroups/Examples/Agent-B.tscn" id="5_di58j"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://Examples/Agent-B.tscn" id="5_di58j"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfProba.gd" id="6_q137f"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="6_qqbgm"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="6_qqbgm"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="7_3e5lb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
@@ -33,9 +33,6 @@ step_end = 100000
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-B/MvtRandom"]
 script = ExtResource("4_xxsde")
-fx = 0.3
-fy = 0.3
-fz = 0.3
 
 [node name="DeathRandom" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("3_1a2m6")
@@ -74,9 +71,6 @@ step_end = 100000
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-C/Sequential"]
 script = ExtResource("4_xxsde")
-fx = 0.4
-fy = 0.4
-fz = 0.4
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Agent-C"]
 script = ExtResource("4_wcjs1")

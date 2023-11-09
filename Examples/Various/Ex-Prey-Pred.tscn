@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/AddAgent.gd" id="6_6wxfy"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfCollision.gd" id="7_3pti1"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="8_bqvrh"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavTreeForGroups/Examples/Agent-B.tscn" id="9_1gvab"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://Examples/Agent-B.tscn" id="9_1gvab"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="9_maaon"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceGlobal.gd" id="10_ahpm3"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="10_sbjrl"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="10_sbjrl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h8i4e"]
 flip_faces = true
@@ -27,7 +27,6 @@ on_group = "Agent-B"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Preys"]
 script = ExtResource("3_n8pv4")
-fy = 0.0
 
 [node name="Reproduce" type="Node" parent="BehavTreeForGroups/Preys"]
 script = ExtResource("4_52da3")
@@ -38,7 +37,7 @@ proba = 1.0
 
 [node name="AddAgent" type="Node" parent="BehavTreeForGroups/Preys/Reproduce"]
 script = ExtResource("6_6wxfy")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/Agent-B.tscn"
+agent_tscn = "res://Examples/Agent-B.tscn"
 
 [node name="Eaten" type="Node" parent="BehavTreeForGroups/Preys"]
 script = ExtResource("4_52da3")
@@ -70,9 +69,6 @@ on_group = "Agent-C"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Predators"]
 script = ExtResource("3_n8pv4")
-fx = 1.4
-fy = 0.0
-fz = 1.4
 
 [node name="Eat" type="Node" parent="BehavTreeForGroups/Predators"]
 script = ExtResource("4_52da3")
@@ -83,7 +79,7 @@ with_group = "Agent-B"
 
 [node name="AddAgent" type="Node" parent="BehavTreeForGroups/Predators/Eat"]
 script = ExtResource("6_6wxfy")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/Agent-C.tscn"
+agent_tscn = "res://Examples/Agent-C.tscn"
 
 [node name="Death" type="Node" parent="BehavTreeForGroups/Predators"]
 script = ExtResource("4_52da3")

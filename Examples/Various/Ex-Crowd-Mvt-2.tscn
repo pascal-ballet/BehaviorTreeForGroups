@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfInBox.gd" id="7_i5r5w"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="8_06xkv"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfStepBetween.gd" id="9_06spx"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://addons/BehavTreeForGroups/Examples/Agent-B.tscn" id="10_x2l5v"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="11_lmqax"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://Examples/Agent-B.tscn" id="10_x2l5v"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="11_lmqax"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
 flip_faces = true
@@ -42,14 +42,9 @@ script = ExtResource("6_ygxva")
 
 [node name="IfInBox" type="Node" parent="BehavTreeForGroups/Agent-B/Sequential"]
 script = ExtResource("7_i5r5w")
-x_min = 0.0
-y_min = 0.0
-z_min = -1.0
-z_max = 1.0
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-B/Sequential"]
 script = ExtResource("8_06xkv")
-fz = 0.0
 
 [node name="Agent-C" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_gglsv")
@@ -77,7 +72,6 @@ step_end = 1000000
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-C/Sequential"]
 script = ExtResource("8_06xkv")
-fz = 0.0
 
 [node name="Agent-B" parent="." instance=ExtResource("10_x2l5v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46338, 0)

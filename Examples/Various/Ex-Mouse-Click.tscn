@@ -13,8 +13,8 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="11_hxr37"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/DataPlus.gd" id="12_td4x6"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfCollision.gd" id="13_0b4gh"]
-[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://addons/BehavTreeForGroups/Examples/Agent-A.tscn" id="14_dkau8"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="15_7t0tw"]
+[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://Examples/Agent-A.tscn" id="14_dkau8"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="15_7t0tw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyu3"]
 albedo_color = Color(0, 0.352941, 0, 1)
@@ -51,7 +51,7 @@ playerCamera = NodePath("../../../../Camera3D")
 
 [node name="AddAgentB" type="Node" parent="BehavTreeForGroups/Click-A/Sequential"]
 script = ExtResource("5_mvy3e")
-agent_tscn = "res://addons/BehavTreeForGroups/Examples/Agent-B.tscn"
+agent_tscn = "res://Examples/Agent-B.tscn"
 
 [node name="Behavior-B" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_by15k")
@@ -70,8 +70,6 @@ fy = 16.0
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior-B/ForceInit"]
 script = ExtResource("8_cnyb3")
-fx = 5.0
-fy = 5.0
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior-B"]
 script = ExtResource("9_wboaq")
@@ -110,9 +108,6 @@ with_group = "Agent-B"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior-C/Sequential"]
 script = ExtResource("8_cnyb3")
-fx = 10.0
-fy = 10.0
-fz = 10.0
 
 [node name="Behavior-Mass" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_by15k")

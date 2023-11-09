@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_4jb5r"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_3ieej"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="3_f64oc"]
-[ext_resource type="PackedScene" uid="uid://doydn5x6x37xu" path="res://addons/BehavTreeForGroups/Examples/Flow/Cell.tscn" id="4_x2xy5"]
+[ext_resource type="PackedScene" uid="uid://doydn5x6x37xu" path="res://Examples/Flow/Cell.tscn" id="4_x2xy5"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceGlobal.gd" id="4_yuj62"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="5_4avop"]
 

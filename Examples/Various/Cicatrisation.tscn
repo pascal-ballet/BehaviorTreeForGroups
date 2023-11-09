@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://mnmnadyptnt8"]
 
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://addons/BehavTreeForGroups/Examples/Agent-C.tscn" id="1_esapn"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="1_esapn"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_gl7wk"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_vrko8"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="3_xa0sf"]
@@ -21,9 +21,6 @@ on_group = "Fibro"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("3_xa0sf")
-fx = 0.1
-fy = 0.0
-fz = 0.1
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("4_dwsit")
