@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Duplicate the current node/agent
+
 @icon("Action.svg")
 
 class_name CloneAgent

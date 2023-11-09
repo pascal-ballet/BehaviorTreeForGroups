@@ -1,7 +1,14 @@
+## BehavTreeForGroups
+## ******************
+## Execute its children
+## upto one of them fails
+## (return false)
+
 @icon("Sequential.svg")
 class_name Sequential
 extends BehavForGroups
 
+## Activate / unactivate this sequence
 @export var activated:bool = true
 
 func biodyn_process(agent)->bool:

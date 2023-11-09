@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Apply a torque on the current agent
+##according to the absolute axis reference
+
 @icon("Action.svg")
 class_name TorqueGlobal
 extends BehavForGroups

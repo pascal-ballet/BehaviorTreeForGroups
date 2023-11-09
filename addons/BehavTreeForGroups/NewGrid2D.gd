@@ -1,3 +1,12 @@
+## BehavTreeForGroups
+## ******************
+## Create a new Type of 2D Grid
+## into a Type Scene file (.tscn)
+## This grid can be added manually
+## using the Godot Editor
+## or automaticaly (see AddAgent)
+## into the main scene.
+
 @icon("Action2D.svg")
 @tool
 

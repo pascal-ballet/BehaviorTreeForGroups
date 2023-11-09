@@ -1,4 +1,10 @@
-@icon("Condition.svg")
+## BehavTreeForGroups
+## ******************
+## Applies a force to the current agent
+## toward the value the agent has to reach
+## inside a Grid of values
+
+@icon("Action.svg")
 class_name ForceToGridValue
 extends BehavForGroups
 

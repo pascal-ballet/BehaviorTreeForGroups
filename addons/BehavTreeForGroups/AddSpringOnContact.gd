@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Dynamically add a new spring
+## between two nodes/agents
+
 @icon("Action.svg")
 class_name AddSpringOnContact
 extends BehavForGroups

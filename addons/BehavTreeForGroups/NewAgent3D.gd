@@ -1,3 +1,12 @@
+## BehavTreeForGroups
+## ******************
+## Create a new Type of 3D Agent
+## into a Type Scene file (.tscn)
+## This agent can be added manually
+## using the Godot Editor
+## or automaticaly (see AddAgent)
+## into the main scene.
+
 @icon("Action3D.svg")
 @tool
 

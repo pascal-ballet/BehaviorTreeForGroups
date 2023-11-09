@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Applies a force to the current agent
+## relating to the absolute axis reference
+
 @icon("Action.svg")
 class_name ForceGlobal
 extends BehavForGroups

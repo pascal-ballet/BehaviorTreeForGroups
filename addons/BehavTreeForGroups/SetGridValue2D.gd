@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Set a float value inside a Grid2D
+## at the location of the current agent
+
 @icon("Action2D.svg")
 class_name SetGridValue2D
 extends BehavForGroups

@@ -1,8 +1,15 @@
+## BehavTreeForGroups
+## ******************
+## Applies a centrifuge or centripet force to the current agent
+## relating to the center
+
 @icon("Action.svg")
 class_name ForceRadial
 extends BehavForGroups
 
+## Center of the force field
 @export var center:Vector3
+## Intensity of the force field
 @export var intensity:float = 1.0
 
 func biodyn_process(agent)->bool:

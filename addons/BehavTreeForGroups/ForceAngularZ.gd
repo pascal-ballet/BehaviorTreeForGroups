@@ -1,8 +1,15 @@
+## BehavTreeForGroups
+## ******************
+## Applies an angular force to the current agent
+## relating to the center
+
 @icon("Action.svg")
 class_name ForceAngularZ
 extends BehavForGroups
 
+## Center of the force field (vortex)
 @export var center:Vector3
+##Intensity of the force field (vortex)
 @export var intensity:float = 1.0
 
 func biodyn_process(agent)->bool:

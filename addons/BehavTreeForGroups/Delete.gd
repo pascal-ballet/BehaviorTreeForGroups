@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Remove the current agent from the scene
+
 @icon("Action.svg")
 class_name Delete
 extends BehavForGroups

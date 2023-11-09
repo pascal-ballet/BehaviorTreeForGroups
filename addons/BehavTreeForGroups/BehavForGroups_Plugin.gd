@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Editor plugin configuration
+
 @tool
 extends EditorPlugin
 

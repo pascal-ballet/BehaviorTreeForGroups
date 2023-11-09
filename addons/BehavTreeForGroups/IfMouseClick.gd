@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Return true if an agent
+## is clicked by the mouse cursor.
+
 @icon("Condition.svg")
 class_name IfMouseClick
 extends BehavForGroups

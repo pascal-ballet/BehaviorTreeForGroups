@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Not used yet.
+
 extends Generic6DOFJoint3D
 
 var joint_visualisation = MeshInstance3D.new()

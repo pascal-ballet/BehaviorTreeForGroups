@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Return true if the agent's state
+## equals a given integer value
+
 @icon("Condition.svg")
 class_name IfStateEquals
 extends BehavForGroups

@@ -1,8 +1,15 @@
+## BehavTreeForGroups
+## ******************
+## Return true if the simulation/execution step
+## is between 2 given integer numbers.
+
 @icon("Condition.svg")
 class_name IfStepBetween
 extends BehavForGroups
 
+## Initial simulation/execution step
 @export var step_start:int = 0
+## Final simulation/execution step
 @export var step_end:int = 100
 
 func _ready():

@@ -1,13 +1,14 @@
+## BehavTreeForGroups
+## ******************
+## Return true if an agent
+## is inside box
+
 @icon("Condition.svg")
 class_name IfInBox
 extends BehavForGroups
 
-@export var x_min:float = -5
-@export var x_max:float = 5
-@export var y_min:float = -5
-@export var y_max:float = 5
-@export var z_min:float = -5
-@export var z_max:float = 5
+@export var min:Vector3 = Vector3(-5,-5,-5)
+@export var max:Vector3 = Vector3(5,5,5)
 
 func biodyn_process(agent:Node) -> bool:
 	if agent is Node3D:
@@ -16,19 +17,19 @@ func biodyn_process(agent:Node) -> bool:
 		var z:float = agent.position.z
 
 		# X Axis
-		if x < x_min:
+		if x < min.x:
 			return false
-		if x > x_max:
+		if x > max.x:
 			return false
 		# Y Axis
-		if y < y_min:
+		if y < min.y:
 			return false
-		if y > y_max:
+		if y > max.y:
 			return false
 		# Z Axis
-		if z < z_min:
+		if z < min.z:
 			return false
-		if z > z_max:
+		if z > max.z:
 			return false
 
 		return true
@@ -38,14 +39,14 @@ func biodyn_process(agent:Node) -> bool:
 		var y:float = agent.position.y
 
 		# X Axis
-		if x < x_min:
+		if x < min.x:
 			return false
-		if x > x_max:
+		if x > max.x:
 			return false
 		# Y Axis
-		if y < y_min:
+		if y < min.y:
 			return false
-		if y > y_max:
+		if y > max.y:
 			return false
 
 		return true

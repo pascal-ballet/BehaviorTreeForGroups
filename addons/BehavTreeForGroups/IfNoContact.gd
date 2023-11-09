@@ -1,3 +1,9 @@
+## BehavTreeForGroups
+## ******************
+## Return true if an agent
+## has no collision during
+## several execution steps
+
 @icon("Condition.svg")
 class_name IfNoContact
 extends BehavForGroups

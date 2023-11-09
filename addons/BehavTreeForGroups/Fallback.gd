@@ -1,3 +1,8 @@
+## BehavTreeForGroups
+## ******************
+## Execute its children nodes
+## upto one of them succeed
+
 @icon("Fallback.svg")
 class_name Fallback
 extends BehavForGroups

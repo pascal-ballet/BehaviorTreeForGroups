@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Execute all its children
+
 @icon("Parallel.svg")
 class_name Parallel
 extends BehavForGroups

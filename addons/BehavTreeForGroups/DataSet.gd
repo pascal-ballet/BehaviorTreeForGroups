@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Set a float to a current agent's data
+
 @icon("Action.svg")
 class_name DataSet
 extends BehavForGroups

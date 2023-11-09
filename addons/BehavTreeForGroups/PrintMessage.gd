@@ -1,9 +1,17 @@
+## BehavTreeForGroups
+## ******************
+## Print a message into
+## the Godot Output Window.
+
 @icon("Action.svg")
 class_name PrintMessage
 extends BehavForGroups
 
+## Message to print
 @export var message:String = ""
+## Data to print
 @export var data:String = ""
+## Blackboard reference to print
 @export var reference:String = ""
 
 func biodyn_process(agent)->bool:

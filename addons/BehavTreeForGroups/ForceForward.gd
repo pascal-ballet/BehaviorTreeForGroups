@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Applies a forward force to the current agent
+
 @icon("Action.svg")
 class_name ForceForward
 extends BehavForGroups

@@ -1,8 +1,16 @@
-@icon("Condition.svg")
-class_name IfGridValueIsInf
+## BehavTreeForGroups
+## ******************
+## Return true if an agent
+## is inside a grid having a value
+## inferior to a float number
+
+@icon("Condition2D.svg")
+class_name IfGrid2DValueInf
 extends BehavForGroups
 
+## Name of the Grid's group
 @export var on_grid_group:String = ""
+## Value to test
 @export var is_inf_to:float = 0
 
 var grids:Array = Array()

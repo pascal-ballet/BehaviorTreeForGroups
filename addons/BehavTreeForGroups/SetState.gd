@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Set the state of the current agent
+
 @icon("Action.svg")
 class_name SetState
 extends BehavForGroups

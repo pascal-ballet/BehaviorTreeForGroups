@@ -1,8 +1,16 @@
-@icon("Condition.svg")
-class_name IfGridValueIsSup
+## BehavTreeForGroups
+## ******************
+## Return true if an agent
+## is inside a grid having a value
+## superior to a float number
+
+@icon("Condition2D.svg")
+class_name IfGrid2DValueSup
 extends BehavForGroups
 
+## Name of the Grid's group
 @export var on_grid_group:String = ""
+## Value to test
 @export var is_sup_to:float = 0
 
 var grids:Array = Array()

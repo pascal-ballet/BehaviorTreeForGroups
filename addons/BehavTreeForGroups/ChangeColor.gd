@@ -1,3 +1,7 @@
+## BehavTreeForGroups
+## ******************
+## Change the color of a node/agent.
+
 @icon("Action.svg")
 class_name ChangeColor
 extends BehavForGroups

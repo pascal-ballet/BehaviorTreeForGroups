@@ -1,3 +1,11 @@
+## BehavTreeForGroups
+## ******************
+## Node of a behavior
+## MUST be a DIRECT child of the BehavTreeForGroups Node
+## Works on one specific group
+## Execute all its children, always
+## like a Parallel Node
+
 @icon("Behavior.svg")
 
 class_name Behavior

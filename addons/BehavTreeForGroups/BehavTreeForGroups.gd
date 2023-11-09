@@ -1,10 +1,18 @@
+## BehavTreeForGroups
+## ******************
+## Root node of the BehavTreeForGroups plugin.
+## Its DIRECT children MUST be Behavior Nodes
+
 @icon("BehavTreeForGroups.svg")
 
 class_name BehavForGroups
 extends Node
 
+## Max number of created agents
 static var max_agents:int = 3000
+##Number of agents
 static var nb_agents:int = 0
+## Current simulation step
 static var simulation_step:int = 0
 
 var init:bool = false

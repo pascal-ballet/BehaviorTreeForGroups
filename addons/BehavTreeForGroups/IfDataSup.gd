@@ -1,5 +1,10 @@
+## BehavTreeForGroups
+## ******************
+## Return true if an agent's data
+## is superior to a float value
+
 @icon("Condition.svg")
-class_name IfDataIsSup
+class_name IfDataSup
 extends BehavForGroups
 
 @export var data_name:String = ""
