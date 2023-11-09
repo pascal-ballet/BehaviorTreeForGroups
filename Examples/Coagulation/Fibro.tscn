@@ -13,8 +13,9 @@ func _enter_tree():
 	set_name.call_deferred(new_name)
 
 
-func _process(delta):
-	age += 1
+func _process(_delta):
+	if not Engine.is_editor_hint():
+		age += 1
 	
 "
 
@@ -30,6 +31,7 @@ linear_damp = 1.0
 angular_damp = 1.0
 script = SubResource("GDScript_nyy48")
 state = 1
+age = 3678
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ikg3t")
