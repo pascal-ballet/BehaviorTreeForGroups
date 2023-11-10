@@ -5,7 +5,7 @@
 
 **You can easily design collective behaviors without any code by adding groups to your nodes.**
 
-**Several examples, in 2D or 3D, are available: test them to understand how it works**
+**Several examples, in 2D or 3D, are available: test them to understand how they work and what can be done**
 
 ## Simple 2D tutorial
 ### First, create a new 2D scene
@@ -24,7 +24,7 @@
 ### Finally, put about 10 *Agent2D* in your *main* scene
 * Drag & drop the file *Agent2D* inside your *main* scene
 * Execute your program: all the agents having the group *test_group* will move at random
-### Many other nodes exists to make many different behaviors
+### Many other nodes exists to create many different behaviors
 
 ## Simple 3D tutorial
 ### Very simple : replace 2D by 3D in the previous example!
