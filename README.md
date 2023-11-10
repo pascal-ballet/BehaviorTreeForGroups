@@ -7,6 +7,8 @@
 
 **Several examples, in 2D or 3D, are available: test them to understand how they work and what can be done**
 
+[![doc](doc/BTFG_documentation_front_page.png)](doc/behavior_tree_for_groups.pdf)
+
 ## Simple 2D tutorial
 ### First, create a new 2D scene
 * save it as *main*
