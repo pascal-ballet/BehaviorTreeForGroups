@@ -3,9 +3,9 @@
 ## Return true if an agent's data
 ## is superior to a float value
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfDataSup
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var data_name:String = ""
 @export var is_sup_to:float = 0

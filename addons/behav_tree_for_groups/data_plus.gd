@@ -2,9 +2,9 @@
 ## ******************
 ## Add a float to a current agent's data
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name DataPlus
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var data_name:String = ""
 @export var add_value:float = 0

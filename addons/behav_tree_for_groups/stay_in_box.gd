@@ -4,10 +4,10 @@
 ## to stay inside a 2D or 3D box
 
 @tool
-@icon("Action.svg")
+@icon("action.svg")
 
 class_name StayInBox
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var min:Vector3 = Vector3(-5,-5,-5)
 @export var max:Vector3 = Vector3( 5, 5, 5)

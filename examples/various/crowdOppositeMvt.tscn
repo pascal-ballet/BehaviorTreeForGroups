@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_ksja5"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceGlobal.gd" id="3_6srg7"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="4_45f6l"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://Examples/Agent-B.tscn" id="5_xula2"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="6_76yqp"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://examples/agent_b.tscn" id="5_xula2"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/agent_c.tscn" id="6_76yqp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
 flip_faces = true

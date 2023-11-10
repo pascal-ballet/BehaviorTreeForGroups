@@ -7,19 +7,19 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="5_tu27f"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_lvsry"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/Sequential.gd" id="6_u1vim"]
-[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://examples/Coagulation/Fibro.tscn" id="7_6b6ua"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/IfGrid2DValueSup.gd" id="9_bg04g"]
+[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://examples/coagulation/Fibro.tscn" id="7_6b6ua"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_state_equals.gd" id="8_3soh5"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_sup.gd" id="9_r2eax"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_state.gd" id="10_km0xp"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/change_color.gd" id="11_c6gdq"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_spring_on_contact.gd" id="12_2j8ip"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/SetState.gd" id="12_f5fdc"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/IfStateEquals.gd" id="13_d5aqs"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/IfProba.gd" id="14_caclv"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_proba.gd" id="14_1o72l"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/Delete.gd" id="15_wti31"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_grid_value_2d.gd" id="16_7my84"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/print_message.gd" id="16_70ee2"]
-[ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://examples/Coagulation/Platelet.tscn" id="16_loo5f"]
+[ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://examples/coagulation/Platelet.tscn" id="16_loo5f"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="17_n33my"]
-[ext_resource type="PackedScene" uid="uid://yq5y0be22p2p" path="res://examples/Coagulation/Grid2D0.tscn" id="20_3fwqe"]
+[ext_resource type="PackedScene" uid="uid://yq5y0be22p2p" path="res://examples/coagulation/Grid2D0.tscn" id="20_3fwqe"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -57,15 +57,15 @@ force = 0.2
 script = ExtResource("6_u1vim")
 
 [node name="IfStateEquals_0" type="Node" parent="BehavTreeForGroups/Platelets/Activation"]
-script = ExtResource("13_d5aqs")
+script = ExtResource("8_3soh5")
 
 [node name="IfGridValueIsSup" type="Node" parent="BehavTreeForGroups/Platelets/Activation"]
-script = ExtResource("9_bg04g")
+script = ExtResource("9_r2eax")
 on_grid_group = "grd"
 is_sup_to = 0.05
 
 [node name="SetState_1" type="Node" parent="BehavTreeForGroups/Platelets/Activation"]
-script = ExtResource("12_f5fdc")
+script = ExtResource("10_km0xp")
 set_to_value = 1
 
 [node name="ChangeColor_cyan" type="Node" parent="BehavTreeForGroups/Platelets/Activation"]
@@ -76,7 +76,7 @@ color = Color(0.298039, 1, 0.862745, 1)
 script = ExtResource("6_u1vim")
 
 [node name="IfStateEquals_1" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
-script = ExtResource("13_d5aqs")
+script = ExtResource("8_3soh5")
 state_equals = 1
 
 [node name="AddSpring_with_fibro_1" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
@@ -86,7 +86,7 @@ spring_max_length = 50.0
 max_links = 4
 
 [node name="SetState_2" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
-script = ExtResource("12_f5fdc")
+script = ExtResource("10_km0xp")
 set_to_value = 2
 
 [node name="ChangeColor_rose" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
@@ -108,7 +108,7 @@ script = ExtResource("16_70ee2")
 message = "*** LINK ***"
 
 [node name="SetState_2" type="Node" parent="BehavTreeForGroups/Platelets/FixOnPlatFixed"]
-script = ExtResource("12_f5fdc")
+script = ExtResource("10_km0xp")
 set_to_value = 2
 
 [node name="ChangeColor_green" type="Node" parent="BehavTreeForGroups/Platelets/FixOnPlatFixed"]
@@ -119,11 +119,11 @@ color = Color(0.505882, 0.866667, 0, 1)
 script = ExtResource("6_u1vim")
 
 [node name="IfProba" type="Node" parent="BehavTreeForGroups/Platelets/Fibrolyse"]
-script = ExtResource("14_caclv")
+script = ExtResource("14_1o72l")
 proba = 0.01
 
 [node name="IfStateEquals" type="Node" parent="BehavTreeForGroups/Platelets/Fibrolyse"]
-script = ExtResource("13_d5aqs")
+script = ExtResource("8_3soh5")
 state_equals = 2
 
 [node name="Delete" type="Node" parent="BehavTreeForGroups/Platelets/Fibrolyse"]
@@ -137,7 +137,7 @@ on_group = "fibro"
 script = ExtResource("6_u1vim")
 
 [node name="IfState_1" type="Node" parent="BehavTreeForGroups/Fibro/ProdFactors"]
-script = ExtResource("13_d5aqs")
+script = ExtResource("8_3soh5")
 state_equals = 1
 
 [node name="PutFactorsInGrid2D" type="Node" parent="BehavTreeForGroups/Fibro/ProdFactors"]
@@ -154,7 +154,7 @@ with_group = "platelet"
 in_state = 1
 
 [node name="SetState_0" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_1"]
-script = ExtResource("12_f5fdc")
+script = ExtResource("10_km0xp")
 
 [node name="ChangeColor" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_1"]
 script = ExtResource("11_c6gdq")
@@ -169,7 +169,7 @@ with_group = "platelet"
 in_state = 2
 
 [node name="SetState_0" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_2"]
-script = ExtResource("12_f5fdc")
+script = ExtResource("10_km0xp")
 
 [node name="ChangeColor" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_2"]
 script = ExtResource("11_c6gdq")
@@ -179,11 +179,11 @@ color = Color(0.631373, 0.203922, 0, 1)
 script = ExtResource("6_u1vim")
 
 [node name="IfProba" type="Node" parent="BehavTreeForGroups/Fibro/Cicatrisation"]
-script = ExtResource("14_caclv")
+script = ExtResource("14_1o72l")
 proba = 0.1
 
 [node name="IfStateEquals" type="Node" parent="BehavTreeForGroups/Fibro/Cicatrisation"]
-script = ExtResource("13_d5aqs")
+script = ExtResource("8_3soh5")
 
 [node name="Delete" type="Node" parent="BehavTreeForGroups/Fibro/Cicatrisation"]
 script = ExtResource("15_wti31")

@@ -3,9 +3,9 @@
 ## Dynamically add a new spring
 ## between two nodes/agents
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name AddSpringOnContact
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Group to contact with
 @export var with_group:String = ""

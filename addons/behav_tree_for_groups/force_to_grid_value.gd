@@ -4,9 +4,9 @@
 ## toward the value the agent has to reach
 ## inside a Grid of values
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name ForceToGridValue
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var on_grid_group:String = ""
 @export var value_to_go:float = 0

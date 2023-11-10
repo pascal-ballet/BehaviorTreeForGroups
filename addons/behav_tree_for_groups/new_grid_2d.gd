@@ -7,11 +7,11 @@
 ## or automaticaly (see AddAgent)
 ## into the main scene.
 
-@icon("Action2D.svg")
+@icon("action_2d.svg")
 @tool
 
 class_name NewGrid2D
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 func _ready():
 	pass

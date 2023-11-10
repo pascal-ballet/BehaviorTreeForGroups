@@ -2,9 +2,9 @@
 ## ******************
 ## Applies a forward force to the current agent
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name ForceForward
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var fx:float = 0.0
 

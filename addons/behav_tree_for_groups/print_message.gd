@@ -3,9 +3,9 @@
 ## Print a message into
 ## the Godot Output Window.
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name PrintMessage
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Message to print
 @export var message:String = ""

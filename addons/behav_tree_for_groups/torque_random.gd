@@ -2,9 +2,9 @@
 ## ******************
 ## Apply a random torque on the current agent.
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name TorqueRandom
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var rx:float = 1.0
 @export var ry:float = 1.0

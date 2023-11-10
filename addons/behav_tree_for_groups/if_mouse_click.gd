@@ -3,9 +3,9 @@
 ## Return true if an agent
 ## is clicked by the mouse cursor.
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfMouseClick
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export_enum("Left:1","Right:2","Middle:3") var mouse_button = 1
 @export var playerCamera:Camera3D

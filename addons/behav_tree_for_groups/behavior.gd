@@ -6,10 +6,10 @@
 ## Execute all its children, always
 ## like a Parallel Node
 
-@icon("Behavior.svg")
+@icon("behavior.svg")
 
 class_name Behavior
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var activated:bool = true
 @export var on_group = ""

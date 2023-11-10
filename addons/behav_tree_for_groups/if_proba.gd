@@ -4,9 +4,9 @@
 ## between 0 and 100 is inferior
 ##to a given float number
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfProba
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Probability of success
 @export var proba:float = 100

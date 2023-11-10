@@ -4,9 +4,9 @@
 ## upto one of them fails
 ## (return false)
 
-@icon("Sequential.svg")
+@icon("sequential.svg")
 class_name Sequential
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Activate / unactivate this sequence
 @export var activated:bool = true

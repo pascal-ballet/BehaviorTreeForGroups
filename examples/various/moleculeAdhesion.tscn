@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/AddSpringOnContact.gd" id="4_u81ky"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="4_wcjs1"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="4_xxsde"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://Examples/Agent-B.tscn" id="5_di58j"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://examples/agent_b.tscn" id="5_di58j"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfProba.gd" id="6_q137f"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="6_qqbgm"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/agent_c.tscn" id="6_qqbgm"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="7_3e5lb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]

@@ -3,9 +3,9 @@
 ## Set a float value inside a Grid2D
 ## at the location of the current agent
 
-@icon("Action2D.svg")
+@icon("action_2d.svg")
 class_name SetGridValue2D
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var on_grid_group:String = ""
 @export var set_value:float = 0.5

@@ -3,9 +3,9 @@
 ## Root node of the BehavTreeForGroups plugin.
 ## Its DIRECT children MUST be Behavior Nodes
 
-@icon("BehavTreeForGroups.svg")
+@icon("behavior_tree_for_groups.svg")
 
-class_name BehavForGroups
+class_name BehaviorTreeForGroups
 extends Node
 
 ## Max number of created agents

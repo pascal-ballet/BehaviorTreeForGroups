@@ -2,9 +2,9 @@
 ## ******************
 ## Set the state of the current agent
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name SetState
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## New agent's state value
 @export var set_to_value:int = 0

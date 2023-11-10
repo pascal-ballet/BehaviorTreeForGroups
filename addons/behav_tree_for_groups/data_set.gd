@@ -2,9 +2,9 @@
 ## ******************
 ## Set a float to a current agent's data
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name DataSet
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var data_name:String = ""
 @export var set_to_value:float = 0

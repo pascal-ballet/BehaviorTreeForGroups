@@ -3,9 +3,9 @@
 ## Return true if an agent
 ## is inside box
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfInBox
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var min:Vector3 = Vector3(-5,-5,-5)
 @export var max:Vector3 = Vector3(5,5,5)

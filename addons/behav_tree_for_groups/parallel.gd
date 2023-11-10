@@ -2,9 +2,9 @@
 ## ******************
 ## Execute all its children
 
-@icon("Parallel.svg")
+@icon("parallel.svg")
 class_name Parallel
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var activated:bool = true
 

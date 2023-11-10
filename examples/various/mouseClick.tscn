@@ -13,8 +13,8 @@
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="11_hxr37"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/DataPlus.gd" id="12_td4x6"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfCollision.gd" id="13_0b4gh"]
-[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://Examples/Agent-A.tscn" id="14_dkau8"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="15_7t0tw"]
+[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://examples/agent_a.tscn" id="14_dkau8"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/agentC.tscn" id="15_7t0tw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyu3"]
 albedo_color = Color(0, 0.352941, 0, 1)

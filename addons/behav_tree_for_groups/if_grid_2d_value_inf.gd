@@ -2,16 +2,16 @@
 ## ******************
 ## Return true if an agent
 ## is inside a grid having a value
-## superior to a float number
+## inferior to a float number
 
-@icon("Condition2D.svg")
-class_name IfGrid2DValueSup
-extends BehavForGroups
+@icon("condition_2d.svg")
+class_name IfGrid2DValueInf
+extends BehaviorTreeForGroups
 
 ## Name of the Grid's group
 @export var on_grid_group:String = ""
 ## Value to test
-@export var is_sup_to:float = 0
+@export var is_inf_to:float = 0
 
 var grids:Array = Array()
 
@@ -36,6 +36,6 @@ func biodyn_process(agent)->bool:
 					var py:int = ((ay - gy_min) / grid.size.y) * grid.SY
 					var p:int = px+py*grid.SX
 					var val:float = grid.values_t0[p]
-					if val >= is_sup_to:
+					if val <= is_inf_to:
 						cdt = true
 	return cdt

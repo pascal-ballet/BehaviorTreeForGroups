@@ -2,9 +2,9 @@
 ## ******************
 ## Remove the current agent from the scene
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name Delete
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 func biodyn_process(agent)->bool:
 	agent.queue_free()

@@ -3,9 +3,9 @@
 ## Return true if an agent's data
 ## equals a specific float value
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfDataEquals
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var data_name:String = ""
 @export var is_equal_to:float = 0

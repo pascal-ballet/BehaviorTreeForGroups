@@ -3,9 +3,9 @@
 ## Return true if the agent's state
 ## equals a given integer value
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfStateEquals
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Test the state value (-1 for any state)
 @export var state_equals:int = 0

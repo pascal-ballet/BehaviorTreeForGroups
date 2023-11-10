@@ -2,9 +2,9 @@
 ## ******************
 ## Change the color of a node/agent.
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name ChangeColor
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var color:Color = Color.CHARTREUSE
 

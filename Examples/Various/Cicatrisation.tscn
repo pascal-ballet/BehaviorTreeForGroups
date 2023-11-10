@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://mnmnadyptnt8"]
 
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://Examples/Agent-C.tscn" id="1_esapn"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/agent_c.tscn" id="1_esapn"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_gl7wk"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_vrko8"]
 [ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="3_xa0sf"]

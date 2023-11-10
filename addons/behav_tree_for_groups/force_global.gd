@@ -3,9 +3,9 @@
 ## Applies a force to the current agent
 ## relating to the absolute axis reference
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name ForceGlobal
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var fx:float = 0.0
 @export var fy:float = 0.0

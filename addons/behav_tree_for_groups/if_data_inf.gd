@@ -3,9 +3,9 @@
 ## Return true if an agent's data
 ## is inferior to a float value
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfDataInf
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var data_name:String = ""
 @export var is_inf_to:float = 0

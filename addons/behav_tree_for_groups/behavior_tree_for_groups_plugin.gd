@@ -1,4 +1,4 @@
-## BehavTreeForGroups
+## BehaviorTreeForGroups
 ## ******************
 ## Editor plugin configuration
 

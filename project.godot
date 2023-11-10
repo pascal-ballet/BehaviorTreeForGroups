@@ -12,9 +12,9 @@ config_version=5
 
 config/name="behavior_tree_for_groups"
 config/description="A Behavior Tree to create swarm and multiagent systems based on Node's Groups."
-run/main_scene="res://Examples/Coagulation/Coagulation.tscn"
+run/main_scene="res://examples/coagulation/coagulation.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://addons/BehavTreeForGroups/icon.png"
+config/icon="res://addons/behavior_tree_for_groups/icon.png"
 
 [display]
 

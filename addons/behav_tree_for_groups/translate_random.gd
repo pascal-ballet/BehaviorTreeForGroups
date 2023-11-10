@@ -3,9 +3,9 @@
 ## Apply a random translation
 ## on the current agent.
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name TranslateRandom
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Maximum sizes of the random vector
 @export var delta:Vector3 = Vector3(1,1,1)

@@ -3,9 +3,9 @@
 ## Apply a torque on the current agent
 ##according to the absolute axis reference
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name TorqueGlobal
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var rx:float = 0.0
 @export var ry:float = 0.0

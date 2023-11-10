@@ -4,9 +4,9 @@
 ## has no collision during
 ## several execution steps
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfNoContact
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var steps_without_contact:int = 100
 var period_of_no_contact:int = 0

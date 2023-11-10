@@ -2,9 +2,9 @@
 ## ******************
 ## Applies a random force to the current agent
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name ForceRandom
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 @export var F:Vector3 = Vector3(1,1,1)
 

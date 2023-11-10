@@ -3,9 +3,9 @@
 ## Returns true if a collision occurs
 ## for the current agent
 
-@icon("Condition.svg")
+@icon("condition.svg")
 class_name IfCollision
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Collider's group
 @export var with_group:String = ""

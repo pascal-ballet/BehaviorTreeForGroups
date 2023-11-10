@@ -3,9 +3,9 @@
 ## Applies an angular force to the current agent
 ## relating to the center
 
-@icon("Action.svg")
+@icon("action.svg")
 class_name ForceAngularZ
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 ## Center of the force field (vortex)
 @export var center:Vector3

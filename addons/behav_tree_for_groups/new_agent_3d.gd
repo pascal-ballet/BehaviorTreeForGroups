@@ -7,11 +7,11 @@
 ## or automaticaly (see AddAgent)
 ## into the main scene.
 
-@icon("Action3D.svg")
+@icon("action_3d.svg")
 @tool
 
 class_name NewAgent3D
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 func _ready():
 	pass

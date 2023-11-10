@@ -3,10 +3,10 @@
 ## Dynamically add a new node/agent in the scene
 ## at the location of the current node/agent
 
-@icon("Action.svg")
+@icon("action.svg")
 
 class_name AddAgent
-extends BehavForGroups
+extends BehaviorTreeForGroups
 
 #@export var agent_path:String = ""
 @export_file("*.tscn") var agent_tscn: String
@@ -28,7 +28,7 @@ func biodyn_process(agent) -> bool:
 			new_agent_scene = load(agent_tscn) #load("res://addons/BehavForGroups/Examples/"+agent_name+".tscn")
 			new_agent_prototype = new_agent_scene.instantiate()
 			# Find ALL its behaviors and put them in the new_agent_behaviors Array
-			var biodyn_node:BehavForGroups = agent.get_parent().get_node("BehavTreeForGroups")
+			var biodyn_node:BehaviorTreeForGroups = agent.get_parent().get_node("BehavTreeForGroups")
 			for b in biodyn_node.get_children(): # Get ALL the behaviors of BioDyn
 				if b is Behavior and new_agent_prototype.is_in_group(b.on_group):
 					# Copy the current behavior to the new_agent_prototype
@@ -41,7 +41,7 @@ func biodyn_process(agent) -> bool:
 			root = get_tree().current_scene
 
 		var nb_agents:int = root.get_child_count()
-		if new_agent_scene != null and nb_agents < BehavForGroups.max_agents:
+		if new_agent_scene != null and nb_agents < BehaviorTreeForGroups.max_agents:
 			var spawn = new_agent_prototype.duplicate()
 			# Put and translate the spawn in the scene
 			root.add_child(spawn)
