@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b43rx2enqvlnj"]
+
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_8qv0k"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_vp25h"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/translate_random.gd" id="3_pbt64"]
+[ext_resource type="PackedScene" uid="uid://dsdilworfnl1q" path="res://examples/2d_tutorial/agent_2d_0.tscn" id="4_7458n"]
+
+[node name="main" type="Node2D"]
+
+[node name="BehaviorTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_8qv0k")
+
+[node name="Behavior" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_vp25h")
+on_group = "test_group"
+
+[node name="TranslateRandom" type="Node" parent="BehaviorTreeForGroups/Behavior"]
+script = ExtResource("3_pbt64")
+
+[node name="agent_2d_0" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(146, 276)
+
+[node name="agent_2d_1" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(160, 225)
+
+[node name="agent_2d_2" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(107, 246)
+
+[node name="agent_2d_3" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(249, 253)
+
+[node name="agent_2d_4" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(207, 212)
+
+[node name="agent_2d_5" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(196, 250)
+
+[node name="agent_2d_6" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(214, 282)
+
+[node name="agent_2d_7" parent="." instance=ExtResource("4_7458n")]
+position = Vector2(129, 202)

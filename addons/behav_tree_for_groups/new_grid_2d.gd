@@ -17,7 +17,7 @@ func _ready():
 	pass
 
 func _enter_tree():
-	var agent_name:String = "Grid2D"
+	var agent_name:String = "grid_2d_"
 	print("Grid2D : _enter_tree")
 	# Create the rigidBody3D
 	var tr:TextureRect = TextureRect.new()

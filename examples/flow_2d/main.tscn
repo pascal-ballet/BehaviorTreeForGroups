@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpaaye4b1ct5e"]
+
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_qevbp"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_21fqr"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_rck85"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="4_q10aq"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="5_hquvo"]
+[ext_resource type="PackedScene" uid="uid://i28u32im7gm4" path="res://examples/flow_2d/cell.tscn" id="6_ko71e"]
+
+[node name="Flow2D" type="Node2D"]
+
+[node name="BehavTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_qevbp")
+
+[node name="Behavior" type="Node" parent="BehavTreeForGroups"]
+script = ExtResource("2_21fqr")
+on_group = "cell"
+
+[node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior"]
+script = ExtResource("3_rck85")
+
+[node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Behavior"]
+script = ExtResource("5_hquvo")
+fx = 2.0
+
+[node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior"]
+script = ExtResource("4_q10aq")
+min = Vector3(200, 100, 0)
+max = Vector3(600, 200, 0)
+loop_x = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 600.0
+offset_bottom = 200.0
+color = Color(0.313726, 0.258824, 1, 0.290196)
+
+[node name="cell" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(259, 161)
+
+[node name="cell2" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(281, 146)
+
+[node name="cell3" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(236, 137)
+
+[node name="cell4" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(258, 122)
+
+[node name="cell5" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(328, 187)
+
+[node name="cell6" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(350, 172)
+
+[node name="cell7" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(305, 163)
+
+[node name="cell8" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(327, 148)
+
+[node name="cell9" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(391, 151)
+
+[node name="cell10" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(413, 136)
+
+[node name="cell11" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(368, 127)
+
+[node name="cell12" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(390, 112)
+
+[node name="cell13" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(460, 177)
+
+[node name="cell14" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(482, 162)
+
+[node name="cell15" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(437, 153)
+
+[node name="cell16" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(459, 138)
+
+[node name="cell17" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(497, 147)
+
+[node name="cell18" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(519, 132)
+
+[node name="cell19" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(474, 123)
+
+[node name="cell20" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(496, 108)
+
+[node name="cell21" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(566, 173)
+
+[node name="cell22" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(588, 158)
+
+[node name="cell23" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(543, 149)
+
+[node name="cell24" parent="." instance=ExtResource("6_ko71e")]
+position = Vector2(565, 134)

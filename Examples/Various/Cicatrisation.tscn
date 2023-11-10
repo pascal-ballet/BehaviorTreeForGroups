@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://mnmnadyptnt8"]
 
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/agent_c.tscn" id="1_esapn"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_gl7wk"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_vrko8"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="3_xa0sf"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="4_dwsit"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Sequential.gd" id="5_c7awk"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfProba.gd" id="6_l27o4"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfNoContact.gd" id="7_5dnoi"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/CloneAgent.gd" id="7_npfs2"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/various/agent_c.tscn" id="1_esapn"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_gl7wk"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_vrko8"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_xa0sf"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="4_dwsit"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="5_c7awk"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_proba.gd" id="6_l27o4"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_no_contact.gd" id="7_5dnoi"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/clone_agent.gd" id="7_npfs2"]
 
 [node name="Cicatrisation" type="Node3D"]
 
@@ -21,6 +21,7 @@ on_group = "Fibro"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("3_xa0sf")
+F = Vector3(0.1, 0.1, 0.1)
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior"]
 script = ExtResource("4_dwsit")

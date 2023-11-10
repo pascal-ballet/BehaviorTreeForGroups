@@ -1,20 +1,20 @@
 [gd_scene load_steps=23 format=3 uid="uid://dj3af4ockh3mt"]
 
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/BehavTreeForGroups.gd" id="1_13b5j"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Behavior.gd" id="2_by15k"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Sequential.gd" id="3_bva0q"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfMouseClick.gd" id="4_5bsan"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/AddAgent.gd" id="5_mvy3e"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfDataEquals.gd" id="6_tp12j"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceGlobal.gd" id="7_2hhqm"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/ForceRandom.gd" id="8_cnyb3"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/StayInBox.gd" id="9_wboaq"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfDataSup.gd" id="10_4572w"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/Delete.gd" id="11_hxr37"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/DataPlus.gd" id="12_td4x6"]
-[ext_resource type="Script" path="res://addons/BehavTreeForGroups/IfCollision.gd" id="13_0b4gh"]
-[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://examples/agent_a.tscn" id="14_dkau8"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/agentC.tscn" id="15_7t0tw"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_13b5j"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_by15k"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="3_bva0q"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_mouse_click.gd" id="4_5bsan"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="5_mvy3e"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_data_equals.gd" id="6_tp12j"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="7_2hhqm"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="8_cnyb3"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="9_wboaq"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_data_sup.gd" id="10_4572w"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="11_hxr37"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/data_plus.gd" id="12_td4x6"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="13_0b4gh"]
+[ext_resource type="PackedScene" uid="uid://c0socp63xfqt7" path="res://examples/various/agent_a.tscn" id="14_dkau8"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/various/agent_c.tscn" id="15_7t0tw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dyu3"]
 albedo_color = Color(0, 0.352941, 0, 1)
@@ -51,7 +51,7 @@ playerCamera = NodePath("../../../../Camera3D")
 
 [node name="AddAgentB" type="Node" parent="BehavTreeForGroups/Click-A/Sequential"]
 script = ExtResource("5_mvy3e")
-agent_tscn = "res://Examples/Agent-B.tscn"
+agent_tscn = "res://Examples/various/agent_b.tscn"
 
 [node name="Behavior-B" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_by15k")

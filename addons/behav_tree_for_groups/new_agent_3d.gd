@@ -17,7 +17,7 @@ func _ready():
 	pass
 
 func _enter_tree():
-	var agent_name:String = "Agent"
+	var agent_name:String = "agent_3d_"
 	print("Agent3D : _enter_tree")
 	# Create the rigidBody3D
 	var rb:RigidBody3D = RigidBody3D.new()
