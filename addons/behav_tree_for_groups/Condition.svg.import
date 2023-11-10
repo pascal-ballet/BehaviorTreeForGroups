@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2hjg7etiodky"
-path="res://.godot/imported/Parallel.svg-07773482d7a88c8100a79ee4de40db70.ctex"
+uid="uid://dyory1wx6g8tf"
+path="res://.godot/imported/condition.svg-be15db2fc4b79447b8f91834a6bcaf0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/Parallel.svg"
-dest_files=["res://.godot/imported/Parallel.svg-07773482d7a88c8100a79ee4de40db70.ctex"]
+source_file="res://addons/behav_tree_for_groups/condition.svg"
+dest_files=["res://.godot/imported/condition.svg-be15db2fc4b79447b8f91834a6bcaf0b.ctex"]
 
 [params]
 

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="BehavTreeForGroups"
+config/name="behavior_tree_for_groups"
 config/description="A Behavior Tree to create swarm and multiagent systems based on Node's Groups."
 run/main_scene="res://Examples/Coagulation/Coagulation.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")

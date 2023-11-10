@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq7cc3ghafddu"
-path="res://.godot/imported/icon.png-1bcf63e2683a7839289fdf9bc4371877.ctex"
+uid="uid://dxa4b15on8m3s"
+path="res://.godot/imported/sequential.svg-44b8b3071cabbf19b9116d22a23d7582.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/icon.png"
-dest_files=["res://.godot/imported/icon.png-1bcf63e2683a7839289fdf9bc4371877.ctex"]
+source_file="res://addons/behav_tree_for_groups/sequential.svg"
+dest_files=["res://.godot/imported/sequential.svg-44b8b3071cabbf19b9116d22a23d7582.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

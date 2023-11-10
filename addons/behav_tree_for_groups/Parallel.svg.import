@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvlrsrn4yeuth"
-path="res://.godot/imported/BehavTreeForGroups.svg-c5ec300b41f24324a81dd31215c8dd30.ctex"
+uid="uid://b2hjg7etiodky"
+path="res://.godot/imported/parallel.svg-bb539307c1dace5e872ffa4400740c3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/BehavTreeForGroups.svg"
-dest_files=["res://.godot/imported/BehavTreeForGroups.svg-c5ec300b41f24324a81dd31215c8dd30.ctex"]
+source_file="res://addons/behav_tree_for_groups/parallel.svg"
+dest_files=["res://.godot/imported/parallel.svg-bb539307c1dace5e872ffa4400740c3d.ctex"]
 
 [params]
 

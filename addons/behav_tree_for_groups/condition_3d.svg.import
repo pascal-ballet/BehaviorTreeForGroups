@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cucv202dfctjv"
-path="res://.godot/imported/Condition2D.svg-301cd531ebbeb40441fadcee61e1b4be.ctex"
+uid="uid://b3ib3dbj0av4w"
+path="res://.godot/imported/condition_3d.svg-dfa75c275f007577f1438903b09d3242.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/Condition2D.svg"
-dest_files=["res://.godot/imported/Condition2D.svg-301cd531ebbeb40441fadcee61e1b4be.ctex"]
+source_file="res://addons/behav_tree_for_groups/condition_3d.svg"
+dest_files=["res://.godot/imported/condition_3d.svg-dfa75c275f007577f1438903b09d3242.ctex"]
 
 [params]
 

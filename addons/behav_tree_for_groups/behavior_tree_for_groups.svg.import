@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnqvbqq8qq0yd"
-path="res://.godot/imported/Behavior.svg-0063003ee587a808e59a4d16946386b3.ctex"
+uid="uid://cvlrsrn4yeuth"
+path="res://.godot/imported/behavior_tree_for_groups.svg-333b37a8e7effe0f4965d4e8e34b9393.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/Behavior.svg"
-dest_files=["res://.godot/imported/Behavior.svg-0063003ee587a808e59a4d16946386b3.ctex"]
+source_file="res://addons/behav_tree_for_groups/behavior_tree_for_groups.svg"
+dest_files=["res://.godot/imported/behavior_tree_for_groups.svg-333b37a8e7effe0f4965d4e8e34b9393.ctex"]
 
 [params]
 
@@ -34,5 +33,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

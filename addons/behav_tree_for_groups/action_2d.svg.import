@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxa4b15on8m3s"
-path="res://.godot/imported/Sequential.svg-f451547558138616b9b48d9079291d1d.ctex"
+uid="uid://h7xrpivel265"
+path="res://.godot/imported/action_2d.svg-0b5cd9faeb36f82b227527f4596f388d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/Sequential.svg"
-dest_files=["res://.godot/imported/Sequential.svg-f451547558138616b9b48d9079291d1d.ctex"]
+source_file="res://addons/behav_tree_for_groups/action_2d.svg"
+dest_files=["res://.godot/imported/action_2d.svg-0b5cd9faeb36f82b227527f4596f388d.ctex"]
 
 [params]
 

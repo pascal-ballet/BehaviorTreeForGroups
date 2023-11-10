@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm5bmvprh31y6"
-path="res://.godot/imported/Action3D.svg-e2c7a133d8fe32ca3bcb982d77e4796c.ctex"
+uid="uid://cucv202dfctjv"
+path="res://.godot/imported/condition_2d.svg-74b4e16627102cb24d295cbf3e6d313c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/Action3D.svg"
-dest_files=["res://.godot/imported/Action3D.svg-e2c7a133d8fe32ca3bcb982d77e4796c.ctex"]
+source_file="res://addons/behav_tree_for_groups/condition_2d.svg"
+dest_files=["res://.godot/imported/condition_2d.svg-74b4e16627102cb24d295cbf3e6d313c.ctex"]
 
 [params]
 

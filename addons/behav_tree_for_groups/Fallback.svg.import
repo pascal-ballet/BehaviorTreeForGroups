@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h7xrpivel265"
-path="res://.godot/imported/Action2D.svg-c4bd38c82b8432ff142f29ee8411fff4.ctex"
+uid="uid://b1fuscw2y62c4"
+path="res://.godot/imported/fallback.svg-70c42f61285363b7207b30c252a557ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BehavTreeForGroups/Action2D.svg"
-dest_files=["res://.godot/imported/Action2D.svg-c4bd38c82b8432ff142f29ee8411fff4.ctex"]
+source_file="res://addons/behav_tree_for_groups/fallback.svg"
+dest_files=["res://.godot/imported/fallback.svg-70c42f61285363b7207b30c252a557ca.ctex"]
 
 [params]
 
