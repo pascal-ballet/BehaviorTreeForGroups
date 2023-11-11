@@ -12,7 +12,7 @@ config_version=5
 
 config/name="behavior_tree_for_groups"
 config/description="A Behavior Tree to create swarm and multiagent systems based on Node's Groups."
-run/main_scene="res://examples/various/crowd_opposite_mvt.tscn"
+run/main_scene="res://examples_2d_3d/various/crowd_opposite_mvt.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://addons/behav_tree_for_groups/icon.png"
 

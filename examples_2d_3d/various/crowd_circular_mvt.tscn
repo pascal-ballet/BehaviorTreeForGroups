@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_in_box.gd" id="7_i5r5w"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="8_06xkv"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_step_between.gd" id="9_06spx"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://examples/various/agent_b.tscn" id="10_x2l5v"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/various/agent_c.tscn" id="11_lmqax"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://examples_2d_3d/various/agent_b.tscn" id="10_x2l5v"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples_2d_3d/various/agent_c.tscn" id="11_lmqax"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
 flip_faces = true

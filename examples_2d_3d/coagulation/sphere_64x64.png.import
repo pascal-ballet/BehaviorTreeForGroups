@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7wtmuys4ctgj"
-path="res://.godot/imported/sphere_64x64.png-7405549ae7fa038ee7fb77f228b2c7a3.ctex"
+path="res://.godot/imported/sphere_64x64.png-1ef3fc0bde7242fd5d5cf74b730a992a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/coagulation/sphere_64x64.png"
-dest_files=["res://.godot/imported/sphere_64x64.png-7405549ae7fa038ee7fb77f228b2c7a3.ctex"]
+source_file="res://examples_2d_3d/coagulation/sphere_64x64.png"
+dest_files=["res://.godot/imported/sphere_64x64.png-1ef3fc0bde7242fd5d5cf74b730a992a.ctex"]
 
 [params]
 

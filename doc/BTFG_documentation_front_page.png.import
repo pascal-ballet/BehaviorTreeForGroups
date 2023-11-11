@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsnumjw110fjy"
-path="res://.godot/imported/fibro.png-e8719b309270edc54b17d0c98ea9fedb.ctex"
+uid="uid://d0or1opyfy513"
+path="res://.godot/imported/BTFG_documentation_front_page.png-b9d73d2ae0a827b8193e7585079ec2b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/coagulation/fibro.png"
-dest_files=["res://.godot/imported/fibro.png-e8719b309270edc54b17d0c98ea9fedb.ctex"]
+source_file="res://doc/BTFG_documentation_front_page.png"
+dest_files=["res://.godot/imported/BTFG_documentation_front_page.png-b9d73d2ae0a827b8193e7585079ec2b9.ctex"]
 
 [params]
 
