@@ -7,7 +7,6 @@ extends EditorPlugin
 
 func _enter_tree():
 	# Initialization of the plugin goes here.
-	print_debug("Enter tree")
 	# Main Node
 	add_custom_type("BehaviorTreeForGroups", "Node",\
 			preload("behavior_tree_for_groups.gd"),preload("behavior_tree_for_groups.svg"))
@@ -96,7 +95,6 @@ func _enter_tree():
 
 func _exit_tree():
 	# Clean-up of the plugin goes here.
-	print_debug("Exit tree")	
 	# Main Node
 	remove_custom_type("BehaviorTreeForGroups")
 	# Other Nodes (alphabetic order)

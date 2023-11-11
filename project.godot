@@ -19,3 +19,7 @@ config/icon="res://addons/behav_tree_for_groups/icon.png"
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/behav_tree_for_groups/plugin.cfg")
