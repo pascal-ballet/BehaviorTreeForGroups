@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_rck85"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="4_q10aq"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="5_hquvo"]
-[ext_resource type="PackedScene" uid="uid://i28u32im7gm4" path="res://examples_2d_3d/flow_2d/cell.tscn" id="6_ko71e"]
+[ext_resource type="PackedScene" uid="uid://i28u32im7gm4" path="res://examples/flow_2d/cell.tscn" id="6_ko71e"]
 
 [node name="Flow2D" type="Node2D"]
 

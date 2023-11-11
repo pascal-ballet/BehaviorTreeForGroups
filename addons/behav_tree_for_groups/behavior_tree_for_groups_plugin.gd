@@ -8,61 +8,135 @@ extends EditorPlugin
 func _enter_tree():
 	# Initialization of the plugin goes here.
 	print_debug("Enter tree")
-	# Root of Behavior Tree
-	#add_custom_type("BioDyn", 		"Node",preload("BioDyn.gd"),null)
-	
-#	# Execution entry point Node (works like a Parallel Node)
-	#add_custom_type("Behavior", 	"BioDyn",preload("Behavior.gd"),null)
-#
-#	# Control Nodes
-#	add_custom_type("Parallel", 	"BioDyn",preload("res://addons/biodyn/Parallel.gd"),preload("res://addons/biodyn/Parallel.svg"))
-#	add_custom_type("Sequential", 	"BioDyn",preload("res://addons/biodyn/Sequential.gd"),preload("res://addons/biodyn/Sequential.svg"))
-#	add_custom_type("Fallback", 	"BioDyn",preload("res://addons/biodyn/Fallback.gd"),preload("res://addons/biodyn/Fallback.svg"))	
-#
-#	# Execution Nodes
-#	# 1) Conditions Nodes
-#	add_custom_type("Contact", 		"BioDyn",preload("res://addons/biodyn/Contact.gd"),preload("res://addons/biodyn/Condition.svg"))
-#	add_custom_type("DataIsEqual", 	"BioDyn",preload("res://addons/biodyn/DataIsEqual.gd"),preload("res://addons/biodyn/Condition.svg"))
-#	add_custom_type("DataIsInf", 	"BioDyn",preload("res://addons/biodyn/DataIsInf.gd"),preload("res://addons/biodyn/Condition.svg"))
-#	add_custom_type("DataIsSup", 	"BioDyn",preload("res://addons/biodyn/DataIsSup.gd"),preload("res://addons/biodyn/Condition.svg"))
-#	add_custom_type("Proba", 		"BioDyn",preload("res://addons/biodyn/Proba.gd"),preload("res://addons/biodyn/Condition.svg"))
-#	# 2) Actions Nodes LangevinForce
-#	add_custom_type("AddAgent", 	"BioDyn",preload("res://addons/biodyn/AddAgent.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("DataAdd", 		"BioDyn",preload("res://addons/biodyn/DataAdd.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("DataSet", 		"BioDyn",preload("res://addons/biodyn/DataSet.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("Death", 		"BioDyn",preload("res://addons/biodyn/Death.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("GlobalForce", 	"BioDyn",preload("res://addons/biodyn/GlobalForce.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("GlobalTorque", "BioDyn",preload("res://addons/biodyn/GlobalTorque.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("ForwardForce", "BioDyn",preload("res://addons/biodyn/ForwardForce.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("RandomForce", 	"BioDyn",preload("res://addons/biodyn/RandomForce.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("RandomTorque", "BioDyn",preload("res://addons/biodyn/RandomTorque.gd"),preload("res://addons/biodyn/Action.svg"))
-#	add_custom_type("RandomWalk", 	"BioDyn",preload("res://addons/biodyn/RandomWalk.gd"),preload("res://addons/biodyn/Action.svg"))
+	# Main Node
+	add_custom_type("BehaviorTreeForGroups", "Node",\
+			preload("behavior_tree_for_groups.gd"),preload("behavior_tree_for_groups.svg"))
+	# Other Nodes (alphabetic order)
+	add_custom_type("AddAgent", "BehaviorTreeForGroups",\
+			preload("add_agent.gd"),preload("action.svg"))
+	add_custom_type("AddSpringOnContact", "BehaviorTreeForGroups",\
+			preload("add_spring_on_contact.gd"),preload("action.svg"))
+	add_custom_type("Behavior", "BehaviorTreeForGroups",\
+			preload("behavior.gd"),preload("behavior.svg"))
+	add_custom_type("ChangeColor", "BehaviorTreeForGroups",\
+			preload("change_color.gd"),preload("action.svg"))
+	add_custom_type("CloneAgent", "BehaviorTreeForGroups",\
+			preload("clone_agent.gd"),preload("action.svg"))
+	add_custom_type("DataPlus", "BehaviorTreeForGroups",\
+			preload("data_plus.gd"),preload("action.svg"))
+	add_custom_type("DataSet", "BehaviorTreeForGroups",\
+			preload("data_set.gd"),preload("action.svg"))
+	add_custom_type("Delete", "BehaviorTreeForGroups",\
+			preload("delete.gd"),preload("action.svg"))
+	add_custom_type("Fallback", "BehaviorTreeForGroups",\
+			preload("fallback.gd"),preload("fallback.svg"))
+	add_custom_type("ForceAngularZ", "BehaviorTreeForGroups",\
+			preload("force_angular_z.gd"),preload("action.svg"))
+	add_custom_type("ForceAngularZ", "BehaviorTreeForGroups",\
+			preload("force_angular_z.gd"),preload("action.svg"))
+	add_custom_type("ForceForward", "BehaviorTreeForGroups",\
+			preload("force_forward.gd"),preload("action.svg"))
+	add_custom_type("ForceGlobal", "BehaviorTreeForGroups",\
+			preload("force_global.gd"),preload("action.svg"))
+	add_custom_type("ForceRadial", "BehaviorTreeForGroups",\
+			preload("force_radial.gd"),preload("action.svg"))
+	add_custom_type("ForceRandom", "BehaviorTreeForGroups",\
+			preload("force_random.gd"),preload("action.svg"))
+	add_custom_type("ForceToGridValue", "BehaviorTreeForGroups",\
+			preload("force_to_grid_value.gd"),preload("action.svg"))
+	add_custom_type("IfCollision", "BehaviorTreeForGroups",\
+			preload("if_collision.gd"),preload("condition.svg"))
+	add_custom_type("IfDataEquals", "BehaviorTreeForGroups",\
+			preload("if_data_equals.gd"),preload("condition.svg"))
+	add_custom_type("IfDataInf", "BehaviorTreeForGroups",\
+			preload("if_data_inf.gd"),preload("condition.svg"))
+	add_custom_type("IfDataSup", "BehaviorTreeForGroups",\
+			preload("if_data_sup.gd"),preload("condition.svg"))
+	add_custom_type("IfGrid2DValueInf", "BehaviorTreeForGroups",\
+			preload("if_grid_2d_value_inf.gd"),preload("condition_2d.svg"))
+	add_custom_type("IfGrid2DValueSup", "BehaviorTreeForGroups",\
+			preload("if_grid_2d_value_sup.gd"),preload("condition_2d.svg"))
+	add_custom_type("IfInBox", "BehaviorTreeForGroups",\
+			preload("if_in_box.gd"),preload("condition.svg"))
+	add_custom_type("IfMouseClick", "BehaviorTreeForGroups",\
+			preload("if_mouse_click.gd"),preload("condition.svg"))
+	add_custom_type("IfNoContact", "BehaviorTreeForGroups",\
+			preload("if_no_contact.gd"),preload("condition.svg"))
+	add_custom_type("IfProba", "BehaviorTreeForGroups",\
+			preload("if_proba.gd"),preload("condition.svg"))
+	add_custom_type("IfStateEquals", "BehaviorTreeForGroups",\
+			preload("if_state_equals.gd"),preload("condition.svg"))
+	add_custom_type("IfStepBetween", "BehaviorTreeForGroups",\
+			preload("if_step_between.gd"),preload("condition.svg"))
+	add_custom_type("NewAgent2D", "BehaviorTreeForGroups",\
+			preload("new_agent_2d.gd"),preload("action_2d.svg"))
+	add_custom_type("NewAgent3D", "BehaviorTreeForGroups",\
+			preload("new_agent_3d.gd"),preload("action_3d.svg"))
+	add_custom_type("NewGrid2D", "BehaviorTreeForGroups",\
+			preload("new_grid_2d.gd"),preload("action_2d.svg"))
+	add_custom_type("Parallel", "BehaviorTreeForGroups",\
+			preload("parallel.gd"),preload("parallel.svg"))
+	add_custom_type("PrintMessage", "BehaviorTreeForGroups",\
+			preload("print_message.gd"),preload("parallel.svg"))
+	add_custom_type("Sequential", "BehaviorTreeForGroups",\
+			preload("sequential.gd"),preload("sequential.svg"))
+	add_custom_type("SetGridValue2D", "BehaviorTreeForGroups",\
+			preload("set_grid_value_2d.gd"),preload("action_2d.svg"))
+	add_custom_type("SetState", "BehaviorTreeForGroups",\
+			preload("set_state.gd"),preload("action.svg"))
+	add_custom_type("StayInBox", "BehaviorTreeForGroups",\
+			preload("stay_in_box.gd"),preload("action.svg"))
+	add_custom_type("TorqueGlobal", "BehaviorTreeForGroups",\
+			preload("torque_global.gd"),preload("action.svg"))
+	add_custom_type("TorqueRandom", "BehaviorTreeForGroups",\
+			preload("torque_random.gd"),preload("action.svg"))
+	add_custom_type("TranslateRandom", "BehaviorTreeForGroups",\
+			preload("translate_random.gd"),preload("action.svg"))
 
 
 func _exit_tree():
 	# Clean-up of the plugin goes here.
-	print_debug("Exit tree")
-	#remove_custom_type("BioDyn")
-	
-	#remove_custom_type("Behavior")
-#
-#	remove_custom_type("Parallel")
-#	remove_custom_type("Sequential")
-#	remove_custom_type("Fallback")
-#
-#	remove_custom_type("Contact")
-#	remove_custom_type("DataIsEqual")
-#	remove_custom_type("DataIsInf")
-#	remove_custom_type("DataIsSup")
-#	remove_custom_type("Proba")
-#
-#	remove_custom_type("AddAgent")
-#	remove_custom_type("DataAdd")
-#	remove_custom_type("DataSet")
-#	remove_custom_type("Death")
-#	remove_custom_type("GlobalForce")
-#	remove_custom_type("GlobalTorque")
-#	remove_custom_type("ForwardForce")
-#	remove_custom_type("RandomForce")
-#	remove_custom_type("RandomTorque")
-#	remove_custom_type("RandomWalk")
+	print_debug("Exit tree")	
+	# Main Node
+	remove_custom_type("BehaviorTreeForGroups")
+	# Other Nodes (alphabetic order)
+	remove_custom_type("AddAgent")
+	remove_custom_type("AddSpringOnContact")
+	remove_custom_type("Behavior")
+	remove_custom_type("ChangeColor")
+	remove_custom_type("CloneAgent")
+	remove_custom_type("DataPlus")
+	remove_custom_type("DataSet")
+	remove_custom_type("Delete")
+	remove_custom_type("Fallback")
+	remove_custom_type("ForceAngularZ")
+	remove_custom_type("ForceAngularZ")
+	remove_custom_type("ForceForward")
+	remove_custom_type("ForceGlobal")
+	remove_custom_type("ForceRadial")
+	remove_custom_type("ForceRandom")
+	remove_custom_type("ForceToGridValue")
+	remove_custom_type("IfCollision")
+	remove_custom_type("IfDataEquals")
+	remove_custom_type("IfDataInf")
+	remove_custom_type("IfDataSup")
+	remove_custom_type("IfGrid2DValueInf")
+	remove_custom_type("IfGrid2DValueSup")
+	remove_custom_type("IfInBox")
+	remove_custom_type("IfMouseClick")
+	remove_custom_type("IfNoContact")
+	remove_custom_type("IfProba")
+	remove_custom_type("IfStateEquals")
+	remove_custom_type("IfStepBetween")
+	remove_custom_type("NewAgent2D")
+	remove_custom_type("NewAgent3D")
+	remove_custom_type("NewGrid2D")
+	remove_custom_type("Parallel")
+	remove_custom_type("PrintMessage")
+	remove_custom_type("Sequential")
+	remove_custom_type("SetGridValue2D")
+	remove_custom_type("SetState")
+	remove_custom_type("StayInBox")
+	remove_custom_type("TorqueGlobal")
+	remove_custom_type("TorqueRandom")
+	remove_custom_type("TranslateRandom")

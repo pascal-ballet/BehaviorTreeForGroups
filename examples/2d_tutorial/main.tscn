@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_8qv0k"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_vp25h"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/translate_random.gd" id="3_pbt64"]
-[ext_resource type="PackedScene" uid="uid://dsdilworfnl1q" path="res://examples_2d_3d/2d_tutorial/agent_2d_0.tscn" id="4_7458n"]
+[ext_resource type="PackedScene" uid="uid://dsdilworfnl1q" path="res://examples/2d_tutorial/agent_2d_0.tscn" id="4_7458n"]
 
 [node name="main" type="Node2D"]
 
@@ -16,6 +16,7 @@ on_group = "test_group"
 
 [node name="TranslateRandom" type="Node" parent="BehaviorTreeForGroups/Behavior"]
 script = ExtResource("3_pbt64")
+delta = Vector3(3, 3, 3)
 
 [node name="agent_2d_0" parent="." instance=ExtResource("4_7458n")]
 position = Vector2(146, 276)

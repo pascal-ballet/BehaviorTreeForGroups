@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="4_6rl2b"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="5_tu27f"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_lvsry"]
-[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://examples_2d_3d/coagulation/fibro.tscn" id="7_6b6ua"]
+[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://examples/coagulation/fibro.tscn" id="7_6b6ua"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="7_ebejv"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_state_equals.gd" id="8_3soh5"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_sup.gd" id="9_r2eax"]
@@ -16,10 +16,10 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_proba.gd" id="14_1o72l"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_grid_value_2d.gd" id="16_7my84"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/print_message.gd" id="16_70ee2"]
-[ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://examples_2d_3d/coagulation/platelet.tscn" id="16_loo5f"]
+[ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://examples/coagulation/platelet.tscn" id="16_loo5f"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="17_n33my"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="18_xuqnk"]
-[ext_resource type="PackedScene" uid="uid://yq5y0be22p2p" path="res://examples_2d_3d/coagulation/grid_2d_0.tscn" id="20_3fwqe"]
+[ext_resource type="PackedScene" uid="uid://yq5y0be22p2p" path="res://examples/coagulation/grid_2d_0.tscn" id="20_3fwqe"]
 
 [node name="Coagulation" type="Node2D"]
 

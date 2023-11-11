@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="6_6wxfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="7_3pti1"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="8_bqvrh"]
-[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://examples_2d_3d/various/agent_b.tscn" id="9_1gvab"]
+[ext_resource type="PackedScene" uid="uid://cmh2j5wto6rrp" path="res://examples/various/agent_b.tscn" id="9_1gvab"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="9_maaon"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="10_ahpm3"]
-[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples_2d_3d/various/agent_c.tscn" id="10_sbjrl"]
+[ext_resource type="PackedScene" uid="uid://cnp1sb4hijc2o" path="res://examples/various/agent_c.tscn" id="10_sbjrl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h8i4e"]
 flip_faces = true
