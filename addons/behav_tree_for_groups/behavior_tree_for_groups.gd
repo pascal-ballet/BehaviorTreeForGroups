@@ -1,5 +1,5 @@
 ## Root node of the BehavTreeForGroups plugin.
-## Its DIRECT children MUST be Behavior Nodes
+## Its DIRECT children MUST be Behavior nodes
 
 @icon("behavior_tree_for_groups.svg")
 
