@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://8cmtp2k3nu57"]
+[gd_scene load_steps=3 format=3 uid="uid://btaurfj6abv1j"]
 
 [sub_resource type="GDScript" id="GDScript_5seel"]
 script/source = "
@@ -20,7 +20,7 @@ func _enter_tree():
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3k7d8"]
 
-[node name="agent_b_2d" type="RigidBody2D" groups=["BactB"]]
+[node name="agent_2d" type="RigidBody2D"]
 gravity_scale = 0.0
 max_contacts_reported = 2
 contact_monitor = true
@@ -32,5 +32,5 @@ script = SubResource("GDScript_5seel")
 shape = SubResource("CircleShape2D_3k7d8")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0, 0.635294, 0.964706, 1)
+color = Color(1, 0.294118, 0.533333, 1)
 polygon = PackedVector2Array(10, 0, 5, 8.66025, -5, 8.66025, -10, 1.22461e-15, -5, -8.66025, 5, -8.66025)
