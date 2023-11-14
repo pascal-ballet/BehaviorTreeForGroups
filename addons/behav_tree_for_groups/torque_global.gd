@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Apply a torque on the current agent
 ##according to the absolute axis reference
 

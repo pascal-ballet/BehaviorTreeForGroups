@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Apply a random torque on the current agent.
 
 @icon("action.svg")

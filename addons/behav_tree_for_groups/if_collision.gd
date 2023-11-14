@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Returns true if a collision occurs
 ## for the current agent
 

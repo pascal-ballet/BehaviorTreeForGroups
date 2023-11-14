@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Dynamically add a new spring
 ## between two nodes/agents
 

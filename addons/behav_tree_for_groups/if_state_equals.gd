@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Return true if the agent's state
 ## equals a given integer value
 

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Applies a random force to the current agent
 
 @icon("action.svg")

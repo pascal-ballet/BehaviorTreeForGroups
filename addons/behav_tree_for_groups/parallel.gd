@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Execute all its children
 
 @icon("parallel.svg")

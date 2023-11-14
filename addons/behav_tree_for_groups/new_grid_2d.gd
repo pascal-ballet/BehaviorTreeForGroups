@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Create a new Type of 2D Grid
 ## into a Type Scene file (.tscn)
 ## This grid can be added manually

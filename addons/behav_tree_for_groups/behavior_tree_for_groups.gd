@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Root node of the BehavTreeForGroups plugin.
 ## Its DIRECT children MUST be Behavior Nodes
 

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Return true if an agent
 ## is inside a grid having a value
 ## inferior to a float number

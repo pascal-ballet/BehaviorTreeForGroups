@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Force the current agent
 ## to stay inside a 2D or 3D box
 

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Duplicate the current node/agent
 
 @icon("action.svg")

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Set the state of the current agent
 
 @icon("action.svg")

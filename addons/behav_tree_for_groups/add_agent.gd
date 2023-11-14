@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Dynamically add a new node/agent in the scene
 ## at the location of the current node/agent
 

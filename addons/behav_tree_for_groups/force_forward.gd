@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Applies a forward force to the current agent
 
 @icon("action.svg")

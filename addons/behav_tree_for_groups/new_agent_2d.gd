@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Create a new Type of 2D Agent
 ## into a Type Scene file (.tscn)
 ## This agent can be added manually

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Execute its children
 ## upto one of them fails
 ## (return false)

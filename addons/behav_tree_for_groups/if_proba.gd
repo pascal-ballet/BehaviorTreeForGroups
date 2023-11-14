@@ -1,8 +1,6 @@
-## BehavTreeForGroups
-## ******************
 ## Return true if a random float
 ## between 0 and 100 is inferior
-##to a given float number
+## to a given float number
 
 @icon("condition.svg")
 class_name IfProba

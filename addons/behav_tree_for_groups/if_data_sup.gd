@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Return true if an agent's data
 ## is superior to a float value
 

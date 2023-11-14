@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Return true if the simulation/execution step
 ## is between 2 given integer numbers.
 

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Applies a force to the current agent
 ## relating to the absolute axis reference
 

@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Return true if an agent
 ## is inside box
 

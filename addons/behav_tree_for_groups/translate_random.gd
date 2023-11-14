@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Apply a random translation
 ## on the current agent.
 

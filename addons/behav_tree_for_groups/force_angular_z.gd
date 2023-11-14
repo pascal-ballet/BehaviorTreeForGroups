@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Applies an angular force to the current agent
 ## relating to the center
 

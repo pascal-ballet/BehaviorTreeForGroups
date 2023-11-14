@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Change the color of a node/agent.
 
 @icon("action.svg")

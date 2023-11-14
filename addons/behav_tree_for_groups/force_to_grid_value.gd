@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Applies a force to the current agent
 ## toward the value the agent has to reach
 ## inside a Grid of values

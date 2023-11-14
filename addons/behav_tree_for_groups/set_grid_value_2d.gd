@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Set a float value inside a Grid2D
 ## at the location of the current agent
 

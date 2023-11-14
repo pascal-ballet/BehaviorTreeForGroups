@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Remove the current agent from the scene
 
 @icon("action.svg")

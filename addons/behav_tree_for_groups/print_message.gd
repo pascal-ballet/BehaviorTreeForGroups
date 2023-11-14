@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Print a message into
 ## the Godot Output Window.
 

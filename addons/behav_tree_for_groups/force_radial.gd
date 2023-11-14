@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Applies a centrifuge or centripet force to the current agent
 ## relating to the center
 

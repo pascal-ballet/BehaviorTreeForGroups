@@ -1,7 +1,5 @@
-## BehavTreeForGroups
-## ******************
-## Node of a behavior
-## MUST be a DIRECT child of the BehavTreeForGroups Node
+## Behavior root node.
+## MUST be a DIRECT child of the BehaviorTreeForGroups Node
 ## Works on one specific group
 ## Execute all its children, always
 ## like a Parallel Node

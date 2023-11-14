@@ -1,5 +1,3 @@
-## BehavTreeForGroups
-## ******************
 ## Add a float to a current agent's data
 
 @icon("action.svg")
