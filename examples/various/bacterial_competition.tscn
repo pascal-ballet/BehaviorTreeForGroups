@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhxvny3etqnnp"]
+
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_485cq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mn50l"]
+frequency = 0.1948
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_simtx"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_mn50l")
+
+[node name="bacterial_competition" type="Node2D"]
+
+[node name="BehaviorTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_485cq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(600, 300)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+texture = SubResource("NoiseTexture2D_simtx")
+texture_offset = Vector2(14.64, 6.66)
+texture_scale = Vector2(3.53, 3.53)
+polygon = PackedVector2Array(10, -6, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, 5, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
