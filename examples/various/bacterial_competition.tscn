@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhxvny3etqnnp"]
+[gd_scene load_steps=15 format=3 uid="uid://dhxvny3etqnnp"]
 
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_485cq"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_qypio"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_n4ral"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="3_qcvpy"]
+[ext_resource type="PackedScene" uid="uid://btaurfj6abv1j" path="res://examples/various/agent_a_2d.tscn" id="4_1cirk"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="4_o8eup"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_grid_value_2d.gd" id="5_cdqi6"]
+[ext_resource type="PackedScene" uid="uid://8cmtp2k3nu57" path="res://examples/various/agent_b_2d.tscn" id="5_ebryg"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_proba.gd" id="5_mw6lg"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_no_contact.gd" id="6_w26vx"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/clone_agent.gd" id="7_jhtrw"]
+[ext_resource type="PackedScene" uid="uid://b53u72i0vqd81" path="res://examples/various/grid_2d.tscn" id="11_d2nxd"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mn50l"]
 frequency = 0.1948
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_simtx"]
-width = 128
-height = 128
+width = 64
+height = 64
 noise = SubResource("FastNoiseLite_mn50l")
 
 [node name="bacterial_competition" type="Node2D"]
@@ -15,13 +26,153 @@ noise = SubResource("FastNoiseLite_mn50l")
 [node name="BehaviorTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_485cq")
 
+[node name="BactA" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_qypio")
+on_group = "BactA"
+
+[node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/BactA"]
+script = ExtResource("3_qcvpy")
+min = Vector3(40, 40, 0)
+max = Vector3(1100, 600, 0)
+
+[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/BactA"]
+script = ExtResource("3_n4ral")
+F = Vector3(6, 6, 6)
+
+[node name="SetGridValue2D" type="Node" parent="BehaviorTreeForGroups/BactA"]
+script = ExtResource("5_cdqi6")
+on_grid_group = "GrdA"
+set_value = 1.0
+
+[node name="Division" type="Node" parent="BehaviorTreeForGroups/BactA"]
+script = ExtResource("4_o8eup")
+
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+script = ExtResource("5_mw6lg")
+proba = 50.0
+
+[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+script = ExtResource("6_w26vx")
+
+[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+script = ExtResource("7_jhtrw")
+
+[node name="GridA" parent="." groups=["GrdA"] instance=ExtResource("11_d2nxd")]
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 1135.0
+offset_bottom = 630.0
+baseColor = Color(0.843137, 0, 0.717647, 1)
+show_iso = true
+
+[node name="GridB" parent="." groups=["GrdB"] instance=ExtResource("11_d2nxd")]
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 1135.0
+offset_bottom = 630.0
+baseColor = Color(0.337255, 0.423529, 1, 1)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(600, 300)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+texture_repeat = 2
+position = Vector2(-14, -37)
+scale = Vector2(7.125, 6.43478)
+color = Color(0.513726, 0.772549, 0.521569, 1)
 texture = SubResource("NoiseTexture2D_simtx")
 texture_offset = Vector2(14.64, 6.66)
-texture_scale = Vector2(3.53, 3.53)
-polygon = PackedVector2Array(10, -6, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, 5, 0)
+texture_scale = Vector2(5.675, 5.675)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-14.6589, -36.7012)
+scale = Vector2(7.09217, 6.42728)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(238, 360)
+rotation = 2.40855
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+texture_repeat = 2
+position = Vector2(-14, -37)
+scale = Vector2(7.125, 6.43478)
+color = Color(0.513726, 0.772549, 0.521569, 1)
+texture = SubResource("NoiseTexture2D_simtx")
+texture_offset = Vector2(14.64, 6.66)
+texture_scale = Vector2(5.675, 5.675)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(-14.6589, -36.7012)
+scale = Vector2(7.09217, 6.42728)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(498, 510)
+rotation = 2.40855
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+texture_repeat = 2
+position = Vector2(-14, -37)
+scale = Vector2(7.125, 6.43478)
+color = Color(0.513726, 0.772549, 0.521569, 1)
+texture = SubResource("NoiseTexture2D_simtx")
+texture_offset = Vector2(14.64, 6.66)
+texture_scale = Vector2(5.675, 5.675)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2(-14.6589, -36.7012)
+scale = Vector2(7.09217, 6.42728)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(911, 336)
+rotation = -2.10661
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
+texture_repeat = 2
+position = Vector2(-14, -37)
+scale = Vector2(7.125, 6.43478)
+color = Color(0.513726, 0.772549, 0.521569, 1)
+texture = SubResource("NoiseTexture2D_simtx")
+texture_offset = Vector2(14.64, 6.66)
+texture_scale = Vector2(5.675, 5.675)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
+position = Vector2(-14.6589, -36.7012)
+scale = Vector2(7.09217, 6.42728)
+polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
+
+[node name="agent_a_2d" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(470, 246)
+
+[node name="agent_a_2d2" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(462, 287)
+
+[node name="agent_a_2d3" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(489, 284)
+
+[node name="agent_a_2d4" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(506, 265)
+
+[node name="agent_a_2d5" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(584, 298)
+
+[node name="agent_a_2d6" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(531, 284)
+
+[node name="agent_a_2d7" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(429, 269)
+
+[node name="agent_a_2d8" parent="." instance=ExtResource("4_1cirk")]
+position = Vector2(436, 237)
+
+[node name="agent_b_2d" parent="." instance=ExtResource("5_ebryg")]
+position = Vector2(253, 189)
+
+[node name="agent_b_2d2" parent="." instance=ExtResource("5_ebryg")]
+position = Vector2(42, 43)

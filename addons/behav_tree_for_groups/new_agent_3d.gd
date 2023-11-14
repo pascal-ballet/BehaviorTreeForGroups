@@ -81,13 +81,9 @@ extends RigidBody3D
 @export var state:int = 0
 @export var age:int = 0
 
-func _process(delta):
+func _process(_delta):
 	if not Engine.is_editor_hint():
 		age += 1
-
-func _enter_tree():
-	var new_name:String = get_scene_file_path().get_file().trim_suffix(".tscn")
-	set_name.call_deferred(new_name)
 
 func emit_changed():
 	pass

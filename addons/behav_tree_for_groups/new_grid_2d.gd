@@ -111,10 +111,6 @@ func _process(_delta):
 		else:
 			display_iso()
 		age += 1
-		
-func _enter_tree():
-	var new_name:String = get_scene_file_path().get_file().trim_suffix(".tscn")
-	set_name.call_deferred(new_name)
 
 func diffusion():
 	for i in range(xmin,xmax):
