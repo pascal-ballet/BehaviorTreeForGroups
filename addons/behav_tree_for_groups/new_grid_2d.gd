@@ -143,12 +143,22 @@ func display_iso():
 	for i in range(SX):
 		for j in range(SY):
 			var p:int = i+j*SX
-			var v:float = values_t0[p] # [0, 1]
+			var v:float = values_t0[p] # in [0, 1]
 			var e:float = 0
 			if v>0:
-				e = sin(30*log(v))
+				if num_zeros(v) % 2 == 0:
+					e = 1 # sin(30*log(v))
+				else:
+					e = 0.5
 			img.set_pixel(i,j,Color(e*baseColor.r,e*baseColor.g,e*baseColor.b,baseColor.a) )
 	set_texture(ImageTexture.create_from_image(img))
+
+
+func num_zeros(val:float) -> int:
+	var n:int = 0
+	if val != 0:
+		n = -floor(   log(abs(val)) / log(10)  ) - 1
+	return n
 
 func print_value():
 	var i:int   = randi_range(0, SX-1)
