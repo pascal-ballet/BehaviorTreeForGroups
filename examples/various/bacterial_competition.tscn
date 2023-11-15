@@ -87,7 +87,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("5_mw6lg")
-proba = 10.0
+proba = 1.0
 
 [node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("12_qdnid")
@@ -242,7 +242,6 @@ tooltip_text = "3.14159"
 baseColor = Color(0.913725, 0, 0.396078, 1)
 diffusionRate = 0.5
 degradationRate = 0.01
-show_iso = true
 
 [node name="GridB" parent="." groups=["GrdB"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
@@ -252,7 +251,6 @@ offset_bottom = 632.0
 baseColor = Color(0.258824, 0.588235, 0, 1)
 diffusionRate = 0.5
 degradationRate = 0.01
-show_iso = true
 
 [node name="GridC" parent="." groups=["GrdC"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
@@ -262,7 +260,6 @@ offset_bottom = 632.0
 baseColor = Color(0.313726, 0.427451, 1, 1)
 diffusionRate = 0.5
 degradationRate = 0.01
-show_iso = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(990, 152)
