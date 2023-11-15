@@ -58,7 +58,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
 script = ExtResource("5_mw6lg")
-proba = 50.0
+proba = 10.0
 
 [node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
 script = ExtResource("6_w26vx")
@@ -66,7 +66,8 @@ steps_without_contact = 0
 
 [node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
 script = ExtResource("10_1jfcd")
-is_sup_to = 5.0
+on_grid_group = "GrdB"
+is_sup_to = 1.0
 
 [node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
 script = ExtResource("7_jhtrw")
@@ -76,7 +77,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Death"]
 script = ExtResource("5_mw6lg")
-proba = 0.01
+proba = 0.0
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/Death"]
 script = ExtResource("11_8tv06")
@@ -86,12 +87,12 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("5_mw6lg")
-proba = 3.0
+proba = 10.0
 
 [node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("12_qdnid")
-on_grid_group = "GridB"
-is_inf_to = 5.0
+on_grid_group = "GrdB"
+is_inf_to = 2.0
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("11_8tv06")
@@ -125,7 +126,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
 script = ExtResource("5_mw6lg")
-proba = 50.0
+proba = 0.0
 
 [node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
 script = ExtResource("6_w26vx")
@@ -133,6 +134,7 @@ steps_without_contact = 0
 
 [node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
 script = ExtResource("10_1jfcd")
+on_grid_group = "GrdC"
 is_sup_to = 5.0
 
 [node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
@@ -192,7 +194,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
 script = ExtResource("5_mw6lg")
-proba = 50.0
+proba = 0.0
 
 [node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
 script = ExtResource("6_w26vx")
@@ -200,6 +202,7 @@ steps_without_contact = 0
 
 [node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
 script = ExtResource("10_1jfcd")
+on_grid_group = "GrdA"
 is_sup_to = 5.0
 
 [node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
@@ -237,8 +240,8 @@ offset_right = 1145.0
 offset_bottom = 632.0
 tooltip_text = "3.14159"
 baseColor = Color(0.913725, 0, 0.396078, 1)
-diffusionRate = 0.003
-degradationRate = 0.0
+diffusionRate = 0.5
+degradationRate = 0.01
 
 [node name="GridB" parent="." groups=["GrdB"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
@@ -246,8 +249,8 @@ offset_top = 3.0
 offset_right = 1145.0
 offset_bottom = 632.0
 baseColor = Color(0.258824, 0.588235, 0, 1)
-diffusionRate = 0.003
-degradationRate = 0.0
+diffusionRate = 0.5
+degradationRate = 0.01
 
 [node name="GridC" parent="." groups=["GrdC"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
@@ -255,9 +258,8 @@ offset_top = 3.0
 offset_right = 1145.0
 offset_bottom = 632.0
 baseColor = Color(0.313726, 0.427451, 1, 1)
-diffusionRate = 0.003
-degradationRate = 0.0
-display_value = true
+diffusionRate = 0.5
+degradationRate = 0.01
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(990, 152)
@@ -336,16 +338,16 @@ scale = Vector2(7.09217, 6.42728)
 polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
 
 [node name="agent_2d" parent="." groups=["BactA"] instance=ExtResource("4_1cirk")]
-position = Vector2(540, 210)
+position = Vector2(538, 275)
 
 [node name="agent_2d2" parent="." groups=["BactB"] instance=ExtResource("4_1cirk")]
-position = Vector2(619, 302)
+position = Vector2(555, 293)
 
 [node name="Polygon2D" parent="agent_2d2" index="1"]
 color = Color(0, 1, 0.0941176, 1)
 
 [node name="agent_2d3" parent="." groups=["BactC"] instance=ExtResource("4_1cirk")]
-position = Vector2(462, 299)
+position = Vector2(533, 293)
 
 [node name="Polygon2D" parent="agent_2d3" index="1"]
 color = Color(0.372549, 0, 1, 1)
