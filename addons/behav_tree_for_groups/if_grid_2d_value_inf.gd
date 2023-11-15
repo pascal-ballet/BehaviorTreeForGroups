@@ -8,7 +8,7 @@ extends BehaviorTreeForGroups
 
 ## Name of the Grid's group
 @export var on_grid_group:String = ""
-## Value to test
+## Value to test (in Magnitude: 1=1/10, 2=1/100, 3=1/1000, etc)
 @export var is_inf_to:float = 0
 
 var grids:Array = Array()
@@ -34,6 +34,6 @@ func biodyn_process(agent)->bool:
 					var py:int = ((ay - gy_min) / grid.size.y) * grid.SY
 					var p:int = px+py*grid.SX
 					var val:float = grid.values_t0[p]
-					if val <= is_inf_to:
+					if val <= pow(10, -is_inf_to):
 						cdt = true
 	return cdt

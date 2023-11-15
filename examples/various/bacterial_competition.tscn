@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhxvny3etqnnp"]
+[gd_scene load_steps=18 format=3 uid="uid://dhxvny3etqnnp"]
 
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_485cq"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_qypio"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_ct8ll"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_no_contact.gd" id="6_w26vx"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/clone_agent.gd" id="7_jhtrw"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_sup.gd" id="10_1jfcd"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="11_8tv06"]
 [ext_resource type="PackedScene" uid="uid://b53u72i0vqd81" path="res://examples/various/grid_2d.tscn" id="11_d2nxd"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_inf.gd" id="12_qdnid"]
@@ -61,7 +62,11 @@ proba = 50.0
 
 [node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
 script = ExtResource("6_w26vx")
-steps_without_contact = 10
+steps_without_contact = 0
+
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+script = ExtResource("10_1jfcd")
+is_sup_to = 5.0
 
 [node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
 script = ExtResource("7_jhtrw")
@@ -71,7 +76,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Death"]
 script = ExtResource("5_mw6lg")
-proba = 0.1
+proba = 0.01
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/Death"]
 script = ExtResource("11_8tv06")
@@ -86,7 +91,7 @@ proba = 3.0
 [node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("12_qdnid")
 on_grid_group = "GridB"
-is_inf_to = 0.5
+is_inf_to = 5.0
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
 script = ExtResource("11_8tv06")
@@ -124,7 +129,11 @@ proba = 50.0
 
 [node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
 script = ExtResource("6_w26vx")
-steps_without_contact = 10
+steps_without_contact = 0
+
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
+script = ExtResource("10_1jfcd")
+is_sup_to = 5.0
 
 [node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
 script = ExtResource("7_jhtrw")
@@ -134,7 +143,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/Death"]
 script = ExtResource("5_mw6lg")
-proba = 0.1
+proba = 0.01
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactB/Death"]
 script = ExtResource("11_8tv06")
@@ -149,7 +158,7 @@ proba = 3.0
 [node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactB/Apoptosis"]
 script = ExtResource("12_qdnid")
 on_grid_group = "GridC"
-is_inf_to = 0.5
+is_inf_to = 5.0
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactB/Apoptosis"]
 script = ExtResource("11_8tv06")
@@ -187,7 +196,11 @@ proba = 50.0
 
 [node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
 script = ExtResource("6_w26vx")
-steps_without_contact = 10
+steps_without_contact = 0
+
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
+script = ExtResource("10_1jfcd")
+is_sup_to = 5.0
 
 [node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
 script = ExtResource("7_jhtrw")
@@ -197,7 +210,7 @@ script = ExtResource("4_o8eup")
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/Death"]
 script = ExtResource("5_mw6lg")
-proba = 0.1
+proba = 0.01
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactC/Death"]
 script = ExtResource("11_8tv06")
@@ -212,7 +225,7 @@ proba = 3.0
 [node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactC/Apoptosis"]
 script = ExtResource("12_qdnid")
 on_grid_group = "GridA"
-is_inf_to = 0.5
+is_inf_to = 5.0
 
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactC/Apoptosis"]
 script = ExtResource("11_8tv06")
@@ -222,6 +235,7 @@ offset_left = 10.0
 offset_top = 3.0
 offset_right = 1145.0
 offset_bottom = 632.0
+tooltip_text = "3.14159"
 baseColor = Color(0.913725, 0, 0.396078, 1)
 diffusionRate = 0.003
 degradationRate = 0.0
@@ -243,6 +257,7 @@ offset_bottom = 632.0
 baseColor = Color(0.313726, 0.427451, 1, 1)
 diffusionRate = 0.003
 degradationRate = 0.0
+display_value = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(990, 152)
