@@ -42,7 +42,7 @@ max = Vector3(1100, 600, 0)
 script = ExtResource("3_n4ral")
 F = Vector3(10, 10, 10)
 
-[node name="PutAcid" type="Node" parent="BehaviorTreeForGroups/BactA"]
+[node name="PutAcidA" type="Node" parent="BehaviorTreeForGroups/BactA"]
 script = ExtResource("5_cdqi6")
 on_grid_group = "GrdA"
 set_value = 1.0
@@ -51,50 +51,40 @@ set_value = 1.0
 script = ExtResource("6_ct8ll")
 on_grid_group = "GrdB"
 value_to_go = 1.0
-force = 1.0
+force = 0.1
 
-[node name="Division" type="Node" parent="BehaviorTreeForGroups/BactA"]
+[node name="DivisionA" type="Node" parent="BehaviorTreeForGroups/BactA"]
 script = ExtResource("4_o8eup")
 
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/DivisionA"]
 script = ExtResource("5_mw6lg")
 proba = 10.0
 
-[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactA/DivisionA"]
 script = ExtResource("6_w26vx")
-steps_without_contact = 0
+steps_without_contact = 2
 
-[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactA/DivisionA"]
 script = ExtResource("10_1jfcd")
 on_grid_group = "GrdB"
 is_sup_to = 1.0
 
-[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactA/Division"]
+[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactA/DivisionA"]
 script = ExtResource("7_jhtrw")
 
-[node name="Death" type="Node" parent="BehaviorTreeForGroups/BactA"]
+[node name="ApoptosisA" type="Node" parent="BehaviorTreeForGroups/BactA"]
 script = ExtResource("4_o8eup")
 
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Death"]
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/ApoptosisA"]
 script = ExtResource("5_mw6lg")
-proba = 0.0
+proba = 20.0
 
-[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/Death"]
-script = ExtResource("11_8tv06")
-
-[node name="Apoptosis" type="Node" parent="BehaviorTreeForGroups/BactA"]
-script = ExtResource("4_o8eup")
-
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
-script = ExtResource("5_mw6lg")
-proba = 1.0
-
-[node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
+[node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactA/ApoptosisA"]
 script = ExtResource("12_qdnid")
 on_grid_group = "GrdB"
 is_inf_to = 1.0
 
-[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/Apoptosis"]
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/ApoptosisA"]
 script = ExtResource("11_8tv06")
 
 [node name="BactB" type="Node" parent="BehaviorTreeForGroups"]
@@ -110,7 +100,7 @@ max = Vector3(1100, 600, 0)
 script = ExtResource("3_n4ral")
 F = Vector3(10, 10, 10)
 
-[node name="PutAcid" type="Node" parent="BehaviorTreeForGroups/BactB"]
+[node name="PutAcidB" type="Node" parent="BehaviorTreeForGroups/BactB"]
 script = ExtResource("5_cdqi6")
 on_grid_group = "GrdB"
 set_value = 1.0
@@ -119,50 +109,40 @@ set_value = 1.0
 script = ExtResource("6_ct8ll")
 on_grid_group = "GrdC"
 value_to_go = 1.0
-force = 1.0
+force = 0.1
 
-[node name="Division" type="Node" parent="BehaviorTreeForGroups/BactB"]
+[node name="DivisionB" type="Node" parent="BehaviorTreeForGroups/BactB"]
 script = ExtResource("4_o8eup")
 
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/DivisionB"]
 script = ExtResource("5_mw6lg")
-proba = 0.0
+proba = 10.0
 
-[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
+[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactB/DivisionB"]
 script = ExtResource("6_w26vx")
-steps_without_contact = 0
+steps_without_contact = 2
 
-[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactB/DivisionB"]
 script = ExtResource("10_1jfcd")
 on_grid_group = "GrdC"
-is_sup_to = 5.0
+is_sup_to = 1.0
 
-[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactB/Division"]
+[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactB/DivisionB"]
 script = ExtResource("7_jhtrw")
 
-[node name="Death" type="Node" parent="BehaviorTreeForGroups/BactB"]
+[node name="ApoptosisB" type="Node" parent="BehaviorTreeForGroups/BactB"]
 script = ExtResource("4_o8eup")
 
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/Death"]
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/ApoptosisB"]
 script = ExtResource("5_mw6lg")
-proba = 0.01
+proba = 20.0
 
-[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactB/Death"]
-script = ExtResource("11_8tv06")
-
-[node name="Apoptosis" type="Node" parent="BehaviorTreeForGroups/BactB"]
-script = ExtResource("4_o8eup")
-
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/Apoptosis"]
-script = ExtResource("5_mw6lg")
-proba = 3.0
-
-[node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactB/Apoptosis"]
+[node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactB/ApoptosisB"]
 script = ExtResource("12_qdnid")
-on_grid_group = "GridC"
-is_inf_to = 5.0
+on_grid_group = "GrdC"
+is_inf_to = 1.0
 
-[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactB/Apoptosis"]
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactB/ApoptosisB"]
 script = ExtResource("11_8tv06")
 
 [node name="BactC" type="Node" parent="BehaviorTreeForGroups"]
@@ -178,7 +158,7 @@ max = Vector3(1100, 600, 0)
 script = ExtResource("3_n4ral")
 F = Vector3(10, 10, 10)
 
-[node name="PutAcid" type="Node" parent="BehaviorTreeForGroups/BactC"]
+[node name="PutAcidC" type="Node" parent="BehaviorTreeForGroups/BactC"]
 script = ExtResource("5_cdqi6")
 on_grid_group = "GrdC"
 set_value = 1.0
@@ -187,50 +167,40 @@ set_value = 1.0
 script = ExtResource("6_ct8ll")
 on_grid_group = "GrdA"
 value_to_go = 1.0
-force = 1.0
+force = 0.1
 
-[node name="Division" type="Node" parent="BehaviorTreeForGroups/BactC"]
+[node name="DivisionC" type="Node" parent="BehaviorTreeForGroups/BactC"]
 script = ExtResource("4_o8eup")
 
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/DivisionC"]
 script = ExtResource("5_mw6lg")
-proba = 0.0
+proba = 10.0
 
-[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
+[node name="IfNoContact" type="Node" parent="BehaviorTreeForGroups/BactC/DivisionC"]
 script = ExtResource("6_w26vx")
-steps_without_contact = 0
+steps_without_contact = 2
 
-[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/BactC/DivisionC"]
 script = ExtResource("10_1jfcd")
 on_grid_group = "GrdA"
-is_sup_to = 5.0
+is_sup_to = 1.0
 
-[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactC/Division"]
+[node name="CloneAgent" type="Node" parent="BehaviorTreeForGroups/BactC/DivisionC"]
 script = ExtResource("7_jhtrw")
 
-[node name="Death" type="Node" parent="BehaviorTreeForGroups/BactC"]
+[node name="ApoptosisC" type="Node" parent="BehaviorTreeForGroups/BactC"]
 script = ExtResource("4_o8eup")
 
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/Death"]
+[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/ApoptosisC"]
 script = ExtResource("5_mw6lg")
-proba = 0.01
+proba = 20.0
 
-[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactC/Death"]
-script = ExtResource("11_8tv06")
-
-[node name="Apoptosis" type="Node" parent="BehaviorTreeForGroups/BactC"]
-script = ExtResource("4_o8eup")
-
-[node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/Apoptosis"]
-script = ExtResource("5_mw6lg")
-proba = 3.0
-
-[node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactC/Apoptosis"]
+[node name="IfGrid2DValueInf" type="Node" parent="BehaviorTreeForGroups/BactC/ApoptosisC"]
 script = ExtResource("12_qdnid")
-on_grid_group = "GridA"
-is_inf_to = 5.0
+on_grid_group = "GrdA"
+is_inf_to = 1.0
 
-[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactC/Apoptosis"]
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactC/ApoptosisC"]
 script = ExtResource("11_8tv06")
 
 [node name="GridA" parent="." groups=["GrdA"] instance=ExtResource("11_d2nxd")]
@@ -241,28 +211,29 @@ offset_bottom = 632.0
 tooltip_text = "3.14159"
 baseColor = Color(0.913725, 0, 0.396078, 1)
 diffusionRate = 0.5
-degradationRate = 0.01
+degradationRate = 0.2
 
 [node name="GridB" parent="." groups=["GrdB"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
 offset_top = 3.0
 offset_right = 1145.0
 offset_bottom = 632.0
-baseColor = Color(0.258824, 0.588235, 0, 1)
+baseColor = Color(0.258824, 0.588235, 0, 0.498039)
 diffusionRate = 0.5
-degradationRate = 0.01
+degradationRate = 0.2
+show_iso = true
 
 [node name="GridC" parent="." groups=["GrdC"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
 offset_top = 3.0
 offset_right = 1145.0
 offset_bottom = 632.0
-baseColor = Color(0.313726, 0.427451, 1, 1)
+baseColor = Color(0.313726, 0.427451, 1, 0.247059)
 diffusionRate = 0.5
-degradationRate = 0.01
+degradationRate = 0.2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(990, 152)
+position = Vector2(1035, 111)
 rotation = -0.506145
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
@@ -281,7 +252,7 @@ scale = Vector2(7.09217, 6.42728)
 polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(179, 499)
+position = Vector2(115, 536)
 rotation = 2.63545
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
@@ -300,7 +271,7 @@ scale = Vector2(7.09217, 6.42728)
 polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(985, 486)
+position = Vector2(1044, 529)
 rotation = 1.11701
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
@@ -319,7 +290,7 @@ scale = Vector2(7.09217, 6.42728)
 polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10, -14, 6, -10, 5, -1, 10, 9, 6, -14.8772, -4.97297, -19.7895, -10.4122, -20.0702, -17.25, -14.4561, -18.4932, -9.96491, -14.4527)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(180, 144)
+position = Vector2(111, 101)
 rotation = -2.06298
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
@@ -339,6 +310,12 @@ polygon = PackedVector2Array(-2.66666, -10.5676, 18, 1, 12, 14, -2, 17, -13, 10,
 
 [node name="agent_2d" parent="." groups=["BactA"] instance=ExtResource("4_1cirk")]
 position = Vector2(538, 275)
+
+[node name="agent_2d4" parent="." groups=["BactA"] instance=ExtResource("4_1cirk")]
+position = Vector2(698, 257)
+
+[node name="agent_2d5" parent="." groups=["BactA"] instance=ExtResource("4_1cirk")]
+position = Vector2(605, 155)
 
 [node name="agent_2d2" parent="." groups=["BactB"] instance=ExtResource("4_1cirk")]
 position = Vector2(555, 293)

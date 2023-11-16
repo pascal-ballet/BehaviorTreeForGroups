@@ -43,6 +43,8 @@ func _enter_tree():
 			preload("force_random.gd"),preload("action.svg"))
 	add_custom_type("ForceToGridValue", "BehaviorTreeForGroups",\
 			preload("force_to_grid_value.gd"),preload("action.svg"))
+	add_custom_type("IfAgeBetween", "BehaviorTreeForGroups",\
+			preload("if_age_between.gd"),preload("condition.svg"))
 	add_custom_type("IfCollision", "BehaviorTreeForGroups",\
 			preload("if_collision.gd"),preload("condition.svg"))
 	add_custom_type("IfDataEquals", "BehaviorTreeForGroups",\
@@ -114,6 +116,7 @@ func _exit_tree():
 	remove_custom_type("ForceRadial")
 	remove_custom_type("ForceRandom")
 	remove_custom_type("ForceToGridValue")
+	remove_custom_type("IfAgeBetween")
 	remove_custom_type("IfCollision")
 	remove_custom_type("IfDataEquals")
 	remove_custom_type("IfDataInf")
