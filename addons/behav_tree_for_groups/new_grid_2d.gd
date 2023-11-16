@@ -136,23 +136,12 @@ func display_values():
 			var v:float = values_t0[p]
 			img.set_pixel(i,j,Color(v*baseColor.r,v*baseColor.g,v*baseColor.b,baseColor.a) )
 	set_texture(ImageTexture.create_from_image(img))
-
-func display_iso():
-	var img:Image = Image.create(SX,SY,false, Image.FORMAT_RGBA8)
-	var r:float; var g:float; var b:float
-	for i in range(SX):
-		for j in range(SY):
-			var p:int = i+j*SX
-			var v:float = values_t0[p] # in [0, 1]
-			var e:float = 0
-			if v>0:
-				if num_zeros(v) % 2 == 0:
-					e = 1 # sin(30*log(v))
-				else:
-					e = 0.5
-			img.set_pixel(i,j,Color(e*baseColor.r,e*baseColor.g,e*baseColor.b,baseColor.a) )
-	set_texture(ImageTexture.create_from_image(img))
-
+	
+func print_value():
+	var i:int   = randi_range(0, SX-1)
+	var j:int   = randi_range(0, SY-1)
+	var v:float = values_t0[i+j*SX]
+	print("At (" + str(i) + "," + str(j) + ")=" + str(num_zeros(v)) + "<=" + str(v) )
 
 func num_zeros(val:float) -> int:
 	var n:int = 0
@@ -160,10 +149,21 @@ func num_zeros(val:float) -> int:
 		n = -floor(   log(abs(val)) / log(10)  ) - 1
 	return n
 
-func print_value():
-	var i:int   = randi_range(0, SX-1)
-	var j:int   = randi_range(0, SY-1)
-	var v:float = values_t0[i+j*SX]
-	print("At (" + str(i) + "," + str(j) + ")=" + str(num_zeros(v)) + "<=" + str(v) )
+func display_iso():
+	var img:Image = Image.create(SX,SY,false, Image.FORMAT_RGBA8)
+	var r:float; var g:float; var b:float
+	for i in range(1,SX-2):
+		for j in range(1,SY-2):
+			var p:int = i+j*SX
+			var v0:float = num_zeros(values_t0[p])
+			var vg:float = num_zeros(values_t0[p-1])
+			var vd:float = num_zeros(values_t0[p+1])
+			var vh:float = num_zeros(values_t0[p-SX])
+			var vb:float = num_zeros(values_t0[p+SX])
+			var e:float = 1.0
+			if vg>v0 || vd>v0 || vh>v0 || vb>v0:
+				e = 0.5
+			img.set_pixel(i,j,Color(e*baseColor.r,e*baseColor.g,e*baseColor.b,baseColor.a) )
+	set_texture(ImageTexture.create_from_image(img))
 
 """
