@@ -1,0 +1,415 @@
+[gd_scene load_steps=15 format=3 uid="uid://dfv50dt3kbn73"]
+
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_tfeso"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_y7rrg"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="3_xu8xt"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="4_eown5"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="5_os8fb"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="5_tn3g1"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="6_s1apk"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="7_qgi20"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="8_es8s6"]
+[ext_resource type="PackedScene" uid="uid://blg5hyqfh3rqf" path="res://examples/various/agent_up.tscn" id="9_vpgr4"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_age_between.gd" id="10_bg12w"]
+[ext_resource type="PackedScene" uid="uid://buob31s0jwccg" path="res://examples/various/agent_down.tscn" id="10_wxm3d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1qow"]
+size = Vector2(0.998571, 0.92)
+
+[sub_resource type="QuadMesh" id="QuadMesh_6ytsp"]
+
+[node name="Boiling" type="Node2D"]
+
+[node name="BehaviorTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_tfeso")
+
+[node name="AgentUp" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_y7rrg")
+on_group = "up"
+
+[node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/AgentUp"]
+script = ExtResource("4_eown5")
+min = Vector3(300, 100, 0)
+max = Vector3(600, 600, 5)
+
+[node name="ForceGlobal" type="Node" parent="BehaviorTreeForGroups/AgentUp"]
+script = ExtResource("3_xu8xt")
+fy = -1.0
+
+[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/AgentUp"]
+script = ExtResource("5_os8fb")
+F = Vector3(20, 20, 0)
+
+[node name="GoReverse" type="Node" parent="BehaviorTreeForGroups/AgentUp"]
+script = ExtResource("5_tn3g1")
+
+[node name="IfCollision" type="Node" parent="BehaviorTreeForGroups/AgentUp/GoReverse"]
+script = ExtResource("6_s1apk")
+with_group = "cold"
+
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/AgentUp/GoReverse"]
+script = ExtResource("7_qgi20")
+
+[node name="AddAgent" type="Node" parent="BehaviorTreeForGroups/AgentUp/GoReverse"]
+script = ExtResource("8_es8s6")
+agent_tscn = "res://examples/various/agent_down.tscn"
+
+[node name="Sequential" type="Node" parent="BehaviorTreeForGroups/AgentUp"]
+script = ExtResource("5_tn3g1")
+
+[node name="IfAgeBetween" type="Node" parent="BehaviorTreeForGroups/AgentUp/Sequential"]
+script = ExtResource("10_bg12w")
+age_start = 500
+age_end = 1000000
+
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/AgentUp/Sequential"]
+script = ExtResource("7_qgi20")
+
+[node name="AddAgent" type="Node" parent="BehaviorTreeForGroups/AgentUp/Sequential"]
+script = ExtResource("8_es8s6")
+agent_tscn = "res://examples/various/agent_down.tscn"
+
+[node name="AgentDown" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_y7rrg")
+on_group = "down"
+
+[node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/AgentDown"]
+script = ExtResource("4_eown5")
+min = Vector3(300, 100, 0)
+max = Vector3(600, 600, 5)
+
+[node name="ForceGlobal" type="Node" parent="BehaviorTreeForGroups/AgentDown"]
+script = ExtResource("3_xu8xt")
+fy = 1.0
+
+[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/AgentDown"]
+script = ExtResource("5_os8fb")
+F = Vector3(20, 20, 0)
+
+[node name="GoReverse" type="Node" parent="BehaviorTreeForGroups/AgentDown"]
+script = ExtResource("5_tn3g1")
+
+[node name="IfCollision" type="Node" parent="BehaviorTreeForGroups/AgentDown/GoReverse"]
+script = ExtResource("6_s1apk")
+with_group = "hot"
+
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/AgentDown/GoReverse"]
+script = ExtResource("7_qgi20")
+
+[node name="AddAgent" type="Node" parent="BehaviorTreeForGroups/AgentDown/GoReverse"]
+script = ExtResource("8_es8s6")
+agent_tscn = "res://examples/various/agent_up.tscn"
+
+[node name="Sequential2" type="Node" parent="BehaviorTreeForGroups/AgentDown"]
+script = ExtResource("5_tn3g1")
+
+[node name="IfAgeBetween" type="Node" parent="BehaviorTreeForGroups/AgentDown/Sequential2"]
+script = ExtResource("10_bg12w")
+age_start = 500
+age_end = 1000000
+
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/AgentDown/Sequential2"]
+script = ExtResource("7_qgi20")
+
+[node name="AddAgent" type="Node" parent="BehaviorTreeForGroups/AgentDown/Sequential2"]
+script = ExtResource("8_es8s6")
+agent_tscn = "res://examples/various/agent_up.tscn"
+
+[node name="Cold" type="StaticBody2D" parent="." groups=["cold"]]
+position = Vector2(453.85, 106.44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cold"]
+position = Vector2(0.500008, -0.499996)
+scale = Vector2(700, 25)
+shape = SubResource("RectangleShape2D_b1qow")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Cold"]
+modulate = Color(0, 0.392157, 1, 1)
+scale = Vector2(700, 25)
+mesh = SubResource("QuadMesh_6ytsp")
+
+[node name="Hot" type="StaticBody2D" parent="." groups=["hot"]]
+position = Vector2(453.85, 579.04)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hot"]
+position = Vector2(0.500008, -0.499996)
+scale = Vector2(700, 25)
+shape = SubResource("RectangleShape2D_b1qow")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Hot"]
+modulate = Color(1, 0, 0.427451, 1)
+scale = Vector2(700, 25)
+mesh = SubResource("QuadMesh_6ytsp")
+
+[node name="agent_up" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(334, 203)
+
+[node name="agent_up2" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(417, 187)
+
+[node name="agent_down" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(373, 249)
+
+[node name="agent_down2" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(485, 203)
+
+[node name="agent_up3" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(432, 226)
+
+[node name="agent_up4" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(515, 210)
+
+[node name="agent_down3" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(471, 272)
+
+[node name="agent_down4" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(583, 226)
+
+[node name="agent_up5" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(220, 197)
+
+[node name="agent_up6" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(303, 181)
+
+[node name="agent_down5" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(259, 243)
+
+[node name="agent_down6" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(371, 197)
+
+[node name="agent_up7" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(318, 220)
+
+[node name="agent_up8" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(401, 204)
+
+[node name="agent_down7" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(357, 266)
+
+[node name="agent_down8" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(469, 220)
+
+[node name="agent_up9" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(387, 161)
+
+[node name="agent_up10" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(470, 145)
+
+[node name="agent_down9" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(426, 207)
+
+[node name="agent_down10" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(538, 161)
+
+[node name="agent_up11" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(485, 184)
+
+[node name="agent_up12" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(568, 168)
+
+[node name="agent_down11" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(524, 230)
+
+[node name="agent_down12" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(636, 184)
+
+[node name="agent_up13" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(273, 155)
+
+[node name="agent_up14" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(356, 139)
+
+[node name="agent_down13" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(644, 214)
+
+[node name="agent_up15" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(268, 200)
+
+[node name="agent_up16" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(351, 184)
+
+[node name="agent_down14" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(307, 246)
+
+[node name="agent_down15" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(419, 200)
+
+[node name="agent_up17" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(366, 223)
+
+[node name="agent_up18" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(449, 207)
+
+[node name="agent_down16" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(405, 269)
+
+[node name="agent_down17" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(517, 223)
+
+[node name="agent_up19" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(154, 194)
+
+[node name="agent_up20" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(237, 178)
+
+[node name="agent_down18" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(193, 240)
+
+[node name="agent_down19" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(305, 194)
+
+[node name="agent_up21" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(252, 217)
+
+[node name="agent_up22" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(335, 201)
+
+[node name="agent_down20" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(291, 263)
+
+[node name="agent_down21" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(403, 217)
+
+[node name="agent_up23" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(321, 158)
+
+[node name="agent_up24" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(404, 142)
+
+[node name="agent_down22" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(360, 204)
+
+[node name="agent_down23" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(472, 158)
+
+[node name="agent_up25" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(419, 181)
+
+[node name="agent_up26" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(502, 165)
+
+[node name="agent_down24" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(458, 227)
+
+[node name="agent_down25" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(570, 181)
+
+[node name="agent_up27" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(207, 152)
+
+[node name="agent_up28" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(290, 136)
+
+[node name="agent_down26" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(246, 198)
+
+[node name="agent_down27" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(358, 152)
+
+[node name="agent_up29" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(305, 175)
+
+[node name="agent_up30" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(388, 159)
+
+[node name="agent_down28" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(344, 221)
+
+[node name="agent_down29" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(456, 175)
+
+[node name="agent_up31" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(390, 236)
+
+[node name="agent_up32" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(473, 220)
+
+[node name="agent_down30" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(429, 282)
+
+[node name="agent_down31" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(541, 236)
+
+[node name="agent_up33" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(488, 259)
+
+[node name="agent_up34" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(571, 243)
+
+[node name="agent_down32" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(527, 305)
+
+[node name="agent_down33" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(639, 259)
+
+[node name="agent_up35" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(276, 230)
+
+[node name="agent_up36" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(359, 214)
+
+[node name="agent_down34" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(315, 276)
+
+[node name="agent_down35" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(427, 230)
+
+[node name="agent_up37" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(374, 253)
+
+[node name="agent_up38" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(457, 237)
+
+[node name="agent_down36" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(413, 299)
+
+[node name="agent_down37" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(525, 253)
+
+[node name="agent_up39" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(443, 194)
+
+[node name="agent_up40" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(526, 178)
+
+[node name="agent_down38" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(482, 240)
+
+[node name="agent_down39" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(594, 194)
+
+[node name="agent_up41" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(541, 217)
+
+[node name="agent_up42" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(624, 201)
+
+[node name="agent_down40" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(580, 263)
+
+[node name="agent_down41" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(692, 217)
+
+[node name="agent_up43" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(329, 188)
+
+[node name="agent_up44" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(412, 172)
+
+[node name="agent_down42" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(368, 234)
+
+[node name="agent_down43" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(480, 188)
+
+[node name="agent_up45" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(427, 211)
+
+[node name="agent_up46" parent="." instance=ExtResource("9_vpgr4")]
+position = Vector2(510, 195)
+
+[node name="agent_down44" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(466, 257)
+
+[node name="agent_down45" parent="." instance=ExtResource("10_wxm3d")]
+position = Vector2(578, 211)

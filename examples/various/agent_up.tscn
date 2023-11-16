@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://blg5hyqfh3rqf"]
+
+[sub_resource type="GDScript" id="GDScript_5seel"]
+script/source = "
+@tool
+extends RigidBody2D
+
+@export var state:int = 0
+@export var age:int = 0
+
+func _process(delta):
+	if not Engine.is_editor_hint():
+		age += 1
+
+func _enter_tree():
+	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
+	set_name.call_deferred(new_name)
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3k7d8"]
+
+[node name="agent_up" type="RigidBody2D" groups=["up"]]
+gravity_scale = 0.0
+max_contacts_reported = 2
+contact_monitor = true
+script = SubResource("GDScript_5seel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3k7d8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.2, 0, 1)
+polygon = PackedVector2Array(10, 0, 5, 8.66025, -5, 8.66025, -10, 1.22461e-15, -5, -8.66025, 5, -8.66025)
