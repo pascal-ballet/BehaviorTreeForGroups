@@ -1,4 +1,4 @@
-## Return true if the simulation/execution step
+## Return true if the agent's age
 ## is between 2 given integer numbers.
 
 @icon("condition.svg")

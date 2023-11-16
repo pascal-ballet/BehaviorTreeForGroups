@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhxvny3etqnnp"]
+[gd_scene load_steps=19 format=3 uid="uid://dhxvny3etqnnp"]
 
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_485cq"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_qypio"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_sup.gd" id="10_1jfcd"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="11_8tv06"]
 [ext_resource type="PackedScene" uid="uid://b53u72i0vqd81" path="res://examples/various/grid_2d.tscn" id="11_d2nxd"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_step_between.gd" id="12_1w54v"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_inf.gd" id="12_qdnid"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mn50l"]
@@ -75,6 +76,11 @@ script = ExtResource("7_jhtrw")
 [node name="ApoptosisA" type="Node" parent="BehaviorTreeForGroups/BactA"]
 script = ExtResource("4_o8eup")
 
+[node name="IfStepBetween" type="Node" parent="BehaviorTreeForGroups/BactA/ApoptosisA"]
+script = ExtResource("12_1w54v")
+step_start = 500
+step_end = 10000000000000000
+
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactA/ApoptosisA"]
 script = ExtResource("5_mw6lg")
 proba = 20.0
@@ -132,6 +138,11 @@ script = ExtResource("7_jhtrw")
 
 [node name="ApoptosisB" type="Node" parent="BehaviorTreeForGroups/BactB"]
 script = ExtResource("4_o8eup")
+
+[node name="IfStepBetween" type="Node" parent="BehaviorTreeForGroups/BactB/ApoptosisB"]
+script = ExtResource("12_1w54v")
+step_start = 500
+step_end = 10000000000000000
 
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactB/ApoptosisB"]
 script = ExtResource("5_mw6lg")
@@ -191,6 +202,11 @@ script = ExtResource("7_jhtrw")
 [node name="ApoptosisC" type="Node" parent="BehaviorTreeForGroups/BactC"]
 script = ExtResource("4_o8eup")
 
+[node name="IfStepBetween" type="Node" parent="BehaviorTreeForGroups/BactC/ApoptosisC"]
+script = ExtResource("12_1w54v")
+step_start = 500
+step_end = 10000000000000000
+
 [node name="IfProba" type="Node" parent="BehaviorTreeForGroups/BactC/ApoptosisC"]
 script = ExtResource("5_mw6lg")
 proba = 20.0
@@ -211,7 +227,7 @@ offset_bottom = 632.0
 tooltip_text = "3.14159"
 baseColor = Color(0.913725, 0, 0.396078, 1)
 diffusionRate = 0.5
-degradationRate = 0.2
+degradationRate = 0.1
 
 [node name="GridB" parent="." groups=["GrdB"] instance=ExtResource("11_d2nxd")]
 offset_left = 10.0
@@ -220,7 +236,7 @@ offset_right = 1145.0
 offset_bottom = 632.0
 baseColor = Color(0.258824, 0.588235, 0, 0.498039)
 diffusionRate = 0.5
-degradationRate = 0.2
+degradationRate = 0.1
 show_iso = true
 
 [node name="GridC" parent="." groups=["GrdC"] instance=ExtResource("11_d2nxd")]
@@ -230,7 +246,7 @@ offset_right = 1145.0
 offset_bottom = 632.0
 baseColor = Color(0.313726, 0.427451, 1, 0.247059)
 diffusionRate = 0.5
-degradationRate = 0.2
+degradationRate = 0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1035, 111)
