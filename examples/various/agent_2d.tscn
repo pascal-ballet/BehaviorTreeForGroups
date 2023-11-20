@@ -8,7 +8,7 @@ extends RigidBody2D
 @export var state:int = 0
 @export var age:int = 0
 
-func _process(delta):
+func _process(_delta):
 	if not Engine.is_editor_hint():
 		age += 1
 
