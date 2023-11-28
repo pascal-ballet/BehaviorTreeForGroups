@@ -62,7 +62,7 @@ script = ExtResource("8_3soh5")
 [node name="IfGridValueIsSup" type="Node" parent="BehavTreeForGroups/Platelets/Activation"]
 script = ExtResource("9_r2eax")
 on_grid_group = "grd"
-is_sup_to = 0.05
+is_sup_to = 0.5
 
 [node name="SetState_1" type="Node" parent="BehavTreeForGroups/Platelets/Activation"]
 script = ExtResource("10_km0xp")

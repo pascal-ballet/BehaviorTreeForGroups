@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4g778cxycn84"]
+
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_a14xd"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_mxtbl"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_1v1ks"]
+[ext_resource type="PackedScene" uid="uid://boyvoc3571qxw" path="res://agent_2d_0.tscn" id="4_51h2g"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="4_cst2a"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="5_vb5mi"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_76led"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4kgj2"]
+
+[node name="Hemostase" type="Node2D"]
+
+[node name="BehaviorTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_a14xd")
+
+[node name="Plaquette" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_mxtbl")
+on_group = "Plaquette"
+
+[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/Plaquette"]
+script = ExtResource("3_1v1ks")
+F = Vector3(10, 10, 0)
+
+[node name="ForceGlobal" type="Node" parent="BehaviorTreeForGroups/Plaquette"]
+script = ExtResource("4_cst2a")
+fx = 1.0
+
+[node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/Plaquette"]
+script = ExtResource("5_vb5mi")
+min = Vector3(0, 100, 0)
+max = Vector3(700, 500, 0)
+loop_x = true
+
+[node name="Vaisseau" type="MeshInstance2D" parent="."]
+position = Vector2(350, 250)
+scale = Vector2(700, 400)
+mesh = SubResource("QuadMesh_76led")
+
+[node name="Plaquette" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(562, 301)
+
+[node name="Plaquette2" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(534, 343)
+
+[node name="Plaquette3" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(504, 310)
+
+[node name="Plaquette4" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(476, 352)
+
+[node name="Plaquette5" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(469, 327)
+
+[node name="Plaquette6" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(441, 369)
+
+[node name="Plaquette7" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(411, 336)
+
+[node name="Plaquette8" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(383, 378)
+
+[node name="Plaquette9" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(738, 327)
+
+[node name="Plaquette10" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(710, 369)
+
+[node name="Plaquette11" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(680, 336)
+
+[node name="Plaquette12" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(652, 378)
+
+[node name="Plaquette13" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(645, 353)
+
+[node name="Plaquette14" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(617, 395)
+
+[node name="Plaquette15" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(587, 362)
+
+[node name="Plaquette16" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(559, 404)
+
+[node name="Plaquette17" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(240, 244)
+
+[node name="Plaquette18" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(212, 286)
+
+[node name="Plaquette19" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(182, 253)
+
+[node name="Plaquette20" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(154, 295)
+
+[node name="Plaquette21" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(147, 270)
+
+[node name="Plaquette22" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(119, 312)
+
+[node name="Plaquette23" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(89, 279)
+
+[node name="Plaquette24" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(61, 321)
+
+[node name="Plaquette25" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(416, 270)
+
+[node name="Plaquette26" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(388, 312)
+
+[node name="Plaquette27" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(358, 279)
+
+[node name="Plaquette28" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(330, 321)
+
+[node name="Plaquette29" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(323, 296)
+
+[node name="Plaquette30" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(295, 338)
+
+[node name="Plaquette31" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(265, 305)
+
+[node name="Plaquette32" parent="." groups=["Plaquette"] instance=ExtResource("4_51h2g")]
+position = Vector2(237, 347)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(492, 459)
+scale = Vector2(981.25, 35.5)
+mesh = SubResource("QuadMesh_4kgj2")
