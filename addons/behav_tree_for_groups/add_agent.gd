@@ -13,6 +13,7 @@ var root:Node = null
 var new_agent_scene:Resource = null
 var new_agent_behaviors:Array = []
 var new_agent_prototype:Node = null
+var btfg:BehaviorTreeForGroups = null
 
 func biodyn_process(agent) -> bool:
 	#if agent_tscn.ends_with("_in_fire.tscn") == true:
@@ -21,13 +22,15 @@ func biodyn_process(agent) -> bool:
 	if agent_tscn != "":
 		# Initilize the Agent to clone
 		if new_agent_scene == null:
+			if root == null:
+				root = get_tree().current_scene
 			# Get the new Agent
-			#new_agent_scene = load("res://"+agent_name+".tscn")
-			new_agent_scene = load(agent_tscn) #load("res://addons/BehavForGroups/Examples/"+agent_name+".tscn")
+			new_agent_scene = load(agent_tscn)
 			new_agent_prototype = new_agent_scene.instantiate()
 			# Find ALL its behaviors and put them in the new_agent_behaviors Array
-			#var root_node:BehaviorTreeForGroups = BehaviorTreeForGroups.btfg_root# agent.get_parent().get_node("BehaviorTreeForGroups")
-			for b in agent.get_children(): # Get ALL the behaviors of BioDyn
+			if btfg == null:
+				btfg = root.find_child("BehavTreeForGroups", true, false)
+			for b in btfg.get_children(): # Get ALL the behaviors of BehaviorTreeForGroups
 				if b is Behavior and new_agent_prototype.is_in_group(b.on_group):
 					# Copy the current behavior to the new_agent_prototype
 					var behav_clone:Behavior = b.duplicate(15) # Duplicate the Behavior recursively
@@ -35,9 +38,6 @@ func biodyn_process(agent) -> bool:
 					new_agent_prototype.add_child(behav_clone) # Add the Behavior to the prototype agent
 
 		# Add of an Agent to the Scene
-		if root == null:
-			root = get_tree().current_scene
-
 		var nb_agents:int = root.get_child_count()
 		if new_agent_scene != null and nb_agents < BehaviorTreeForGroups.max_agents:
 			var spawn = new_agent_prototype.duplicate()

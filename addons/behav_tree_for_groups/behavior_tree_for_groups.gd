@@ -13,7 +13,7 @@ static var nb_agents:int = 0
 ## Current simulation step
 static var simulation_step:int = 0
 ## BehavTreeForGroups main node
-static var btfg_root:BehaviorTreeForGroups = self
+static var btfg_root:BehaviorTreeForGroups = null
 
 
 var init:bool = false
@@ -24,6 +24,7 @@ func put_all_behaviors():
 		return
 
 	# Put the behaviors INTO ALL agents according to their groups
+	btfg_root = self
 	var root:Node = get_tree().current_scene
 	for behav in get_children(): # Try to put the current behavior into the right agents
 		if behav is Behavior and behav.process_mode != Node.PROCESS_MODE_DISABLED:
