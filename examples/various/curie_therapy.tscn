@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://bxd6dtmcpy2h4"]
 
 [node name="CurieTherapy" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Work in progress..."

@@ -26,8 +26,8 @@ func biodyn_process(agent) -> bool:
 			new_agent_scene = load(agent_tscn) #load("res://addons/BehavForGroups/Examples/"+agent_name+".tscn")
 			new_agent_prototype = new_agent_scene.instantiate()
 			# Find ALL its behaviors and put them in the new_agent_behaviors Array
-			var biodyn_node:BehaviorTreeForGroups = agent.get_parent().get_node("BehaviorTreeForGroups")
-			for b in biodyn_node.get_children(): # Get ALL the behaviors of BioDyn
+			#var root_node:BehaviorTreeForGroups = BehaviorTreeForGroups.btfg_root# agent.get_parent().get_node("BehaviorTreeForGroups")
+			for b in agent.get_children(): # Get ALL the behaviors of BioDyn
 				if b is Behavior and new_agent_prototype.is_in_group(b.on_group):
 					# Copy the current behavior to the new_agent_prototype
 					var behav_clone:Behavior = b.duplicate(15) # Duplicate the Behavior recursively

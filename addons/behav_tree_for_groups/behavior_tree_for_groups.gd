@@ -12,6 +12,9 @@ static var max_agents:int = 3000
 static var nb_agents:int = 0
 ## Current simulation step
 static var simulation_step:int = 0
+## BehavTreeForGroups main node
+static var btfg_root:BehaviorTreeForGroups = self
+
 
 var init:bool = false
 

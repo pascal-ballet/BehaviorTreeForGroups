@@ -60,7 +60,7 @@ on_group = "Agent-B"
 [node name="ForceInit" type="Node" parent="BehavTreeForGroups/Behavior-B"]
 script = ExtResource("3_bva0q")
 
-[node name="IfDataIsEqual" type="Node" parent="BehavTreeForGroups/Behavior-B/ForceInit"]
+[node name="IfDataEquals" type="Node" parent="BehavTreeForGroups/Behavior-B/ForceInit"]
 script = ExtResource("6_tp12j")
 data_name = "Age"
 
