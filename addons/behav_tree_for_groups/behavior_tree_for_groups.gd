@@ -15,7 +15,6 @@ static var simulation_step:int = 0
 ## BehavTreeForGroups main node
 static var btfg_root:BehaviorTreeForGroups = null
 
-
 var init:bool = false
 
 func put_all_behaviors():
@@ -24,7 +23,6 @@ func put_all_behaviors():
 		return
 
 	# Put the behaviors INTO ALL agents according to their groups
-	btfg_root = self
 	var root:Node = get_tree().current_scene
 	for behav in get_children(): # Try to put the current behavior into the right agents
 		if behav is Behavior and behav.process_mode != Node.PROCESS_MODE_DISABLED:
@@ -34,6 +32,8 @@ func put_all_behaviors():
 					var behav_clone:Behavior = behav.duplicate(15)
 					behav_clone.process_mode = Node.PROCESS_MODE_INHERIT
 					agt.add_child(behav_clone) #we add the behavior into the agent
+					if agt.get("btfg_root"):
+						agt.btfg_root = self
 
 func _process(delta):
 	if init == true: # All behaviors have been put into Agents
