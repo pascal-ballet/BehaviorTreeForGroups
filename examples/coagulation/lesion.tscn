@@ -21,12 +21,12 @@ func _process(_delta):
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikg3t"]
 
-[node name="Fibro" type="RigidBody2D" groups=["fibro"]]
+[node name="lesion" type="RigidBody2D" groups=["fibro"]]
 gravity_scale = 0.0
-max_contacts_reported = 5
-contact_monitor = true
 freeze = true
 freeze_mode = 1
+max_contacts_reported = 5
+contact_monitor = true
 linear_damp = 1.0
 angular_damp = 1.0
 script = SubResource("GDScript_nyy48")

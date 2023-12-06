@@ -48,5 +48,8 @@ func biodyn_process(agent) -> bool:
 			var spawn = new_agent_prototype.duplicate()
 			# Put and translate the spawn in the scene
 			root.add_child(spawn)
-			spawn.translate ( agent.transform.origin )
+			if agent.get("transform"):
+				spawn.translate ( agent.transform.origin )
+			else:
+				spawn.translate ( agent.position )
 	return true

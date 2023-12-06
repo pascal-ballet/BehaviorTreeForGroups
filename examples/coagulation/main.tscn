@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2rbou6dglon"]
+[gd_scene load_steps=23 format=3 uid="uid://d2rbou6dglon"]
 
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_7is1p"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_2sk4m"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_global.gd" id="4_6rl2b"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="5_tu27f"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_lvsry"]
-[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://examples/coagulation/fibro.tscn" id="7_6b6ua"]
+[ext_resource type="PackedScene" uid="uid://8d1mmxxnxnxy" path="res://examples/coagulation/lesion.tscn" id="7_6b6ua"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="7_ebejv"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_state_equals.gd" id="8_3soh5"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_sup.gd" id="9_r2eax"]
@@ -18,8 +18,11 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/print_message.gd" id="16_70ee2"]
 [ext_resource type="PackedScene" uid="uid://c7hylydq3sl81" path="res://examples/coagulation/platelet.tscn" id="16_loo5f"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="17_n33my"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="18_6uqll"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="18_xuqnk"]
 [ext_resource type="PackedScene" uid="uid://yq5y0be22p2p" path="res://examples/coagulation/grid_2d_0.tscn" id="20_3fwqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esw5c"]
 
 [node name="Coagulation" type="Node2D"]
 
@@ -32,16 +35,26 @@ on_group = "circulating"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Circulating"]
 script = ExtResource("3_l1p6k")
+F = Vector3(1, 1, 0)
 
-[node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Circulating"]
+[node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Circulating" groups=["FA", "circulating"]]
 script = ExtResource("4_6rl2b")
-fx = 1.0
+fx = 0.5
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Circulating"]
 script = ExtResource("5_tu27f")
 min = Vector3(0, 100, 0)
 max = Vector3(1130, 600, 0)
-loop_x = true
+
+[node name="OutOfBox" type="Node" parent="BehavTreeForGroups/Circulating"]
+script = ExtResource("7_ebejv")
+
+[node name="IfCollision" type="Node" parent="BehavTreeForGroups/Circulating/OutOfBox"]
+script = ExtResource("17_n33my")
+with_group = "FinVeine"
+
+[node name="Delete" type="Node" parent="BehavTreeForGroups/Circulating/OutOfBox"]
+script = ExtResource("18_xuqnk")
 
 [node name="Platelets" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_2sk4m")
@@ -51,7 +64,7 @@ on_group = "platelet"
 script = ExtResource("6_lvsry")
 on_grid_group = "grd"
 value_to_go = 1.0
-force = 0.2
+force = 0.4
 
 [node name="Activation" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("7_ebejv")
@@ -72,35 +85,39 @@ set_to_value = 1
 script = ExtResource("11_c6gdq")
 color = Color(0.298039, 1, 0.862745, 1)
 
-[node name="FixOnFibro" type="Node" parent="BehavTreeForGroups/Platelets"]
+[node name="FixOnLesion" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("7_ebejv")
 
-[node name="IfStateEquals_1" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
+[node name="IfStateEquals_1" type="Node" parent="BehavTreeForGroups/Platelets/FixOnLesion"]
 script = ExtResource("8_3soh5")
 state_equals = 1
 
-[node name="AddSpring_with_fibro_1" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
+[node name="AddSpring_with_fibro_1" type="Node" parent="BehavTreeForGroups/Platelets/FixOnLesion"]
 script = ExtResource("12_2j8ip")
 with_group = "fibro"
-spring_max_length = 50.0
+spring_max_length = 5000.0
 max_links = 4
 
-[node name="SetState_2" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
+[node name="SetState_2" type="Node" parent="BehavTreeForGroups/Platelets/FixOnLesion"]
 script = ExtResource("10_km0xp")
 set_to_value = 2
 
-[node name="ChangeColor_rose" type="Node" parent="BehavTreeForGroups/Platelets/FixOnFibro"]
+[node name="ChangeColor_rose" type="Node" parent="BehavTreeForGroups/Platelets/FixOnLesion"]
 script = ExtResource("11_c6gdq")
 color = Color(0.996094, 0.585938, 0.910156, 1)
 
 [node name="FixOnPlatFixed" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("7_ebejv")
 
+[node name="IfStateEquals" type="Node" parent="BehavTreeForGroups/Platelets/FixOnPlatFixed"]
+script = ExtResource("8_3soh5")
+state_equals = 1
+
 [node name="AddSpring_platelet" type="Node" parent="BehavTreeForGroups/Platelets/FixOnPlatFixed"]
 script = ExtResource("12_2j8ip")
 with_group = "platelet"
 in_state = 2
-spring_max_length = 50.0
+spring_max_length = 5000.0
 max_links = 4
 
 [node name="PrintMessage" type="Node" parent="BehavTreeForGroups/Platelets/FixOnPlatFixed"]
@@ -115,78 +132,94 @@ set_to_value = 2
 script = ExtResource("11_c6gdq")
 color = Color(0.505882, 0.866667, 0, 1)
 
-[node name="Fibrolyse" type="Node" parent="BehavTreeForGroups/Platelets"]
+[node name="Fibrinolyse" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("7_ebejv")
 
-[node name="IfProba" type="Node" parent="BehavTreeForGroups/Platelets/Fibrolyse"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/Platelets/Fibrinolyse"]
 script = ExtResource("14_1o72l")
-proba = 0.01
 
-[node name="IfStateEquals" type="Node" parent="BehavTreeForGroups/Platelets/Fibrolyse"]
+[node name="IfStateEquals" type="Node" parent="BehavTreeForGroups/Platelets/Fibrinolyse"]
 script = ExtResource("8_3soh5")
 state_equals = 2
 
-[node name="Delete" type="Node" parent="BehavTreeForGroups/Platelets/Fibrolyse"]
+[node name="IfCollision" type="Node" parent="BehavTreeForGroups/Platelets/Fibrinolyse"]
+script = ExtResource("17_n33my")
+with_group = "FA"
+
+[node name="Delete" type="Node" parent="BehavTreeForGroups/Platelets/Fibrinolyse"]
 script = ExtResource("18_xuqnk")
 
-[node name="Fibro" type="Node" parent="BehavTreeForGroups"]
+[node name="Lesion" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_2sk4m")
 on_group = "fibro"
 
-[node name="ProdFactors" type="Node" parent="BehavTreeForGroups/Fibro"]
+[node name="ProdFactors" type="Node" parent="BehavTreeForGroups/Lesion"]
 script = ExtResource("7_ebejv")
 
-[node name="IfState_1" type="Node" parent="BehavTreeForGroups/Fibro/ProdFactors"]
+[node name="IfState_1" type="Node" parent="BehavTreeForGroups/Lesion/ProdFactors"]
 script = ExtResource("8_3soh5")
 state_equals = 1
 
-[node name="PutFactorsInGrid2D" type="Node" parent="BehavTreeForGroups/Fibro/ProdFactors"]
+[node name="PutFactorsInGrid2D" type="Node" parent="BehavTreeForGroups/Lesion/ProdFactors"]
 script = ExtResource("16_7my84")
 on_grid_group = "grd"
 set_value = 1.0
 
-[node name="Unactivate_1" type="Node" parent="BehavTreeForGroups/Fibro"]
+[node name="Unactivate_1" type="Node" parent="BehavTreeForGroups/Lesion"]
 script = ExtResource("7_ebejv")
 
-[node name="IfContact" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_1"]
+[node name="IfContact" type="Node" parent="BehavTreeForGroups/Lesion/Unactivate_1"]
 script = ExtResource("17_n33my")
 with_group = "platelet"
 in_state = 1
 
-[node name="SetState_0" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_1"]
+[node name="SetState_0" type="Node" parent="BehavTreeForGroups/Lesion/Unactivate_1"]
 script = ExtResource("10_km0xp")
 
-[node name="ChangeColor" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_1"]
+[node name="ChangeColor" type="Node" parent="BehavTreeForGroups/Lesion/Unactivate_1"]
 script = ExtResource("11_c6gdq")
 color = Color(0.631373, 0.203922, 0, 1)
 
-[node name="Unactivate_2" type="Node" parent="BehavTreeForGroups/Fibro"]
+[node name="Unactivate_2" type="Node" parent="BehavTreeForGroups/Lesion"]
 script = ExtResource("7_ebejv")
 
-[node name="IfContact" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_2"]
+[node name="IfContact" type="Node" parent="BehavTreeForGroups/Lesion/Unactivate_2"]
 script = ExtResource("17_n33my")
 with_group = "platelet"
 in_state = 2
 
-[node name="SetState_0" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_2"]
+[node name="SetState_0" type="Node" parent="BehavTreeForGroups/Lesion/Unactivate_2"]
 script = ExtResource("10_km0xp")
 
-[node name="ChangeColor" type="Node" parent="BehavTreeForGroups/Fibro/Unactivate_2"]
+[node name="ChangeColor" type="Node" parent="BehavTreeForGroups/Lesion/Unactivate_2"]
 script = ExtResource("11_c6gdq")
 color = Color(0.631373, 0.203922, 0, 1)
 
-[node name="Cicatrisation" type="Node" parent="BehavTreeForGroups/Fibro"]
+[node name="StartVein" type="Node" parent="BehavTreeForGroups"]
+script = ExtResource("2_2sk4m")
+on_group = "StartVein"
+
+[node name="AddPlatelets" type="Node" parent="BehavTreeForGroups/StartVein"]
 script = ExtResource("7_ebejv")
 
-[node name="IfProba" type="Node" parent="BehavTreeForGroups/Fibro/Cicatrisation"]
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/StartVein/AddPlatelets"]
+script = ExtResource("14_1o72l")
+proba = 1.0
+
+[node name="AddAgent" type="Node" parent="BehavTreeForGroups/StartVein/AddPlatelets"]
+script = ExtResource("18_6uqll")
+agent_tscn = "res://examples/coagulation/platelet.tscn"
+
+[node name="AddFA" type="Node" parent="BehavTreeForGroups/StartVein"]
+script = ExtResource("7_ebejv")
+
+[node name="IfProba" type="Node" parent="BehavTreeForGroups/StartVein/AddFA"]
 script = ExtResource("14_1o72l")
 proba = 0.1
 
-[node name="IfStateEquals" type="Node" parent="BehavTreeForGroups/Fibro/Cicatrisation"]
-script = ExtResource("8_3soh5")
-
-[node name="Delete" type="Node" parent="BehavTreeForGroups/Fibro/Cicatrisation"]
-script = ExtResource("18_xuqnk")
+[node name="AddAgent" type="Node" parent="BehavTreeForGroups/StartVein/AddFA"]
+script = ExtResource("18_6uqll")
+agent_tscn = "res://examples/coagulation/FA.tscn"
 
 [node name="grid_2d_0" parent="." groups=["grd"] instance=ExtResource("20_3fwqe")]
 offset_top = 66.0
@@ -195,6 +228,83 @@ offset_bottom = 520.0
 baseColor = Color(0, 0.337255, 0.839216, 0.960784)
 diffusionRate = 0.8
 loop_x = true
+
+[node name="StartVein" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 5.0
+offset_top = 248.0
+offset_right = 45.0
+offset_bottom = 288.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein2" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 6.0
+offset_top = 204.0
+offset_right = 46.0
+offset_bottom = 244.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein3" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 5.0
+offset_top = 336.0
+offset_right = 45.0
+offset_bottom = 376.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein4" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 6.0
+offset_top = 292.0
+offset_right = 46.0
+offset_bottom = 332.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein5" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 8.0
+offset_top = 387.0
+offset_right = 48.0
+offset_bottom = 427.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein6" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 8.0
+offset_top = 160.0
+offset_right = 48.0
+offset_bottom = 200.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein6" type="ColorRect" parent="StartVein6" groups=["StartVein"]]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -45.0
+offset_right = 36.0
+offset_bottom = -5.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein7" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 8.0
+offset_top = 475.0
+offset_right = 48.0
+offset_bottom = 515.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="StartVein8" type="ColorRect" parent="." groups=["StartVein"]]
+offset_left = 9.0
+offset_top = 431.0
+offset_right = 49.0
+offset_bottom = 471.0
+color = Color(1, 0, 0.282353, 1)
+
+[node name="EndOfVein" type="StaticBody2D" parent="." groups=["FinVeine"]]
+position = Vector2(1093.71, 0)
+
+[node name="ColorRect" type="ColorRect" parent="EndOfVein"]
+offset_right = 52.0
+offset_bottom = 646.0
+color = Color(0.0470588, 0, 0.45098, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfVein"]
+position = Vector2(28, 327)
+scale = Vector2(2.53, 32.59)
+shape = SubResource("RectangleShape2D_esw5c")
 
 [node name="VeinLow" type="StaticBody2D" parent="."]
 position = Vector2(0, -106.59)
@@ -227,27 +337,27 @@ polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 11
 color = Color(0.356863, 0.2, 0.14902, 1)
 polygon = PackedVector2Array(0, 1, 1153, 1, 1153, 67, 887, 101, 779, 68, 598, 118, 514, 77, 442, 96, 384, 80, 300, 109, 221, 88, 122, 106, 46, 72, 0, 73, 0, 73)
 
-[node name="fibro" parent="." instance=ExtResource("7_6b6ua")]
+[node name="lesion" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(507, 436)
 age = 0
 
-[node name="fibro2" parent="." instance=ExtResource("7_6b6ua")]
+[node name="lesion2" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(549, 437)
 age = 0
 
-[node name="fibro3" parent="." instance=ExtResource("7_6b6ua")]
+[node name="lesion3" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(582, 440)
 age = 0
 
-[node name="fibro4" parent="." instance=ExtResource("7_6b6ua")]
+[node name="lesion4" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(610, 438)
 age = 0
 
-[node name="fibro5" parent="." instance=ExtResource("7_6b6ua")]
+[node name="lesion5" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(646, 442)
 age = 0
 
-[node name="fibro6" parent="." instance=ExtResource("7_6b6ua")]
+[node name="lesion6" parent="." instance=ExtResource("7_6b6ua")]
 position = Vector2(683, 433)
 age = 0
 
