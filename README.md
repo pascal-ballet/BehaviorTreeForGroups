@@ -1,7 +1,7 @@
 # BehaviorTreeForGroups
 ![logo](addons/behav_tree_for_groups/icon.png)
 
-**[Behavior Tree For Groups](https://virtulab.univ-brest.fr) is an addon for Godot Engine that enables you to create swarms, flocks and multiagent systems using a single behavior tree.**
+**[Behavior Tree For Groups](doc/behavior_tree_for_groups.pdf) is an addon for Godot Engine that enables you to create swarms, flocks and multiagent systems using a single behavior tree.**
 
 **You can easily design collective behaviors without any code by adding groups to your nodes.**
 
