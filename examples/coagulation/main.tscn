@@ -64,7 +64,7 @@ on_group = "platelet"
 script = ExtResource("6_lvsry")
 on_grid_group = "grd"
 value_to_go = 1.0
-force = 0.4
+force = 1.0
 
 [node name="Activation" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("7_ebejv")
