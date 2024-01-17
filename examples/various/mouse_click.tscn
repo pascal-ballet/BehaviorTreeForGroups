@@ -135,6 +135,23 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 
+[node name="TextEdit" type="Label" parent="Agent-A"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -58.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+size_flags_vertical = 8
+text = "Click the orange bar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Agent-C" parent="." instance=ExtResource("15_7t0tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331902, 0, -0.5577)
 axis_lock_linear_z = true

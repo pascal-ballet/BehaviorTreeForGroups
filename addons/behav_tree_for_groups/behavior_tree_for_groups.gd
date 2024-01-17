@@ -12,10 +12,11 @@ static var max_agents:int = 3000
 static var nb_agents:int = 0
 ## Current simulation step
 static var simulation_step:int = 0
-## BehavTreeForGroups main node
-static var btfg_root:BehaviorTreeForGroups = null
 
 var init:bool = false
+
+func get_class() -> String:
+	return "BehaviorTreeForGroups"
 
 func put_all_behaviors():
 	# The user will NOT execute BioDyn plugin
@@ -34,6 +35,18 @@ func put_all_behaviors():
 					agt.add_child(behav_clone) #we add the behavior into the agent
 					if agt.get("btfg_root"):
 						agt.btfg_root = self
+
+func _ready():
+	if BTFG.btfg_root == null:
+		var the_script:Script = get_script()
+		var script_name:String = ""
+		if the_script != null:
+			var script_path:NodePath = the_script.get_path()
+			var sub:String = script_path.get_concatenated_subnames() 
+			script_name = sub.get_file()
+		
+		if script_name == "behavior_tree_for_groups.gd":
+			BTFG.btfg_root = self
 
 func _process(delta):
 	if init == true: # All behaviors have been put into Agents

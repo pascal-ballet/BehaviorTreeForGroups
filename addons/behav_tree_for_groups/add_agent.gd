@@ -29,11 +29,7 @@ func biodyn_process(agent) -> bool:
 			new_agent_scene = load(agent_tscn)
 			new_agent_prototype = new_agent_scene.instantiate()
 			# Find ALL its behaviors and put them in the new_agent_behaviors Array
-			if btfg == null:
-				if agent.get("btfg_root"):
-					btfg = agent.btfg_root
-				else:
-					btfg = root.find_child("BehavTreeForGroups", true, false)
+			btfg = BTFG.btfg_root
 			
 			for b in btfg.get_children(): # Get ALL the behaviors of BehaviorTreeForGroups
 				if b is Behavior and new_agent_prototype.is_in_group(b.on_group):
@@ -53,3 +49,22 @@ func biodyn_process(agent) -> bool:
 			else:
 				spawn.translate ( agent.position )
 	return true
+
+func find_root_of_behavior_tree_for_group(node:Node) -> Node:
+	var the_script:Script = node.get_script()
+	var script_name:String = ""
+	if the_script != null:
+		var script_path:NodePath = node.get_script().get_path()
+		var sub:String = script_path.get_concatenated_subnames() 
+		script_name = sub.get_file()
+	
+	var ret:Node = null
+	if script_name == "behavior_tree_for_groups.gd":
+		ret = node
+	else:
+		for n in node.get_children():
+			ret = find_root_of_behavior_tree_for_group(n)
+			if ret != null:
+				return ret
+	
+	return ret

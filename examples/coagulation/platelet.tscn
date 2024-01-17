@@ -21,7 +21,7 @@ func _process(_delta):
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgg7l"]
 
-[node name="Platelet" type="RigidBody2D" groups=["circulating", "platelet"]]
+[node name="platelet" type="RigidBody2D" groups=["circulating", "platelet"]]
 collision_mask = 3
 gravity_scale = 0.0
 max_contacts_reported = 4
