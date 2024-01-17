@@ -49,22 +49,3 @@ func biodyn_process(agent) -> bool:
 			else:
 				spawn.translate ( agent.position )
 	return true
-
-func find_root_of_behavior_tree_for_group(node:Node) -> Node:
-	var the_script:Script = node.get_script()
-	var script_name:String = ""
-	if the_script != null:
-		var script_path:NodePath = node.get_script().get_path()
-		var sub:String = script_path.get_concatenated_subnames() 
-		script_name = sub.get_file()
-	
-	var ret:Node = null
-	if script_name == "behavior_tree_for_groups.gd":
-		ret = node
-	else:
-		for n in node.get_children():
-			ret = find_root_of_behavior_tree_for_group(n)
-			if ret != null:
-				return ret
-	
-	return ret
