@@ -1,0 +1,1136 @@
+[gd_scene load_steps=11 format=3 uid="uid://bctkybkem0gri"]
+
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_qrhad"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_u04bq"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_wppq5"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="4_230gc"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="5_pspq2"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="6_3gipe"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="7_fovjn"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="8_glx4w"]
+[ext_resource type="PackedScene" uid="uid://bh4ftosmek2wy" path="res://examples/bacteria_colony/bact.tscn" id="9_aijtc"]
+[ext_resource type="PackedScene" uid="uid://bx4xylu7e1eag" path="res://examples/bacteria_colony/gluc.tscn" id="10_k82e5"]
+
+[node name="Main" type="Node2D"]
+
+[node name="BehaviorTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_qrhad")
+
+[node name="BehaviorGluc" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_u04bq")
+on_group = "gluc"
+
+[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc"]
+script = ExtResource("3_wppq5")
+F = Vector3(10, 10, 0)
+
+[node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc"]
+script = ExtResource("4_230gc")
+min = Vector3(0, 0, 0)
+max = Vector3(1150, 650, 0)
+
+[node name="Sequential" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc"]
+script = ExtResource("5_pspq2")
+
+[node name="IfCollision" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc/Sequential"]
+script = ExtResource("6_3gipe")
+with_group = "bact"
+
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc/Sequential"]
+script = ExtResource("7_fovjn")
+
+[node name="AddAgent" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc/Sequential"]
+script = ExtResource("8_glx4w")
+agent_tscn = "res://examples/bacteria_colony/bact.tscn"
+
+[node name="Bact" parent="." instance=ExtResource("9_aijtc")]
+position = Vector2(237, 634)
+
+[node name="Bact2" parent="." instance=ExtResource("9_aijtc")]
+position = Vector2(555, 637)
+
+[node name="Bact3" parent="." instance=ExtResource("9_aijtc")]
+position = Vector2(856, 635)
+
+[node name="Gluc" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(445, 240)
+
+[node name="Gluc2" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(422, 271)
+
+[node name="Gluc3" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(463, 279)
+
+[node name="Gluc4" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(440, 310)
+
+[node name="Gluc5" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(526, 208)
+
+[node name="Gluc6" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(503, 239)
+
+[node name="Gluc7" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(544, 247)
+
+[node name="Gluc8" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(521, 278)
+
+[node name="Gluc9" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(664, 342)
+
+[node name="Gluc10" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(641, 373)
+
+[node name="Gluc11" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(682, 381)
+
+[node name="Gluc12" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(659, 412)
+
+[node name="Gluc13" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(745, 310)
+
+[node name="Gluc14" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(722, 341)
+
+[node name="Gluc15" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(763, 349)
+
+[node name="Gluc16" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(740, 380)
+
+[node name="Gluc17" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(329, 380)
+
+[node name="Gluc18" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(306, 411)
+
+[node name="Gluc19" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(347, 419)
+
+[node name="Gluc20" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(324, 450)
+
+[node name="Gluc21" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(410, 348)
+
+[node name="Gluc22" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(387, 379)
+
+[node name="Gluc23" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(428, 387)
+
+[node name="Gluc24" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(405, 418)
+
+[node name="Gluc25" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(496, 425)
+
+[node name="Gluc26" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(473, 456)
+
+[node name="Gluc27" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(514, 464)
+
+[node name="Gluc28" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(491, 495)
+
+[node name="Gluc29" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(577, 393)
+
+[node name="Gluc30" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(554, 424)
+
+[node name="Gluc31" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(595, 432)
+
+[node name="Gluc32" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(572, 463)
+
+[node name="Gluc33" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(597, 203)
+
+[node name="Gluc34" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(574, 234)
+
+[node name="Gluc35" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(615, 242)
+
+[node name="Gluc36" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(592, 273)
+
+[node name="Gluc37" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(678, 171)
+
+[node name="Gluc38" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(655, 202)
+
+[node name="Gluc39" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(696, 210)
+
+[node name="Gluc40" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(673, 241)
+
+[node name="Gluc167" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(473, 102)
+
+[node name="Gluc168" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(450, 133)
+
+[node name="Gluc169" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(491, 141)
+
+[node name="Gluc170" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(544, 97)
+
+[node name="Gluc171" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(521, 128)
+
+[node name="Gluc172" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(562, 136)
+
+[node name="Gluc173" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(625, 65)
+
+[node name="Gluc174" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(602, 96)
+
+[node name="Gluc175" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(620, 135)
+
+[node name="Gluc41" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(816, 305)
+
+[node name="Gluc42" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(793, 336)
+
+[node name="Gluc43" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(834, 344)
+
+[node name="Gluc44" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(811, 375)
+
+[node name="Gluc45" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(897, 273)
+
+[node name="Gluc46" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(874, 304)
+
+[node name="Gluc47" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(915, 312)
+
+[node name="Gluc48" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(892, 343)
+
+[node name="Gluc49" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(481, 343)
+
+[node name="Gluc50" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(458, 374)
+
+[node name="Gluc51" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(499, 382)
+
+[node name="Gluc52" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(476, 413)
+
+[node name="Gluc53" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(562, 311)
+
+[node name="Gluc54" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(479, 302)
+
+[node name="Gluc55" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(713, 286)
+
+[node name="Gluc56" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(557, 381)
+
+[node name="Gluc57" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(646, 316)
+
+[node name="Gluc65" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(112, 131)
+
+[node name="Gluc66" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(89, 162)
+
+[node name="Gluc67" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(130, 170)
+
+[node name="Gluc68" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(107, 201)
+
+[node name="Gluc69" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(193, 99)
+
+[node name="Gluc70" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(170, 130)
+
+[node name="Gluc71" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(211, 138)
+
+[node name="Gluc72" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(188, 169)
+
+[node name="Gluc73" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(412, 201)
+
+[node name="Gluc74" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(264, 94)
+
+[node name="Gluc75" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(241, 125)
+
+[node name="Gluc76" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(282, 133)
+
+[node name="Gluc77" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(259, 164)
+
+[node name="Gluc78" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(345, 62)
+
+[node name="Gluc79" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(322, 93)
+
+[node name="Gluc80" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(363, 101)
+
+[node name="Gluc81" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(340, 132)
+
+[node name="Gluc82" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(229, 202)
+
+[node name="Gluc83" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(146, 193)
+
+[node name="Gluc84" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(380, 177)
+
+[node name="Gluc85" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(313, 207)
+
+[node name="Gluc58" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(625, 419)
+
+[node name="Gluc59" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(684, 440)
+
+[node name="Gluc60" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(643, 458)
+
+[node name="Gluc61" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(775, 370)
+
+[node name="Gluc62" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(706, 387)
+
+[node name="Gluc63" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(771, 411)
+
+[node name="Gluc64" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(724, 426)
+
+[node name="Gluc95" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(806, 152)
+
+[node name="Gluc96" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(783, 183)
+
+[node name="Gluc97" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(824, 191)
+
+[node name="Gluc98" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(801, 222)
+
+[node name="Gluc99" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(887, 120)
+
+[node name="Gluc100" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(864, 151)
+
+[node name="Gluc101" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(905, 159)
+
+[node name="Gluc102" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(882, 190)
+
+[node name="Gluc103" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(797, 12)
+
+[node name="Gluc104" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(838, 20)
+
+[node name="Gluc105" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(815, 51)
+
+[node name="Gluc106" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(958, 115)
+
+[node name="Gluc107" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(935, 146)
+
+[node name="Gluc108" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(976, 154)
+
+[node name="Gluc109" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(953, 185)
+
+[node name="Gluc110" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1039, 83)
+
+[node name="Gluc111" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1016, 114)
+
+[node name="Gluc112" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1057, 122)
+
+[node name="Gluc113" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1034, 153)
+
+[node name="Gluc114" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(855, 96)
+
+[node name="Gluc115" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(788, 126)
+
+[node name="Gluc116" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(767, 229)
+
+[node name="Gluc117" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(826, 250)
+
+[node name="Gluc118" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(785, 268)
+
+[node name="Gluc119" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(917, 180)
+
+[node name="Gluc120" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(848, 197)
+
+[node name="Gluc121" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(913, 221)
+
+[node name="Gluc122" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(866, 236)
+
+[node name="Gluc86" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(219, 321)
+
+[node name="Gluc144" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(86, 405)
+
+[node name="Gluc145" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(63, 436)
+
+[node name="Gluc146" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(104, 444)
+
+[node name="Gluc147" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(81, 475)
+
+[node name="Gluc148" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(167, 373)
+
+[node name="Gluc149" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(144, 404)
+
+[node name="Gluc150" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(185, 412)
+
+[node name="Gluc151" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(162, 443)
+
+[node name="Gluc152" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(238, 368)
+
+[node name="Gluc153" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(215, 399)
+
+[node name="Gluc154" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(256, 407)
+
+[node name="Gluc155" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(233, 438)
+
+[node name="Gluc156" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(203, 476)
+
+[node name="Gluc157" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(120, 467)
+
+[node name="Gluc158" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(193, 595)
+
+[node name="Gluc87" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(152, 351)
+
+[node name="Gluc176" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(392, 392)
+
+[node name="Gluc177" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(369, 423)
+
+[node name="Gluc178" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(410, 431)
+
+[node name="Gluc179" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(387, 462)
+
+[node name="Gluc180" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(473, 360)
+
+[node name="Gluc181" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(450, 391)
+
+[node name="Gluc182" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(491, 399)
+
+[node name="Gluc183" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(468, 430)
+
+[node name="Gluc184" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(611, 494)
+
+[node name="Gluc185" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(588, 525)
+
+[node name="Gluc186" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(629, 533)
+
+[node name="Gluc187" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(692, 462)
+
+[node name="Gluc188" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(669, 493)
+
+[node name="Gluc189" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(710, 501)
+
+[node name="Gluc190" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(687, 532)
+
+[node name="Gluc191" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(276, 532)
+
+[node name="Gluc192" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(357, 500)
+
+[node name="Gluc193" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(334, 531)
+
+[node name="Gluc194" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(375, 539)
+
+[node name="Gluc195" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(544, 355)
+
+[node name="Gluc196" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(521, 386)
+
+[node name="Gluc197" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(562, 394)
+
+[node name="Gluc198" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(539, 425)
+
+[node name="Gluc199" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(625, 323)
+
+[node name="Gluc200" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(602, 354)
+
+[node name="Gluc201" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(643, 362)
+
+[node name="Gluc202" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(620, 393)
+
+[node name="Gluc203" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(397, 285)
+
+[node name="Gluc204" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(438, 293)
+
+[node name="Gluc205" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(468, 280)
+
+[node name="Gluc206" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(509, 288)
+
+[node name="Gluc207" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(567, 287)
+
+[node name="Gluc208" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(763, 457)
+
+[node name="Gluc209" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(740, 488)
+
+[node name="Gluc210" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(781, 496)
+
+[node name="Gluc211" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(758, 527)
+
+[node name="Gluc212" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(844, 425)
+
+[node name="Gluc213" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(821, 456)
+
+[node name="Gluc214" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(862, 464)
+
+[node name="Gluc215" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(839, 495)
+
+[node name="Gluc216" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(428, 495)
+
+[node name="Gluc217" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(405, 526)
+
+[node name="Gluc218" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(446, 534)
+
+[node name="Gluc219" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(509, 463)
+
+[node name="Gluc220" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(426, 454)
+
+[node name="Gluc221" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(660, 438)
+
+[node name="Gluc222" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(504, 533)
+
+[node name="Gluc223" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(593, 468)
+
+[node name="Gluc224" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(59, 283)
+
+[node name="Gluc225" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(36, 314)
+
+[node name="Gluc226" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(77, 322)
+
+[node name="Gluc227" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(54, 353)
+
+[node name="Gluc228" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(117, 282)
+
+[node name="Gluc229" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(158, 290)
+
+[node name="Gluc230" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(135, 321)
+
+[node name="Gluc231" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(359, 353)
+
+[node name="Gluc232" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(188, 277)
+
+[node name="Gluc233" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(229, 285)
+
+[node name="Gluc234" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(206, 316)
+
+[node name="Gluc235" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(287, 284)
+
+[node name="Gluc236" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(176, 354)
+
+[node name="Gluc237" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(93, 345)
+
+[node name="Gluc238" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(327, 329)
+
+[node name="Gluc239" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(260, 359)
+
+[node name="Gluc240" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(722, 522)
+
+[node name="Gluc241" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(653, 539)
+
+[node name="Gluc242" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(753, 304)
+
+[node name="Gluc243" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(730, 335)
+
+[node name="Gluc244" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(771, 343)
+
+[node name="Gluc245" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(748, 374)
+
+[node name="Gluc246" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(834, 272)
+
+[node name="Gluc247" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(811, 303)
+
+[node name="Gluc248" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(852, 311)
+
+[node name="Gluc249" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(829, 342)
+
+[node name="Gluc250" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(905, 267)
+
+[node name="Gluc251" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(882, 298)
+
+[node name="Gluc252" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(923, 306)
+
+[node name="Gluc253" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(900, 337)
+
+[node name="Gluc254" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(963, 266)
+
+[node name="Gluc255" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1004, 274)
+
+[node name="Gluc256" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(981, 305)
+
+[node name="Gluc257" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(735, 278)
+
+[node name="Gluc258" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(714, 381)
+
+[node name="Gluc259" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(773, 402)
+
+[node name="Gluc260" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(732, 420)
+
+[node name="Gluc261" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(864, 332)
+
+[node name="Gluc262" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(795, 349)
+
+[node name="Gluc263" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(860, 373)
+
+[node name="Gluc264" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(813, 388)
+
+[node name="Gluc265" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(166, 473)
+
+[node name="Gluc266" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(114, 525)
+
+[node name="Gluc267" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(185, 520)
+
+[node name="Gluc268" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(99, 503)
+
+[node name="Gluc269" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(428, 229)
+
+[node name="Gluc270" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(405, 260)
+
+[node name="Gluc271" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(446, 268)
+
+[node name="Gluc272" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(423, 299)
+
+[node name="Gluc273" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(509, 197)
+
+[node name="Gluc274" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(486, 228)
+
+[node name="Gluc275" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(527, 236)
+
+[node name="Gluc276" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(504, 267)
+
+[node name="Gluc277" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(647, 331)
+
+[node name="Gluc278" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(624, 362)
+
+[node name="Gluc279" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(665, 370)
+
+[node name="Gluc280" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(728, 299)
+
+[node name="Gluc281" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(705, 330)
+
+[node name="Gluc282" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(746, 338)
+
+[node name="Gluc283" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(723, 369)
+
+[node name="Gluc284" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(312, 369)
+
+[node name="Gluc285" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(393, 337)
+
+[node name="Gluc286" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(370, 368)
+
+[node name="Gluc287" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(411, 376)
+
+[node name="Gluc288" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(580, 192)
+
+[node name="Gluc289" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(557, 223)
+
+[node name="Gluc290" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(598, 231)
+
+[node name="Gluc291" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(575, 262)
+
+[node name="Gluc292" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(661, 160)
+
+[node name="Gluc293" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(638, 191)
+
+[node name="Gluc294" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(679, 199)
+
+[node name="Gluc295" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(656, 230)
+
+[node name="Gluc296" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(433, 122)
+
+[node name="Gluc297" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(474, 130)
+
+[node name="Gluc298" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(504, 117)
+
+[node name="Gluc299" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(545, 125)
+
+[node name="Gluc300" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(603, 124)
+
+[node name="Gluc301" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(799, 294)
+
+[node name="Gluc302" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(776, 325)
+
+[node name="Gluc303" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(817, 333)
+
+[node name="Gluc304" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(794, 364)
+
+[node name="Gluc305" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(880, 262)
+
+[node name="Gluc306" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(857, 293)
+
+[node name="Gluc307" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(898, 301)
+
+[node name="Gluc308" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(875, 332)
+
+[node name="Gluc309" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(464, 332)
+
+[node name="Gluc310" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(441, 363)
+
+[node name="Gluc311" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(482, 371)
+
+[node name="Gluc312" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(545, 300)
+
+[node name="Gluc313" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(462, 291)
+
+[node name="Gluc314" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(696, 275)
+
+[node name="Gluc315" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(540, 370)
+
+[node name="Gluc316" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(629, 305)
+
+[node name="Gluc317" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(95, 120)
+
+[node name="Gluc318" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(72, 151)
+
+[node name="Gluc319" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(113, 159)
+
+[node name="Gluc320" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(90, 190)
+
+[node name="Gluc321" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(153, 119)
+
+[node name="Gluc322" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(194, 127)
+
+[node name="Gluc323" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(171, 158)
+
+[node name="Gluc324" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(395, 190)
+
+[node name="Gluc325" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(224, 114)
+
+[node name="Gluc326" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(265, 122)
+
+[node name="Gluc327" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(242, 153)
+
+[node name="Gluc328" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(323, 121)
+
+[node name="Gluc329" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(212, 191)
+
+[node name="Gluc330" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(129, 182)
+
+[node name="Gluc331" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(363, 166)
+
+[node name="Gluc332" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(296, 196)
+
+[node name="Gluc333" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(758, 359)
+
+[node name="Gluc334" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(689, 376)
+
+[node name="Gluc335" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(789, 141)
+
+[node name="Gluc336" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(766, 172)
+
+[node name="Gluc337" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(807, 180)
+
+[node name="Gluc338" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(784, 211)
+
+[node name="Gluc339" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(870, 109)
+
+[node name="Gluc340" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(847, 140)
+
+[node name="Gluc341" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(888, 148)
+
+[node name="Gluc342" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(865, 179)
+
+[node name="Gluc343" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(941, 104)
+
+[node name="Gluc344" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(918, 135)
+
+[node name="Gluc345" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(959, 143)
+
+[node name="Gluc346" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(936, 174)
+
+[node name="Gluc347" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(999, 103)
+
+[node name="Gluc348" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1040, 111)
+
+[node name="Gluc349" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1017, 142)
+
+[node name="Gluc350" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(771, 115)
+
+[node name="Gluc351" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(750, 218)
+
+[node name="Gluc352" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(809, 239)
+
+[node name="Gluc353" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(768, 257)
+
+[node name="Gluc354" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(900, 169)
+
+[node name="Gluc355" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(831, 186)
+
+[node name="Gluc356" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(896, 210)
+
+[node name="Gluc357" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(849, 225)
+
+[node name="Gluc358" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(202, 310)
+
+[node name="Gluc359" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(150, 362)
+
+[node name="Gluc360" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(221, 357)
+
+[node name="Gluc361" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(135, 340)
+
+[node name="Gluc88" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(464, 563)
+
+[node name="Gluc89" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(523, 584)
+
+[node name="Gluc90" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(482, 602)
+
+[node name="Gluc91" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(614, 514)
+
+[node name="Gluc92" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(545, 531)
+
+[node name="Gluc123" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(999, 494)
+
+[node name="Gluc124" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(646, 493)
+
+[node name="Gluc125" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(687, 501)
+
+[node name="Gluc126" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(664, 532)
+
+[node name="Gluc127" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(745, 500)
+
+[node name="Gluc128" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(836, 507)
+
+[node name="Gluc129" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(813, 538)
+
+[node name="Gluc130" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(854, 546)
+
+[node name="Gluc131" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(831, 577)
+
+[node name="Gluc132" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(917, 475)
+
+[node name="Gluc133" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(894, 506)
+
+[node name="Gluc134" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(935, 514)
+
+[node name="Gluc135" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(912, 545)
+
+[node name="Gluc136" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(816, 495)
+
+[node name="Gluc137" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(965, 501)
+
+[node name="Gluc138" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1024, 522)
+
+[node name="Gluc139" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(983, 540)
+
+[node name="Gluc140" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1152, 648)
+
+[node name="Gluc141" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(1064, 508)
+
+[node name="Gluc142" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(954, 596)
+
+[node name="Gluc143" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(885, 613)
+
+[node name="Gluc93" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(610, 555)
+
+[node name="Gluc94" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(563, 570)
+
+[node name="Gluc159" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(290, 498)
+
+[node name="Gluc160" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(263, 566)
+
+[node name="Gluc161" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(322, 587)
+
+[node name="Gluc162" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(281, 605)
+
+[node name="Gluc163" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(413, 517)
+
+[node name="Gluc164" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(344, 534)
+
+[node name="Gluc165" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(409, 558)
+
+[node name="Gluc166" parent="." instance=ExtResource("10_k82e5")]
+position = Vector2(362, 573)
