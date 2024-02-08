@@ -19,6 +19,8 @@ func _enter_tree():
 			preload("behavior.gd"),preload("behavior.svg"))
 	add_custom_type("ChangeColor", "BehaviorTreeForGroups",\
 			preload("change_color.gd"),preload("action.svg"))
+	add_custom_type("ChangeColorRandom", "BehaviorTreeForGroups",\
+			preload("change_color_random.gd"),preload("action.svg"))
 	add_custom_type("CloneAgent", "BehaviorTreeForGroups",\
 			preload("clone_agent.gd"),preload("action.svg"))
 	add_custom_type("DataPlus", "BehaviorTreeForGroups",\
@@ -43,10 +45,18 @@ func _enter_tree():
 			preload("force_random.gd"),preload("action.svg"))
 	add_custom_type("ForceToGridValue", "BehaviorTreeForGroups",\
 			preload("force_to_grid_value.gd"),preload("action.svg"))
+	add_custom_type("GlobalDataPlus", "BehaviorTreeForGroups",\
+			preload("global_data_plus.gd"),preload("action.svg"))
+	add_custom_type("GlobalDataSet", "BehaviorTreeForGroups",\
+			preload("global_data_set.gd"),preload("action.svg"))
 	add_custom_type("IfAgeBetween", "BehaviorTreeForGroups",\
 			preload("if_age_between.gd"),preload("condition.svg"))
+	add_custom_type("IfAgeEquals", "BehaviorTreeForGroups",\
+			preload("if_age_equals.gd"),preload("condition.svg"))
 	add_custom_type("IfCollision", "BehaviorTreeForGroups",\
 			preload("if_collision.gd"),preload("condition.svg"))
+	add_custom_type("IfDataBetween", "BehaviorTreeForGroups",\
+			preload("if_data_between.gd"),preload("condition.svg"))
 	add_custom_type("IfDataEquals", "BehaviorTreeForGroups",\
 			preload("if_data_equals.gd"),preload("condition.svg"))
 	add_custom_type("IfDataInf", "BehaviorTreeForGroups",\
@@ -104,6 +114,7 @@ func _exit_tree():
 	remove_custom_type("AddSpringOnContact")
 	remove_custom_type("Behavior")
 	remove_custom_type("ChangeColor")
+	remove_custom_type("ChangeColorRandom")
 	remove_custom_type("CloneAgent")
 	remove_custom_type("DataPlus")
 	remove_custom_type("DataSet")
@@ -116,8 +127,12 @@ func _exit_tree():
 	remove_custom_type("ForceRadial")
 	remove_custom_type("ForceRandom")
 	remove_custom_type("ForceToGridValue")
+	remove_custom_type("GlobalDataPlus")
+	remove_custom_type("GlobalDataSet")
 	remove_custom_type("IfAgeBetween")
+	remove_custom_type("IfAgeEquals")
 	remove_custom_type("IfCollision")
+	remove_custom_type("IfDataBetween")
 	remove_custom_type("IfDataEquals")
 	remove_custom_type("IfDataInf")
 	remove_custom_type("IfDataSup")
