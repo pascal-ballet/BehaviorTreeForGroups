@@ -63,6 +63,14 @@ func _enter_tree():
 			preload("if_data_inf.gd"),preload("condition.svg"))
 	add_custom_type("IfDataSup", "BehaviorTreeForGroups",\
 			preload("if_data_sup.gd"),preload("condition.svg"))
+	add_custom_type("IfGlobalDataBetween", "BehaviorTreeForGroups",\
+			preload("if_global_data_between.gd"),preload("condition.svg"))
+	add_custom_type("IfGlobalDataEquals", "BehaviorTreeForGroups",\
+			preload("if_global_data_equals.gd"),preload("condition.svg"))
+	add_custom_type("IfGlobalDataInf", "BehaviorTreeForGroups",\
+			preload("if_global_data_inf.gd"),preload("condition.svg"))
+	add_custom_type("IfGlobalDataSup", "BehaviorTreeForGroups",\
+			preload("if_global_data_sup.gd"),preload("condition.svg"))
 	add_custom_type("IfGrid2DValueInf", "BehaviorTreeForGroups",\
 			preload("if_grid_2d_value_inf.gd"),preload("condition_2d.svg"))
 	add_custom_type("IfGrid2DValueSup", "BehaviorTreeForGroups",\
@@ -73,6 +81,8 @@ func _enter_tree():
 			preload("if_mouse_click.gd"),preload("condition.svg"))
 	add_custom_type("IfNoContact", "BehaviorTreeForGroups",\
 			preload("if_no_contact.gd"),preload("condition.svg"))
+	add_custom_type("IfNoContactWith", "BehaviorTreeForGroups",\
+			preload("if_no_contact_with.gd"),preload("condition.svg"))
 	add_custom_type("IfProba", "BehaviorTreeForGroups",\
 			preload("if_proba.gd"),preload("condition.svg"))
 	add_custom_type("IfStateEquals", "BehaviorTreeForGroups",\
@@ -136,11 +146,16 @@ func _exit_tree():
 	remove_custom_type("IfDataEquals")
 	remove_custom_type("IfDataInf")
 	remove_custom_type("IfDataSup")
+	remove_custom_type("IfGlobalDataBetween")
+	remove_custom_type("IfGlobalDataEquals")
+	remove_custom_type("IfGlobalDataInf")
+	remove_custom_type("IfGlobalDataSup")
 	remove_custom_type("IfGrid2DValueInf")
 	remove_custom_type("IfGrid2DValueSup")
 	remove_custom_type("IfInBox")
 	remove_custom_type("IfMouseClick")
 	remove_custom_type("IfNoContact")
+	remove_custom_type("IfNoContactWith")
 	remove_custom_type("IfProba")
 	remove_custom_type("IfStateEquals")
 	remove_custom_type("IfStepBetween")
