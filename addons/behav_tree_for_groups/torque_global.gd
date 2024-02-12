@@ -1,5 +1,5 @@
 ## Apply a torque on the current agent
-##according to the absolute axis reference
+## according to the absolute axis reference
 
 @icon("action.svg")
 class_name TorqueGlobal
@@ -10,12 +10,12 @@ extends BehaviorTreeForGroups
 @export var rz:float = 0.0
 
 func biodyn_process(agent)->bool:
-	if agent is Node3D:
+	if agent is RigidBody3D:
 		agent.apply_torque_impulse ( Vector3 (rx, ry, rz) )
 		return true
 
-	if agent is Node2D:
-		agent.apply_torque_impulse ( Vector2 (rx, ry) )
+	if agent is RigidBody2D:
+		agent.apply_torque_impulse ( rz )
 		return true
 
 	return false

@@ -13,6 +13,8 @@ func _enter_tree():
 	# Other Nodes (alphabetic order)
 	add_custom_type("AddAgent", "BehaviorTreeForGroups",\
 			preload("add_agent.gd"),preload("action.svg"))
+	add_custom_type("AddAgentAtPos2D", "BehaviorTreeForGroups",\
+			preload("add_agent_at_pos_2d.gd"),preload("action.svg"))
 	add_custom_type("AddSpringOnContact", "BehaviorTreeForGroups",\
 			preload("add_spring_on_contact.gd"),preload("action.svg"))
 	add_custom_type("Behavior", "BehaviorTreeForGroups",\
@@ -89,6 +91,12 @@ func _enter_tree():
 			preload("if_state_equals.gd"),preload("condition.svg"))
 	add_custom_type("IfStepBetween", "BehaviorTreeForGroups",\
 			preload("if_step_between.gd"),preload("condition.svg"))
+	add_custom_type("IfTimeBetween", "BehaviorTreeForGroups",\
+			preload("if_time_between.gd"),preload("condition.svg"))
+	add_custom_type("IfTimeInf", "BehaviorTreeForGroups",\
+			preload("if_time_inf.gd"),preload("condition.svg"))
+	add_custom_type("IfTimeSup", "BehaviorTreeForGroups",\
+			preload("if_time_sup.gd"),preload("condition.svg"))
 	add_custom_type("NewAgent2D", "BehaviorTreeForGroups",\
 			preload("new_agent_2d.gd"),preload("action_2d.svg"))
 	add_custom_type("NewAgent3D", "BehaviorTreeForGroups",\
@@ -101,6 +109,8 @@ func _enter_tree():
 			preload("print_message.gd"),preload("parallel.svg"))
 	add_custom_type("Sequential", "BehaviorTreeForGroups",\
 			preload("sequential.gd"),preload("sequential.svg"))
+	add_custom_type("SetAge", "BehaviorTreeForGroups",\
+			preload("set_age.gd"),preload("action_2d.svg"))
 	add_custom_type("SetGridValue2D", "BehaviorTreeForGroups",\
 			preload("set_grid_value_2d.gd"),preload("action_2d.svg"))
 	add_custom_type("SetState", "BehaviorTreeForGroups",\
@@ -121,6 +131,7 @@ func _exit_tree():
 	remove_custom_type("BehaviorTreeForGroups")
 	# Other Nodes (alphabetic order)
 	remove_custom_type("AddAgent")
+	remove_custom_type("AddAgentAtPos2D")
 	remove_custom_type("AddSpringOnContact")
 	remove_custom_type("Behavior")
 	remove_custom_type("ChangeColor")
@@ -159,12 +170,16 @@ func _exit_tree():
 	remove_custom_type("IfProba")
 	remove_custom_type("IfStateEquals")
 	remove_custom_type("IfStepBetween")
+	remove_custom_type("IfTimeBetween")
+	remove_custom_type("IfTimeInf")
+	remove_custom_type("IfTimeSup")
 	remove_custom_type("NewAgent2D")
 	remove_custom_type("NewAgent3D")
 	remove_custom_type("NewGrid2D")
 	remove_custom_type("Parallel")
 	remove_custom_type("PrintMessage")
 	remove_custom_type("Sequential")
+	remove_custom_type("SetAge")
 	remove_custom_type("SetGridValue2D")
 	remove_custom_type("SetState")
 	remove_custom_type("StayInBox")
