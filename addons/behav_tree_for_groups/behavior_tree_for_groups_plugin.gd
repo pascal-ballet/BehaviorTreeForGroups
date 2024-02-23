@@ -14,7 +14,9 @@ func _enter_tree():
 	add_custom_type("AddAgent", "BehaviorTreeForGroups",\
 			preload("add_agent.gd"),preload("action.svg"))
 	add_custom_type("AddAgentAtPos2D", "BehaviorTreeForGroups",\
-			preload("add_agent_at_pos_2d.gd"),preload("action.svg"))
+			preload("add_agent_at_pos_2d.gd"),preload("action_2d.svg"))
+	add_custom_type("AddAgentAtPos3D", "BehaviorTreeForGroups",\
+			preload("add_agent_at_pos_3d.gd"),preload("action_3d.svg"))
 	add_custom_type("AddSpringOnContact", "BehaviorTreeForGroups",\
 			preload("add_spring_on_contact.gd"),preload("action.svg"))
 	add_custom_type("Behavior", "BehaviorTreeForGroups",\
@@ -25,6 +27,10 @@ func _enter_tree():
 			preload("change_color_random.gd"),preload("action.svg"))
 	add_custom_type("CloneAgent", "BehaviorTreeForGroups",\
 			preload("clone_agent.gd"),preload("action.svg"))
+	add_custom_type("CloneAgentAtPos2D", "BehaviorTreeForGroups",\
+			preload("clone_agent_at_pos_2d.gd"),preload("action_2d.svg"))
+	add_custom_type("CloneAgentAtPos3D", "BehaviorTreeForGroups",\
+			preload("clone_agent_at_pos_3d.gd"),preload("action_3d.svg"))
 	add_custom_type("DataPlus", "BehaviorTreeForGroups",\
 			preload("data_plus.gd"),preload("action.svg"))
 	add_custom_type("DataSet", "BehaviorTreeForGroups",\
@@ -132,11 +138,14 @@ func _exit_tree():
 	# Other Nodes (alphabetic order)
 	remove_custom_type("AddAgent")
 	remove_custom_type("AddAgentAtPos2D")
+	remove_custom_type("AddAgentAtPos3D")
 	remove_custom_type("AddSpringOnContact")
 	remove_custom_type("Behavior")
 	remove_custom_type("ChangeColor")
 	remove_custom_type("ChangeColorRandom")
 	remove_custom_type("CloneAgent")
+	remove_custom_type("CloneAgentAtPos2D")
+	remove_custom_type("CloneAgentAtPos3D")
 	remove_custom_type("DataPlus")
 	remove_custom_type("DataSet")
 	remove_custom_type("Delete")
