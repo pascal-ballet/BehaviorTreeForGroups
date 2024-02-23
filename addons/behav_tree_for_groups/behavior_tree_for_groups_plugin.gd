@@ -61,12 +61,24 @@ func _enter_tree():
 			preload("if_age_between.gd"),preload("condition.svg"))
 	add_custom_type("IfAgeEquals", "BehaviorTreeForGroups",\
 			preload("if_age_equals.gd"),preload("condition.svg"))
+	add_custom_type("IfAgeEqualsValues", "BehaviorTreeForGroups",\
+			preload("if_age_equals_values.gd"),preload("condition.svg"))
+	add_custom_type("IfAgeEqualsPeriodicValues", "BehaviorTreeForGroups",\
+			preload("if_age_equals_periodic_values.gd"),preload("condition.svg"))
+	add_custom_type("IfAgeInf", "BehaviorTreeForGroups",\
+			preload("if_age_inf.gd"),preload("condition.svg"))
+	add_custom_type("IfAgeSup", "BehaviorTreeForGroups",\
+			preload("if_age_sup.gd"),preload("condition.svg"))
 	add_custom_type("IfCollision", "BehaviorTreeForGroups",\
 			preload("if_collision.gd"),preload("condition.svg"))
 	add_custom_type("IfDataBetween", "BehaviorTreeForGroups",\
 			preload("if_data_between.gd"),preload("condition.svg"))
 	add_custom_type("IfDataEquals", "BehaviorTreeForGroups",\
 			preload("if_data_equals.gd"),preload("condition.svg"))
+	add_custom_type("IfDataEqualsPeriodicValues", "BehaviorTreeForGroups",\
+			preload("if_data_equals_periodic_values.gd"),preload("condition.svg"))
+	add_custom_type("IfDataEqualsValues", "BehaviorTreeForGroups",\
+			preload("if_data_equals_values.gd"),preload("condition.svg"))
 	add_custom_type("IfDataInf", "BehaviorTreeForGroups",\
 			preload("if_data_inf.gd"),preload("condition.svg"))
 	add_custom_type("IfDataSup", "BehaviorTreeForGroups",\
@@ -161,9 +173,15 @@ func _exit_tree():
 	remove_custom_type("GlobalDataSet")
 	remove_custom_type("IfAgeBetween")
 	remove_custom_type("IfAgeEquals")
+	remove_custom_type("IfAgeEqualsValues")
+	remove_custom_type("IfAgeEqualsPeriodicValues")
+	remove_custom_type("IfAgeInf")
+	remove_custom_type("IfAgeSup")
 	remove_custom_type("IfCollision")
 	remove_custom_type("IfDataBetween")
 	remove_custom_type("IfDataEquals")
+	remove_custom_type("IfDataEqualsPeriodicValues")
+	remove_custom_type("IfDataEqualsValues")
 	remove_custom_type("IfDataInf")
 	remove_custom_type("IfDataSup")
 	remove_custom_type("IfGlobalDataBetween")
