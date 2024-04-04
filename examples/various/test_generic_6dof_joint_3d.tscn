@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://cki3e4t2gcdqr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d8nr6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pexjg"]
+albedo_color = Color(1, 0.584314, 0.552941, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3ci86"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4soa8"]
+albedo_color = Color(0.666667, 1, 0.682353, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xulsm"]
+
+[node name="TestGeneric6DOFJoint3D" type="Node3D"]
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
+node_a = NodePath("../Fixed")
+node_b = NodePath("../Moves")
+linear_spring_x/stiffness = 0.001
+linear_spring_x/damping = 0.1
+linear_spring_x/equilibrium_point = 1.0
+linear_spring_y/stiffness = 0.001
+linear_spring_y/damping = 0.1
+linear_spring_y/equilibrium_point = 1.0
+linear_spring_z/stiffness = 0.001
+linear_spring_z/damping = 0.1
+linear_spring_z/equilibrium_point = 1.0
+angular_limit_x/restitution = 10.0
+angular_limit_y/restitution = 10.0
+angular_limit_z/restitution = 10.0
+
+[node name="Fixed" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fixed"]
+shape = SubResource("SphereShape3D_d8nr6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fixed"]
+material_override = SubResource("StandardMaterial3D_pexjg")
+mesh = SubResource("BoxMesh_3ci86")
+
+[node name="Moves" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Moves"]
+shape = SubResource("SphereShape3D_d8nr6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Moves"]
+material_override = SubResource("StandardMaterial3D_4soa8")
+mesh = SubResource("BoxMesh_xulsm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767151, 4.75228)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 8)
