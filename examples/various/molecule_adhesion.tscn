@@ -15,7 +15,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_ccvj4"]
 flip_faces = true
 
-[node name="ExampleCrowdMvt1" type="Node3D"]
+[node name="ExampleAdhesion" type="Node3D"]
 
 [node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_ty85y")

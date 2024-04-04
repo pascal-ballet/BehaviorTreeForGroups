@@ -119,22 +119,22 @@ func cell_cell_spring3D(body1:RigidBody3D, body2:RigidBody3D) -> Array:
 	#jt.set_param_z(jt.PARAM_LINEAR_SPRING_EQUILIBRIUM_POINT, 0		)
 
 	# ANGULAR SPRING
-	jt.set_flag_x (jt.FLAG_ENABLE_ANGULAR_SPRING, 			false	)
+	jt.set_flag_x (jt.FLAG_ENABLE_ANGULAR_SPRING, 			true	)
 	jt.set_param_x(jt.PARAM_ANGULAR_SPRING_STIFFNESS,		1.0		)
 	jt.set_param_x(jt.PARAM_ANGULAR_DAMPING, 				1.0		)
 	jt.set_param_x(jt.PARAM_LINEAR_SPRING_EQUILIBRIUM_POINT, 0		)
 
-	jt.set_flag_y (jt.FLAG_ENABLE_ANGULAR_SPRING, 			false	)
+	jt.set_flag_y (jt.FLAG_ENABLE_ANGULAR_SPRING, 			true	)
 	jt.set_param_y(jt.PARAM_ANGULAR_SPRING_STIFFNESS,		1.0		)
 	jt.set_param_y(jt.PARAM_ANGULAR_DAMPING, 				1.0		)
 	jt.set_param_y(jt.PARAM_LINEAR_SPRING_EQUILIBRIUM_POINT, 0		)
 
-	jt.set_flag_z (jt.FLAG_ENABLE_ANGULAR_SPRING, 			false	)
+	jt.set_flag_z (jt.FLAG_ENABLE_ANGULAR_SPRING, 			true	)
 	jt.set_param_z(jt.PARAM_ANGULAR_SPRING_STIFFNESS,		1.0		)
 	jt.set_param_z(jt.PARAM_ANGULAR_DAMPING, 				1.0		)
 	jt.set_param_z(jt.PARAM_LINEAR_SPRING_EQUILIBRIUM_POINT, 0		)
 	
-	jt.set_exclude_nodes_from_collision(false)
+	jt.set_exclude_nodes_from_collision(true)
 	# Ajout de ce ressort sur les 2 RigidBodies
 	jt.set_node_a(body1.get_path())
 	jt.set_node_b(body2.get_path())
