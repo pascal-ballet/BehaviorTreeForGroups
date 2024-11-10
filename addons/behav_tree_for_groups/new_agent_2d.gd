@@ -24,12 +24,10 @@ class PromptDialog extends Window:
 		# Créer un conteneur vertical
 		var vbox:VBoxContainer = VBoxContainer.new()
 
-		vbox.size.x = 300
-		vbox.size.y = 300
-
 		# Créer un champ LineEdit pour saisir le texte
 		input_field = LineEdit.new()
 		vbox.add_child(input_field)
+		input_field.expand_to_text_length = true
 
 		# Créer un bouton OK
 		var ok_button = Button.new()
@@ -39,6 +37,7 @@ class PromptDialog extends Window:
 
 		# Ajouter le conteneur à la fenêtre
 		add_child(vbox)
+
 
 	func _on_ok_button_pressed() -> void:
 		emit_signal("prompt_confirmed", input_field.text)
@@ -72,19 +71,40 @@ func _enter_tree():
 	var editor_root = get_tree().root.get_child(0)  # Accède à la fenêtre principale de l'éditeur
 	editor_root.add_child(prompt_instance)
 
+	prompt_instance.min_size = Vector2i(640, 150) 
+	prompt_instance.reset_size()
+	prompt_instance.move_to_center()
+	prompt_instance.title = "Name the new 2d agent"
+
 	# Rendre la fenêtre modale pour bloquer les interactions avec l'interface principale
 	prompt_instance.set_transient(true)
 	prompt_instance.set_exclusive(true)
 
+
 	# Connexion du signal de confirmation
 	prompt_instance.prompt_confirmed.connect(_on_prompt_confirmed)
 
+
+
+
 	# Attendre que l'utilisateur confirme la fenêtre (bloque l'exécution ici)
+	# Open the name window and apply the name to the new agent 2d
 	var result = await prompt_instance.prompt_confirmed
 
 	var agent_name:String = result #prompt_instance.choosen_name #"agent_2d_"
 
+	if agent_name.is_valid_filename() == false:
+		print("Agent2D : invalid agent name => agent NOT created. Use a valid filename.")
+		return
+
 	rb.name = agent_name
+	rb.add_to_group(agent_name, true)
+	
+	
+	
+	
+	
+	
 	# Add the collision shape 3D
 	var col:CollisionShape2D = CollisionShape2D.new()
 	col.name = "CollisionShape2D"
