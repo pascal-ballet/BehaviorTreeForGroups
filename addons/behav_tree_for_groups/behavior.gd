@@ -10,7 +10,7 @@ class_name Behavior
 extends BehaviorTreeForGroups
 
 @export var activated:bool = true
-@export var on_group = ""
+#@export var on_group = ""
 
 func _process(delta):
 	biodyn_process(get_parent())

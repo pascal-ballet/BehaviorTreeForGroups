@@ -29,12 +29,19 @@ func put_all_behaviors():
 		if behav is Behavior and behav.process_mode != Node.PROCESS_MODE_DISABLED:
 			for agt in root.get_children(): # Test the groups of ALL agents
 				behav.process_mode = Node.PROCESS_MODE_DISABLED # It becomes Disabled in BioDyn behaviors (attached to no Agent)
-				if agt.is_in_group(behav.on_group): # the behav is for the agt
+				var apply_behav:bool = is_behavior_applicable(agt, behav)
+				if apply_behav == true: #agt.is_in_group(behav.on_group): # the behav is for the agt
 					var behav_clone:Behavior = behav.duplicate(15)
 					behav_clone.process_mode = Node.PROCESS_MODE_INHERIT
 					agt.add_child(behav_clone) #we add the behavior into the agent
 					if agt.get("btfg_root"):
 						agt.btfg_root = self
+
+func is_behavior_applicable(agt, behav)->bool:
+	for b in behav.get_groups():
+		if agt.is_in_group(b):
+			return true
+	return false
 
 func _ready():
 	if BTFG.btfg_root == null:

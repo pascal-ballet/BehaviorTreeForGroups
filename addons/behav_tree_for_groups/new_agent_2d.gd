@@ -49,7 +49,6 @@ func _on_prompt_confirmed(input_text: String) -> void:
 	print("L'utilisateur a saisi : ", input_text)
 
 func _enter_tree():
-	var agent_name:String = "agent_2d_"
 	print("Agent2D : _enter_tree")
 	# Create the rigidBody3D
 	var rb:RigidBody2D = RigidBody2D.new()
@@ -80,7 +79,7 @@ func _enter_tree():
 	# Attendre que l'utilisateur confirme la fenêtre (bloque l'exécution ici)
 	var result = await prompt_instance.prompt_confirmed
 
-
+	var agent_name:String = result #prompt_instance.choosen_name #"agent_2d_"
 
 	rb.name = agent_name
 	# Add the collision shape 3D
@@ -126,11 +125,11 @@ func _enter_tree():
 	var scene_path:String
 	var MAX_AGENT_TSCN = 999999
 	# Still a lot (it's .tscn files, NOT instances in scene tree!)
-	for i in MAX_AGENT_TSCN:
-		scene_path = "res://"+agent_name+str(i)+".tscn"
-		# Check if the file already exists
-		if ResourceLoader.exists(scene_path)==false:
-			break
+	#for i in MAX_AGENT_TSCN:
+	scene_path = "res://"+agent_name+".tscn" #"res://"+agent_name+str(i)+".tscn"
+	# Check if the file already exists
+	if ResourceLoader.exists(scene_path)==false:
+		return
 	# Save the Agent in the resource file .tscn
 	ResourceSaver.save(scene, scene_path)
 
@@ -156,7 +155,7 @@ func rb_script():
 	@export var age:int = 0
 
 	func _process(_delta):
-	if not Engine.is_editor_hint():
-	age += 1
+		if not Engine.is_editor_hint():
+			age += 1
 
 	"""

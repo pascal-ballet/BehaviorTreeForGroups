@@ -10,9 +10,8 @@
 [node name="BehaviorTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_8qv0k")
 
-[node name="Behavior" type="Node" parent="BehaviorTreeForGroups"]
+[node name="Behavior" type="Node" parent="BehaviorTreeForGroups" groups=["test_group"]]
 script = ExtResource("2_vp25h")
-on_group = "test_group"
 
 [node name="TranslateRandom" type="Node" parent="BehaviorTreeForGroups/Behavior"]
 script = ExtResource("3_pbt64")
