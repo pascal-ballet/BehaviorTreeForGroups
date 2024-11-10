@@ -22,7 +22,10 @@ class PromptDialog extends Window:
 
 	func _ready() -> void:
 		# Créer un conteneur vertical
-		var vbox = VBoxContainer.new()
+		var vbox:VBoxContainer = VBoxContainer.new()
+
+		vbox.size.x = 300
+		vbox.size.y = 300
 
 		# Créer un champ LineEdit pour saisir le texte
 		input_field = LineEdit.new()
@@ -128,7 +131,8 @@ func _enter_tree():
 	#for i in MAX_AGENT_TSCN:
 	scene_path = "res://"+agent_name+".tscn" #"res://"+agent_name+str(i)+".tscn"
 	# Check if the file already exists
-	if ResourceLoader.exists(scene_path)==false:
+	if ResourceLoader.exists(scene_path)==true:
+		print("new Agent2D:agent already exists. Try a new name or remove the agent")
 		return
 	# Save the Agent in the resource file .tscn
 	ResourceSaver.save(scene, scene_path)
@@ -148,14 +152,14 @@ func polygone2D_regular(radius:float, n:int) -> PackedVector2Array:
 
 func rb_script():
 	return """
-	@tool
-	extends RigidBody2D
+@tool
+extends RigidBody2D
 
-	@export var state:int = 0
-	@export var age:int = 0
+@export var state:int = 0
+@export var age:int = 0
 
-	func _process(_delta):
-		if not Engine.is_editor_hint():
-			age += 1
+func _process(_delta):
+	if not Engine.is_editor_hint():
+		age += 1
 
-	"""
+"""
