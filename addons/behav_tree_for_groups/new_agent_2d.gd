@@ -52,9 +52,6 @@ func _on_prompt_confirmed(input_text: String) -> void:
 
 func _enter_tree():
 	print("Agent2D : _enter_tree")
-	# Create the rigidBody3D
-	var rb:RigidBody2D = RigidBody2D.new()
-
 
 
 
@@ -81,10 +78,14 @@ func _enter_tree():
 	prompt_instance.set_exclusive(true)
 
 
+	#prompt_instance.input_field.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	#prompt_instance.input_field.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	#prompt_instance.input_field.size = Vector2i(640, 50) 
+
+
+
 	# Connexion du signal de confirmation
 	prompt_instance.prompt_confirmed.connect(_on_prompt_confirmed)
-
-
 
 
 	# Attendre que l'utilisateur confirme la fenêtre (bloque l'exécution ici)
@@ -96,6 +97,9 @@ func _enter_tree():
 	if agent_name.is_valid_filename() == false:
 		print("Agent2D : invalid agent name => agent NOT created. Use a valid filename.")
 		return
+
+	# Create the rigidBody3D
+	var rb:RigidBody2D = RigidBody2D.new()
 
 	rb.name = agent_name
 	rb.add_to_group(agent_name, true)
@@ -156,7 +160,9 @@ func _enter_tree():
 		return
 	# Save the Agent in the resource file .tscn
 	ResourceSaver.save(scene, scene_path)
+	free_my_resources()
 
+func free_my_resources():
 	# Free memory resources
 	rb.queue_free() # saved in the .tscn file
 	queue_free() # this node is only made for creating rb
