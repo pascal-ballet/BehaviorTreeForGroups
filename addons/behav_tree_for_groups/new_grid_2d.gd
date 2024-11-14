@@ -81,6 +81,8 @@ func build_grid_2d(agent_name:String):
 	# Create the rigidBody3D
 	var tr:TextureRect = TextureRect.new()
 	tr.name = agent_name
+	tr.add_to_group(agent_name, true)
+
 	# Add the Image
 	var SX:int = 64
 	var SY:int = 32	

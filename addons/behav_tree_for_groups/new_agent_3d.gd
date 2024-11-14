@@ -81,6 +81,8 @@ func build_agent_3d(agent_name:String):
 	# Create the rigidBody3D
 	var rb:RigidBody3D = RigidBody3D.new()
 	rb.name = agent_name
+	rb.add_to_group(agent_name, true)
+
 	# Add the collision shape 3D
 	var col:CollisionShape3D = CollisionShape3D.new()
 	col.name = "CollisionShape3D"
