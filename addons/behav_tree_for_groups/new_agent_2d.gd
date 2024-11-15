@@ -11,56 +11,25 @@
 class_name NewAgent2D
 extends BehaviorTreeForGroups
 
-func _ready():
-	pass
-
-
-# Définition de la classe PromptDialog
-class PromptDialog extends Window:
-	var input_field: LineEdit
-	signal prompt_confirmed(input_text: String)
-
-	func _ready() -> void:
-		# Créer un conteneur vertical
-		var vbox:VBoxContainer = VBoxContainer.new()
-
-		# Créer un champ LineEdit pour saisir le texte
-		input_field = LineEdit.new()
-		vbox.add_child(input_field)
-		input_field.expand_to_text_length = true
-
-		# Créer un bouton OK
-		var ok_button = Button.new()
-		ok_button.text = "OK"
-		ok_button.pressed.connect(self._on_ok_button_pressed)
-		vbox.add_child(ok_button)
-
-		# Ajouter le conteneur à la fenêtre
-		add_child(vbox)
-
-
-	func _on_ok_button_pressed() -> void:
-		emit_signal("prompt_confirmed", input_field.text)
-		hide()
-		print("PromptDialog : _on_ok_button_pressed")
-
-
+signal prompt_confirmed(input_text: String)
+signal prompt_canceled
 # Scène principale qui hérite de Node2D
 var prompt_instance: PromptDialog
-func _on_prompt_confirmed(input_text: String) -> void:
-	print("L'utilisateur a saisi : ", input_text)
 
+func _on_prompt_confirmed(input_text: String) -> void:
+	print("L'utilisateur a validé la saisie : ", input_text)
+	
+func _on_prompt_canceled(input_text: String) -> void:
+	print("L'utilisateur a annulé la saisie : ", input_text)
+	queue_free()
+	
 func _enter_tree():
 	print("Agent2D : _enter_tree")
 
-
-
-
-
-
-
-	# Création du PromptDialog manuellement
+	# Creation of the PromptDialog
 	prompt_instance = PromptDialog.new()
+
+	print("Agent2D : prompt_instance created")
 
 	# Ajout de la scène du prompt comme enfant
 	#add_child(prompt_instance)
@@ -68,7 +37,7 @@ func _enter_tree():
 	var editor_root = get_tree().root.get_child(0)  # Accède à la fenêtre principale de l'éditeur
 	editor_root.add_child(prompt_instance)
 
-	prompt_instance.min_size = Vector2i(640, 150) 
+	prompt_instance.min_size = Vector2i(320, 80)
 	prompt_instance.reset_size()
 	prompt_instance.move_to_center()
 	prompt_instance.title = "Name the new 2d agent"
@@ -78,36 +47,44 @@ func _enter_tree():
 	prompt_instance.set_exclusive(true)
 
 
-	#prompt_instance.input_field.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	#prompt_instance.input_field.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	#prompt_instance.input_field.size = Vector2i(640, 50) 
-
-
+	prompt_instance.close_requested.connect(func():
+		prompt_instance._on_cancel_button_pressed()
+	)
 
 	# Connexion du signal de confirmation
 	prompt_instance.prompt_confirmed.connect(_on_prompt_confirmed)
-
+	# Connexion du signal d'annulation
+	prompt_instance.prompt_canceled.connect(_on_prompt_canceled)
 
 	# Attendre que l'utilisateur confirme la fenêtre (bloque l'exécution ici)
 	# Open the name window and apply the name to the new agent 2d
 	var result = await prompt_instance.prompt_confirmed
 
-	var agent_name:String = result #prompt_instance.choosen_name #"agent_2d_"
-
+	# The new agent is a .tscn file
+	# It must have a valid filename
+	var agent_name:String = result
 	if agent_name.is_valid_filename() == false:
 		print("Agent2D : invalid agent name => agent NOT created. Use a valid filename.")
+		free_my_resources(null)
 		return
 
-	# Create the rigidBody3D
+	build_agent_2d(agent_name)
+
+func free_my_resources(rb:RigidBody2D):
+	# Free memory resources
+	if rb != null:
+		rb.queue_free() # saved in the .tscn file
+	self.queue_free() # this node is only made for creating rb
+	print("Agent2D : Removed from Scene Tree")
+
+func build_agent_2d(agent_name:String):
+
+	# Create the rigidBody2D
+	print("Agent2D : creation of RigidBody2D")
 	var rb:RigidBody2D = RigidBody2D.new()
 
 	rb.name = agent_name
 	rb.add_to_group(agent_name, true)
-	
-	
-	
-	
-	
 	
 	# Add the collision shape 3D
 	var col:CollisionShape2D = CollisionShape2D.new()
@@ -150,23 +127,18 @@ func _enter_tree():
 	var scene = PackedScene.new()
 	scene.pack(rb)
 	var scene_path:String
-	var MAX_AGENT_TSCN = 999999
 	# Still a lot (it's .tscn files, NOT instances in scene tree!)
-	#for i in MAX_AGENT_TSCN:
 	scene_path = "res://"+agent_name+".tscn" #"res://"+agent_name+str(i)+".tscn"
 	# Check if the file already exists
 	if ResourceLoader.exists(scene_path)==true:
 		print("new Agent2D:agent already exists. Try a new name or remove the agent")
+		free_my_resources(rb)
 		return
 	# Save the Agent in the resource file .tscn
 	ResourceSaver.save(scene, scene_path)
-	free_my_resources()
+	free_my_resources(rb)
 
-func free_my_resources():
-	# Free memory resources
-	rb.queue_free() # saved in the .tscn file
-	queue_free() # this node is only made for creating rb
-	print("Agent2D : END")
+
 
 func polygone2D_regular(radius:float, n:int) -> PackedVector2Array:
 	var arr_poly:PackedVector2Array = PackedVector2Array()

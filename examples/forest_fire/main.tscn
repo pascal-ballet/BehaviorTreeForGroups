@@ -19,7 +19,6 @@ script = ExtResource("1_4gm7k")
 
 [node name="Tree" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
-on_group = "Tree"
 
 [node name="Sequential" type="Node" parent="BehavTreeForGroups/Tree"]
 script = ExtResource("9_7tulj")
@@ -37,7 +36,6 @@ script = ExtResource("4_crbyd")
 
 [node name="TreeInFire" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
-on_group = "TreeInFire"
 
 [node name="AddFire" type="Node" parent="BehavTreeForGroups/TreeInFire"]
 script = ExtResource("9_7tulj")
@@ -66,7 +64,6 @@ script = ExtResource("4_crbyd")
 
 [node name="TreeBurned" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
-on_group = "TreeBurned"
 
 [node name="Sequential" type="Node" parent="BehavTreeForGroups/TreeBurned"]
 script = ExtResource("9_7tulj")
@@ -84,7 +81,6 @@ script = ExtResource("4_crbyd")
 
 [node name="Fire" type="Node" parent="BehavTreeForGroups"]
 script = ExtResource("2_xonnc")
-on_group = "Fire"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Fire"]
 script = ExtResource("6_agti2")
