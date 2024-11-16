@@ -1,9 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://b43rx2enqvlnj"]
+[gd_scene load_steps=12 format=3 uid="uid://b43rx2enqvlnj"]
 
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_8qv0k"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_vp25h"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/translate_random.gd" id="3_pbt64"]
 [ext_resource type="PackedScene" uid="uid://dsdilworfnl1q" path="res://examples/2d_tutorial/agent_2d_0.tscn" id="4_7458n"]
+[ext_resource type="PackedScene" uid="uid://duvl1lqpap4mi" path="res://ma_grille.tscn" id="5_k01d0"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="6_qrkuu"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/Reaction.gd" id="7_y0q4q"]
+
+[sub_resource type="Resource" id="Resource_jxx78"]
+script = ExtResource("6_qrkuu")
+name = "A"
+color = Color(0, 0, 1, 1)
+diffusion_speed = 0.1
+degradation_speed = 0.01
+
+[sub_resource type="Resource" id="Resource_set3q"]
+script = ExtResource("6_qrkuu")
+name = "B"
+color = Color(0.628006, 0, 0.254014, 1)
+diffusion_speed = 0.1
+degradation_speed = 0.01
+
+[sub_resource type="Resource" id="Resource_l7v6h"]
+script = ExtResource("7_y0q4q")
+reactive_1 = "Field"
+reactive_2 = ""
+reactive_3 = ""
+speed = 0.01
+product_1 = "Field"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_ud7nb"]
+script = ExtResource("7_y0q4q")
+reactive_1 = "Field"
+reactive_2 = ""
+reactive_3 = ""
+speed = 0.01
+product_1 = "Field"
+product_2 = ""
+product_3 = ""
 
 [node name="main" type="Node2D"]
 
@@ -56,3 +93,11 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 text = "hoplà"
+
+[node name="ma_grille" parent="." instance=ExtResource("5_k01d0")]
+offset_left = 364.0
+offset_top = 144.0
+offset_right = 648.0
+offset_bottom = 303.0
+fields = Array[ExtResource("6_qrkuu")]([SubResource("Resource_jxx78"), SubResource("Resource_set3q")])
+reactions = Array[ExtResource("7_y0q4q")]([SubResource("Resource_l7v6h"), SubResource("Resource_ud7nb")])

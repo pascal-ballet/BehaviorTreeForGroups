@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Field" load_steps=2 format=3 uid="uid://jnjdn8p8xq42"]
-
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="1_cvc8o"]
-
-[resource]
-script = ExtResource("1_cvc8o")
-name = "Field"
-diffusion_speed = 0.1
-degradation_speed = 0.01
