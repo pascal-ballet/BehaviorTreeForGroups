@@ -22,6 +22,7 @@ var values_t1:Array[data] = []
 var xmin:float; var xmax:float; var ymin:float;var ymax:float
 
 # Store the values of each field for ONE position in the matrix
+# Each data stores one qte of all the Fields
 class data:
 	var values:Array[float] = []
 	func _init(fields:Array[Field], i:int, j:int, SX:int, SY:int, loop_x:bool, loop_y:bool):
