@@ -30,9 +30,8 @@ noise = SubResource("FastNoiseLite_mn50l")
 [node name="BehaviorTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_485cq")
 
-[node name="BactA" type="Node" parent="BehaviorTreeForGroups"]
+[node name="BactA" type="Node" parent="BehaviorTreeForGroups" groups=["BactA"]]
 script = ExtResource("2_qypio")
-on_group = "BactA"
 
 [node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/BactA"]
 script = ExtResource("3_qcvpy")
@@ -93,9 +92,8 @@ is_inf_to = 1.0
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactA/ApoptosisA"]
 script = ExtResource("11_8tv06")
 
-[node name="BactB" type="Node" parent="BehaviorTreeForGroups"]
+[node name="BactB" type="Node" parent="BehaviorTreeForGroups" groups=["BactB"]]
 script = ExtResource("2_qypio")
-on_group = "BactB"
 
 [node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/BactB"]
 script = ExtResource("3_qcvpy")
@@ -156,9 +154,8 @@ is_inf_to = 1.0
 [node name="Delete" type="Node" parent="BehaviorTreeForGroups/BactB/ApoptosisB"]
 script = ExtResource("11_8tv06")
 
-[node name="BactC" type="Node" parent="BehaviorTreeForGroups"]
+[node name="BactC" type="Node" parent="BehaviorTreeForGroups" groups=["BactC"]]
 script = ExtResource("2_qypio")
-on_group = "BactC"
 
 [node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/BactC"]
 script = ExtResource("3_qcvpy")

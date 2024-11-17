@@ -9,8 +9,8 @@ size = Vector3(1, 0.3, 0.3)
 albedo_color = Color(1, 0.745098, 0, 1)
 
 [node name="Agent-A" type="RigidBody3D" groups=["Agent-A"]]
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 metadata/Age = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

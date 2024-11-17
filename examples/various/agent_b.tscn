@@ -8,8 +8,8 @@
 albedo_color = Color(1, 0.666667, 0.984314, 1)
 
 [node name="Agent-B" type="RigidBody3D" groups=["Agent-B"]]
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 metadata/Age = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

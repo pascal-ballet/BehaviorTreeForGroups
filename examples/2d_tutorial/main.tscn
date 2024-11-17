@@ -1,46 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b43rx2enqvlnj"]
+[gd_scene load_steps=5 format=3 uid="uid://b43rx2enqvlnj"]
 
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_8qv0k"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_vp25h"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/translate_random.gd" id="3_pbt64"]
 [ext_resource type="PackedScene" uid="uid://dsdilworfnl1q" path="res://examples/2d_tutorial/agent_2d_0.tscn" id="4_7458n"]
-[ext_resource type="PackedScene" uid="uid://dp453bojab426" path="res://mimi.tscn" id="5_bv63f"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="6_qrkuu"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/reaction.gd" id="7_d7haa"]
-
-[sub_resource type="Resource" id="Resource_o8e8c"]
-script = ExtResource("6_qrkuu")
-name = "A"
-color = Color(0, 0, 1, 1)
-diffusion_speed = 0.03
-degradation_speed = 0.0
-initialisation = "Random"
-
-[sub_resource type="Resource" id="Resource_yls2p"]
-script = ExtResource("6_qrkuu")
-name = "B"
-color = Color(0.992157, 0, 0, 1)
-diffusion_speed = 0.03
-degradation_speed = 0.0
-initialisation = "Random"
-
-[sub_resource type="Resource" id="Resource_ps80s"]
-script = ExtResource("6_qrkuu")
-name = "C"
-color = Color(0, 0.917647, 0, 1)
-diffusion_speed = 0.001
-degradation_speed = 0.0
-initialisation = "0"
-
-[sub_resource type="Resource" id="Resource_aras6"]
-script = ExtResource("7_d7haa")
-reactive_1 = "1 A"
-reactive_2 = ""
-reactive_3 = ""
-speed = 0.001
-product_1 = "5 C"
-product_2 = ""
-product_3 = ""
 
 [node name="main" type="Node2D"]
 
@@ -77,13 +40,3 @@ position = Vector2(214, 282)
 
 [node name="agent_2d_7" parent="." instance=ExtResource("4_7458n")]
 position = Vector2(129, 202)
-
-[node name="mimi" parent="." instance=ExtResource("5_bv63f")]
-offset_left = 319.0
-offset_top = 144.0
-offset_right = 750.0
-offset_bottom = 390.0
-loop_x = true
-loop_y = true
-fields = Array[ExtResource("6_qrkuu")]([SubResource("Resource_o8e8c"), SubResource("Resource_yls2p"), SubResource("Resource_ps80s")])
-reactions = Array[ExtResource("7_d7haa")]([SubResource("Resource_aras6")])

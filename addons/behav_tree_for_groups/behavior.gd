@@ -26,5 +26,11 @@ func biodyn_process(agent:Node)->bool:
 		var success = behav.biodyn_process(agent)
 		if success == true:
 			overall_success = true
-	
+		
 	return overall_success
+
+func applies_on_agent(n:Node) -> bool:
+	for gp in self.get_groups():
+		if n.is_in_group(gp):
+			return true
+	return false

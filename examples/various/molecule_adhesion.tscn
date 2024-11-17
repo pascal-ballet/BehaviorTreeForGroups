@@ -20,9 +20,8 @@ flip_faces = true
 [node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_ty85y")
 
-[node name="Agent-B" type="Node" parent="BehavTreeForGroups"]
+[node name="Agent-B" type="Node" parent="BehavTreeForGroups" groups=["Agent-B"]]
 script = ExtResource("2_r87fs")
-on_group = "Agent-B"
 
 [node name="MvtRandom" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("3_1a2m6")
@@ -58,9 +57,8 @@ script = ExtResource("4_wcjs1")
 min = Vector3(-1, -1, -1)
 max = Vector3(1, 1, 1)
 
-[node name="Agent-C" type="Node" parent="BehavTreeForGroups"]
+[node name="Agent-C" type="Node" parent="BehavTreeForGroups" groups=["Agent-C"]]
 script = ExtResource("2_r87fs")
-on_group = "Agent-C"
 
 [node name="Sequential" type="Node" parent="BehavTreeForGroups/Agent-C"]
 script = ExtResource("3_1a2m6")

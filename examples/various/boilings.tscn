@@ -23,9 +23,8 @@ size = Vector2(0.998571, 0.92)
 [node name="BehaviorTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_7iljl")
 
-[node name="Agent" type="Node" parent="BehaviorTreeForGroups"]
+[node name="Agent" type="Node" parent="BehaviorTreeForGroups" groups=["agt"]]
 script = ExtResource("2_qvby2")
-on_group = "agt"
 
 [node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/Agent"]
 script = ExtResource("3_7umo8")
