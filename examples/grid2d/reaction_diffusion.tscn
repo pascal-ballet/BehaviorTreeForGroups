@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byokrvv53nab3"]
+[gd_scene load_steps=20 format=3 uid="uid://byokrvv53nab3"]
 
 [ext_resource type="PackedScene" uid="uid://cpe7fdfuxa1bj" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_xt3m6"]
@@ -20,6 +20,14 @@ diffusion_speed = 0.3
 degradation_speed = 0.01
 initialisation = "Random"
 
+[sub_resource type="Resource" id="Resource_4fn7p"]
+script = ExtResource("2_a7pa0")
+name = "B"
+color = Color(1, 0.568627, 0.733333, 1)
+diffusion_speed = 0.005
+degradation_speed = 0.001
+initialisation = "0"
+
 [sub_resource type="Resource" id="Resource_57mwe"]
 script = ExtResource("2_a7pa0")
 name = "B"
@@ -40,7 +48,7 @@ product_3 = ""
 
 [sub_resource type="Resource" id="Resource_5x48p"]
 script = ExtResource("2_a7pa0")
-name = "Mol1"
+name = "B"
 color = Color(0, 0, 1, 1)
 diffusion_speed = 0.3
 degradation_speed = 0.001
@@ -109,6 +117,12 @@ force = 10.0
 script = ExtResource("3_w5h35")
 F = Vector3(20, 20, 20)
 
+[node name="SetGridValue2D2" type="Node" parent="BehaviorTreeForGroups/Follow" groups=["my_grid"]]
+script = ExtResource("4_8b4h6")
+on_grid_group = "my_grid"
+for_field = "B"
+set_value = 1.0
+
 [node name="StayInBox2" type="Node" parent="BehaviorTreeForGroups/Follow"]
 script = ExtResource("5_4atmj")
 min = Vector3(0, 0, 0)
@@ -121,7 +135,7 @@ offset_right = 536.0
 offset_bottom = 291.0
 SX = 128
 SY = 64
-fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1")])
+fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1"), SubResource("Resource_4fn7p")])
 
 [node name="my_grid2" parent="." instance=ExtResource("1_qumfy")]
 offset_left = 595.0
