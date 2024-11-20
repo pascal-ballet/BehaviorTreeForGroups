@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://byokrvv53nab3"]
+[gd_scene load_steps=17 format=3 uid="uid://byokrvv53nab3"]
 
 [ext_resource type="PackedScene" uid="uid://cpe7fdfuxa1bj" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_xt3m6"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="2_a7pa0"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_aq2ef"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/reaction.gd" id="3_eiqnk"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_w5h35"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_grid_value_2d.gd" id="4_8b4h6"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="5_4atmj"]
@@ -36,16 +35,6 @@ diffusion_speed = 0.3
 degradation_speed = 0.001
 initialisation = "0"
 
-[sub_resource type="Resource" id="Resource_il7j6"]
-script = ExtResource("3_eiqnk")
-reactive_1 = "A"
-reactive_2 = ""
-reactive_3 = ""
-speed = 0.01
-product_1 = "B"
-product_2 = ""
-product_3 = ""
-
 [sub_resource type="Resource" id="Resource_5x48p"]
 script = ExtResource("2_a7pa0")
 name = "B"
@@ -69,16 +58,6 @@ color = Color(1, 0, 1, 1)
 diffusion_speed = 0.3
 degradation_speed = 0.01
 initialisation = "0"
-
-[sub_resource type="Resource" id="Resource_jrflj"]
-script = ExtResource("3_eiqnk")
-reactive_1 = "Mol1"
-reactive_2 = "Mol2"
-reactive_3 = ""
-speed = 0.01
-product_1 = "4 Mol3"
-product_2 = ""
-product_3 = ""
 
 [node name="ReactionDiffusion" type="Node2D"]
 
@@ -144,7 +123,6 @@ offset_right = 1107.0
 offset_bottom = 614.0
 SY = 128
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1"), SubResource("Resource_57mwe")])
-reactions = Array[ExtResource("3_eiqnk")]([SubResource("Resource_il7j6")])
 
 [node name="my_grid3" parent="." instance=ExtResource("1_qumfy")]
 offset_left = 30.0
@@ -154,7 +132,6 @@ offset_bottom = 614.0
 loop_x = true
 loop_y = true
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_5x48p"), SubResource("Resource_00wib"), SubResource("Resource_uhnse")])
-reactions = Array[ExtResource("3_eiqnk")]([SubResource("Resource_jrflj")])
 
 [node name="Agt" parent="." instance=ExtResource("8_a4qvu")]
 position = Vector2(334, 182)
