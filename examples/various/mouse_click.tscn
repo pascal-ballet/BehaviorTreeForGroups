@@ -38,9 +38,8 @@ albedo_color = Color(1, 0.152941, 0.121569, 1)
 [node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_13b5j")
 
-[node name="Click-A" type="Node" parent="BehavTreeForGroups"]
+[node name="Click-A" type="Node" parent="BehavTreeForGroups" groups=["Agent-A"]]
 script = ExtResource("2_by15k")
-on_group = "Agent-A"
 
 [node name="Sequential" type="Node" parent="BehavTreeForGroups/Click-A"]
 script = ExtResource("3_bva0q")
@@ -53,9 +52,8 @@ playerCamera = NodePath("../../../../Camera3D")
 script = ExtResource("5_mvy3e")
 agent_tscn = "res://Examples/various/agent_b.tscn"
 
-[node name="Behavior-B" type="Node" parent="BehavTreeForGroups"]
+[node name="Behavior-B" type="Node" parent="BehavTreeForGroups" groups=["Agent-B"]]
 script = ExtResource("2_by15k")
-on_group = "Agent-B"
 
 [node name="ForceInit" type="Node" parent="BehavTreeForGroups/Behavior-B"]
 script = ExtResource("3_bva0q")
@@ -92,9 +90,8 @@ script = ExtResource("12_td4x6")
 data_name = "Age"
 add_value = 1.0
 
-[node name="Behavior-C" type="Node" parent="BehavTreeForGroups"]
+[node name="Behavior-C" type="Node" parent="BehavTreeForGroups" groups=["Agent-C"]]
 script = ExtResource("2_by15k")
-on_group = "Agent-C"
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior-C"]
 script = ExtResource("9_wboaq")
@@ -109,7 +106,7 @@ with_group = "Agent-B"
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Behavior-C/Sequential"]
 script = ExtResource("8_cnyb3")
 
-[node name="Behavior-Mass" type="Node" parent="BehavTreeForGroups"]
+[node name="Behavior-Mass" type="Node" parent="BehavTreeForGroups" groups=["Mass"]]
 script = ExtResource("2_by15k")
 
 [node name="StayInBox" type="Node" parent="BehavTreeForGroups/Behavior-Mass"]

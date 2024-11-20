@@ -11,15 +11,14 @@ extends RigidBody2D
 func _process(_delta):
 	if not Engine.is_editor_hint():
 		age += 1
-
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_deou3"]
 
 [node name="Gluc" type="RigidBody2D" groups=["gluc"]]
 gravity_scale = 0.0
-max_contacts_reported = 2
 contact_monitor = true
+max_contacts_reported = 2
 linear_damp = 1.0
 angular_damp = 1.0
 script = SubResource("GDScript_oxsuj")

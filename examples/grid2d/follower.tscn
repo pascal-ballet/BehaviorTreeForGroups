@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw71fvacgc6sk"]
+[gd_scene load_steps=3 format=3 uid="uid://d3ie2qkjhjg3d"]
 
-[sub_resource type="GDScript" id="GDScript_6aa4s"]
+[sub_resource type="GDScript" id="GDScript_8ycgr"]
 script/source = "
 @tool
 extends RigidBody2D
@@ -13,20 +13,19 @@ func _process(_delta):
 		age += 1
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_whlnq"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4qje"]
 
-[node name="FA" type="RigidBody2D" groups=["FA", "circulating"]]
+[node name="follower" type="RigidBody2D" groups=["follower"]]
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 2
 linear_damp = 1.0
 angular_damp = 1.0
-script = SubResource("GDScript_6aa4s")
+script = SubResource("GDScript_8ycgr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_whlnq")
+shape = SubResource("CircleShape2D_g4qje")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(0.5, 0.5)
+color = Color(0.521569, 1, 0, 1)
 polygon = PackedVector2Array(10, 0, 5, 8.66025, -5, 8.66025, -10, 1.22465e-15, -5, -8.66025, 5, -8.66025)

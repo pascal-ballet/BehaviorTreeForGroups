@@ -29,9 +29,8 @@
 [node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_7is1p")
 
-[node name="Circulating" type="Node" parent="BehavTreeForGroups"]
+[node name="Circulating" type="Node" parent="BehavTreeForGroups" groups=["circulating"]]
 script = ExtResource("2_2sk4m")
-on_group = "circulating"
 
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Circulating"]
 script = ExtResource("3_l1p6k")
@@ -56,9 +55,8 @@ with_group = "FinVeine"
 [node name="Delete" type="Node" parent="BehavTreeForGroups/Circulating/OutOfBox"]
 script = ExtResource("18_xuqnk")
 
-[node name="Platelets" type="Node" parent="BehavTreeForGroups"]
+[node name="Platelets" type="Node" parent="BehavTreeForGroups" groups=["platelet"]]
 script = ExtResource("2_2sk4m")
-on_group = "platelet"
 
 [node name="GoToLesion" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("6_lvsry")
@@ -149,9 +147,8 @@ with_group = "FA"
 [node name="Delete" type="Node" parent="BehavTreeForGroups/Platelets/Fibrinolyse"]
 script = ExtResource("18_xuqnk")
 
-[node name="Lesion" type="Node" parent="BehavTreeForGroups"]
+[node name="Lesion" type="Node" parent="BehavTreeForGroups" groups=["fibro"]]
 script = ExtResource("2_2sk4m")
-on_group = "fibro"
 
 [node name="ProdFactors" type="Node" parent="BehavTreeForGroups/Lesion"]
 script = ExtResource("7_ebejv")
@@ -195,9 +192,8 @@ script = ExtResource("10_km0xp")
 script = ExtResource("11_c6gdq")
 color = Color(0.631373, 0.203922, 0, 1)
 
-[node name="StartVein" type="Node" parent="BehavTreeForGroups"]
+[node name="StartVein" type="Node" parent="BehavTreeForGroups" groups=["StartVein"]]
 script = ExtResource("2_2sk4m")
-on_group = "StartVein"
 
 [node name="AddPlatelets" type="Node" parent="BehavTreeForGroups/StartVein"]
 script = ExtResource("7_ebejv")

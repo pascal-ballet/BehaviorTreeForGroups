@@ -15,15 +15,14 @@ func _process(_delta):
 func _enter_tree():
 	var new_name:String = get_scene_file_path().get_file().trim_suffix(\".tscn\")
 	set_name.call_deferred(new_name)
-
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3k7d8"]
 
-[node name="agent_2d" type="RigidBody2D"]
+[node name="agent_2d" type="RigidBody2D" groups=["agt"]]
 gravity_scale = 0.0
-max_contacts_reported = 2
 contact_monitor = true
+max_contacts_reported = 2
 linear_damp = 1.0
 angular_damp = 1.0
 script = SubResource("GDScript_5seel")

@@ -15,9 +15,8 @@ flip_faces = true
 [node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_blxpx")
 
-[node name="Agent-B" type="Node" parent="BehavTreeForGroups"]
+[node name="Agent-B" type="Node" parent="BehavTreeForGroups" groups=["Agent-B"]]
 script = ExtResource("2_ksja5")
-on_group = "Agent-B"
 
 [node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("3_6srg7")
@@ -29,9 +28,8 @@ min = Vector3(-5, -1, -1)
 max = Vector3(5, 1, 1)
 loop_x = true
 
-[node name="Agent-C" type="Node" parent="BehavTreeForGroups"]
+[node name="Agent-C" type="Node" parent="BehavTreeForGroups" groups=["Agent-C"]]
 script = ExtResource("2_ksja5")
-on_group = "Agent-C"
 
 [node name="ForceGlobal" type="Node" parent="BehavTreeForGroups/Agent-C"]
 script = ExtResource("3_6srg7")

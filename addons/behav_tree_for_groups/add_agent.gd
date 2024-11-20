@@ -32,7 +32,7 @@ func biodyn_process(agent) -> bool:
 			btfg = BTFG.btfg_root
 			
 			for b in btfg.get_children(): # Get ALL the behaviors of BehaviorTreeForGroups
-				if b is Behavior and new_agent_prototype.is_in_group(b.on_group):
+				if b is Behavior and b.applies_on_agent(new_agent_prototype): #new_agent_prototype.is_in_group(b.on_group):
 					# Copy the current behavior to the new_agent_prototype
 					var behav_clone:Behavior = b.duplicate(15) # Duplicate the Behavior recursively
 					behav_clone.process_mode = Node.PROCESS_MODE_INHERIT # We can do it because its agent (proto) is NEVER in the scene tree

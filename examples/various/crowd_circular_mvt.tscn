@@ -20,9 +20,8 @@ flip_faces = true
 [node name="BehavTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_y0bum")
 
-[node name="Agent-B" type="Node" parent="BehavTreeForGroups"]
+[node name="Agent-B" type="Node" parent="BehavTreeForGroups" groups=["Agent-B"]]
 script = ExtResource("2_gglsv")
-on_group = "Agent-B"
 
 [node name="ForceAngularZ" type="Node" parent="BehavTreeForGroups/Agent-B"]
 script = ExtResource("3_tysjh")
@@ -46,9 +45,8 @@ script = ExtResource("7_i5r5w")
 [node name="ForceRandom" type="Node" parent="BehavTreeForGroups/Agent-B/Sequential"]
 script = ExtResource("8_06xkv")
 
-[node name="Agent-C" type="Node" parent="BehavTreeForGroups"]
+[node name="Agent-C" type="Node" parent="BehavTreeForGroups" groups=["Agent-C"]]
 script = ExtResource("2_gglsv")
-on_group = "Agent-C"
 
 [node name="ForceAngularZ" type="Node" parent="BehavTreeForGroups/Agent-C"]
 script = ExtResource("3_tysjh")

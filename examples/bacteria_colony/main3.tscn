@@ -17,9 +17,8 @@
 [node name="BehaviorTreeForGroups" type="Node" parent="."]
 script = ExtResource("1_ac5sl")
 
-[node name="BehaviorGluc" type="Node" parent="BehaviorTreeForGroups"]
+[node name="BehaviorGluc" type="Node" parent="BehaviorTreeForGroups" groups=["gluc"]]
 script = ExtResource("2_1503y")
-on_group = "gluc"
 
 [node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/BehaviorGluc"]
 script = ExtResource("3_36eji")
