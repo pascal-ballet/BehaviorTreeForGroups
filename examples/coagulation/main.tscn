@@ -61,7 +61,6 @@ script = ExtResource("2_2sk4m")
 [node name="GoToLesion" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("6_lvsry")
 on_grid_group = "grd"
-value_to_go = 1.0
 force = 1.0
 
 [node name="Activation" type="Node" parent="BehavTreeForGroups/Platelets"]
