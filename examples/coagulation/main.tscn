@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_collision.gd" id="17_n33my"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="18_6uqll"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="18_xuqnk"]
-[ext_resource type="PackedScene" uid="uid://yq5y0be22p2p" path="res://examples/coagulation/grid_2d_0.tscn" id="20_3fwqe"]
+[ext_resource type="PackedScene" uid="uid://6l8k6he7c3xn" path="res://examples/coagulation/grid_2d_0.tscn" id="20_3fwqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esw5c"]
 
@@ -61,7 +61,6 @@ script = ExtResource("2_2sk4m")
 [node name="GoToLesion" type="Node" parent="BehavTreeForGroups/Platelets"]
 script = ExtResource("6_lvsry")
 on_grid_group = "grd"
-value_to_go = 1.0
 force = 1.0
 
 [node name="Activation" type="Node" parent="BehavTreeForGroups/Platelets"]
@@ -216,14 +215,6 @@ proba = 0.1
 [node name="AddAgent" type="Node" parent="BehavTreeForGroups/StartVein/AddFA"]
 script = ExtResource("18_6uqll")
 agent_tscn = "res://examples/coagulation/FA.tscn"
-
-[node name="grid_2d_0" parent="." groups=["grd"] instance=ExtResource("20_3fwqe")]
-offset_top = 66.0
-offset_right = 1150.0
-offset_bottom = 520.0
-baseColor = Color(0, 0.337255, 0.839216, 0.960784)
-diffusionRate = 0.8
-loop_x = true
 
 [node name="StartVein" type="ColorRect" parent="." groups=["StartVein"]]
 offset_left = 5.0
@@ -724,3 +715,9 @@ age = 0
 [node name="platelet92" parent="." instance=ExtResource("16_loo5f")]
 position = Vector2(652, 322)
 age = 0
+
+[node name="grid_2d_0" parent="." instance=ExtResource("20_3fwqe")]
+offset_left = -2.0
+offset_top = 51.0
+offset_right = 1165.0
+offset_bottom = 661.0
