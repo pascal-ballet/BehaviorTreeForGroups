@@ -94,24 +94,24 @@ initialisation = "0"
 script = ExtResource("2_a7pa0")
 name = "A"
 color = Color(0.926313, 0.000197721, 0.794224, 1)
-diffusion_speed = 0.03
-degradation_speed = 0.0
+diffusion_speed = 0.01
+degradation_speed = 0.01
 initialisation = "Random"
 
 [sub_resource type="Resource" id="Resource_qxp5o"]
 script = ExtResource("2_a7pa0")
 name = "B"
 color = Color(2.55093e-06, 0.69572, 0.487671, 1)
-diffusion_speed = 0.03
-degradation_speed = 0.0
+diffusion_speed = 0.01
+degradation_speed = 0.01
 initialisation = "Random"
 
 [sub_resource type="Resource" id="Resource_grxcc"]
 script = ExtResource("2_a7pa0")
 name = "C"
 color = Color(0, 0, 1, 1)
-diffusion_speed = 0.03
-degradation_speed = 0.0
+diffusion_speed = 0.01
+degradation_speed = 0.01
 initialisation = "Random"
 
 [sub_resource type="Resource" id="Resource_x6ahm"]
@@ -119,7 +119,7 @@ script = ExtResource("9_6pdep")
 reactive_1 = "A"
 reactive_2 = "B"
 reactive_3 = ""
-speed = 0.1
+speed = 0.35
 product_1 = "2 B"
 product_2 = ""
 product_3 = ""
@@ -129,7 +129,7 @@ script = ExtResource("9_6pdep")
 reactive_1 = "B"
 reactive_2 = "C"
 reactive_3 = ""
-speed = 0.1
+speed = 0.35
 product_1 = "2 C"
 product_2 = ""
 product_3 = ""
@@ -139,7 +139,7 @@ script = ExtResource("9_6pdep")
 reactive_1 = "C"
 reactive_2 = "A"
 reactive_3 = ""
-speed = 0.1
+speed = 0.35
 product_1 = "2 A"
 product_2 = ""
 product_3 = ""
@@ -220,7 +220,7 @@ loop_x = true
 loop_y = true
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_5x48p"), SubResource("Resource_00wib"), SubResource("Resource_uhnse")])
 
-[node name="my_grid4" parent="." instance=ExtResource("1_qumfy")]
+[node name="my_grid_Belousov_Zhabotinsky" parent="." instance=ExtResource("1_qumfy")]
 offset_left = 599.0
 offset_top = 347.0
 offset_right = 1108.0
