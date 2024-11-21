@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://byokrvv53nab3"]
+[gd_scene load_steps=27 format=3 uid="uid://byokrvv53nab3"]
 
 [ext_resource type="PackedScene" uid="uid://cpe7fdfuxa1bj" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_xt3m6"]
@@ -10,13 +10,14 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_3wt0p"]
 [ext_resource type="PackedScene" uid="uid://d3ie2qkjhjg3d" path="res://examples/grid2d/follower.tscn" id="7_uleci"]
 [ext_resource type="PackedScene" uid="uid://ccaq3hxvxvpla" path="res://examples/grid2d/Agt.tscn" id="8_a4qvu"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/Reaction.gd" id="9_6pdep"]
 
 [sub_resource type="Resource" id="Resource_knat1"]
 script = ExtResource("2_a7pa0")
 name = "A"
 color = Color(0, 0.988235, 0, 1)
-diffusion_speed = 0.3
-degradation_speed = 0.01
+diffusion_speed = 0.1
+degradation_speed = 0.001
 initialisation = "Random"
 
 [sub_resource type="Resource" id="Resource_4fn7p"]
@@ -31,9 +32,39 @@ initialisation = "0"
 script = ExtResource("2_a7pa0")
 name = "B"
 color = Color(1, 0, 0.0588235, 1)
-diffusion_speed = 0.3
+diffusion_speed = 0.1
 degradation_speed = 0.001
-initialisation = "0"
+initialisation = "Random"
+
+[sub_resource type="Resource" id="Resource_fh40q"]
+script = ExtResource("9_6pdep")
+reactive_1 = "A"
+reactive_2 = ""
+reactive_3 = ""
+speed = 0.01
+product_1 = "2 A"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_gnu8j"]
+script = ExtResource("9_6pdep")
+reactive_1 = "B"
+reactive_2 = ""
+reactive_3 = ""
+speed = 0.01
+product_1 = "2 B"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_t45vt"]
+script = ExtResource("9_6pdep")
+reactive_1 = "A"
+reactive_2 = "B"
+reactive_3 = ""
+speed = 0.1
+product_1 = ""
+product_2 = ""
+product_3 = ""
 
 [sub_resource type="Resource" id="Resource_5x48p"]
 script = ExtResource("2_a7pa0")
@@ -58,6 +89,60 @@ color = Color(1, 0, 1, 1)
 diffusion_speed = 0.3
 degradation_speed = 0.01
 initialisation = "0"
+
+[sub_resource type="Resource" id="Resource_g16xq"]
+script = ExtResource("2_a7pa0")
+name = "A"
+color = Color(0.926313, 0.000197721, 0.794224, 1)
+diffusion_speed = 0.03
+degradation_speed = 0.0
+initialisation = "Random"
+
+[sub_resource type="Resource" id="Resource_qxp5o"]
+script = ExtResource("2_a7pa0")
+name = "B"
+color = Color(2.55093e-06, 0.69572, 0.487671, 1)
+diffusion_speed = 0.03
+degradation_speed = 0.0
+initialisation = "Random"
+
+[sub_resource type="Resource" id="Resource_grxcc"]
+script = ExtResource("2_a7pa0")
+name = "C"
+color = Color(0, 0, 1, 1)
+diffusion_speed = 0.03
+degradation_speed = 0.0
+initialisation = "Random"
+
+[sub_resource type="Resource" id="Resource_x6ahm"]
+script = ExtResource("9_6pdep")
+reactive_1 = "A"
+reactive_2 = "B"
+reactive_3 = ""
+speed = 0.1
+product_1 = "2 B"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_x5l3s"]
+script = ExtResource("9_6pdep")
+reactive_1 = "B"
+reactive_2 = "C"
+reactive_3 = ""
+speed = 0.1
+product_1 = "2 C"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_f226c"]
+script = ExtResource("9_6pdep")
+reactive_1 = "C"
+reactive_2 = "A"
+reactive_3 = ""
+speed = 0.1
+product_1 = "2 A"
+product_2 = ""
+product_3 = ""
 
 [node name="ReactionDiffusion" type="Node2D"]
 
@@ -120,9 +205,11 @@ fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1"), SubResour
 offset_left = 595.0
 offset_top = 14.0
 offset_right = 1107.0
-offset_bottom = 614.0
-SY = 128
+offset_bottom = 292.0
+SX = 128
+SY = 64
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1"), SubResource("Resource_57mwe")])
+reactions = Array[ExtResource("9_6pdep")]([SubResource("Resource_fh40q"), SubResource("Resource_gnu8j"), SubResource("Resource_t45vt")])
 
 [node name="my_grid3" parent="." instance=ExtResource("1_qumfy")]
 offset_left = 30.0
@@ -132,6 +219,16 @@ offset_bottom = 614.0
 loop_x = true
 loop_y = true
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_5x48p"), SubResource("Resource_00wib"), SubResource("Resource_uhnse")])
+
+[node name="my_grid4" parent="." instance=ExtResource("1_qumfy")]
+offset_left = 599.0
+offset_top = 347.0
+offset_right = 1108.0
+offset_bottom = 612.0
+loop_x = true
+loop_y = true
+fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_g16xq"), SubResource("Resource_qxp5o"), SubResource("Resource_grxcc")])
+reactions = Array[ExtResource("9_6pdep")]([SubResource("Resource_x6ahm"), SubResource("Resource_x5l3s"), SubResource("Resource_f226c")])
 
 [node name="Agt" parent="." instance=ExtResource("8_a4qvu")]
 position = Vector2(334, 182)
