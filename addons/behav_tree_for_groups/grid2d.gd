@@ -28,16 +28,17 @@ class data:
 	func _init(fields:Array[Field], i:int, j:int, SX:int, SY:int, loop_x:bool, loop_y:bool):
 		values.resize(fields.size())
 		for f in fields.size():
-			if fields[f].initialisation == "0":
-				values[f] = 0.0
-			elif fields[f].initialisation == "1":
-				values[f] = 1.0
-			elif fields[f].initialisation == "Random":
-				values[f] = randf()
-			if loop_x == false and (i == 0 or i == SX-1) : # borders are exluded if non toric matrix
-				values[f] = 0.0
-			if loop_y == false and (j == 0 or j == SY-1):
-				values[f] = 0.0
+			if fields[f] != null:
+				if fields[f].initialisation == "0":
+					values[f] = 0.0
+				elif fields[f].initialisation == "1":
+					values[f] = 1.0
+				elif fields[f].initialisation == "Random":
+					values[f] = randf()
+				if loop_x == false and (i == 0 or i == SX-1) : # borders are exluded if non toric matrix
+					values[f] = 0.0
+				if loop_y == false and (j == 0 or j == SY-1):
+					values[f] = 0.0
 var fields_dico:Dictionary
 
 func _ready():
@@ -67,25 +68,26 @@ func _ready():
 	var id:int = 0
 	fields_dico["-"]=-1
 	for f in fields:
-		fields_dico[f.name]=id
+		if f!= null:
+			fields_dico[f.name]=id
 		id += 1
 
 	# reactions init
 	for r in reactions:
-		r.extract_coef_field()
-		if fields_dico.has(r.reactive_1) == false:
-			r.reactive_1 = "-"
-		if fields_dico.has(r.reactive_2) == false:
-			r.reactive_2 = "-"
-		if fields_dico.has(r.reactive_3) == false:
-			r.reactive_3 = "-"
-		if fields_dico.has(r.product_1) == false:
-			r.product_1 = "-"
-		if fields_dico.has(r.product_2) == false:
-			r.product_2 = "-"
-		if fields_dico.has(r.product_3) == false:
-			r.product_3 = "-"
-
+		if r!=null:
+			r.extract_coef_field()
+			if fields_dico.has(r.reactive_1) == false:
+				r.reactive_1 = "-"
+			if fields_dico.has(r.reactive_2) == false:
+				r.reactive_2 = "-"
+			if fields_dico.has(r.reactive_3) == false:
+				r.reactive_3 = "-"
+			if fields_dico.has(r.product_1) == false:
+				r.product_1 = "-"
+			if fields_dico.has(r.product_2) == false:
+				r.product_2 = "-"
+			if fields_dico.has(r.product_3) == false:
+				r.product_3 = "-"
 
 func _process(_delta):
 	if not Engine.is_editor_hint():
@@ -109,134 +111,137 @@ func reaction_diffusion():
 	var p3 : int
 	
 	for r in reactions:
-		for i in range(xmin,xmax):
-			for j in range(ymin,ymax):
-				var p:int = i+j*SX
-				r1 = fields_dico[r.reactive_1]
-				r2 = fields_dico[r.reactive_2]
-				r3 = fields_dico[r.reactive_3]
-				p1 = fields_dico[r.product_1]
-				p2 = fields_dico[r.product_2]
-				p3 = fields_dico[r.product_3]
-				s = r.speed
-				
-				# NO reactive
-				if r1 < 0 and r2 < 0 and r3 < 0:
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += s*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += s*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += s*r.coef_p3
-				# Only ONE reactive (r1)
-				if r1 >= 0 and r2 < 0 and r3 < 0:
-					var d_qte:float = s * values_t0[p].values[r1]
-					values_t0[p].values[r1] -= d_qte*r.coef_r1
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
-				# Only ONE reactive (r2)
-				if r1 < 0 and r2 >= 0 and r3 < 0:
-					var d_qte:float = s * values_t0[p].values[r2]
-					values_t0[p].values[r2] -= d_qte*r.coef_r2
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
-				# Only ONE reactive (r3)
-				if r1 < 0 and r2 < 0 and r3 >= 0:
-					var d_qte:float = s * values_t0[p].values[r3]
-					values_t0[p].values[r3] -= d_qte*r.coef_r3
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
-				# TWO reactives (r1+r2)
-				if r1 >=0 and r2 >= 0 and r3 < 0:
-					var d_qte:float = s * values_t0[p].values[r1] * values_t0[p].values[r2]
-					values_t0[p].values[r1] -= d_qte*r.coef_r1
-					values_t0[p].values[r2] -= d_qte*r.coef_r2
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
-				# TWO reactives (r1+r3)
-				if r1 >=0 and r2 < 0 and r3 >= 0:
-					var d_qte:float = s * values_t0[p].values[r1] * values_t0[p].values[r3]
-					values_t0[p].values[r1] -= d_qte*r.coef_r1
-					values_t0[p].values[r3] -= d_qte*r.coef_r3
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
-				# TWO reactives (r1+r3)
-				if r1 < 0 and r2 >= 0 and r3 >= 0:
-					var d_qte:float = s * values_t0[p].values[r2] * values_t0[p].values[r3]
-					values_t0[p].values[r2] -= d_qte*r.coef_r2
-					values_t0[p].values[r3] -= d_qte*r.coef_r3
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
-				# THREE reactives (r1+r2+r3)
-				if r1 >= 0 and r2 >= 0 and r3 >= 0:
-					var d_qte:float = s * values_t0[p].values[r1] * values_t0[p].values[r2] * values_t0[p].values[r3]
-					values_t0[p].values[r1] -= d_qte*r.coef_r1
-					values_t0[p].values[r2] -= d_qte*r.coef_r2
-					values_t0[p].values[r3] -= d_qte*r.coef_r3
-					# if product
-					if p1 >= 0:
-						values_t0[p].values[p1] += d_qte*r.coef_p1
-					if p2 >= 0:
-						values_t0[p].values[p2] += d_qte*r.coef_p2
-					if p3 >= 0:
-						values_t0[p].values[p3] += d_qte*r.coef_p3
+		if r != null:
+			for i in range(xmin,xmax):
+				for j in range(ymin,ymax):
+					var p:int = i+j*SX
+					r1 = fields_dico[r.reactive_1]
+					r2 = fields_dico[r.reactive_2]
+					r3 = fields_dico[r.reactive_3]
+					p1 = fields_dico[r.product_1]
+					p2 = fields_dico[r.product_2]
+					p3 = fields_dico[r.product_3]
+					s = r.speed
+					
+					# NO reactive
+					if r1 < 0 and r2 < 0 and r3 < 0:
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += s*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += s*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += s*r.coef_p3
+					# Only ONE reactive (r1)
+					if r1 >= 0 and r2 < 0 and r3 < 0:
+						var d_qte:float = s * values_t0[p].values[r1]
+						values_t0[p].values[r1] -= d_qte*r.coef_r1
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
+					# Only ONE reactive (r2)
+					if r1 < 0 and r2 >= 0 and r3 < 0:
+						var d_qte:float = s * values_t0[p].values[r2]
+						values_t0[p].values[r2] -= d_qte*r.coef_r2
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
+					# Only ONE reactive (r3)
+					if r1 < 0 and r2 < 0 and r3 >= 0:
+						var d_qte:float = s * values_t0[p].values[r3]
+						values_t0[p].values[r3] -= d_qte*r.coef_r3
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
+					# TWO reactives (r1+r2)
+					if r1 >=0 and r2 >= 0 and r3 < 0:
+						var d_qte:float = s * values_t0[p].values[r1] * values_t0[p].values[r2]
+						values_t0[p].values[r1] -= d_qte*r.coef_r1
+						values_t0[p].values[r2] -= d_qte*r.coef_r2
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
+					# TWO reactives (r1+r3)
+					if r1 >=0 and r2 < 0 and r3 >= 0:
+						var d_qte:float = s * values_t0[p].values[r1] * values_t0[p].values[r3]
+						values_t0[p].values[r1] -= d_qte*r.coef_r1
+						values_t0[p].values[r3] -= d_qte*r.coef_r3
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
+					# TWO reactives (r1+r3)
+					if r1 < 0 and r2 >= 0 and r3 >= 0:
+						var d_qte:float = s * values_t0[p].values[r2] * values_t0[p].values[r3]
+						values_t0[p].values[r2] -= d_qte*r.coef_r2
+						values_t0[p].values[r3] -= d_qte*r.coef_r3
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
+					# THREE reactives (r1+r2+r3)
+					if r1 >= 0 and r2 >= 0 and r3 >= 0:
+						var d_qte:float = s * values_t0[p].values[r1] * values_t0[p].values[r2] * values_t0[p].values[r3]
+						values_t0[p].values[r1] -= d_qte*r.coef_r1
+						values_t0[p].values[r2] -= d_qte*r.coef_r2
+						values_t0[p].values[r3] -= d_qte*r.coef_r3
+						# if product
+						if p1 >= 0:
+							values_t0[p].values[p1] += d_qte*r.coef_p1
+						if p2 >= 0:
+							values_t0[p].values[p2] += d_qte*r.coef_p2
+						if p3 >= 0:
+							values_t0[p].values[p3] += d_qte*r.coef_p3
 	# Diffusion
 	for f in fields.size():
-		var degrad:float = fields[f].degradation_speed
-		var diffus:float = fields[f].diffusion_speed
-		for i in range(xmin,xmax):
-			for j in range(ymin,ymax):
-				var p:int = i+j*SX
-				var v0:float = values_t0[ (i+1)%SX+j*SX].values[f]
-				var v1:float = values_t0[ (i-1+SX)%SX+j*SX].values[f]
-				var v2:float = values_t0[ i%SX+((j+1)%SY)*SX].values[f]
-				var v3:float = values_t0[ i%SX+((j-1+SY)%SY)*SX].values[f]
-				values_t1[p].values[f] = (1.0-degrad)*(1.0-diffus)*values_t0[p].values[f] + diffus*(v0+v1+v2+v3)*0.25
-	
-		for i in range(SX*SY):
-			values_t0[i].values[f] = values_t1[i].values[f]
+		if fields[f] != null:
+			var degrad:float = fields[f].degradation_speed
+			var diffus:float = fields[f].diffusion_speed
+			for i in range(xmin,xmax):
+				for j in range(ymin,ymax):
+					var p:int = i+j*SX
+					var v0:float = values_t0[ (i+1)%SX+j*SX].values[f]
+					var v1:float = values_t0[ (i-1+SX)%SX+j*SX].values[f]
+					var v2:float = values_t0[ i%SX+((j+1)%SY)*SX].values[f]
+					var v3:float = values_t0[ i%SX+((j-1+SY)%SY)*SX].values[f]
+					values_t1[p].values[f] = (1.0-degrad)*(1.0-diffus)*values_t0[p].values[f] + diffus*(v0+v1+v2+v3)*0.25
+		
+			for i in range(SX*SY):
+				values_t0[i].values[f] = values_t1[i].values[f]
 
 func display_values():
 	var img:Image = Image.create(SX,SY,false, Image.FORMAT_RGBA8)
 	for f in fields.size():
-		for i in range(SX):
-			for j in range(SY):
-				var p:int = i+j*SX
-				var v:float = values_t0[p].values[f]
-				var col:Color = img.get_pixel(i,j)
-				var baseColor:Color = fields[f].color
-				img.set_pixel(i,j,Color(min(v*baseColor.r+col.r,1.0),min(v*baseColor.g+col.g,1.0),min(v*baseColor.b+col.b,1.0),opacity) )
+		if fields[f] != null:
+			for i in range(SX):
+				for j in range(SY):
+					var p:int = i+j*SX
+					var v:float = values_t0[p].values[f]
+					var col:Color = img.get_pixel(i,j)
+					var baseColor:Color = fields[f].color
+					img.set_pixel(i,j,Color(min(v*baseColor.r+col.r,1.0),min(v*baseColor.g+col.g,1.0),min(v*baseColor.b+col.b,1.0),opacity) )
 	set_texture(ImageTexture.create_from_image(img))
 	
 func print_all_values():

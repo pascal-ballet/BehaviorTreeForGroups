@@ -40,7 +40,7 @@ func _enter_tree():
 	prompt_instance.min_size = Vector2i(320, 80)
 	prompt_instance.reset_size()
 	prompt_instance.move_to_center()
-	prompt_instance.title = "Name the new 3d agent"
+	prompt_instance.title = "Name the new 2d grid"
 
 	# Rendre la fenêtre modale pour bloquer les interactions avec l'interface principale
 	prompt_instance.set_transient(true)
@@ -110,7 +110,7 @@ func build_grid_2d(agent_name:String):
 	scene_path = "res://"+agent_name+".tscn"
 	# Check if the file already exists
 	if ResourceLoader.exists(scene_path)==true:
-		print("new Agent2D:agent already exists. Try a new name or remove the agent")
+		print("new Grid2D:agent already exists. Try a new name or remove the agent")
 		free_my_resources(tr)
 		return
 	# Save the Agent in the resource file .tscn
