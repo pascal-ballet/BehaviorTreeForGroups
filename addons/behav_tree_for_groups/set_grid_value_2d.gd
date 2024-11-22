@@ -5,15 +5,17 @@
 class_name SetGridValue2D
 extends BehaviorTreeForGroups
 
-@export var on_grid_group:String = ""
-@export var for_field:String = ""
+@export var field:String = ""
 @export var set_value:float = 0.5
 
 var grids:Array = Array()
 
 func _ready():
-	grids = get_tree().get_nodes_in_group(on_grid_group)
-	pass
+	for gp in self.get_groups():
+		var sous_grids = get_tree().get_nodes_in_group(gp)
+		for sg in sous_grids:
+			if "fields" in sg:
+				grids.push_back(sg)
 
 func biodyn_process(agent)->bool:
 	for grid in grids:
@@ -30,6 +32,6 @@ func biodyn_process(agent)->bool:
 					var px:int = ((ax - gx_min) / grid.size.x) * grid.SX
 					var py:int = ((ay - gy_min) / grid.size.y) * grid.SY
 					var p:int = px+py*grid.SX
-					if grid.fields_dico.has(for_field) == true:
-						grid.values_t0[p].values[grid.fields_dico[for_field]] = set_value
+					if grid.fields_dico.has(field) == true:
+						grid.values_t0[p].values[grid.fields_dico[field]] = set_value
 	return true

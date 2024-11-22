@@ -1,0 +1,92 @@
+[gd_scene load_steps=17 format=3 uid="uid://dfu0f4ml38di0"]
+
+[ext_resource type="PackedScene" uid="uid://dl1mi18kqpcki" path="res://examples/coag/ma_grille.tscn" id="1_2thtx"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_q4mpb"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="2_2xt6c"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_mfvur"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/reaction.gd" id="3_4oj5n"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_grid_value_2d.gd" id="3_k5ybw"]
+[ext_resource type="PackedScene" uid="uid://m6hkrylkreko" path="res://examples/coag/fibro.tscn" id="4_a54p3"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="4_kqs1l"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/sequential.gd" id="5_n2l44"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/if_grid_2d_value_sup.gd" id="6_pl66x"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/add_agent.gd" id="7_n45if"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/delete.gd" id="8_duvfc"]
+
+[sub_resource type="Resource" id="Resource_q6ab2"]
+script = ExtResource("2_2xt6c")
+name = "A"
+color = Color(0, 0, 1, 1)
+diffusion_speed = 0.001
+degradation_speed = 0.01
+initialisation = "Random"
+
+[sub_resource type="Resource" id="Resource_dhys0"]
+script = ExtResource("2_2xt6c")
+name = "Field"
+color = Color(0, 1, 0, 1)
+diffusion_speed = 0.001
+degradation_speed = 0.01
+initialisation = "Random"
+
+[sub_resource type="Resource" id="Resource_lb84g"]
+script = ExtResource("2_2xt6c")
+name = "C"
+color = Color(1, 0.205149, 0.393126, 1)
+diffusion_speed = 0.3
+degradation_speed = 0.001
+initialisation = "0"
+
+[sub_resource type="Resource" id="Resource_p1nvq"]
+script = ExtResource("3_4oj5n")
+reactive_1 = "A"
+reactive_2 = "B"
+reactive_3 = ""
+speed = 0.01
+product_1 = "C"
+product_2 = ""
+product_3 = ""
+
+[node name="coag" type="Node2D"]
+
+[node name="BehaviorTreeForGroups" type="Node" parent="."]
+script = ExtResource("1_q4mpb")
+
+[node name="Secretion" type="Node" parent="BehaviorTreeForGroups" groups=["Fibro"]]
+script = ExtResource("2_mfvur")
+
+[node name="SetGridValue2D" type="Node" parent="BehaviorTreeForGroups/Secretion"]
+script = ExtResource("3_k5ybw")
+on_grid_group = "ma_grille"
+for_field = "A"
+set_value = 1.0
+
+[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/Secretion"]
+script = ExtResource("4_kqs1l")
+F = Vector3(10, 10, 0)
+
+[node name="ActivationMacrophage" type="Node" parent="BehaviorTreeForGroups"]
+script = ExtResource("2_mfvur")
+
+[node name="Sequential" type="Node" parent="BehaviorTreeForGroups/ActivationMacrophage"]
+script = ExtResource("5_n2l44")
+
+[node name="IfGrid2DValueSup" type="Node" parent="BehaviorTreeForGroups/ActivationMacrophage/Sequential"]
+script = ExtResource("6_pl66x")
+
+[node name="AddAgent" type="Node" parent="BehaviorTreeForGroups/ActivationMacrophage/Sequential"]
+script = ExtResource("7_n45if")
+
+[node name="Delete" type="Node" parent="BehaviorTreeForGroups/ActivationMacrophage/Sequential"]
+script = ExtResource("8_duvfc")
+
+[node name="ma_grille" parent="." instance=ExtResource("1_2thtx")]
+offset_left = 110.0
+offset_top = 80.0
+offset_right = 1060.0
+offset_bottom = 596.0
+fields = Array[ExtResource("2_2xt6c")]([SubResource("Resource_q6ab2"), SubResource("Resource_dhys0"), SubResource("Resource_lb84g")])
+reactions = Array[ExtResource("3_4oj5n")]([SubResource("Resource_p1nvq")])
+
+[node name="Fibro" parent="." instance=ExtResource("4_a54p3")]
+position = Vector2(383, 361)

@@ -7,15 +7,16 @@ class_name IfGrid2DValueInf
 extends BehaviorTreeForGroups
 
 ## Name of the Grid's group
-@export var on_grid_group:String = ""
 ## Value to test (in Magnitude: 1=1/10, 2=1/100, 3=1/1000, etc)
 @export var is_inf_to:float = 0
 
 var grids:Array = Array()
 
 func _ready():
-	grids = get_tree().get_nodes_in_group(on_grid_group)
-	pass
+	for gp in self.get_groups():
+		var sous_grids = get_tree().get_nodes_in_group(gp)
+		for sg in sous_grids:
+			grids.push_back(sg)
 
 func biodyn_process(agent)->bool:
 	var cdt:bool = false

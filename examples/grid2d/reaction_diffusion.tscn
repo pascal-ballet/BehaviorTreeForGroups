@@ -73,8 +73,7 @@ F = Vector3(50, 50, 50)
 
 [node name="SetGridValue2D" type="Node" parent="BehaviorTreeForGroups/Agt" groups=["my_grid"]]
 script = ExtResource("4_8b4h6")
-on_grid_group = "my_grid"
-for_field = "A"
+field = "A"
 set_value = 1.0
 
 [node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/Agt"]
@@ -98,8 +97,7 @@ F = Vector3(20, 20, 20)
 
 [node name="SetGridValue2D2" type="Node" parent="BehaviorTreeForGroups/Follow" groups=["my_grid"]]
 script = ExtResource("4_8b4h6")
-on_grid_group = "my_grid"
-for_field = "B"
+field = "A"
 set_value = 1.0
 
 [node name="StayInBox2" type="Node" parent="BehaviorTreeForGroups/Follow"]
