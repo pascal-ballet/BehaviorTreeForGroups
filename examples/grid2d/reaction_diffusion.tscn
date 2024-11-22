@@ -227,8 +227,8 @@ offset_right = 1108.0
 offset_bottom = 612.0
 loop_x = true
 loop_y = true
-fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_g16xq"), SubResource("Resource_qxp5o"), SubResource("Resource_grxcc")])
-reactions = Array[ExtResource("9_6pdep")]([SubResource("Resource_x6ahm"), SubResource("Resource_x5l3s"), SubResource("Resource_f226c")])
+fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_g16xq"), SubResource("Resource_qxp5o"), SubResource("Resource_grxcc"), null])
+reactions = Array[ExtResource("9_6pdep")]([SubResource("Resource_x6ahm"), SubResource("Resource_x5l3s"), SubResource("Resource_f226c"), null])
 
 [node name="Agt" parent="." instance=ExtResource("8_a4qvu")]
 position = Vector2(334, 182)
