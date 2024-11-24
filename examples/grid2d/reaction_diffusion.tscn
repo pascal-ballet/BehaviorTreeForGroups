@@ -1,15 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://byokrvv53nab3"]
+[gd_scene load_steps=27 format=3 uid="uid://byokrvv53nab3"]
 
 [ext_resource type="PackedScene" uid="uid://cpe7fdfuxa1bj" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_xt3m6"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="2_a7pa0"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_aq2ef"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_random.gd" id="3_w5h35"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/set_grid_value_2d.gd" id="4_8b4h6"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/stay_in_box.gd" id="5_4atmj"]
+
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_3wt0p"]
 [ext_resource type="PackedScene" uid="uid://d3ie2qkjhjg3d" path="res://examples/grid2d/follower.tscn" id="7_uleci"]
 [ext_resource type="PackedScene" uid="uid://ccaq3hxvxvpla" path="res://examples/grid2d/Agt.tscn" id="8_a4qvu"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/Reaction.gd" id="9_6pdep"]
 
 [sub_resource type="Resource" id="Resource_knat1"]
 script = ExtResource("2_a7pa0")
@@ -20,14 +17,7 @@ degradation_speed = 0.001
 initialisation = "Random"
 
 [sub_resource type="Resource" id="Resource_4fn7p"]
-script = ExtResource("2_a7pa0")
-name = "B"
-color = Color(1, 0.568627, 0.733333, 1)
-diffusion_speed = 0.005
-degradation_speed = 0.001
-initialisation = "0"
 
-[sub_resource type="Resource" id="Resource_57mwe"]
 script = ExtResource("2_a7pa0")
 name = "B"
 color = Color(1, 0, 0.0588235, 1)
@@ -35,27 +25,39 @@ diffusion_speed = 0.1
 degradation_speed = 0.001
 initialisation = "Random"
 
+[sub_resource type="Resource" id="Resource_fh40q"]
+script = ExtResource("9_6pdep")
+reactive_1 = "A"
+reactive_2 = ""
+reactive_3 = ""
+speed = 0.01
+product_1 = "2 A"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_gnu8j"]
+script = ExtResource("9_6pdep")
+reactive_1 = "B"
+reactive_2 = ""
+reactive_3 = ""
+speed = 0.01
+product_1 = "2 B"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_t45vt"]
+script = ExtResource("9_6pdep")
+reactive_1 = "A"
+reactive_2 = "B"
+reactive_3 = ""
+speed = 0.1
+product_1 = ""
+product_2 = ""
+product_3 = ""
+
 [sub_resource type="Resource" id="Resource_5x48p"]
 script = ExtResource("2_a7pa0")
-name = "B"
-color = Color(0, 0, 1, 1)
-diffusion_speed = 0.3
-degradation_speed = 0.001
-initialisation = "Random"
 
-[sub_resource type="Resource" id="Resource_00wib"]
-script = ExtResource("2_a7pa0")
-name = "Mol2"
-color = Color(0.8012, 0.555211, 0.460583, 1)
-diffusion_speed = 0.1
-degradation_speed = 0.0
-initialisation = "Random"
-
-[sub_resource type="Resource" id="Resource_uhnse"]
-script = ExtResource("2_a7pa0")
-name = "A"
-color = Color(1, 0, 1, 1)
-diffusion_speed = 0.3
 degradation_speed = 0.01
 initialisation = "0"
 
@@ -83,62 +85,41 @@ diffusion_speed = 0.01
 degradation_speed = 0.01
 initialisation = "Random"
 
+[sub_resource type="Resource" id="Resource_x6ahm"]
+script = ExtResource("9_6pdep")
+reactive_1 = "A"
+reactive_2 = "B"
+reactive_3 = ""
+speed = 0.35
+product_1 = "2 B"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_x5l3s"]
+script = ExtResource("9_6pdep")
+reactive_1 = "B"
+reactive_2 = "C"
+reactive_3 = ""
+speed = 0.35
+product_1 = "2 C"
+product_2 = ""
+product_3 = ""
+
+[sub_resource type="Resource" id="Resource_f226c"]
+script = ExtResource("9_6pdep")
+reactive_1 = "C"
+reactive_2 = "A"
+reactive_3 = ""
+speed = 0.35
+product_1 = "2 A"
+product_2 = ""
+product_3 = ""
+
 [node name="ReactionDiffusion" type="Node2D"]
 
 [node name="BehaviorTreeForGroups" type="Node" parent="."]
-script = ExtResource("1_xt3m6")
 
-[node name="Agt" type="Node" parent="BehaviorTreeForGroups" groups=["Agt"]]
-script = ExtResource("2_aq2ef")
 
-[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/Agt"]
-script = ExtResource("3_w5h35")
-F = Vector3(50, 50, 50)
-
-[node name="SetGridValue2D" type="Node" parent="BehaviorTreeForGroups/Agt" groups=["my_grid"]]
-script = ExtResource("4_8b4h6")
-field = "A"
-set_value = 1.0
-
-[node name="StayInBox" type="Node" parent="BehaviorTreeForGroups/Agt"]
-script = ExtResource("5_4atmj")
-min = Vector3(0, 0, 0)
-max = Vector3(1000, 500, 0)
-
-[node name="Follow" type="Node" parent="BehaviorTreeForGroups" groups=["follower"]]
-script = ExtResource("2_aq2ef")
-
-[node name="ForceToGridValue" type="Node" parent="BehaviorTreeForGroups/Follow"]
-script = ExtResource("6_3wt0p")
-on_grid_group = "my_grid"
-for_field = "A"
-target_value = 1.0
-force = 10.0
-
-[node name="ForceRandom" type="Node" parent="BehaviorTreeForGroups/Follow"]
-script = ExtResource("3_w5h35")
-F = Vector3(20, 20, 20)
-
-[node name="SetGridValue2D2" type="Node" parent="BehaviorTreeForGroups/Follow" groups=["my_grid"]]
-script = ExtResource("4_8b4h6")
-field = "A"
-set_value = 1.0
-
-[node name="StayInBox2" type="Node" parent="BehaviorTreeForGroups/Follow"]
-script = ExtResource("5_4atmj")
-min = Vector3(0, 0, 0)
-max = Vector3(1000, 500, 0)
-
-[node name="my_grid" parent="." instance=ExtResource("1_qumfy")]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 536.0
-offset_bottom = 291.0
-SX = 128
-SY = 64
-fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1"), SubResource("Resource_4fn7p")])
-
-[node name="my_grid2" parent="." instance=ExtResource("1_qumfy")]
 offset_left = 595.0
 offset_top = 14.0
 offset_right = 1107.0
@@ -146,13 +127,11 @@ offset_bottom = 292.0
 SX = 128
 SY = 64
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_knat1"), SubResource("Resource_57mwe")])
+reactions = Array[ExtResource("9_6pdep")]([SubResource("Resource_fh40q"), SubResource("Resource_gnu8j"), SubResource("Resource_t45vt")])
 
 [node name="my_grid3" parent="." instance=ExtResource("1_qumfy")]
 offset_left = 30.0
-offset_top = 343.0
-offset_right = 539.0
-offset_bottom = 614.0
-loop_x = true
+
 loop_y = true
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_5x48p"), SubResource("Resource_00wib"), SubResource("Resource_uhnse")])
 
@@ -164,75 +143,8 @@ offset_bottom = 612.0
 loop_x = true
 loop_y = true
 fields = Array[ExtResource("2_a7pa0")]([SubResource("Resource_g16xq"), SubResource("Resource_qxp5o"), SubResource("Resource_grxcc"), null])
+reactions = Array[ExtResource("9_6pdep")]([SubResource("Resource_x6ahm"), SubResource("Resource_x5l3s"), SubResource("Resource_f226c"), null])
 
 [node name="Agt" parent="." instance=ExtResource("8_a4qvu")]
 position = Vector2(334, 182)
 
-[node name="Agt2" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(333, 458)
-
-[node name="Agt3" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(862, 308)
-
-[node name="Agt4" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(799, 357)
-
-[node name="Agt5" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(334, 182)
-
-[node name="Agt6" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(333, 458)
-
-[node name="Agt7" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(862, 308)
-
-[node name="Agt8" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(799, 357)
-
-[node name="Agt9" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(334, 182)
-
-[node name="Agt10" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(333, 458)
-
-[node name="Agt11" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(862, 308)
-
-[node name="Agt12" parent="." instance=ExtResource("8_a4qvu")]
-position = Vector2(799, 357)
-
-[node name="follower" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(165, 100)
-
-[node name="follower2" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(200, 100)
-
-[node name="follower3" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(700, 400)
-
-[node name="follower4" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(800, 400)
-
-[node name="follower5" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(165, 100)
-
-[node name="follower6" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(200, 100)
-
-[node name="follower7" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(700, 400)
-
-[node name="follower8" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(800, 400)
-
-[node name="follower9" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(165, 100)
-
-[node name="follower10" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(200, 100)
-
-[node name="follower11" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(700, 400)
-
-[node name="follower12" parent="." instance=ExtResource("7_uleci")]
-position = Vector2(800, 400)
