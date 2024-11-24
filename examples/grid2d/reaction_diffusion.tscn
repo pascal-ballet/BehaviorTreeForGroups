@@ -1,3 +1,4 @@
+[gd_scene load_steps=20 format=3 uid="uid://byokrvv53nab3"]
 
 [ext_resource type="PackedScene" uid="uid://cpe7fdfuxa1bj" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_xt3m6"]
