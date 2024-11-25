@@ -243,9 +243,13 @@ func display_values():
 					var v:float = values_t0[p].values[f]
 					var col:Color = img.get_pixel(i,j)
 					var baseColor:Color = fields[f].color
-					img.set_pixel(i,j,Color(min(v*baseColor.r+col.r,1.0),min(v*baseColor.g+col.g,1.0),min(v*baseColor.b+col.b,1.0),opacity) )
+					var R = max(0.1, min(v*baseColor.r+col.r,0.9))
+					var G = max(0.1, min(v*baseColor.g+col.g,0.9))
+					var B = max(0.1, min(v*baseColor.b+col.b,0.9))
+					img.set_pixel(i,j,Color(R,G,B,opacity) )
 	set_texture(ImageTexture.create_from_image(img))
-	
+
+
 func print_all_values():
 	var i:int   = randi_range(0, SX-1)
 	var j:int   = randi_range(0, SY-1)
