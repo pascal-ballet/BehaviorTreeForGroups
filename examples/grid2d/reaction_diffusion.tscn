@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/force_to_grid_value.gd" id="6_3wt0p"]
 [ext_resource type="PackedScene" uid="uid://d3ie2qkjhjg3d" path="res://examples/grid2d/follower.tscn" id="7_uleci"]
 [ext_resource type="PackedScene" uid="uid://ccaq3hxvxvpla" path="res://examples/grid2d/Agt.tscn" id="8_a4qvu"]
-[ext_resource type="Script" path="res://addons/behav_tree_for_groups/Reaction.gd" id="9_051ld"]
+[ext_resource type="Script" path="res://addons/behav_tree_for_groups/reaction.gd" id="9_051ld"]
 
 [sub_resource type="Resource" id="Resource_knat1"]
 script = ExtResource("2_a7pa0")
