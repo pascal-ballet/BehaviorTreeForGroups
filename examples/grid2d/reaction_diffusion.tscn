@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://byokrvv53nab3"]
+[gd_scene load_steps=27 format=3 uid="uid://ba0usgva601dg"]
 
-[ext_resource type="PackedScene" uid="uid://bswsen76prev3" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
+[ext_resource type="PackedScene" uid="uid://cpe7fdfuxa1bj" path="res://examples/grid2d/my_grid.tscn" id="1_qumfy"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior_tree_for_groups.gd" id="1_xt3m6"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/field.gd" id="2_a7pa0"]
 [ext_resource type="Script" path="res://addons/behav_tree_for_groups/behavior.gd" id="2_aq2ef"]
